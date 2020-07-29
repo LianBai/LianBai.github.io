@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>LianBai</title>
+  
+  <subtitle>手握日月摘星辰，世间无我这般人。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-02-23T13:20:49.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>LianBai</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2020/07/29/hello-world/"/>
+    <id>http://yoursite.com/2020/07/29/hello-world/</id>
+    <published>2020-07-29T07:31:09.625Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(112)——LINQ 是拉取数据</title>
+    <link href="http://yoursite.com/2019/12/07/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-112-%E2%80%94%E2%80%94LINQ-%E6%98%AF%E6%8B%89%E5%8F%96%E6%95%B0%E6%8D%AE/"/>
+    <id>http://yoursite.com/2019/12/07/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-112-%E2%80%94%E2%80%94LINQ-%E6%98%AF%E6%8B%89%E5%8F%96%E6%95%B0%E6%8D%AE/</id>
+    <published>2019-12-07T06:53:39.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在之前我们实现了如下代码:  </p><pre><code>private void Start(){    var testNumbers = new List&lt;int&gt; {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};    testNumbers.ListWhere(testNumber =&gt; testNumber % 2 == 0)        .ListSelect(number =&gt; number / 2)        //.ToList()  省略了，本身就是 List 类型。        .ListForEach(resultNumber =&gt; { Debug.Log(resultNumber); });}</code></pre><p>.<br>ListWhere 和 ListSelect 还有 ListForEach 加起来，我们进行了三次的遍历。<br>而如果换成 LINQ 则不会这样。  </p><pre><code>using System.Collections.Generic;using System.Linq;using UnityEngine;namespace UniRxLesson{    public class LINQExample : MonoBehaviour    {        private void Start()        {            var testNumbers = new List&lt;int&gt; {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};            testNumbers.Where(testNumber =&gt; testNumber % 2 == 0)                       .Select(number =&gt; number / 2)                       .ToList()                       .ForEach(resultNumber =&gt;                       {                           Debug.Log(resultNumber);                       });        }    }}</code></pre><p>其中只有 Where 和 ForEach 进行了遍历，也就是两次遍历。中间的 Select 会和 Where 合并成一个 SelectWhere 操作符。 而且，与老师实现的不同。LINQ 是一个拉取数据的操作。Where 和 Select 有对应的 WhereIterator 和 SelectIterator。这些 Iterator 是可以组装的。到最后的 ForEach 阶段，可能只有一个 Root Iterator，其余的都会作为 Root Iterator 的 子 Iterator。当进行遍历的时候，会对 Root Iterator 进行一个 MoveNext 操作，而 RootIterator 的 MoveNext 又有可能会调用子 Iterator 的 MoveNext 操作。就这样不断地 拉取数据。而不是想老师的实现方式一样，每一个操作符都进行一个遍历操作。<br>相比老师的实现，LINQ 的性能会更好，所浪费的计算量会更少。<br>所以 LINQ 实际上是 Pull 数据。<br>到此，我们只要记住这个结论就足够了。  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在之前我们实现了如下代码:  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;private void Start()
+{
+    var testNumbers = new List&amp;lt;int&amp;gt; {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    tes
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(111)——ForEach 操作符实现</title>
+    <link href="http://yoursite.com/2019/12/07/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-111-%E2%80%94%E2%80%94ForEach-%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://yoursite.com/2019/12/07/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-111-%E2%80%94%E2%80%94ForEach-%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E7%8E%B0/</id>
+    <published>2019-12-07T06:44:04.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>ForEach 其实不算操作符，只是一个遍历的静态方法。 其定义如下:  </p><pre><code>public void ForEach(Action&lt;T&gt; action){      if (action == null)        ThrowHelper.ThrowArgumentNullException(ExceptionArgument.match);      int version = this._version;      // 重点      for (int index = 0; index &lt; this._size &amp;&amp; (version == this._version || !BinaryCompatibility.TargetsAtLeast_Desktop_V4_5); ++index)    action(this._items[index]);      if (version == this._version || !BinaryCompatibility.TargetsAtLeast_Desktop_V4_5)        return;      ThrowHelper.ThrowInvalidOperationException(ExceptionResource.InvalidOperation_EnumFailedVersion);}</code></pre><p>非常简单，实现代码如下  </p><pre><code>using System;using System.Collections.Generic;using UnityEngine;namespace UniRxLesson{    public class ForEachImplementExample : MonoBehaviour    {        private void Start()        {            var testNumbers = new List&lt;int&gt; {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};            testNumbers.ListWhere(testNumber =&gt; testNumber % 2 == 0)                .ListSelect(number =&gt; number / 2)//                .ToList()  省略了，本身就是 List 类型。                .ListForEach(resultNumber =&gt; { Debug.Log(resultNumber); });        }    }    public static class ForEachImplement    {        public static void ListForEach&lt;T&gt;(this List&lt;T&gt; sourceList, Action&lt;T&gt; eachAction)        {            foreach (var sourceItem in sourceList)            {                eachAction(sourceItem);            }        }    }}</code></pre><p>输出结果依旧是1~5。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;ForEach 其实不算操作符，只是一个遍历的静态方法。 其定义如下:  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public void ForEach(Action&amp;lt;T&amp;gt; action)
+{
+      if (action == null)
+        Thro
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(110)——LINQ Select 操作符实现</title>
+    <link href="http://yoursite.com/2019/12/07/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-110-%E2%80%94%E2%80%94LINQ-Select-%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://yoursite.com/2019/12/07/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-110-%E2%80%94%E2%80%94LINQ-Select-%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E7%8E%B0/</id>
+    <published>2019-12-07T06:17:25.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们反编译，示例中的 Select 操作符，其定义方法如下:  </p><pre><code>public static IEnumerable&lt;TResult&gt; Select&lt;TSource, TResult&gt;(this IEnumerable&lt;TSource&gt; source, Func&lt;TSource, TResult&gt; selector){    if (source == null)        throw Error.ArgumentNull(nameof (source));    if (selector == null)        throw Error.ArgumentNull(nameof (selector));      Enumerable.Iterator&lt;TSource&gt; iterator;      if ((iterator = source as Enumerable.Iterator&lt;TSource&gt;) != null)        return iterator.Select&lt;TResult&gt;(selector);      IList&lt;TSource&gt; source1;      if ((source1 = source as IList&lt;TSource&gt;) != null)      {        TSource[] source2;        if ((source2 = source as TSource[]) != null)        {              if (source2.Length != 0)                return (IEnumerable&lt;TResult&gt;) new Enumerable.SelectArrayIterator&lt;TSource, TResult&gt;(source2, selector);              return (IEnumerable&lt;TResult&gt;) EmptyPartition&lt;TResult&gt;.Instance;        }        List&lt;TSource&gt; source3;        if ((source3 = source as List&lt;TSource&gt;) != null)              return (IEnumerable&lt;TResult&gt;) new Enumerable.SelectListIterator&lt;TSource, TResult&gt;(source3, selector); // 重点        return (IEnumerable&lt;TResult&gt;) new Enumerable.SelectIListIterator&lt;TSource, TResult&gt;(source1, selector);      }      IPartition&lt;TSource&gt; source4;      if ((source4 = source as IPartition&lt;TSource&gt;) == null)        return (IEnumerable&lt;TResult&gt;) new Enumerable.SelectEnumerableIterator&lt;TSource, TResult&gt;(source, selector);      if (!(source4 is EmptyPartition&lt;TSource&gt;))        return (IEnumerable&lt;TResult&gt;) new Enumerable.SelectIPartitionIterator&lt;TSource, TResult&gt;(source4, selector);      return (IEnumerable&lt;TResult&gt;) EmptyPartition&lt;TResult&gt;.Instance;}</code></pre><p>代码与 Where 的定义非常类似，我们直接看SelectListIterator 的定义。  </p><pre><code>private sealed class SelectListIterator&lt;TSource, TResult&gt; : Enumerable.Iterator&lt;TResult&gt;, IPartition&lt;TResult&gt;, IIListProvider&lt;TResult&gt;, IEnumerable&lt;TResult&gt;, IEnumerable{      private readonly List&lt;TSource&gt; _source;      private readonly Func&lt;TSource, TResult&gt; _selector;      private List&lt;TSource&gt;.Enumerator _enumerator;      public SelectListIterator(List&lt;TSource&gt; source, Func&lt;TSource, TResult&gt; selector)      {        this._source = source;        this._selector = selector;      }      public override Enumerable.Iterator&lt;TResult&gt; Clone(){...}      public override bool MoveNext()      {        switch (this._state)        {              case 1:                this._enumerator = this._source.GetEnumerator();                this._state = 2;                goto case 2;              case 2:                // 重点                if (this._enumerator.MoveNext())                {                      this._current = this._selector(this._enumerator.Current);                      return true;                }                this.Dispose();                break;        }        return false;  }  public override IEnumerable&lt;TResult2&gt; Select&lt;TResult2&gt;(Func&lt;TResult, TResult2&gt; selector){...}  public TResult[] ToArray(){...}  public List&lt;TResult&gt; ToList(){...}  public int GetCount(bool onlyIfCheap){...}  public IPartition&lt;TResult&gt; Skip(int count){...}  public IPartition&lt;TResult&gt; Take(int count){...}  public TResult TryGetElementAt(int index, out bool found){...}  public TResult TryGetFirst(out bool found){...}  public TResult TryGetLast(out bool found) {...}}</code></pre><p>重点还是在 MoveNext 方法里。  </p><pre><code>if (this._enumerator.MoveNext()){    this._current = this._selector(this._enumerator.Current);    return true;}</code></pre><p>MoveNext 不用说了，就是遍历，为什么不是 while 而只是 if 判断一次? 答案很简单，Select 操作符会有多种实现，如果是先使用 Where 操作符再使用 Select 操作符，Select 操作符会自动合并成 WhereSelectListIterator ，在这个类里的 MoveNext 的核心代码如下。  </p><pre><code>while (this._enumerator.MoveNext()){    TSource current = this._enumerator.Current;    if (this._predicate(current))    {        this._current = this._selector(current);        return true;    }}</code></pre><p>是将 Select 和 Where 的逻辑合并在一起了。<br>而我们目前关注的是 SelectListIterator。 一般是作为 List 的第一个操作符的 Select 才会最终使用 SelectListIterator。 比如:  </p><pre><code>mList.Select(XXX);</code></pre><p>因为 List 本身是到最后才进行遍历操作的。 操作符的迭代器，是可以进行组合的。组合之后再最后进行遍历操作之后，这些组合的迭代器在会具体执行其 MoveNext 方法。<br>总之原理很简单。我们用 List 简单实现一下。  </p><pre><code>using System;using System.Collections.Generic;using System.Linq;using UnityEngine;namespace UniRxLesson{    public class SelectImplementExample : MonoBehaviour    {        private void Start()        {            var testNumbers = new List&lt;int&gt; {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};            testNumbers.ListWhere(testNumber =&gt; testNumber % 2 == 0)                .ListSelect(number =&gt; number / 2)                .ToList()                .ForEach(resultNumber =&gt; { Debug.Log(resultNumber); });        }    }    public static class SelectImplement    {        public static List&lt;K&gt; ListSelect&lt;T, K&gt;(this List&lt;T&gt; sourceList, Func&lt;T, K&gt; convertion)        {            var retList = new List&lt;K&gt;();            foreach (var sourceItem in sourceList)            {                retList.Add(convertion(sourceItem));            }            return retList;        }    }}</code></pre><p>输出结果也就是1~5。  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我们反编译，示例中的 Select 操作符，其定义方法如下:  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public static IEnumerable&amp;lt;TResult&amp;gt; Select&amp;lt;TSource, TResult&amp;gt;(this IEnumerable&amp;
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(109)——LINQ Where 操作符实现</title>
+    <link href="http://yoursite.com/2019/12/06/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-109-%E2%80%94%E2%80%94LINQ-Where-%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://yoursite.com/2019/12/06/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-109-%E2%80%94%E2%80%94LINQ-Where-%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%AE%9E%E7%8E%B0/</id>
+    <published>2019-12-06T09:49:31.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>反编译 Where 操作符，可以看到如下代码:  </p><pre><code>public static IEnumerable&lt;TSource&gt; Where&lt;TSource&gt;(this IEnumerable&lt;TSource&gt; source, Func&lt;TSource, bool&gt; predicate){  if (source == null)    throw Error.ArgumentNull(nameof (source));  if (predicate == null)    throw Error.ArgumentNull(nameof (predicate));  Enumerable.Iterator&lt;TSource&gt; iterator;  if ((iterator = source as Enumerable.Iterator&lt;TSource&gt;) != null)    return iterator.Where(predicate);  TSource[] source1;  if ((source1 = source as TSource[]) != null)  {    if (source1.Length != 0)      return (IEnumerable&lt;TSource&gt;) new Enumerable.WhereArrayIterator&lt;TSource&gt;(source1, predicate);    return (IEnumerable&lt;TSource&gt;) EmptyPartition&lt;TSource&gt;.Instance;  }  List&lt;TSource&gt; source2;  if ((source2 = source as List&lt;TSource&gt;) != null)    return (IEnumerable&lt;TSource&gt;) new Enumerable.WhereListIterator&lt;TSource&gt;(source2, predicate); // 重点  return (IEnumerable&lt;TSource&gt;) new Enumerable.WhereEnumerableIterator&lt;TSource&gt;(source, predicate); }</code></pre><p>代码看着很复杂，我们再进行反编译一下，我们的重点类。 Where  </p><pre><code>private sealed class WhereListIterator&lt;TSource&gt; : Enumerable.Iterator&lt;TSource&gt;, IIListProvider&lt;TSource&gt;, IEnumerable&lt;TSource&gt;, IEnumerable{  private readonly List&lt;TSource&gt; _source;  private readonly Func&lt;TSource, bool&gt; _predicate;  private List&lt;TSource&gt;.Enumerator _enumerator;  public WhereListIterator(List&lt;TSource&gt; source, Func&lt;TSource, bool&gt; predicate)  {    this._source = source;    this._predicate = predicate;  }  public override Enumerable.Iterator&lt;TSource&gt; Clone() {...}  public int GetCount(bool onlyIfCheap) {...}  public override bool MoveNext()  {    switch (this._state)    {      case 1:        this._enumerator = this._source.GetEnumerator();        this._state = 2;        goto case 2;      case 2:        // 重点        while (this._enumerator.MoveNext())        {          TSource current = this._enumerator.Current;          if (this._predicate(current))          {            this._current = current;            return true;          }        }        this.Dispose();        break;    }    return false;  }  public override IEnumerable&lt;TResult&gt; Select&lt;TResult&gt;(Func&lt;TSource, TResult&gt; selector) {...}  public TSource[] ToArray() {...}  public List&lt;TSource&gt; ToList() {...}  public override IEnumerable&lt;TSource&gt; Where(Func&lt;TSource, bool&gt; predicate){...}}</code></pre><p>重点是 MoveNext 方法。在 MoveNext 方法里，对所有数据进行了一层过滤， 代码如下:  </p><pre><code>while (this._enumerator.MoveNext()){    TSource current = this._enumerator.Current;    if (this._predicate(current))    {        this._current = current;        return true;    }}</code></pre><p>从代码中<strong>while (this._enumerator.MoveNext())</strong> 这行代码就是之前做的循环遍历。<br>然后接下来就是where的过滤了，看下列代码：  </p><pre><code>TSource current = this._enumerator.Current;if (this._predicate(current)){     this._current = current;     return true;}</code></pre><h2 id="如何自己实现一个-Where-操作符"><a href="#如何自己实现一个-Where-操作符" class="headerlink" title="如何自己实现一个 Where 操作符?"></a>如何自己实现一个 Where 操作符?</h2><p>自己实现 IEnumerable 是比较复杂的，因为里边涉及了状态的切换。最简单的还是对 List 进行操作。本质是一样的，只不过本文是仅供同学理解，在真实项目中还是建议用 Where 操作符。<br>实现的代码很简单，Where 用了一个静态扩展关键字 this。 也就是   </p><pre><code>public static IEnumerable&lt;TSource&gt; Where&lt;TSource&gt;(this IEnumerable&lt;TSource&gt; source, Func&lt;TSource, bool&gt; predicate)</code></pre><p>中的 this 这个关键字。<br>示例代码：  </p><pre><code>using System;using System.Collections.Generic;using System.Linq;using UnityEngine;namespace UniRxLesson{    public class WhereImplementExample : MonoBehaviour    {        private void Start()        {            var testNumbers = new List&lt;int&gt; {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};            testNumbers.ListWhere(testNumber =&gt; testNumber % 2 == 0)                .Select(number =&gt; number / 2)                .ToList()                .ForEach(resultNumber =&gt; { Debug.Log(resultNumber); });        }    }    public static class WhereImplement    {        public static List&lt;T&gt; ListWhere&lt;T&gt;(this List&lt;T&gt; sourceList,Func&lt;T,bool&gt; condition)        {            var retList = new List&lt;T&gt;();            foreach (var sourceItem in sourceList)            {                if (condition(sourceItem))                {                    retList.Add(sourceItem);                }            }            return retList;        }    }}</code></pre><p>输出结果与之前相同。  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;反编译 Where 操作符，可以看到如下代码:  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public static IEnumerable&amp;lt;TSource&amp;gt; Where&amp;lt;TSource&amp;gt;(this IEnumerable&amp;lt;TSource&amp;gt; so
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(108)——LINQ 示例</title>
+    <link href="http://yoursite.com/2019/12/05/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-108-%E2%80%94%E2%80%94LINQ-%E7%A4%BA%E4%BE%8B/"/>
+    <id>http://yoursite.com/2019/12/05/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-108-%E2%80%94%E2%80%94LINQ-%E7%A4%BA%E4%BE%8B/</id>
+    <published>2019-12-05T10:48:00.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>using System.Collections.Generic;using System.Linq;using UniRx;using UnityEngine;namespace UniRxLesson{    public class LINQExample : MonoBehaviour    {        private void Start()        {            // Observable.Range            Enumerable.Range(1,10)                       .Where(testNumber =&gt; testNumber % 2 == 0)                       .Select(number =&gt; number / 2)                       .ToList()                       .ForEach(resultNumber =&gt;                       {                           Debug.Log(resultNumber);                       });        }    }}</code></pre><p>输出结果:  </p><pre><code>12345</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;using System.Collections.Generic;
+using System.Linq;
+using UniRx;
+using UnityEngine;
+
+namespace UniRxLesson
+{
+    public class LI
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(107)——IObservable 和 IObserver 的简单使用</title>
+    <link href="http://yoursite.com/2019/12/04/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-107-%E2%80%94%E2%80%94IObservable-%E5%92%8C-IObserver-%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2019/12/04/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-107-%E2%80%94%E2%80%94IObservable-%E5%92%8C-IObserver-%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</id>
+    <published>2019-12-04T10:53:35.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>IObservable 用来定义可观察的类，而 IObserver 用来定义观察者类。<br>观察者模式，我们最容易接触的应用场景就是 MVC。<br>在 MVC 中，Model 通常是在多个 Controller/View 之间是共享的。<br>也就是一个 Model 经常要对应多个 View。<br>当 Model 中的数据有更改时，View 中的数据显示就会跟着更新。<br>IObservable 和 IObserver，一个是形容可观察的类，一个是观察者。<br>理解起来很容易，可观察的类就是应对发布者，而观察者应对订阅者。<br>那么 Model 和 View 与 IObservable 和 IObserver 对应关系是如何呢？<br>Model 是发布者对应的是 IObservable View 是订阅者对应的是 IObserver<br>我们先来定义一个 Model 类。数据比较简单，只管理一个数据 Level(等级) 先看下 IObservable 接口的定义:  </p><pre><code>public interface IObservable&lt;T&gt;{    IDisposable Subscribe(IObserver&lt;T&gt; observer);}</code></pre><p>只要实现 Subseribe 方法就好了。<br>而 T 则是感兴趣的数据类型，可以是一个类、结构体或者一个值。Level 是 int 类型，所以 T 是 int 类型。<br>代码如下:  </p><pre><code>public class Model : IObservable&lt;int&gt;{    public Model()    {        mObservers = new List&lt;IObserver&lt;int&gt;&gt;();    }    private readonly List&lt;IObserver&lt;int&gt;&gt; mObservers;    public IDisposable Subscribe(IObserver&lt;int&gt; observer)    {        if (!mObservers.Contains(observer))            mObservers.Add(observer);        return new Unsubscriber(mObservers, observer);    }    public void UpdateLevel(int loc)    {        foreach (var observer in mObservers)        {            if (loc &lt; 0)                observer.OnError(new LevelUnknownException());            else                observer.OnNext(loc);        }    }    public void QuitGame()    {        foreach (var observer in mObservers.ToArray())            if (mObservers.Contains(observer))                observer.OnCompleted();        mObservers.Clear();    }    private class Unsubscriber : IDisposable    {        private List&lt;IObserver&lt;int&gt;&gt; mObservers;        private IObserver&lt;int&gt;       mObserver;        public Unsubscriber(List&lt;IObserver&lt;int&gt;&gt; observers, IObserver&lt;int&gt; observer)        {            this.mObservers = observers;            this.mObserver = observer;        }        public void Dispose()        {            if (mObserver != null &amp;&amp; mObservers.Contains(mObserver))                mObservers.Remove(mObserver);        }    }}</code></pre><p>我们在看下，IObserver 的定义：  </p><pre><code>public interface IObserver&lt;T&gt;{    void OnCompleted();    void OnError(Exception error);    void OnNext(T value);}</code></pre><p>这三个方法，全部都是被 IObservable 调用。当有数据更新时则调用 OnNext，这样实现 IObserver 并对 IObservable 订阅的类，则会接收到更新的数据。<br>当结束数据发送则 OnCompleted 被调用，当出现异常则 OnErrer 被调用。<br>接下来定义 View.cs  </p><pre><code>public class View : IObserver&lt;int&gt;{    private IDisposable unsubscriber;    private string      instName;    public View(string name)    {        this.instName = name;    }    public string Name    {        get { return this.instName; }    }    public void OnCompleted()    {        Debug.LogFormat(&quot;The Model has completed update data to {0}.&quot;, this.Name);    }    public void OnError(Exception e)    {        Debug.LogFormat(&quot;{0}: The level cannot be determined.&quot;, this.Name);    }    public void OnNext(int value)    {        Debug.LogFormat(&quot;{1}: The current level is {0}&quot;, value, this.Name);    }}</code></pre><p>测试代码如下:  </p><pre><code>using System;using System.Collections.Generic;using UnityEngine;namespace UniRxLesson{    public class SimpleObservableExample : MonoBehaviour    {        private void Start()        {            var model = new Model();            var loginView = new View(&quot;Login&quot;);            var unsubsriber = model.Subscribe(loginView);            var userInfoView = new View(&quot;UserInfo&quot;);            model.Subscribe(userInfoView);            model.UpdateLevel(1);            unsubsriber.Dispose();            model.UpdateLevel(2);            model.UpdateLevel(-1);            model.QuitGame();        }    }}</code></pre><p>输出结果为:  </p><pre><code>Login: The current level is 1UserInfo: The current level is 1UserInfo: The current level is 2UserInfo: The level cannot be determined.The Model has completed update data to UserInfo.</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;IObservable 用来定义可观察的类，而 IObserver 用来定义观察者类。&lt;br&gt;观察者模式，我们最容易接触的应用场景就是 MVC。&lt;br&gt;在 MVC 中，Model 通常是在多个 Controller/View 之间是共享的。&lt;br&gt;也就是一个 Model 经
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(106)——IObservable 与 IEnumerable</title>
+    <link href="http://yoursite.com/2019/12/04/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-106-%E2%80%94%E2%80%94IObservable-%E4%B8%8E-IEnumerable/"/>
+    <id>http://yoursite.com/2019/12/04/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-106-%E2%80%94%E2%80%94IObservable-%E4%B8%8E-IEnumerable/</id>
+    <published>2019-12-04T08:28:34.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="IObservable-与-IEnumerble-的定义"><a href="#IObservable-与-IEnumerble-的定义" class="headerlink" title="IObservable 与 IEnumerble 的定义"></a>IObservable 与 IEnumerble 的定义</h2><p>IObservable.cs  </p><pre><code>public interface IObservable&lt;T&gt;{    IDisposable Subscribe(IObserver&lt;T&gt; observer);}</code></pre><p>IEnumerable.cs  </p><pre><code>public interface IEnumerable{    IEnumerator GetEnumerator();}</code></pre><p>IEnumerable 我们理解成了 IForEachable。就是可遍历的意思，可以用 foreach 关键字拉取数据。<br>IObservable 作用也是类似的。也是可以获取数据(事件)的。可以用 Subscribe 捕获数据(事件)。<br>实现 IEnumerable 的类，我们可以叫他数据源，我们通过一系列的 LINQ 操作符，从中拉取数据并进行组合、变换等操作，直到最后会进行一次 foreach 遍历。  </p><pre><code>new List&lt;int&gt;(){1,2,3}    .Select(number=&gt;number * 2)    .Where(number=&gt;number &gt; 3)    .ToList()    .ForEach(number=&gt;Debug.Log(number));</code></pre><p>实现 IObservable 的类，我们可以叫他事件源，我们通过一些列的 UniRx 操作符，从中捕获数据并进行组合、变换等操作，直到最后会进行 Subscribe 的事件处理。  </p><pre><code>Observable.Range(1,3)    .Select(number=&gt;number * 2)    .Where(number=&gt;number &gt; 3)    .Subscribe(number=&gt;Debug.Log(number));</code></pre><p>IEnumerable 中的 GetEnumerator() 方法是为了获取迭代器。获取了迭代器，就可以进行拉取数据了。<br>IObservable 中的 Subscribe 方法是为了对 Observable 的事件进行监听，监听了了事件，就可以在 Subscribe 中捕获事件并进行处理了。  </p><h2 id="IEnumerator-Current-与-IObservaber-OnNext"><a href="#IEnumerator-Current-与-IObservaber-OnNext" class="headerlink" title="IEnumerator.Current 与 IObservaber.OnNext"></a>IEnumerator.Current 与 IObservaber.OnNext</h2><p>IEnumerator.Current 是用于获取当前数据的，直接从远端拉，然后返回一个数据。 而 IObservaber.OnNext 则是远端推一个数据(事件)过来的时候进行的相应的处理(捕获)。  </p><h2 id="IEnumerator-MoveNext-与-IObserver-OnCompleted-、-OnError"><a href="#IEnumerator-MoveNext-与-IObserver-OnCompleted-、-OnError" class="headerlink" title="IEnumerator.MoveNext 与 IObserver. OnCompleted 、 OnError"></a>IEnumerator.MoveNext 与 IObserver. OnCompleted 、 OnError</h2><p>当 MoveNext 为 False 的时候，则 foreach 完成迭代。 而当 OnCompleted 或 OnError 被调用时，也是类似，是完成了事件的捕获。<br>非常相像，那么 LINQ 与 Rx 的区别是什么呢? 唯一的区别就是，Rx 是非阻塞的，迭代是阻塞的。<br>Rx 是用了一种观察者模式的方法，本身就是在时间上异步的，而且常常处于一种”监听”数据的状态，所以是非阻塞的。<br>而 LINQ 本质上就是迭代器与静态扩展关键字，它是在时间上同步的，遍历时，当有一些数据出现了一些问题，则非常有可能拉取不到数据，从而导致程序卡死、崩溃等异常。  </p><h2 id="总结如下"><a href="#总结如下" class="headerlink" title="总结如下"></a>总结如下</h2><p>UniRx 的数据(事件)是从 IObservable 推送过来，然后在 IObserver 进行捕获。<br>而 LINQ 则是，在 IEnumerable 扔过来一个吸管，然后在遍历时(IEnumerator)进行拉取数据。<br>今天的内容就这些。  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;IObservable-与-IEnumerble-的定义&quot;&gt;&lt;a href=&quot;#IObservable-与-IEnumerble-的定义&quot; class=&quot;headerlink&quot; title=&quot;IObservable 与 IEnumerble 的定义&quot;&gt;&lt;/a&gt;IO
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(105)——Courtine 实现原理</title>
+    <link href="http://yoursite.com/2019/12/04/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-105-%E2%80%94%E2%80%94Courtine-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"/>
+    <id>http://yoursite.com/2019/12/04/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-105-%E2%80%94%E2%80%94Courtine-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</id>
+    <published>2019-12-04T02:38:23.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="枚举器的封装到协程"><a href="#枚举器的封装到协程" class="headerlink" title="枚举器的封装到协程"></a>枚举器的封装到协程</h2><p>在之前我们对枚举器 IEnumerator 枚举器接口和 yield 关键字做出了解释说明，开始对协程（coroutine）解释说明。<br>其实协程的原理非常简单，我们来试着简单实现一下。  </p><h2 id="通过-Unity-的-Update-模拟协程。"><a href="#通过-Unity-的-Update-模拟协程。" class="headerlink" title="通过 Unity 的 Update() 模拟协程。"></a>通过 Unity 的 Update() 模拟协程。</h2><p>修改上面代码，不使用 while 循环或者 foreach 关键字枚举元素。我们将在 Update() 实时刷新来枚举所有元素。 原理就是上面所说的每次 MoveNext() 方法后，改变当前的位置为下一个元素位置。<br>代码如下：  </p><pre><code>using System.Collections;using UnityEngine;namespace UniRxLesson{    public class CoroutineExample : MonoBehaviour    {        private Update2CoroutineTest mUpdate2CoroutineTest = new Update2CoroutineTest();        IEnumerator mE;        public CoroutineExample()        {            mE = mUpdate2CoroutineTest.GetEnumerator();        }        private void Update()        {            if (mE.MoveNext())            {            }        }        class Update2CoroutineTest        {            public IEnumerator GetEnumerator()            {                Debug.Log(&quot;协程:&quot; + 1);                yield return 0;                Debug.Log(&quot;协程:&quot; + 2);                yield return 0;                Debug.Log(&quot;协程:&quot; + &quot;枚举器&quot;);                yield return 0;            }        }    }}</code></pre><p>输出结果为:  </p><pre><code>协程:1协程:2协程:枚举器</code></pre><h2 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h2><p>现在我们用 StartCoroutine（）方法启动协程。 代码如下：  </p><pre><code>using System.Collections;using System.Collections.Generic;using UnityEngine;public class CoroutineTest : MonoBehaviour{    void Start()    {        CoroutineJsTest coroutineJsTest = new CoroutineJsTest();        StartCoroutine(coroutineJsTest.GetEnumerator());    }}public class CorotuineJsTest{    public IEnumerator GetEnumerator()    {        Debug.Log(&quot;协程:&quot; + 1);        yield return 0;        Debug.Log(&quot;协程:&quot; + 2);        yield return 0;        Debug.Log(&quot;协程:&quot; + &quot;枚举器&quot;);        yield return 0;    }}</code></pre><p>输出结果如下:  </p><pre><code>协程:1协程:2协程:枚举器</code></pre><p>从上面可以看出，在 update 方法模拟协程和使用 Unity 自带 StartCoroutine() 方法启动协程效果差不多。看来自 Unity 实现的 StartCoroutine() 启动协程和我们 Update() 模拟是一样的。但是也不确定到底是不是通过类似 Update() 方法实现的。反编译 UnityEngine.dll 程序集也没有找到具体实现方法。。。。。但是唯一确定的一点就是 Unity 也是通过枚举一步步运行程序块的。<br>类似 Update() 模拟协程，每次遇到 yield return，就执行 yield 类型的 MoveNext() 方法，改变当前迭代位置为下一个元素位置。等待下一次 MoveNext() 方法调用。<br>StartCoroutine() 方法会不停的调用 MoveNext() 方法（这样就类似于 foreach）。直到枚举结束。<br>但是注意的是，yield return 后面跟的值除了 Unity 自带的累（如：new WaitForSeconds（0.2f)。继承自 YieldInstruction） 和协程语句块（返回值为 IEnumerator 的方法），其他值没有意义（yield return 0 和 yield return null） 其实都是一样的，只是遇到 yield return 就做相同处理，不会去处理后面跟的值了）。<br>Coroutine 的实现原理大致如此。  </p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Coroutine 其实是一个 迭代器模式 + 定时器的一种实现。 与我们的 UniRx 的 Observable + Scheduler + LINQ 非常类似。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7oljdb0iuj30sw06baao.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7olja2cpij30fa0kqjv6.jpg" alt="">  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;枚举器的封装到协程&quot;&gt;&lt;a href=&quot;#枚举器的封装到协程&quot; class=&quot;headerlink&quot; title=&quot;枚举器的封装到协程&quot;&gt;&lt;/a&gt;枚举器的封装到协程&lt;/h2&gt;&lt;p&gt;在之前我们对枚举器 IEnumerator 枚举器接口和 yield 关键字做出了解
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(104)——Yield 同等实现</title>
+    <link href="http://yoursite.com/2019/12/04/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-104-%E2%80%94%E2%80%94Yield-%E5%90%8C%E7%AD%89%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://yoursite.com/2019/12/04/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-104-%E2%80%94%E2%80%94Yield-%E5%90%8C%E7%AD%89%E5%AE%9E%E7%8E%B0/</id>
+    <published>2019-12-04T01:55:09.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre><code>using System.Collections;using UnityEngine;namespace UniRxLesson{    public class YieldDeepExample : MonoBehaviour    {        private    void Start()        {            var enumeratorTest = new IEnumeratorTest();            foreach(var item in enumeratorTest)            {                Debug.Log(item);            }        }        class IEnumeratorTest        {            public IEnumerator GetEnumerator()            {                yield return 1;                yield return 2;                yield return &quot;枚举器&quot;;            }        }    }}</code></pre><p>输出结果为：  </p><pre><code>12&quot;枚举器&quot;</code></pre><p>注意 IEnumeratorTest 没有实现 IEnumerator 接口，但是还是可以用 foreach 来迭代。这是因为，编译器只关心是否实现了 GetEnumerator() 方法。  </p><h2 id="yield-解释说明"><a href="#yield-解释说明" class="headerlink" title="yield 解释说明"></a>yield 解释说明</h2><p>我们把包含 yield 语句的方法或属性称为迭代块。如上面代码代码中的：  </p><pre><code>public IEnumerator GetEnumerator(){    yield return 1;    yield return 2;    yield return 枚举器;}</code></pre><p>这个语句块在编译时将会编译成一个 yield 类型，其中包含一个状态机。yield 类型实现 IEnumerator 和 IDisposable 接口属性和方法。  </p><pre><code>class IEnumeratorTest{    public IEnumerator GetEnumerator()    {        yield return 1;        yield return 2;        yield return &quot;枚举器&quot;;    }}</code></pre><p>上面这段代码将会编译成下列类似的代码：  </p><pre><code>public class IEnuemratorTest{    public IEnumerator GetEnumerator()    {        return new Enumerator(0);    }    public class Enumerator:IEnumerator&lt;object&gt;,IEnumerator,IDisposable    {        private int state;        private object current;        public Enumerator(int state)        {            this.state = state;        }        public object Current        {            get             {                        return current;            }            }        public void Dispose()        {        }        public bool MoveNext()        {            switch(state)            {                case 0:                    state++; // 改变当前迭代诶值为下一个元素位置                    current = 1; // 当前迭代位置的对象                    return true;                case 1:                    state++; // 改变当前迭代位置为下一个元素位置                    current = 2; // 当前迭代位置的对象                    return true;                case 2:                    state++; // 改变当前迭代位置为下一个元素位置                    current = &quot;枚举器&quot;; // 当前迭代位置的对象                    return true;            }            return false;        }        public void Reset()        {        }    }}</code></pre><p>枚举器其实就是通过每次调用 MoveNext() 方法，来改变集合中当前元素位置，来一个个遍历元素。类似通过更改下标来获取元素。yield 关键字其实是实现 IEnumerator 等接口如 MoveNext() 方法的编译器自动编译的关键字。当然你也可以自己实现 MoveNext() 等方法，如果你不怕麻烦。  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;示例代码&quot;&gt;&lt;a href=&quot;#示例代码&quot; class=&quot;headerlink&quot; title=&quot;示例代码&quot;&gt;&lt;/a&gt;示例代码&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;using System.Collections;
+using UnityEngine;
+
+namespac
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(103)——Yield 关键字</title>
+    <link href="http://yoursite.com/2019/12/03/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-103-%E2%80%94%E2%80%94Yield-%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    <id>http://yoursite.com/2019/12/03/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-103-%E2%80%94%E2%80%94Yield-%E5%85%B3%E9%94%AE%E5%AD%97/</id>
+    <published>2019-12-03T08:07:06.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们在之前学习了 IEnumerable 和 IEnumerator ，算是掌握了 C# 的迭代器模式的实现。 今天我们学习 yield 关键字。<br>yield 实质是一个语法糖，它让程序员能够更方便的去使用迭代器，通过 yield 你可以直接使用迭代器操作而不需要去实现 IEnumerable 和 IEnumerator，也不需要一个临时的 Collection 来完成迭代。<br>yield 有两种格式声明  </p><pre><code>yield return &lt;expression&gt;;yield break;</code></pre><p>我们通过实现与上堂课功能一样的示例代码，来了解下 yield 工作流程  </p><pre><code>using System.Collections;using UnityEngine;namespace UniRxLesson{    public class YieldExample : MonoBehaviour    {        private void Start()        {            foreach (var empty in FiveTimes())            {                Debug.Log(&quot;A&quot;);            }        }        private  IEnumerable FiveTimes()        {            for (var i = 0; i &lt; 5; i++)            {                yield return string.Empty;            }        }    }}</code></pre><p>结果一样输出五个A。<br>每一次 foreach 的循环中都会调用迭代器方法，当 yield return 被执行到时，表达式的值会被返回，同时当前的函数的上下文信息被保存下来。下一次循环执行之时会重新从上一次停止的位置继续执行。你也可以使用 yield break 来终止迭代过程。  </p><p>yield 关键字除了支持返回 IEnumerable 之外，还支持返回 IEnumerator。  </p><pre><code>using System.Collections;using UnityEngine;namespace UniRxLesson{    public class YieldExample : MonoBehaviour    {        private void Start()        {            foreach (var empty in FiveTimes())            {                Debug.Log(&quot;A&quot;);            }            var fourTimes = FourTimes();            while (fourTimes.MoveNext())            {                Debug.Log(&quot;B&quot;);            }        }        private IEnumerable FiveTimes()        {            for (var i = 0; i &lt; 5; i++)            {                yield return string.Empty;            }        }        private IEnumerator FourTimes()        {            for (var i = 0; i &lt; 4; i++)            {                yield return string.Empty;            }        }    }}</code></pre><p>输出结果为：  </p><pre><code>AAAAABBBB</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我们在之前学习了 IEnumerable 和 IEnumerator ，算是掌握了 C# 的迭代器模式的实现。 今天我们学习 yield 关键字。&lt;br&gt;yield 实质是一个语法糖，它让程序员能够更方便的去使用迭代器，通过 yield 你可以直接使用迭代器操作而不需要去实
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(102)——IEnumerator 实现</title>
+    <link href="http://yoursite.com/2019/12/03/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-102-%E2%80%94%E2%80%94IEnumerator-%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://yoursite.com/2019/12/03/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-102-%E2%80%94%E2%80%94IEnumerator-%E5%AE%9E%E7%8E%B0/</id>
+    <published>2019-12-03T07:43:44.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="IEnumerator-定义"><a href="#IEnumerator-定义" class="headerlink" title="IEnumerator 定义"></a>IEnumerator 定义</h2><pre><code>public interface IEnumerator{    bool MoveNext();             //将游标的内部位置向前移动    object Current{get;}       //获取当前的项（只读属性）    void Reset();                 //将游标重置到第一个成员前面}</code></pre><h2 id="IEnuemrator-代码示例"><a href="#IEnuemrator-代码示例" class="headerlink" title="IEnuemrator 代码示例"></a>IEnuemrator 代码示例</h2><pre><code>using System.Collections;using UnityEngine;namespace UniRxLesson{    public class IEnumeratorExample : MonoBehaviour    {        private class ForEachable : IEnumerable        {            public IEnumerator GetEnumerator()            {                return new FiveTimes();            }        }        private class FiveTimes : IEnumerator        {            private int mCount = 5;            public bool MoveNext()            {                mCount--;                return mCount &gt;= 0;            }            public void Reset()            {                mCount = 5;            }            public object Current            {                get { return string.Empty; }            }        }        private void Start()        {            var foreachAble = new ForEachable();            foreach (var empty in foreachAble)            {                Debug.Log(&quot;A&quot;);            }        }    }}</code></pre><p>输出结果为：  </p><pre><code>AAAAA</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;IEnumerator-定义&quot;&gt;&lt;a href=&quot;#IEnumerator-定义&quot; class=&quot;headerlink&quot; title=&quot;IEnumerator 定义&quot;&gt;&lt;/a&gt;IEnumerator 定义&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;public interfa
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(101)——IEnumerator 使用</title>
+    <link href="http://yoursite.com/2019/12/03/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-101-%E2%80%94%E2%80%94IEnumerator-%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2019/12/03/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-101-%E2%80%94%E2%80%94IEnumerator-%E4%BD%BF%E7%94%A8/</id>
+    <published>2019-12-03T07:20:33.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们学习了 IEnumerable 如何实现，今天我们来学习 foreach 的原理。 其原理非常简单，foreach 是 C# 提供的关键词，foreach 关键字只不过是在编译的过程中生成了 IL 代码而已。<br>接下来用一段示例，来介绍 foreach 的同等代码，当然这段代码与 foreach 生成的 IL 代码非常相似。  </p><h2 id="foreach-同等实现"><a href="#foreach-同等实现" class="headerlink" title="foreach 同等实现"></a>foreach 同等实现</h2><pre><code>using System.Collections;using UnityEngine;namespace UniRxLesson{    public class ForEachExample : MonoBehaviour    {        class ForEachable : IEnumerable        {            object[] mObjArray = new object[4]            {                &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,            };            public IEnumerator GetEnumerator()            {                return mObjArray.GetEnumerator();            }        }        private void Start()        {            var foreachAble = new ForEachable();            // 手动与 IEnumerator 协作            var i = foreachAble.GetEnumerator();            while (i.MoveNext())            {                 var number = i.Current;                Debug.Log(number);            }        }    }}</code></pre><p>输出结果为：  </p><pre><code>1234</code></pre><p>代码中出现的 MoveNext、Current 等 API 我们简单看下 IEnumerator 定义就清楚了。  </p><pre><code>public interface IEnumerator{    bool MoveNext();             //将游标的内部位置向前移动    object Current{get;}       //获取当前的项（只读属性）    void Reset();                 //将游标重置到第一个成员前面}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我们学习了 IEnumerable 如何实现，今天我们来学习 foreach 的原理。 其原理非常简单，foreach 是 C# 提供的关键词，foreach 关键字只不过是在编译的过程中生成了 IL 代码而已。&lt;br&gt;接下来用一段示例，来介绍 foreach 的同等代码，
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(100)——迭代器模式 与 IEnumerable</title>
+    <link href="http://yoursite.com/2019/12/03/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-100-%E2%80%94%E2%80%94%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F-%E4%B8%8E-IEnumerable/"/>
+    <id>http://yoursite.com/2019/12/03/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-100-%E2%80%94%E2%80%94%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F-%E4%B8%8E-IEnumerable/</id>
+    <published>2019-12-03T03:57:26.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是迭代器模式"><a href="#什么是迭代器模式" class="headerlink" title="什么是迭代器模式"></a>什么是迭代器模式</h2><p>在不知道集合内部细节的情况下，提供一个按序方法存取的一个对象集合体的每一个单元。—GoF 提供一种方法顺序访问一个集合对象中的各个元素，又不暴露该对象的内部表示<br>迭代器模式由于经常使用到，已经被 .Net 收录到 API 中。<br>在 C# 中，经常使用泛型存储对象，当想按序存取这些泛型容器时，都会使用 C# 的 foreach 语句。<br>foreach 语句就是一个能顺序访问一个集合的方法。 它就是 C# 语言内置的迭代器模式。<br>基本上，以上两个定义，足够我们理解了。具体的经典的 迭代器模式的 UML 图 实现太过抽象。而且本教程也不是专门讲解迭代器模式的教程，所以我们先定一个容易达到的目标:掌握 IEnumerable 和 IEnumerator 两个接口。  </p><h2 id="如何使用-IEnumerable"><a href="#如何使用-IEnumerable" class="headerlink" title="如何使用 IEnumerable"></a>如何使用 IEnumerable</h2><p>在使用之前，我们先理解一下 IEnumerable。这里笔者直接给一个比较容易记住的定义，IEnumerable 中文意思是 可枚举的，教练直接把他理解为 IForeachable（可遍历的），虽然定义不是很准确，但是在区分 IEnumerable 和 IEnumerator 时候很容易搞清楚。<br>我们直接看下 IEnumerable 的定义:  </p><pre><code>//这个接口告知调方对象的子项可以枚举public interface IEnumerable{    IEnumerator GetEnumerator();}</code></pre><p>示例代码如下:  </p><pre><code>using System.Collections;using UnityEngine;namespace UniRxLesson{    public class IEnumerableExample : MonoBehaviour    {        class ForEachable : IEnumerable        {            object[] mObjArray = new object[4]            {                &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,            };            public IEnumerator GetEnumerator()            {                return mObjArray.GetEnumerator();            }        }        private void Start()        {            var foreachAble = new ForEachable();            foreach (var number in foreachAble)            {                Debug.Log(number);            }        }    }}</code></pre><p>运行结果：  </p><pre><code>1234</code></pre><p>只要实现一个 GetEnumerator 就可以使用 foreach 了。  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;什么是迭代器模式&quot;&gt;&lt;a href=&quot;#什么是迭代器模式&quot; class=&quot;headerlink&quot; title=&quot;什么是迭代器模式&quot;&gt;&lt;/a&gt;什么是迭代器模式&lt;/h2&gt;&lt;p&gt;在不知道集合内部细节的情况下，提供一个按序方法存取的一个对象集合体的每一个单元。—GoF 提
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(099)——RepeatUntilDisable 操作符</title>
+    <link href="http://yoursite.com/2019/12/03/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-099-%E2%80%94%E2%80%94RepeatUntilDisable-%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
+    <id>http://yoursite.com/2019/12/03/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-099-%E2%80%94%E2%80%94RepeatUntilDisable-%E6%93%8D%E4%BD%9C%E7%AC%A6/</id>
+    <published>2019-12-03T03:43:05.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre><code>using System;using UniRx;using UnityEngine;namespace UniRxLesson{    public class UniRxRepeatUntilDisableExample : MonoBehaviour    {        void Start()        {            Observable.Timer(TimeSpan.FromSeconds(1.0f))                      .RepeatUntilDisable(this)                      .Subscribe(_ =&gt; Debug.Log(&quot;ticked&quot;));        }    }}</code></pre><p>运行结果为，每隔一秒输出 ticked，当把该脚本所在的 GameObject 隐藏，则停止输出。  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;示例代码&quot;&gt;&lt;a href=&quot;#示例代码&quot; class=&quot;headerlink&quot; title=&quot;示例代码&quot;&gt;&lt;/a&gt;示例代码&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;using System;
+using UniRx;
+using UnityEngine;
+
+namespa
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(098)——TakeUntilDisable 操作符</title>
+    <link href="http://yoursite.com/2019/12/03/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-098-%E2%80%94%E2%80%94TakeUntilDisable-%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
+    <id>http://yoursite.com/2019/12/03/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-098-%E2%80%94%E2%80%94TakeUntilDisable-%E6%93%8D%E4%BD%9C%E7%AC%A6/</id>
+    <published>2019-12-03T03:40:51.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre><code>using System;using UniRx;using UnityEngine;namespace UniRxLesson{    public class UniRxTakeUntilDisableExmaple : MonoBehaviour    {        void Start()        {            Observable.EveryUpdate()                      .Where(_ =&gt; Input.GetMouseButtonDown(0))                      .TakeUntilDisable(this)                      .Subscribe(_ =&gt; Debug.Log(&quot;mouse clicked&quot;));        }    }}</code></pre><p>运行结果为，每次按下鼠标左键，则输出 mouse clicked，将 该脚本所在的 GameObject 隐藏掉后，点击鼠标不再输出。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;示例代码&quot;&gt;&lt;a href=&quot;#示例代码&quot; class=&quot;headerlink&quot; title=&quot;示例代码&quot;&gt;&lt;/a&gt;示例代码&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;using System;
+using UniRx;
+using UnityEngine;
+
+namespa
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(097)——TakeUntilDestroy 操作符</title>
+    <link href="http://yoursite.com/2019/12/02/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-097-%E2%80%94%E2%80%94TakeUntilDestroy-%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
+    <id>http://yoursite.com/2019/12/02/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-097-%E2%80%94%E2%80%94TakeUntilDestroy-%E6%93%8D%E4%BD%9C%E7%AC%A6/</id>
+    <published>2019-12-02T10:02:28.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre><code>using UniRx;using UnityEngine;namespace UniRxLesson{    public class UniRxTakeUntilDestroyExample : MonoBehaviour    {        void Start()        {            Observable.EveryUpdate()                      .Where(_ =&gt; Input.GetMouseButtonDown(0))                      .TakeUntilDestroy(this)                      .Subscribe(_ =&gt; Debug.Log(&quot;mouse clicked&quot;));        }    }}</code></pre><p>运行结果为，每次按下鼠标左键，则输出 mouse clicked，将 该脚本所在的 GameObject 被销毁后，点击鼠标不再输出。  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;示例代码&quot;&gt;&lt;a href=&quot;#示例代码&quot; class=&quot;headerlink&quot; title=&quot;示例代码&quot;&gt;&lt;/a&gt;示例代码&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;using UniRx;
+using UnityEngine;
+
+namespace UniRxLesson
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(096)——ThrottleFrame 操作符</title>
+    <link href="http://yoursite.com/2019/12/02/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-096-%E2%80%94%E2%80%94ThrottleFrame-%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
+    <id>http://yoursite.com/2019/12/02/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-096-%E2%80%94%E2%80%94ThrottleFrame-%E6%93%8D%E4%BD%9C%E7%AC%A6/</id>
+    <published>2019-12-02T06:37:08.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="ThrottleFrame"><a href="#ThrottleFrame" class="headerlink" title="ThrottleFrame"></a>ThrottleFrame</h2><pre><code>using UniRx;using UnityEngine;namespace UniRxLesson{    public class UniRxThrottleFrameExample : MonoBehaviour    {        void Start()        {            Observable.EveryUpdate()                      .Where(_ =&gt; Input.GetMouseButtonDown(0))                      .ThrottleFrame(100)                      .Subscribe(_ =&gt; Debug.Log(&quot;clicked&quot;));        }    }}</code></pre><p>运行结果，鼠标点击的 100 帧内，没有鼠标点击事件，则在 100 帧后输出，否则重新计算帧数。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;ThrottleFrame&quot;&gt;&lt;a href=&quot;#ThrottleFrame&quot; class=&quot;headerlink&quot; title=&quot;ThrottleFrame&quot;&gt;&lt;/a&gt;ThrottleFrame&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;using UniRx;
+using
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(095)——ThrottleFirstFrame 操作符</title>
+    <link href="http://yoursite.com/2019/12/02/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-095-%E2%80%94%E2%80%94ThrottleFirstFrame-%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
+    <id>http://yoursite.com/2019/12/02/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-095-%E2%80%94%E2%80%94ThrottleFirstFrame-%E6%93%8D%E4%BD%9C%E7%AC%A6/</id>
+    <published>2019-12-02T06:33:33.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre><code>using UniRx;using UnityEngine;namespace UniRxLesson{    public class UniRxThrottleFirstFrame : MonoBehaviour    {        void Start()        {            Observable.EveryUpdate()                      .Where(_ =&gt; Input.GetMouseButtonDown(0))                      .ThrottleFirstFrame(120)                      .Subscribe(_ =&gt; Debug.Log(&quot;clicked&quot;));        }    }}</code></pre><p>运行结果为，每 120 帧内的第一次点击事件输出 clicked。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;示例代码&quot;&gt;&lt;a href=&quot;#示例代码&quot; class=&quot;headerlink&quot; title=&quot;示例代码&quot;&gt;&lt;/a&gt;示例代码&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;using UniRx;
+using UnityEngine;
+
+namespace UniRxLesson
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniRx精讲(094)——DelayFrameSubscript 操作符</title>
+    <link href="http://yoursite.com/2019/12/02/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-094-%E2%80%94%E2%80%94DelayFrameSubscript-%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
+    <id>http://yoursite.com/2019/12/02/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-094-%E2%80%94%E2%80%94DelayFrameSubscript-%E6%93%8D%E4%BD%9C%E7%AC%A6/</id>
+    <published>2019-12-02T06:25:06.000Z</published>
+    <updated>2020-02-23T13:20:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre><code>using System;using UniRx;using UnityEngine;namespace UniRxLesson{    public class UniRxDelayFrameSubscription : MonoBehaviour    {        void Start()        {            Debug.Log(Time.time);            Observable.Timer(TimeSpan.FromSeconds(1.0f))                      .DelayFrameSubscription(60)                //这里60代表的是帧数                      .Subscribe(_ =&gt; Debug.Log(Time.time));        }    }}</code></pre><p>输出结果：  </p><pre><code>0// 2 秒后2.373152</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;示例代码&quot;&gt;&lt;a href=&quot;#示例代码&quot; class=&quot;headerlink&quot; title=&quot;示例代码&quot;&gt;&lt;/a&gt;示例代码&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;using System;
+using UniRx;
+using UnityEngine;
+
+namespa
+      
+    
+    </summary>
+    
+    
+      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
+    
+  </entry>
+  
+</feed>
