@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-23T13:20:49.000Z</updated>
+  <updated>2020-07-30T07:14:23.315Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LBFramwork框架搭建</title>
+    <link href="http://yoursite.com/2020/07/30/Unity%E6%A1%86%E6%9E%B6/LBFramwork%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/"/>
+    <id>http://yoursite.com/2020/07/30/Unity%E6%A1%86%E6%9E%B6/LBFramwork%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/</id>
+    <published>2020-07-30T06:40:08.000Z</published>
+    <updated>2020-07-30T07:14:23.315Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="LBFramework简介"><a href="#LBFramework简介" class="headerlink" title="LBFramework简介"></a>LBFramework简介</h1><p><font size=4><strong>单元测试环境： NSubstitute</strong></font><br><font size=4><strong>编写脚本环境： rider 2020.1.4</strong></font><br><font size=4><strong>Unity环境: unity2019.4.3f1(LTS)</strong></font>    </p><p>此篇文章记录笔者一步一步创建LBFramework框架，一步一步学习游戏框架。    </p><h1 id="LBFramework"><a href="#LBFramework" class="headerlink" title="LBFramework"></a>LBFramework</h1><h2 id="LBEditor"><a href="#LBEditor" class="headerlink" title="LBEditor"></a>LBEditor</h2><p>记录框架中编辑器的扩展  </p><h3 id="EditorModulizationPlatform"><a href="#EditorModulizationPlatform" class="headerlink" title="EditorModulizationPlatform"></a>EditorModulizationPlatform</h3><p>这是一个模块化编辑器结构<br>首先创建一个接口  </p><details><summary><font color=darkred>点击查看详细内容</font></summary><pre><code>public interface IEditorPlatformModule{    /// &lt;summary&gt;    /// 渲染 IMGUI    /// &lt;/summary&gt;    void OnGUI();}</code></pre></details>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;LBFramework简介&quot;&gt;&lt;a href=&quot;#LBFramework简介&quot; class=&quot;headerlink&quot; title=&quot;LBFramework简介&quot;&gt;&lt;/a&gt;LBFramework简介&lt;/h1&gt;&lt;p&gt;&lt;font size=4&gt;&lt;strong&gt;单元测试环
+      
+    
+    </summary>
+    
+    
+      <category term="Unity框架" scheme="http://yoursite.com/categories/Unity%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="LBFramework" scheme="http://yoursite.com/tags/LBFramework/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -530,36 +556,6 @@ using
 using UnityEngine;
 
 namespace UniRxLesson
-      
-    
-    </summary>
-    
-    
-      <category term="UniRx专栏" scheme="http://yoursite.com/categories/UniRx%E4%B8%93%E6%A0%8F/"/>
-    
-    
-      <category term="UniRx" scheme="http://yoursite.com/tags/UniRx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UniRx精讲(094)——DelayFrameSubscript 操作符</title>
-    <link href="http://yoursite.com/2019/12/02/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-094-%E2%80%94%E2%80%94DelayFrameSubscript-%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
-    <id>http://yoursite.com/2019/12/02/UniRx%E7%B2%BE%E8%AE%B2/UniRx%E7%B2%BE%E8%AE%B2-094-%E2%80%94%E2%80%94DelayFrameSubscript-%E6%93%8D%E4%BD%9C%E7%AC%A6/</id>
-    <published>2019-12-02T06:25:06.000Z</published>
-    <updated>2020-02-23T13:20:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre><code>using System;using UniRx;using UnityEngine;namespace UniRxLesson{    public class UniRxDelayFrameSubscription : MonoBehaviour    {        void Start()        {            Debug.Log(Time.time);            Observable.Timer(TimeSpan.FromSeconds(1.0f))                      .DelayFrameSubscription(60)                //这里60代表的是帧数                      .Subscribe(_ =&gt; Debug.Log(Time.time));        }    }}</code></pre><p>输出结果：  </p><pre><code>0// 2 秒后2.373152</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;示例代码&quot;&gt;&lt;a href=&quot;#示例代码&quot; class=&quot;headerlink&quot; title=&quot;示例代码&quot;&gt;&lt;/a&gt;示例代码&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;using System;
-using UniRx;
-using UnityEngine;
-
-namespa
       
     
     </summary>
