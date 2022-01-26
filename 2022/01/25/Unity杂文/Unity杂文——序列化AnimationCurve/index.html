@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Odin Inspector入门 | LianBai</title>
-  <meta name="keywords" content=" Odin Inspector ">
-  <meta name="description" content="Odin Inspector入门 | LianBai">
+  <title>Unity杂文——序列化AnimationCurve | LianBai</title>
+  <meta name="keywords" content=" UniRx ">
+  <meta name="description" content="Unity杂文——序列化AnimationCurve | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -782,9 +782,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Unity专栏/Odin-Inspector入门" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Unity杂文/Unity杂文——序列化AnimationCurve" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Odin Inspector入门</h1>
+        <h1 class="article-title">Unity杂文——序列化AnimationCurve</h1>
     
     <div class="article-meta">
         
@@ -792,26 +792,26 @@
         
         <span class="book">
             
-                <a href="javascript:" data-rel="Unity专栏">Unity专栏</a>
+                <a href="javascript:" data-rel="UniRx专栏">UniRx专栏</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a href="javascript:" class="color5">Odin Inspector</a>
+            <a href="javascript:" class="color1">UniRx</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2021-12-27 11:39:09'>2019-10-29 15:41</time>
+        创建时间:<time class="date" title='更新时间: 2022-01-25 09:57:26'>2022-01-25 00:18</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:2.2k</span>
+        <span>字数:567</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -830,7 +830,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Essentials"><span class="toc-text">Essentials</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Assets-Only-Attribute"><span class="toc-text">Assets Only Attribute</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Custom-Value-Drawer-Attribute"><span class="toc-text">Custom Value Drawer Attribute</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AB%E6%9C%89Label%E5%92%8C%E4%B8%8D%E5%90%AB%E6%9C%89Label%E7%9A%84%E5%AD%97%E6%AE%B5"><span class="toc-text">含有Label和不含有Label的字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%98%E5%88%B6Slider%E6%BB%91%E5%8A%A8%E6%9D%A1"><span class="toc-text">绘制Slider滑动条</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delayed-Property-Attribute"><span class="toc-text">Delayed Property Attribute</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B3%E6%97%B6%E6%80%A7%EF%BC%88%E9%9D%9E%E5%BB%B6%E8%BF%9F%EF%BC%89%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">即时性（非延迟）序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">延迟序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-text">完整的代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Detailed-Info-Box-Attribute"><span class="toc-text">Detailed Info Box Attribute</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="toc-text">完整代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Enable-GUIAttribute"><span class="toc-text">Enable GUIAttribute</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUIColor-Attribute"><span class="toc-text">GUIColor Attribute</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -845,375 +845,64 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><a target="_blank" rel="noopener" href="https://odininspector.com/"><font color=steelblue size=5>官网</font></a><br><a target="_blank" rel="noopener" href="https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041"><font color=steelblue size=5>AssetsStord地址</font></a><br><strong><font size=4>集成须知：如需获取对应Odin插件，请加QQ群：46885339，可在群文件中自行获取（如果放在github上就太放肆了。。。。）</font></strong>  </p>
-<pre><code>unity:2019.2.0f1  
-Odin版本 2.1.5  
-</code></pre>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f1b27e85bc35"><font color=steelblue size=3>参考博客：https://www.jianshu.com/p/f1b27e85bc35</font></a>  </p>
-<h1 id="Essentials"><a href="#Essentials" class="headerlink" title="Essentials"></a>Essentials</h1><h2 id="Assets-Only-Attribute"><a href="#Assets-Only-Attribute" class="headerlink" title="Assets Only Attribute"></a>Assets Only Attribute</h2><p>Assets Only Attribute特性有两类：<br><strong>1.AssetsOnly</strong>： 点击需要序列化的资源字段时，在出现的弹窗中只有Project中的资源文件，不会出现Hierachy（场景）的资源<br><strong>2.SceneObjectsOnly</strong>： 点击需要序列化的资源字段时，在出现的弹窗中只有Hierachy中的资源文件，不会出现Project中的资源<br><strong>注意：例如：预制体等资源在Scene或者Project中都含有，出现的弹窗中也都会含有对应的资源</strong>   </p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><iframe height=1029 width=1375 src="https://upload-images.jianshu.io/upload_images/7643202-60190f219a6cbf63.gif">    
-
-<p>完整代码示例：  </p>
-<pre><code>using Sirenix.OdinInspector;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class AssetsOnlyExample : MonoBehaviour
+        <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>笔者在开发一个地图编辑器的过程中，需要配置一个摄像机的移动速度，这个时候策划提了一个需求，他希望能够通过设置曲线的方式来设置摄像机的移动，于是笔者便想到了unity编辑器自带的AnimationCurve就可以获得运动曲线，但是这里有个问题，我们编辑器配置后是需要保存下来的，笔者选择了利用json保存，但是json是没有办法序列化一个AnimationCurve对象的，json序列化是有规则的，这里就不介绍了。没有办法序列化我们需要的对象我们应该怎么办呢？  </p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>我们没有办法序列化我们需要的AnimationCurve，但是我们知道AnimationCurve是由很多个keyframe组成的，我们只需要保留下来keyframe，每次保存的时候只保存keeyfram数组，然后加载的时候通过添加保存的keyframe既可以生成我们需要的AnimationCurve了。<br>当笔者想去保存keyframe的时候，通过rider编辑器可以看到keyframe的类似源码，里面的字段都是私有的，依旧没有办法序列化，这个时候我们可以换一种方式，那就是自定义一个新的keyframe，然后通过自己的keyframe去生成需要的keyframe就可以了。<br>话不多说，直接上代码：<br>通过查看keyframe的源码，我们可以摘取我们需要的数据，然后自定义类即可。（这里定义struct，打包的时候序列化会出错，具体原因还未查明）  </p>
+<pre><code>public class LBSerializeAnimCurveKeyFrame
 &#123;
-    [Sirenix.OdinInspector.AssetsOnly]
-    public List&lt;GameObject&gt; OnlyPrefabs;
+    #region 字段
 
-    [Sirenix.OdinInspector.AssetsOnly]
-    public GameObject SomePrefab;
+    public float m_Time;
+    public float m_Value;
+    public float m_InTangent;
+    public float m_OutTangent;
+    public int m_TangentMode;
+    public int m_WeightedMode;
+    public float m_InWeight;
+    public float m_OutWeight;
 
-    [Sirenix.OdinInspector.AssetsOnly]
-    public Material MaterialAsset;
+    #endregion
+    
+    #region 属性
 
-    [Sirenix.OdinInspector.AssetsOnly]
-    public MeshRenderer SomeMeshRendererOnPrefab;
+    
 
-    [SceneObjectsOnly]
-    public List&lt;GameObject&gt; OnlySceneObjects;
-
-    [SceneObjectsOnly]
-    public GameObject SomeSceneObject;
-
-    [SceneObjectsOnly]
-    public MeshRenderer SomeMeshRenderer;
-&#125;
-</code></pre>
-<p>创建上述脚本，添加到一个物体上即可，不同的标签选择资源的方式不一样。  </p>
-<h2 id="Custom-Value-Drawer-Attribute"><a href="#Custom-Value-Drawer-Attribute" class="headerlink" title="Custom Value Drawer Attribute"></a>Custom Value Drawer Attribute</h2><p><strong>Custom Value Drawer Attribute 特性，允许用户自定义一个绘制方法，字段将以自定的绘制方式展示在Inspector中，非常灵活。</strong>  </p>
-<h3 id="含有Label和不含有Label的字段"><a href="#含有Label和不含有Label的字段" class="headerlink" title="含有Label和不含有Label的字段"></a>含有Label和不含有Label的字段</h3><p><img src="https://upload-images.jianshu.io/upload_images/7643202-313444f24f0b9c5d.png"><br>代码如下：  </p>
-<pre><code>[CustomValueDrawer(&quot;HaveLabelNameFunction&quot;)]
-public string HaveLabelName;
-[CustomValueDrawer(&quot;NoLabelNameFunction&quot;)]
-public string NoLabelName;
-
-public string HaveLabelNameFunction(string tempName, GUIContent label)
-&#123;
-    return EditorGUILayout.TextField(tempName);
-&#125;
-public string NoLabelNameFunction(string tempName, GUIContent label)
-&#123;
-    return EditorGUILayout.TextField(label,tempName);
-&#125;
-</code></pre>
-<h3 id="绘制Slider滑动条"><a href="#绘制Slider滑动条" class="headerlink" title="绘制Slider滑动条"></a>绘制Slider滑动条</h3><iframe height=692 width=952 src="https://upload-images.jianshu.io/upload_images/7643202-0888c5e4ea14c3bb.gif">     
-代码如下： 
- 
-<pre><code>public float Max = 100, Min = 0;
-
-[CustomValueDrawer(&quot;MyStaticCustomDrawerStatic&quot;)]
-public float CustomDrawerStatic;
-private static float MyStaticCustomDrawerStatic(float value, GUIContent label)
-&#123;
-    return EditorGUILayout.Slider(label, value, 0f, 10f);
-&#125;
-
-[CustomValueDrawer(&quot;MyStaticCustomDrawerInstance&quot;)]
-public float CustomDrawerInstance;
-
-private float MyStaticCustomDrawerInstance(float value, GUIContent label)
-&#123;
-    return EditorGUILayout.Slider(label, value, this.Min, this.Max);
-&#125;
-
-[CustomValueDrawer(&quot;MyStaticCustomDrawerArray&quot;)]
-public float[] CustomDrawerArray = new float[] &#123; 3f, 5f, 6f &#125;;
-
-
-private float MyStaticCustomDrawerArray(float value, GUIContent label)
-&#123;
-    return EditorGUILayout.Slider(value, this.Min, this.Max);
-&#125;
-</code></pre>
-<h2 id="Delayed-Property-Attribute"><a href="#Delayed-Property-Attribute" class="headerlink" title="Delayed Property Attribute"></a>Delayed Property Attribute</h2><p>Delayed Property Attribute：此特性会延迟在editor中的序列化操作  </p>
-<h3 id="即时性（非延迟）序列化"><a href="#即时性（非延迟）序列化" class="headerlink" title="即时性（非延迟）序列化"></a>即时性（非延迟）序列化</h3><iframe height=1060 width=1165 src="https://upload-images.jianshu.io/upload_images/7643202-24e1915e0255bb85.gif">   
-代码示例：  
-
-<pre><code>[OnValueChanged(&quot;ValueChangeCallBack&quot;)]
-public int field;
-//但是，正如名称所示，DelayedProperty应用于属性。
-[ShowInInspector]
-[OnValueChanged(&quot;ValueChangeCallBack&quot;)]
-public string property &#123; get; set; &#125;
-
-public void ValueChangeCallBack()
-&#123;
-    Debug.Log(&quot;数值有变化&quot;);
-&#125;
-</code></pre>
-<h3 id="延迟序列化"><a href="#延迟序列化" class="headerlink" title="延迟序列化"></a>延迟序列化</h3><iframe height=1060 width=1165 src="https://upload-images.jianshu.io/upload_images/7643202-aabb2c0456a4b3db.gif">   
-代码示例：  
-
-<pre><code>// 延迟和延迟属性实际上是相同的
-[Delayed]
-[OnValueChanged (&quot;ValueChangeCallBack&quot;)]
-public int delayedField;
-
-//但是，正如名称所示，DelayedProperty应用于属性。
-[ShowInInspector, DelayedProperty]
-[OnValueChanged(&quot;ValueChangeCallBack&quot;)]
-public string delayedProperty &#123; get; set; &#125;
-
-public void ValueChangeCallBack()
-&#123;
-    Debug.Log(&quot;数值有变化&quot;);
-&#125;
-</code></pre>
-<h3 id="完整的代码"><a href="#完整的代码" class="headerlink" title="完整的代码"></a>完整的代码</h3><pre><code>using Sirenix.OdinInspector;
-using UnityEngine;
-
-public class DelayedPropertyExample : MonoBehaviour
-&#123;
-
-    [OnValueChanged(&quot;ValueChangeCallBack&quot;)]
-    public int field;
-    //但是，正如名称所示，DelayedProperty应用于属性。
-    [ShowInInspector]
-    [OnValueChanged(&quot;ValueChangeCallBack&quot;)]
-    public string property &#123; get; set; &#125;
-
-
-    // 延迟和延迟属性实际上是相同的
-    [Delayed]
-    [OnValueChanged (&quot;ValueChangeCallBack&quot;)]
-    public int delayedField;
-
-    //但是，正如名称所示，DelayedProperty应用于属性。
-    [ShowInInspector, DelayedProperty]
-    [OnValueChanged(&quot;ValueChangeCallBack&quot;)]
-    public string delayedProperty &#123; get; set; &#125;
-
-    public void ValueChangeCallBack()
+    #endregion
+    
+    #region 方法
+    
+    public LBSerializeAnimCurveKeyFrame(
+        float time,
+        float value,
+        float inTangent,
+        float outTangent,
+        float inWeight,
+        float outWeight)
     &#123;
-        Debug.Log(&quot;数值有变化&quot;);
-    &#125;
-&#125;
-</code></pre>
-<h2 id="Detailed-Info-Box-Attribute"><a href="#Detailed-Info-Box-Attribute" class="headerlink" title="Detailed Info Box Attribute"></a>Detailed Info Box Attribute</h2><pre><code>Detailed Info Box Attribute特性：  
-在Inspector面板中绘制一个信息面板，添加对应标题和详细信息描述，点击时可以显示出对应填写的详细信息
-</code></pre>
-<iframe height=497 width=1178 src="https://upload-images.jianshu.io/upload_images/7643202-1f53cd969010afdc.gif">   
-### 不同形式的消息框
-<iframe height=913 width=1320 src="https://upload-images.jianshu.io/upload_images/7643202-dc94efb220edcae3.gif">  
-示例代码：  
-
-<pre><code>[DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.None)]
-public string NoneMessage = &quot;无&quot;;
-[DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.Info)]
-public string InfoMessage = &quot;无&quot;;
-[DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.Warning)]
-public string WarningMessage = &quot;无&quot;;
-[DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.Error)]
-public string ErrorMessage = &quot;无&quot;;
-</code></pre>
-<p>还可以通过一个方法的返回值（bool）来控制消息框是否显示，例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。<br><img src="https://upload-images.jianshu.io/upload_images/7643202-7dc744da0b791cdd.png"><br>示例代码：  </p>
-<p>   [DetailedInfoBox(“简介消息”, “默认情况下VisibleIf为True。” +<br>        “所以此消息框可见.还可以通过一个方法的返回值（bool）来控制消息框是否显示，” +<br>        “例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。”,<br>        InfoMessageType = InfoMessageType.None, VisibleIf = “VisibleFunction”)]<br>    public string haveVisibleIfMessage = “”;</p>
-<pre><code>[DetailedInfoBox(&quot;简介消息&quot;, &quot;还可以通过一个方法的返回值（bool）来控制消息框是否显示，例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。&quot;, InfoMessageType = InfoMessageType.None, VisibleIf = &quot;NoVisibleFunction&quot;)]
-public string noVisibleIfMessage = &quot;&quot;;
-
-public  bool VisibleFunction()
-&#123;
-    /*
-     * 根据情况下选择返回true或者false，让对应的消息框显示或者不显示
-     */
-    return true;
-&#125;
-
-public bool NoVisibleFunction()
-&#123;
-    return false;
-&#125;
-</code></pre>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><pre><code>using Sirenix.OdinInspector;
-using UnityEngine;
-
-public class DetailedInfoBoxExample : MonoBehaviour
-&#123;
-    [DetailedInfoBox(&quot;详情请点击...&quot;,
-        &quot;菜鸟海澜：下面是详细信息，这个欢迎大家留言指正，对应的工程已经上传Github，&quot; +
-        &quot;地址为：https://github.com/su9257/Odin-Inspector-Chinese-Tutorial&quot;)]
-    public string message = &quot;无&quot;;
-
-    [DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.None)]
-    public string NoneMessage = &quot;无&quot;;
-    [DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.Info)]
-    public string InfoMessage = &quot;无&quot;;
-    [DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.Warning)]
-    public string WarningMessage = &quot;无&quot;;
-    [DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.Error)]
-    public string ErrorMessage = &quot;无&quot;;
-
-    [DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True。&quot; +
-        &quot;所以此消息框可见.还可以通过一个方法的返回值（bool）来控制消息框是否显示，&quot; +
-        &quot;例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。&quot;, 
-        InfoMessageType = InfoMessageType.None, VisibleIf = &quot;VisibleFunction&quot;)]
-    public string haveVisibleIfMessage = &quot;&quot;;
-
-    [DetailedInfoBox(&quot;简介消息&quot;, &quot;还可以通过一个方法的返回值（bool）来控制消息框是否显示，例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。&quot;, InfoMessageType = InfoMessageType.None, VisibleIf = &quot;NoVisibleFunction&quot;)]
-    public string noVisibleIfMessage = &quot;&quot;;
-
-    public  bool VisibleFunction()
-    &#123;
-        /*
-         * 根据情况下选择返回true或者false，让对应的消息框显示或者不显示
-         */
-        return true;
+        this.m_Time = time;
+        this.m_Value = value;
+        this.m_InTangent = inTangent;
+        this.m_OutTangent = outTangent;
+        this.m_WeightedMode = 3;
+        this.m_InWeight = inWeight;
+        this.m_OutWeight = outWeight;
+        this.m_TangentMode = 0;
     &#125;
 
-    public bool NoVisibleFunction()
+    public static implicit operator LBSerializeAnimCurveKeyFrame(Keyframe keyframe)
     &#123;
-        return false;
+        return new LBSerializeAnimCurveKeyFrame(keyframe);
     &#125;
+    
+    public static implicit operator Keyframe(LBSerializeAnimCurveKeyFrame keyframe)
+    &#123;
+        return new Keyframe(keyframe.m_Time, keyframe.m_Value, keyframe.m_InTangent, keyframe.m_OutTangent,
+            keyframe.m_InWeight, keyframe.m_OutWeight);
+    &#125;
+    
+    #endregion
 &#125;
 </code></pre>
-<h2 id="Enable-GUIAttribute"><a href="#Enable-GUIAttribute" class="headerlink" title="Enable GUIAttribute"></a>Enable GUIAttribute</h2><pre><code>Enable GUIAttribute特性：可以控制只有Get的属性，在Inspector中是否为可灰态的（但是依然不可编辑），不写则默认为灰态。
-</code></pre>
-<p><img src="https://upload-images.jianshu.io/upload_images/7643202-f2480f12bbd7a2aa.png"><br>完整代码：  </p>
-<pre><code>using Sirenix.OdinInspector;
-using UnityEngine;
-
-public class EnableGUIExample : MonoBehaviour
-&#123;
-    [ShowInInspector]
-    public int GUIDisabledProperty &#123; get &#123; return 20; &#125; &#125;
-
-    [ShowInInspector, EnableGUI]
-    public int GUIEnabledProperty &#123; get &#123; return 10; &#125; &#125;
-&#125;
-</code></pre>
-<h2 id="GUIColor-Attribute"><a href="#GUIColor-Attribute" class="headerlink" title="GUIColor Attribute"></a>GUIColor Attribute</h2><pre><code>GUIColor Attribute特性：用于任何属性，并更改用于绘制属性的GUI颜色。
-</code></pre>
-<iframe height=617 width=1178 src="https://upload-images.jianshu.io/upload_images/7643202-e08001dd13334857.gif" >  
-**绘制颜色提供两种形式，一种为直接填写RGBA**  
-![](https://upload-images.jianshu.io/upload_images/7643202-5257872b7b4864c0.png)  
-代码如下：  
-  
-<pre><code>[GUIColor(0.3f, 0.8f, 0.8f, 1f)]
-public int ColoredInt1;
-
-[GUIColor(0.3f, 0.8f, 0.8f, 1f)]
-public int ColoredInt2;
-
-[ButtonGroup]
-[GUIColor(0, 1, 0)]
-private void Apply()
-&#123;
-    Debug.Log(&quot;应用&quot;);
-&#125;
-
-[ButtonGroup]
-[GUIColor(1, 0.6f, 0.4f)]
-private void Cancel()
-&#123;
-    Debug.Log(&quot;取消&quot;);
-&#125;
-</code></pre>
-<p><strong>另一种是提供一个返回Color的方法，所以这种方式可有实现动态颜色效果，逼格满满</strong>   </p>
-<iframe height=322 width=758 src="https://upload-images.jianshu.io/upload_images/7643202-568d1ad9fd14b5ed.gif"></iframe>  
-代码如下：  
-
-<pre><code>[GUIColor(&quot;GetButtonColor&quot;)]
-[Button(ButtonSizes.Gigantic)]
-private static void IAmFabulous()
-&#123;
-&#125;
-
-private static Color GetButtonColor()
-&#123;
-    Sirenix.Utilities.Editor.GUIHelper.RequestRepaint();
-    return Color.HSVToRGB(Mathf.Cos((float)UnityEditor.EditorApplication.timeSinceStartup + 1f) * 0.225f + 0.325f, 1, 1);
-&#125;
-</code></pre>
-<p><strong>当然还有另一种写法，使用@关键字将对应的方法体以字符串的形式传入进去，也能达到和方法一样的效果</strong>  </p>
-<pre><code>// [GUIColor(&quot;@Color.Lerp(Color.red, Color.green, Mathf.Sin((float)EditorApplication.timeSinceStartup))&quot;)]
-// [GUIColor(&quot;CustomColor&quot;)]
-// 这两个写法相等
-[Button(ButtonSizes.Large)]
-[GUIColor(&quot;@Color.Lerp(Color.red, Color.green, Mathf.Sin((float)EditorApplication.timeSinceStartup))&quot;)]
-private static void Expressive_One()
-&#123;
-&#125;
-
-[Button(ButtonSizes.Large)]
-[GUIColor(&quot;CustomColor&quot;)]
-private static void Expressive_Two()
-&#123;
-&#125;
-
-# if UNITY_EDITOR
-public Color CustomColor()
-&#123;
-    return Color.Lerp(Color.red, Color.green, Mathf.Sin((float)EditorApplication.timeSinceStartup));
-&#125;
-# endif
-</code></pre>
-<p>完整的代码：  </p>
-<pre><code>using Sirenix.OdinInspector;
-using UnityEditor;
-using UnityEngine;
-
-public class GUIColorExample : MonoBehaviour
-&#123;
-    [GUIColor(0.3f, 0.8f, 0.8f, 1f)]
-    public int ColoredInt1;
-
-    [GUIColor(0.3f, 0.8f, 0.8f, 1f)]
-    public int ColoredInt2;
-
-    [ButtonGroup]
-    [GUIColor(0, 1, 0)]
-    private void Apply()
-    &#123;
-        Debug.Log(&quot;应用&quot;);
-    &#125;
-
-    [ButtonGroup]
-    [GUIColor(1, 0.6f, 0.4f)]
-    private void Cancel()
-    &#123;
-        Debug.Log(&quot;取消&quot;);
-    &#125;
-
-    [GUIColor(&quot;GetButtonColor&quot;)]
-    [Button(ButtonSizes.Gigantic)]
-    private static void IAmFabulous()
-    &#123;
-    &#125;
-
-    private static Color GetButtonColor()
-    &#123;
-        Sirenix.Utilities.Editor.GUIHelper.RequestRepaint();
-        return Color.HSVToRGB(Mathf.Cos((float)UnityEditor.EditorApplication.timeSinceStartup + 1f) * 0.225f + 0.325f, 1, 1);
-    &#125;
-
-
-    // [GUIColor(&quot;@Color.Lerp(Color.red, Color.green, Mathf.Sin((float)EditorApplication.timeSinceStartup))&quot;)]
-    // [GUIColor(&quot;CustomColor&quot;)]
-    // 这两个写法相等
-    [Button(ButtonSizes.Large)]
-    [GUIColor(&quot;@Color.Lerp(Color.red, Color.green, Mathf.Sin((float)EditorApplication.timeSinceStartup))&quot;)]
-    private static void Expressive_One()
-    &#123;
-    &#125;
-
-    [Button(ButtonSizes.Large)]
-    [GUIColor(&quot;CustomColor&quot;)]
-    private static void Expressive_Two()
-    &#123;
-    &#125;
-
-# if UNITY_EDITOR
-    public Color CustomColor()
-    &#123;
-        return Color.Lerp(Color.red, Color.green, Mathf.Sin((float)EditorApplication.timeSinceStartup));
-    &#125;
-# endif
-&#125;
-</code></pre>
+<p>上面就是笔者自己定义的keyframe，然后我们只需要在我们需要序列化的类添加上即可，示例如下：  </p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
@@ -1221,13 +910,9 @@ public class GUIColorExample : MonoBehaviour
 	<div class="post-nav">
 		
 			<div class="post-nav-prev post-nav-item">
-				<a href="/2019/10/14/%E5%85%B6%E4%BB%96/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E7%BD%91%E5%9D%80/" >常用网站网址<i class="fa fa-chevron-left"></i></a>
+				<a href="/2022/01/13/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8EUGUI%E7%9A%84UI%E6%8B%96%E6%8B%BD%E7%9B%91%E5%90%AC/" >Unity杂文——基于UGUI的UI拖拽监听<i class="fa fa-chevron-left"></i></a>
 			</div>
 		
-		
-			<div class="post-nav-next post-nav-item">
-			<a href="/2019/11/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/bat%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" >bat学习笔记<i class="fa fa-chevron-right"></i></a>
-			</div>
 		
 	</div>
 </article>
@@ -1239,12 +924,12 @@ public class GUIColorExample : MonoBehaviour
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Odin Inspector入门</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">2.2k</span></p>
+    <p><span class="copy-title">文章标题:</span>Unity杂文——序列化AnimationCurve</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">567</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="LianBai">LianBai</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-10-29, 15:41:56</p>
-    <p><span class="copy-title">最后更新:</span>2021-12-27, 11:39:09</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/10/29/Unity%E4%B8%93%E6%A0%8F/Odin-Inspector%E5%85%A5%E9%97%A8/" title="Odin Inspector入门">http://yoursite.com/2019/10/29/Unity%E4%B8%93%E6%A0%8F/Odin-Inspector%E5%85%A5%E9%97%A8/</a>
+    <p><span class="copy-title">发布时间:</span>2022-01-25, 00:18:28</p>
+    <p><span class="copy-title">最后更新:</span>2022-01-25, 09:57:26</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2022/01/25/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E5%BA%8F%E5%88%97%E5%8C%96AnimationCurve/" title="Unity杂文——序列化AnimationCurve">http://yoursite.com/2022/01/25/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E5%BA%8F%E5%88%97%E5%8C%96AnimationCurve/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
