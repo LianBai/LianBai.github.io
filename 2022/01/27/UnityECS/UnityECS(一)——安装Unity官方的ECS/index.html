@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Unity杂文——UGUI中粒子的遮罩与裁剪 | LianBai</title>
-  <meta name="keywords" content=" UGUI ">
-  <meta name="description" content="Unity杂文——UGUI中粒子的遮罩与裁剪 | LianBai">
+  <title>UnityECS(一)——安装Unity官方的ECS | LianBai</title>
+  <meta name="keywords" content=" ECS ">
+  <meta name="description" content="UnityECS(一)——安装Unity官方的ECS | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -809,9 +809,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Unity杂文/Unity杂文——UGUI中粒子的遮罩与裁剪" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-UnityECS/UnityECS(一)——安装Unity官方的ECS" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Unity杂文——UGUI中粒子的遮罩与裁剪</h1>
+        <h1 class="article-title">UnityECS(一)——安装Unity官方的ECS</h1>
     
     <div class="article-meta">
         
@@ -819,26 +819,26 @@
         
         <span class="book">
             
-                <a href="javascript:" data-rel="Unity杂文">Unity杂文</a>
+                <a href="javascript:" data-rel="UnityECS">UnityECS</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a href="javascript:" class="color5">UGUI</a>
+            <a href="javascript:" class="color4">ECS</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2021-12-27 11:39:09'>2021-04-19 10:48</time>
+        创建时间:<time class="date" title='更新时间: 2022-01-27 13:55:29'>2022-01-27 13:49</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.1k</span>
+        <span>字数:0</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -857,7 +857,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-%E4%BB%A3%E7%A0%81"><span class="toc-text">C#代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-text">代码分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Shader%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81"><span class="toc-text">Shader关键代码</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -872,166 +872,16 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在Unity开发中，在使用UGUI的mask的时候，如果子节点存在粒子特效，发现mask并不能裁剪粒子，比如笔者在开发中，有一个滑动列表，列表中的button上面存在按钮特效，在滑动的时候滑动的mask并不能裁剪粒子，因此笔者从网上找到了一些解决方案，并应用了一下，用着还可以。</p>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>粒子的裁剪是用shader制作的，但是仅仅用shader是并不能满足需求的，因为特效有可能是会动的，这样剪裁区域就会发生变化，所以需要一个脚本把裁剪的区域传递给shader，然后shader在进行裁剪处理。  </p>
-<h1 id="C-代码"><a href="#C-代码" class="headerlink" title="C#代码"></a>C#代码</h1><pre><code>public class TailorParticle : MonoBehaviour
-&#123;
-    private Material material;
-    private Mask mask;
-    private RectMask2D rectmask2d;
-    public void Start()
-    &#123;
-        material = GetComponentInChildren&lt;ParticleSystem&gt;().GetComponent&lt;Renderer&gt;().material;
-        mask = GetComponentInParent&lt;Mask&gt;();
-        rectmask2d = GetComponentInParent&lt;RectMask2D&gt;();
-        SetClip();
-        //如果运行时裁剪区域不会发生改变，可以注释掉下面这句代码
-        var scrollrecct = GetComponentInParent&lt;ScrollRect&gt;();
-        if (scrollrecct)
-        &#123;
-            scrollrecct.onValueChanged.AddListener(v =&gt; &#123; SetClip(); &#125;);
-        &#125;
-    &#125;
-
-    private bool isMask;
-    private Vector3[] corners = new Vector3[4];
-    private Vector3[] cornerstemp = new Vector3[4];
-    public void SetClip()
-    &#123;
-        //获取到需要裁剪的区域
-        isMask = false;
-        if (mask) 
-        &#123;
-            mask.GetComponent&lt;RectTransform&gt;().GetWorldCorners(corners);
-            isMask = true;
-        &#125;
-        if(rectmask2d)
-        &#123;
-            rectmask2d.GetComponent&lt;RectTransform&gt;().GetWorldCorners(cornerstemp);
-            if (isMask)
-            &#123;
-                corners[0].x = Mathf.Min(corners[0].x, cornerstemp[0].x);
-                corners[0].y = Mathf.Min(corners[0].y, cornerstemp[0].y);
-                corners[2].x = Mathf.Max(corners[2].x, cornerstemp[2].x);
-                corners[2].y = Mathf.Max(corners[2].y, cornerstemp[2].y);
-            &#125;
-            else
-            &#123;
-                isMask = true;
-            &#125;
-        &#125;
-        if (material &amp;&amp; isMask)
-        &#123;
-            //将裁剪区域传入到Shader中
-            material.SetFloat(&quot;_MinX&quot;, corners[0].x);
-            material.SetFloat(&quot;_MinY&quot;, corners[0].y);
-            material.SetFloat(&quot;_MaxX&quot;, corners[2].x);
-            material.SetFloat(&quot;_MaxY&quot;, corners[2].y);
-        &#125;
-    &#125;
-&#125;
-</code></pre>
-<h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><pre><code>material = GetComponentInChildren&lt;ParticleSystem&gt;().GetComponent&lt;Renderer&gt;().material;
-mask = GetComponentInParent&lt;Mask&gt;();
-rectmask2d = GetComponentInParent&lt;RectMask2D&gt;();
-SetClip();
-//如果运行时裁剪区域不会发生改变，可以注释掉下面这句代码
-var scrollrecct = GetComponentInParent&lt;ScrollRect&gt;();
-if (scrollrecct)
-&#123;
-    scrollrecct.onValueChanged.AddListener(v =&gt; &#123; SetClip(); &#125;);
-&#125;
-</code></pre>
-<p>首先我们先看Start函数中，material是获取子节点的粒子特效的材质(如果粒子多了可以自己扩展成组)，mask是获取父节点的Mask遮罩，rectmask2d和mask一样是获取父节点的RectMask2D组件，笔者之所以获取RectMask2D这个组件是因为笔者有些裁剪是用这个做的。接着就是进行裁剪函数，这里后面介绍。正常的裁剪到这里就结束了，但是我们如果想裁剪区域进行动态变化，那我们就要进行动态刷新shader，笔者这里只是简单的用ScrollRect进行举例，大家可以根据自己的项目进行监听。只要当变化的时候刷新一下裁剪就行了。  </p>
-<pre><code>isMask = false;
-if (mask) 
-&#123;
-    mask.GetComponent&lt;RectTransform&gt;().GetWorldCorners(corners);
-    isMask = true;
-&#125;
-if(rectmask2d)
-&#123;
-    rectmask2d.GetComponent&lt;RectTransform&gt;().GetWorldCorners(cornerstemp);
-    if (isMask)
-    &#123;
-        corners[0].x = Mathf.Min(corners[0].x, cornerstemp[0].x);
-        corners[0].y = Mathf.Min(corners[0].y, cornerstemp[0].y);
-        corners[2].x = Mathf.Max(corners[2].x, cornerstemp[2].x);
-        corners[2].y = Mathf.Max(corners[2].y, cornerstemp[2].y);
-    &#125;
-    else
-    &#123;
-        isMask = true;
-    &#125;
-&#125;
-</code></pre>
-<p>接着我们来看一下裁剪的代码，首先是标记不需要裁剪，只有当父节点存在Mask的时候才进行裁剪，然后就是获取父节点的剪裁区域，笔者这里是把两个Mask进行融合，获取最小的范围，这里可以根据自己的需求进行变化，然后就是关键性的代码  </p>
-<pre><code>if (material &amp;&amp; isMask)
-&#123;
-    //将裁剪区域传入到Shader中
-    material.SetFloat(&quot;_MinX&quot;, corners[0].x);
-    material.SetFloat(&quot;_MinY&quot;, corners[0].y);
-    material.SetFloat(&quot;_MaxX&quot;, corners[2].x);
-    material.SetFloat(&quot;_MaxY&quot;, corners[2].y);
-&#125;
-</code></pre>
-<p>这里就是将剪裁区域传递给次材质的shader，然后shader进行裁剪。</p>
-<h1 id="Shader关键代码"><a href="#Shader关键代码" class="headerlink" title="Shader关键代码"></a>Shader关键代码</h1><pre><code>Properties &#123;
-    
-    ...
-
-    _MinX (&quot;Min X&quot;, Float) = -10
-    _MaxX (&quot;Max X&quot;, Float) = 10
-    _MinY (&quot;Min Y&quot;, Float) = -10
-    _MaxY (&quot;Max Y&quot;, Float) = 10
-&#125;
-
-SubShader 
-&#123;
-    Pass &#123;
-
-        ...
-
-        float _MinX;
-        float _MaxX;
-        float _MinY;
-        float _MaxY;
         
-        ...
-
-        float4 frag(VertexOutput i) : COLOR &#123;
-            
-            ...
-        
-            c.a *= (i.vpos.x &gt;= _MinX );
-               c.a *= (i.vpos.x &lt;= _MaxX);
-            c.a *= (i.vpos.y &gt;= _MinY);
-            c.a *= (i.vpos.y &lt;= _MaxY);
-
-            c.rgb *= c.a;
-
-            return c;
-        &#125;
-
-        ...
-    &#125;
-&#125;
-</code></pre>
-<p>shader的代码也比较简单，就是将传过来的区域进行判断，如果在区域内据显示，如果超出区域就将颜色的透明度设置为0，也就看不见了。</p>
-
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
     </div>
 	<div class="post-nav">
 		
 			<div class="post-nav-prev post-nav-item">
-				<a href="/2020/07/30/Unity%E6%A1%86%E6%9E%B6/LBFramwork%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/" >LBFramwork框架搭建<i class="fa fa-chevron-left"></i></a>
+				<a href="/2022/01/25/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E5%BA%8F%E5%88%97%E5%8C%96AnimationCurve/" >Unity杂文——序列化AnimationCurve<i class="fa fa-chevron-left"></i></a>
 			</div>
 		
-		
-			<div class="post-nav-next post-nav-item">
-			<a href="/2021/04/20/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94UGUI%E5%9F%BA%E4%BA%8E%E5%9B%BE%E9%9B%86%E7%9A%84shader%E9%81%AE%E7%BD%A9/" >Unity杂文——UGUI基于图集的shader遮罩<i class="fa fa-chevron-right"></i></a>
-			</div>
 		
 	</div>
 </article>
@@ -1043,12 +893,12 @@ SubShader
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Unity杂文——UGUI中粒子的遮罩与裁剪</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">1.1k</span></p>
+    <p><span class="copy-title">文章标题:</span>UnityECS(一)——安装Unity官方的ECS</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">0</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="LianBai">LianBai</a></p>
-    <p><span class="copy-title">发布时间:</span>2021-04-19, 10:48:13</p>
-    <p><span class="copy-title">最后更新:</span>2021-12-27, 11:39:09</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2021/04/19/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94UGUI%E4%B8%AD%E7%B2%92%E5%AD%90%E7%9A%84%E9%81%AE%E7%BD%A9%E4%B8%8E%E8%A3%81%E5%89%AA/" title="Unity杂文——UGUI中粒子的遮罩与裁剪">http://yoursite.com/2021/04/19/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94UGUI%E4%B8%AD%E7%B2%92%E5%AD%90%E7%9A%84%E9%81%AE%E7%BD%A9%E4%B8%8E%E8%A3%81%E5%89%AA/</a>
+    <p><span class="copy-title">发布时间:</span>2022-01-27, 13:49:25</p>
+    <p><span class="copy-title">最后更新:</span>2022-01-27, 13:55:29</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2022/01/27/UnityECS/UnityECS(%E4%B8%80)%E2%80%94%E2%80%94%E5%AE%89%E8%A3%85Unity%E5%AE%98%E6%96%B9%E7%9A%84ECS/" title="UnityECS(一)——安装Unity官方的ECS">http://yoursite.com/2022/01/27/UnityECS/UnityECS(%E4%B8%80)%E2%80%94%E2%80%94%E5%AE%89%E8%A3%85Unity%E5%AE%98%E6%96%B9%E7%9A%84ECS/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
