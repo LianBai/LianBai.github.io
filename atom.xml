@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-01-28T06:38:42.195Z</updated>
+  <updated>2022-01-28T07:55:16.604Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>给hexo博客添加访问密码</title>
+    <link href="http://yoursite.com/2022/01/28/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E5%AF%86%E7%A0%81/"/>
+    <id>http://yoursite.com/2022/01/28/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E5%AF%86%E7%A0%81/</id>
+    <published>2022-01-28T07:31:45.000Z</published>
+    <updated>2022-01-28T07:55:16.604Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>笔者记忆力比较差，于是笔者想有个空间能记录笔者一些私人的内容，于是笔者想起来比较经常会遇到一些加密的博客，笔者便想如果自己如果有一个博客能记录自己的私人内容，然后把博客进行加密即可，这样自己想要查看内容的额时候只需要访问隐私博客，然后输入密码就可以看到了。  </p><h1 id="安装Hexo-Blog-Encrypt"><a href="#安装Hexo-Blog-Encrypt" class="headerlink" title="安装Hexo-Blog-Encrypt"></a>安装Hexo-Blog-Encrypt</h1><p>hexo的博客添加密码其实只需要安装一个插件就可以了。<br>通过npm在hexo博客目录安装Hexo-Blog-Encrypt  </p><pre><code>npm install --save hexo-blog-encrypt</code></pre><h1 id="博客使用密码"><a href="#博客使用密码" class="headerlink" title="博客使用密码"></a>博客使用密码</h1><p>只需要在博客的开头使用  </p><pre><code>---title: Hello Worlddate: 2022-01-28 15:31:45password: 密码---</code></pre><p>还可以添加一些描述的标签  </p><pre><code>---title: Hello Worldtags:- 加密文章的tagdate: 2022-01-28 15:31:45password: 密码abstract: 这里有东西被加密了，需要输入密码查看哦。message: 您好，这里需要密码。wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。---</code></pre><h1 id="根目录添加配置文件"><a href="#根目录添加配置文件" class="headerlink" title="根目录添加配置文件"></a>根目录添加配置文件</h1><pre><code># 安全encrypt: # hexo-blog-encrypt  abstract: 这里有东西被加密了，需要输入密码查看哦。  message: 您好, 这里需要密码.  tags:  - &#123;name: tagName, password: 密码A&#125;  - &#123;name: tagName, password: 密码B&#125;  template: &lt;div id=&quot;hexo-blog-encrypt&quot; data-wpm=&quot;&#123;&#123;hbeWrongPassMessage&#125;&#125;&quot; data-whm=&quot;&#123;&#123;hbeWrongHashMessage&#125;&#125;&quot;&gt;&lt;div class=&quot;hbe-input-container&quot;&gt;&lt;input type=&quot;password&quot; id=&quot;hbePass&quot; placeholder=&quot;&#123;&#123;hbeMessage&#125;&#125;&quot; /&gt;&lt;label&gt;&#123;&#123;hbeMessage&#125;&#125;&lt;/label&gt;&lt;div class=&quot;bottom-line&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;script id=&quot;hbeData&quot; type=&quot;hbeData&quot; data-hmacdigest=&quot;&#123;&#123;hbeHmacDigest&#125;&#125;&quot;&gt;&#123;&#123;hbeEncryptedData&#125;&#125;&lt;/script&gt;&lt;/div&gt;  wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.  wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;笔者记忆力比较差，于是笔者想有个空间能记录笔者一些私人的内容，于是笔者想起来比较经常会遇到一些加密的博客，笔者便想如果自己如果有一个博客能记</summary>
+      
+    
+    
+    
+    <category term="搭建博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="博客密码" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E5%AF%86%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
     <title>私人密码记事本</title>
     <link href="http://yoursite.com/2022/01/28/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E7%A7%81%E4%BA%BA%E5%AF%86%E7%A0%81%E8%AE%B0%E4%BA%8B%E6%9C%AC/"/>
     <id>http://yoursite.com/2022/01/28/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E7%A7%81%E4%BA%BA%E5%AF%86%E7%A0%81%E8%AE%B0%E4%BA%8B%E6%9C%AC/</id>
     <published>2022-01-28T06:29:49.000Z</published>
-    <updated>2022-01-28T06:38:42.195Z</updated>
+    <updated>2022-01-28T07:57:18.448Z</updated>
     
-    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="ed34a52ce3af5901e4353e2dc7fb8aaf0bb85395807109b97556de6dcd3e5660">dfbc7818f5975f69a806ed91c99e495786fc5cd905cfc68a4d706d06653d9f0912253603e9ce181d93b2d042065d8f00b474fee3e14105397012cdf74619532022d6ea478600636b3783d31413b4522cc6847dc0d98d0f41ddb65d7f55076369552841b07af93161194070705127409a458cb347a331337533f47f6e624b3dfc</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">笔者私人文件，请勿访问！</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="4dce5d0194c08e2a0449c2371c68056725e0137970920ee362d0a61a478fddb5">dfbc7818f5975f69a806ed91c99e495786fc5cd905cfc68a4d706d06653d9f0912253603e9ce181d93b2d042065d8f00b474fee3e14105397012cdf7461953204627e99ad7c7a1cdf5c3b817af0e24602e734049dd43d9374b5f8a0af6de18192bf8933744af0f6825bf970d80bc779e72edc18b91e4b6ba06dc766e92b0f32b</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">笔者私人文件，请勿访问！</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
     
     
     <summary type="html">这是一个笔者私人博客，禁止访问</summary>
@@ -42,9 +66,9 @@
     <link href="http://yoursite.com/2022/01/28/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%BA%8C)%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E8%AE%B2%E8%A7%A3%E4%B8%80%E4%B8%8BECS/"/>
     <id>http://yoursite.com/2022/01/28/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%BA%8C)%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E8%AE%B2%E8%A7%A3%E4%B8%80%E4%B8%8BECS/</id>
     <published>2022-01-28T05:17:37.000Z</published>
-    <updated>2022-01-28T06:31:29.955Z</updated>
+    <updated>2022-01-28T08:04:29.138Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在上一篇我们已经成功的配置好本地的环境了，接下来我们来简单的讲解一下ECS。(笔者也是初学者，如果有错误欢迎大家指出)  </p><h1 id="ECS简介"><a href="#ECS简介" class="headerlink" title="ECS简介"></a>ECS简介</h1><p>在写ECS之前我们先了解一下什么是ECS？  </p><h2 id="ECS是什么？"><a href="#ECS是什么？" class="headerlink" title="ECS是什么？"></a>ECS是什么？</h2><p>ECS的缩写就是Entity Component System。对应的就是实例、组件和系统。笔者认为这是和MVC框架类似，虽然作用不是一样的，但是都代表了一种思想。ECS的思想打破了我们面向对象的思想，让我们直接面向数据变成。以往的Unity提供给使用者的都是GameObject，让我们来面向对象思想，但是ECS则是把GameObject拆成了Entity和Component，然后由System再进行同意管理。  </p><h2 id="为什么使用ECS？"><a href="#为什么使用ECS？" class="headerlink" title="为什么使用ECS？"></a>为什么使用ECS？</h2><h3 id="在编写思想上"><a href="#在编写思想上" class="headerlink" title="在编写思想上"></a>在编写思想上</h3><p>笔者认为，现在的大部分游戏其实都是数据驱动的游戏，游戏的界面对象其实是给使用者提供的。一个好的程序猿应该做到真正的数据和显示分离，这样不管显示是什么样，数据都可以去应对，但其实这是理想化的，因为显示是很难统一的。  </p><h3 id="在编写代码上"><a href="#在编写代码上" class="headerlink" title="在编写代码上"></a>在编写代码上</h3><p>ECS为我们提供了面向数据编程的结构、强迫使我们数据和显示进行分离，这样虽然编写复杂了一些，但是我们的扩展性和适应性会有很大的提高。<br>Unity的MonoBehavior的class其实是非常笨重的，里面包含了大量的信息，我们在平时开发中其实用不到那么多信息，在ECS上我们只需要添加上我们需要用到的组件即可。  </p><h3 id="在内存管里方面"><a href="#在内存管里方面" class="headerlink" title="在内存管里方面"></a>在内存管里方面</h3><p>ECS引入了Archetype和Chuck两个概念，Archetype对应的是我们的Component，就是存放我们Entity需要的所有组件，然后多个Archetype会被封装成一个个的Archetype Chuck，然后在内存里按照顺序进行存放，如果一个Chuck存放满了，会在后面内存里创建新的Chuck，这样Component就是在一起的，每次查找Component的时候速度会大大提升。<br>下面我们来看一看内存结构图：  </p><p><img src="https://i0.hdslb.com/bfs/article/6cb305d158f9daf75ef880b035a26afdea2961af.png" alt="在这里插入图片描述"></p><p><img src="https://i0.hdslb.com/bfs/article/363335a8d53167863db8a0c040e29e37d2f9b269.png" alt="在这里插入图片描述">  </p>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在上一篇我们已经成功的配置好本地的环境了，接下来我们来简单的讲解一下ECS。(笔者也是初学者，如果有错误欢迎大家指出)  </p><h1 id="ECS简介"><a href="#ECS简介" class="headerlink" title="ECS简介"></a>ECS简介</h1><p>在写ECS之前我们先了解一下什么是ECS？  </p><h2 id="ECS是什么？"><a href="#ECS是什么？" class="headerlink" title="ECS是什么？"></a>ECS是什么？</h2><p>ECS的缩写就是Entity Component System。对应的就是实例、组件和系统。笔者认为这是和MVC框架类似，虽然作用不是一样的，但是都代表了一种思想。ECS的思想打破了我们面向对象的思想，让我们直接面向数据变成。以往的Unity提供给使用者的都是GameObject，让我们来面向对象思想，但是ECS则是把GameObject拆成了Entity和Component，然后由System再进行同意管理。  </p><h2 id="为什么使用ECS？"><a href="#为什么使用ECS？" class="headerlink" title="为什么使用ECS？"></a>为什么使用ECS？</h2><h3 id="在编写思想上"><a href="#在编写思想上" class="headerlink" title="在编写思想上"></a>在编写思想上</h3><p>笔者认为，现在的大部分游戏其实都是数据驱动的游戏，游戏的界面对象其实是给使用者提供的。一个好的程序猿应该做到真正的数据和显示分离，这样不管显示是什么样，数据都可以去应对，但其实这是理想化的，因为显示是很难统一的。  </p><h3 id="在编写代码上"><a href="#在编写代码上" class="headerlink" title="在编写代码上"></a>在编写代码上</h3><p>ECS为我们提供了面向数据编程的结构、强迫使我们数据和显示进行分离，这样虽然编写复杂了一些，但是我们的扩展性和适应性会有很大的提高。<br>Unity的MonoBehavior的class其实是非常笨重的，里面包含了大量的信息，我们在平时开发中其实用不到那么多信息，在ECS上我们只需要添加上我们需要用到的组件即可。  </p><h3 id="在内存管里方面"><a href="#在内存管里方面" class="headerlink" title="在内存管里方面"></a>在内存管里方面</h3><p>ECS引入了Archetype和Chuck两个概念，Archetype对应的是我们的Component，就是存放我们Entity需要的所有组件，然后多个Archetype会被封装成一个个的Archetype Chuck，然后在内存里按照顺序进行存放，如果一个Chuck存放满了，会在后面内存里创建新的Chuck，这样Component就是在一起的，每次查找Component的时候速度会大大提升。<br>下面我们来看一看内存结构图：  </p><p><img src="https://i0.hdslb.com/bfs/article/6cb305d158f9daf75ef880b035a26afdea2961af.png" alt="在这里插入图片描述"></p><p><img src="https://i0.hdslb.com/bfs/article/363335a8d53167863db8a0c040e29e37d2f9b269.png" alt="在这里插入图片描述">  </p><h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>Unity使用的是单线程，虽然里面会有携程一些，但其根本原理都是单线程，所以并不能完全发挥CPU，ECS引入了多线程的Job system，并且Job System会把Entities分发到CPU的线程上，这样就提高了CPU的利用率。  </p><h1 id="怎么使用ECS"><a href="#怎么使用ECS" class="headerlink" title="怎么使用ECS"></a>怎么使用ECS</h1><p>ECS主要提升的是CPU的性能，并不是所有的项目都适合使用ECS，因为ECS是新的思想，团队开发成本也是有一定提高的，笔者业主要是为了学习了解，拓展一下自己的思路。<br>接下来笔者会继续学习如何使用ECS。  </p>]]></content>
     
     
       
@@ -469,30 +493,6 @@
     
     
     <category term="网址" scheme="http://yoursite.com/tags/%E7%BD%91%E5%9D%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity杂文——AssetDatabase资源数据库</title>
-    <link href="http://yoursite.com/2019/09/30/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94AssetDatabase%E8%B5%84%E6%BA%90%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    <id>http://yoursite.com/2019/09/30/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94AssetDatabase%E8%B5%84%E6%BA%90%E6%95%B0%E6%8D%AE%E5%BA%93/</id>
-    <published>2019-09-30T06:22:19.000Z</published>
-    <updated>2021-12-27T03:39:09.482Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>unity中有个类，叫做AssetDatabase，这是一个在编辑器(Editor)下使用的一个类，是一个允许您访问工程中资源的API。这个类包含了查找、加载、创建、删除和修改资源等。这个类仅适用于编辑器状态下。</p><h1 id="导入资源"><a href="#导入资源" class="headerlink" title="导入资源"></a>导入资源</h1><p>unity不仅仅可以通过拖拽导入资源，还可以通过脚本导入资源，代码如下：  </p><pre><code>sing UnityEngine;using UnityEditor; public class ImportAsset &#123;    [MenuItem (&quot;AssetDatabase/ImportExample&quot;)]    static void ImportExample ()    &#123;        AssetDatabase.ImportAsset(&quot;资源路径+资源名字&quot;, ImportAssetOptions.Default);    &#125;&#125;</code></pre><h1 id="加载资源"><a href="#加载资源" class="headerlink" title="加载资源"></a>加载资源</h1><p>加载资源有很多API，大家可以参考API手册进行操作，加载API包含：</p><pre><code>AssetDatabase.LoadAssetAtPathAssetDatabase.LoadMainAssetAtPathAssetDatabase.LoadAllAssetRepresentationsAtPathAssetDatabase.LoadAllAssetsAtPath</code></pre><p>参考下面案例进行使用：</p><pre><code>using UnityEngine;    using UnityEditor;    public class ImportAsset &#123;        [MenuItem (&quot;AssetDatabase/LoadAssetExample&quot;)]    static void ImportExample ()        &#123;            Texture2D t = AssetDatabase.LoadAssetAtPath(&quot;Assets/Textures/texture.jpg&quot;, typeof(Texture2D)) as Texture2D;        &#125;    &#125;</code></pre><h1 id="操作文件"><a href="#操作文件" class="headerlink" title="操作文件"></a>操作文件</h1><h2 id="更改提交至数据库"><a href="#更改提交至数据库" class="headerlink" title="更改提交至数据库"></a>更改提交至数据库</h2><p>这里提前声明一下，修改完资源后应该调用AssetDatabase.Refresh 将更改提交至数据库，并使其显示在工程中。</p><h2 id="创建资源"><a href="#创建资源" class="headerlink" title="创建资源"></a>创建资源</h2><p>创建文件的API是：<strong>CreateAsset</strong>  </p><pre><code>Material material = new Material (Shader.Find(“Specular”));AssetDatabase.CreateAsset(material, “Assets/MyMaterial.mat”);    if(AssetDatabase.Contains(material))    //判断是否包含这个资源    Debug.Log(“Material asset created”);</code></pre><p>##创建文件夹<br>创建文件夹：<strong>CreateFolder</strong>  </p><pre><code>ret = AssetDatabase.CreateFolder(&quot;Assets&quot;, &quot;NewFolder&quot;);if(AssetDatabase.GUIDToAssetPath(ret) != &quot;&quot;)    Debug.Log(&quot;Folder asset created&quot;);else    Debug.Log(&quot;Couldn‘t find the GUID for the path&quot;);</code></pre><h2 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h2><p>给文件夹重新命名：<strong>RenameAsset</strong>  </p><pre><code>ret = AssetDatabase.RenameAsset(“Assets/MyMaterial.mat”, “MyMaterialNew”);if(ret == “”)    Debug.Log(“Material asset renamed to MyMaterialNew”);    else    Debug.Log(ret);</code></pre><h2 id="移动资源位置"><a href="#移动资源位置" class="headerlink" title="移动资源位置"></a>移动资源位置</h2><p>移动资源所在的位置：<strong>MoveAsset</strong><br>得到资源所在路径：GetAssetPath</p><pre><code>ret = AssetDatabase.MoveAsset(AssetDatabase.GetAssetPath(material), &quot;Assets/NewFolder/MyMaterialNew.mat&quot;);if(ret == &quot;&quot;)    Debug.Log(&quot;Material asset moved to NewFolder/MyMaterialNew.mat&quot;);else    Debug.Log(ret);</code></pre><h2 id="复制资源"><a href="#复制资源" class="headerlink" title="复制资源"></a>复制资源</h2><p>复制一个资源：<strong>CopyAsset</strong></p><pre><code>if(AssetDatabase.CopyAsset(AssetDatabase.GetAssetPath(material), &quot;Assets/MyMaterialNew.mat&quot;))    Debug.Log(&quot;Material asset copied as Assets/MyMaterialNew.mat&quot;);else    Debug.Log(&quot;Couldn‘t copy the material&quot;);</code></pre><h2 id="移动到回收站"><a href="#移动到回收站" class="headerlink" title="移动到回收站"></a>移动到回收站</h2><p>把资源移动到回收站：<strong>MoveAssetToTrash</strong></p><pre><code>if(AssetDatabase.MoveAssetToTrash(AssetDatabase.GetAssetPath(MaterialCopy)))    Debug.Log(&quot;MaterialCopy asset moved to trash&quot;);</code></pre><h2 id="删除资源"><a href="#删除资源" class="headerlink" title="删除资源"></a>删除资源</h2><p>删除一个资源或文件夹：DeleteAsset</p><pre><code>if(AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(material)))    Debug.Log(&quot;Material asset deleted&quot;);if(AssetDatabase.DeleteAsset(&quot;Assets/NewFolder&quot;))    Debug.Log(&quot;NewFolder deleted&quot;);</code></pre><p>官方API网址：<a href="https://docs.unity3d.com/ScriptReference/AssetDatabase.html"><font color=steelblue size=3><strong>https://docs.unity3d.com/ScriptReference/AssetDatabase.html</strong></font></a>  </p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;unity中有个类，叫做AssetDatabase，这是一个在编辑器(Editor)下使用的一个类，是一个允许您访问工程中资源的API。这个</summary>
-      
-    
-    
-    
-    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
-    
-    
-    <category term="Unity编辑器扩展" scheme="http://yoursite.com/tags/Unity%E7%BC%96%E8%BE%91%E5%99%A8%E6%89%A9%E5%B1%95/"/>
     
   </entry>
   
