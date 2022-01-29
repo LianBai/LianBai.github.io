@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-01-28T07:55:16.604Z</updated>
+  <updated>2022-01-29T06:18:24.676Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>UnityECS入门(三)——写一个简单的ECS</title>
+    <link href="http://yoursite.com/2022/01/29/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%B8%89)%E2%80%94%E2%80%94%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84ECS/"/>
+    <id>http://yoursite.com/2022/01/29/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%B8%89)%E2%80%94%E2%80%94%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84ECS/</id>
+    <published>2022-01-29T03:12:57.000Z</published>
+    <updated>2022-01-29T06:18:24.676Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><pre><code>unity: 2020.3.18f1Entities: 0.17.0Jobs: 0.8.0</code></pre><h1 id="SimpleECS"><a href="#SimpleECS" class="headerlink" title="SimpleECS"></a>SimpleECS</h1><p>一个简单的ECS应该包括Entity、Component和System，接下来笔者就带着大家写一个简单的ECS。  </p><h2 id="Entity"><a href="#Entity" class="headerlink" title="Entity"></a>Entity</h2><p>unity的<strong>Entity是已经封装好的，不需要自己创建</strong>。笔者一开始也没有理解，每个实例不一样，为啥不是自己制作Entity，笔者目前的理解是Entity就像一个没有任何属性的GameObject，我们是通过给这个空的GameObject添加Component来组成我们理解的实体对象。<br>下面我们来分析一下Entity，源码如下：  </p><pre><code>using System;namespace Unity.Entities&#123;        public struct Entity : IEquatable&lt;Entity&gt;, IComparable&lt;Entity&gt;    &#123;                public int Index;        public int Version;        public static bool operator==(Entity lhs, Entity rhs)        &#123;            return lhs.Index == rhs.Index &amp;&amp; lhs.Version == rhs.Version;        &#125;        public static bool operator!=(Entity lhs, Entity rhs)        &#123;            return !(lhs == rhs);        &#125;        public int CompareTo(Entity other)        &#123;            return Index - other.Index;        &#125;        public override bool Equals(object compare)        &#123;            return this == (Entity)compare;        &#125;        public override int GetHashCode()        &#123;            return Index;        &#125;        public static Entity Null =&gt; new Entity();        public bool Equals(Entity entity)        &#123;            return entity.Index == Index &amp;&amp; entity.Version == Version;        &#125;        public override string ToString()        &#123;            return Equals(Entity.Null) ? &quot;Entity.Null&quot; : $&quot;Entity(&#123;Index&#125;:&#123;Version&#125;)&quot;;        &#125;    &#125;&#125;</code></pre><p>上面的代码重要部分是两个字段，<strong>Index</strong>和<strong>Version</strong>。<br>Index其实不难理解，笔者在上一篇文章提起过，Entity绑定的component是统一放在一个Chunk上的，为了提高访问的速度，当我们想要操作一个Entity的Component的时候，我们是通过Index在EntityDataManager中查找所在的Chunk和IndexInChunk。<br>Version是一个类似于版本号的东西，就像版本号会递增一样，Entity每次被回收的时候这个值会+1。用途的话，笔者猜测可能是当我们回调一个实例的时候，可以判断实例是否已经被回收了或者改变了。  </p><h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><pre><code>[GenerateAuthoringComponent]public struct SimpleEcsComp : IComponentData&#123;    public float m_MoveSpeed;&#125;</code></pre><p>Component可以理解为Entity具有的属性或者组件，一个Entity是可以绑定多个Component的，就像一个GameObject上挂很多组件一样，</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;unity: 2020.3.18f1
+Entities: 0.17.0
+Jobs: 0.8.0
+&lt;/code&gt;&lt;/pre&gt;
+</summary>
+      
+    
+    
+    
+    <category term="UnityECS" scheme="http://yoursite.com/categories/UnityECS/"/>
+    
+    
+    <category term="ECS" scheme="http://yoursite.com/tags/ECS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>给hexo博客添加访问密码</title>
     <link href="http://yoursite.com/2022/01/28/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E5%AF%86%E7%A0%81/"/>
     <id>http://yoursite.com/2022/01/28/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E5%AF%86%E7%A0%81/</id>
     <published>2022-01-28T07:31:45.000Z</published>
-    <updated>2022-01-28T07:55:16.604Z</updated>
+    <updated>2022-01-29T06:25:45.339Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>笔者记忆力比较差，于是笔者想有个空间能记录笔者一些私人的内容，于是笔者想起来比较经常会遇到一些加密的博客，笔者便想如果自己如果有一个博客能记录自己的私人内容，然后把博客进行加密即可，这样自己想要查看内容的额时候只需要访问隐私博客，然后输入密码就可以看到了。  </p><h1 id="安装Hexo-Blog-Encrypt"><a href="#安装Hexo-Blog-Encrypt" class="headerlink" title="安装Hexo-Blog-Encrypt"></a>安装Hexo-Blog-Encrypt</h1><p>hexo的博客添加密码其实只需要安装一个插件就可以了。<br>通过npm在hexo博客目录安装Hexo-Blog-Encrypt  </p><pre><code>npm install --save hexo-blog-encrypt</code></pre><h1 id="博客使用密码"><a href="#博客使用密码" class="headerlink" title="博客使用密码"></a>博客使用密码</h1><p>只需要在博客的开头使用  </p><pre><code>---title: Hello Worlddate: 2022-01-28 15:31:45password: 密码---</code></pre><p>还可以添加一些描述的标签  </p><pre><code>---title: Hello Worldtags:- 加密文章的tagdate: 2022-01-28 15:31:45password: 密码abstract: 这里有东西被加密了，需要输入密码查看哦。message: 您好，这里需要密码。wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。---</code></pre><h1 id="根目录添加配置文件"><a href="#根目录添加配置文件" class="headerlink" title="根目录添加配置文件"></a>根目录添加配置文件</h1><pre><code># 安全encrypt: # hexo-blog-encrypt  abstract: 这里有东西被加密了，需要输入密码查看哦。  message: 您好, 这里需要密码.  tags:  - &#123;name: tagName, password: 密码A&#125;  - &#123;name: tagName, password: 密码B&#125;  template: &lt;div id=&quot;hexo-blog-encrypt&quot; data-wpm=&quot;&#123;&#123;hbeWrongPassMessage&#125;&#125;&quot; data-whm=&quot;&#123;&#123;hbeWrongHashMessage&#125;&#125;&quot;&gt;&lt;div class=&quot;hbe-input-container&quot;&gt;&lt;input type=&quot;password&quot; id=&quot;hbePass&quot; placeholder=&quot;&#123;&#123;hbeMessage&#125;&#125;&quot; /&gt;&lt;label&gt;&#123;&#123;hbeMessage&#125;&#125;&lt;/label&gt;&lt;div class=&quot;bottom-line&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;script id=&quot;hbeData&quot; type=&quot;hbeData&quot; data-hmacdigest=&quot;&#123;&#123;hbeHmacDigest&#125;&#125;&quot;&gt;&#123;&#123;hbeEncryptedData&#125;&#125;&lt;/script&gt;&lt;/div&gt;  wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.  wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</code></pre>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>笔者记忆力比较差，于是笔者想有个空间能记录笔者一些私人的内容，于是笔者想起来比较经常会遇到一些加密的博客，笔者便想如果自己如果有一个博客能记录自己的私人内容，然后把博客进行加密即可，这样自己想要查看内容的额时候只需要访问隐私博客，然后输入密码就可以看到了。  </p><h1 id="安装Hexo-Blog-Encrypt"><a href="#安装Hexo-Blog-Encrypt" class="headerlink" title="安装Hexo-Blog-Encrypt"></a>安装Hexo-Blog-Encrypt</h1><p>hexo的博客添加密码其实只需要安装一个插件就可以了。<br>通过npm在hexo博客目录安装Hexo-Blog-Encrypt  </p><pre><code>npm install --save hexo-blog-encrypt</code></pre><h1 id="博客使用密码"><a href="#博客使用密码" class="headerlink" title="博客使用密码"></a>博客使用密码</h1><p>只需要在博客的开头使用  </p><pre><code>---title: Hello Worlddate: 2022-01-28 15:31:45password: 密码---</code></pre><p>还可以添加一些描述的标签  </p><pre><code>---title: Hello Worldtags:- 加密文章的tagdate: 2022-01-28 15:31:45password: 密码abstract: 这里有东西被加密了，需要输入密码查看哦。message: 您好，这里需要密码。wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。---</code></pre><h1 id="根目录添加配置文件"><a href="#根目录添加配置文件" class="headerlink" title="根目录添加配置文件"></a>根目录添加配置文件</h1><pre><code># 安全encrypt: # hexo-blog-encrypt  abstract: 这里有东西被加密了，需要输入密码查看哦。  message: 您好, 这里需要密码.  tags:  - &#123;name: tagName, password: 密码A&#125;  - &#123;name: tagName, password: 密码B&#125;  #密码主题 https://github.com/D0n9X1n/hexo-blog-encrypt#encrypt-theme  theme: wave      wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.  wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</code></pre>]]></content>
     
     
       
@@ -47,7 +75,7 @@
     <published>2022-01-28T06:29:49.000Z</published>
     <updated>2022-01-28T10:35:56.410Z</updated>
     
-    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="4f431ce80e75583a40387149286d0dfff427b508115b59b96e7e695ed04d0755">dfbc7818f5975f69a806ed91c99e4957d1bc4a02d0d8c0a3135d34e3e6dc1fe546af677c92c14f2681bc066fb0eba2516d0277fd20b8a58c93efe976b64baf88f1291e7e9c7dd51f96fd8f9daf24d25eb50cf655dd3910894fc9080b0a9f4df247254a9a39c46950fe49017f859d7f3144b3f9249086c34f905064a4cac8c00d3dfe621b32b5ec2e62ee91d9888c900ba62849a21addaa6d6962f62436be0e0f0453ea15e87673aa8c32bb44577b5e9700f52805862ddbf23dc0c2a68f3b00ddd50a344d068f5f8e9233a7234baeef25e36de2a88aea44eba02b84dbdbf797945a48bcd359c422f60ac0aa810f2afe252f8bddeb32a5272aeff2eb8f4054bda24ecbc10e819bbd47dc90dde73e22057a3dabf4a7313e2862a6445b135cb591420e36051e5a085c8ada8be70ed7e0d2ffa5f8b47f438eb1895ab93f4b46ed66d79fb3a268fedec05a9c7724f9b090778cc070ae9699f35932208008b10845e9e720965ccdf385d10c1d9f439cacae90eefcf90008441cff8b0fbe3144e85155010fe6e110667d257269d1022db720998833370feb1dabb504f4e28ebc90c30fec30766a9da3fc925f52298d739020303a657aa37e8871d95ab0139b9f405b99b3e7a02dac6299bc2ddf61ea7be517466c</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-xray">      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">您好, 这里需要密码.</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="4f431ce80e75583a40387149286d0dfff427b508115b59b96e7e695ed04d0755">dfbc7818f5975f69a806ed91c99e4957d1bc4a02d0d8c0a3135d34e3e6dc1fe546af677c92c14f2681bc066fb0eba2516d0277fd20b8a58c93efe976b64baf88f1291e7e9c7dd51f96fd8f9daf24d25eb50cf655dd3910894fc9080b0a9f4df247254a9a39c46950fe49017f859d7f3144b3f9249086c34f905064a4cac8c00d3dfe621b32b5ec2e62ee91d9888c900ba62849a21addaa6d6962f62436be0e0f0453ea15e87673aa8c32bb44577b5e9700f52805862ddbf23dc0c2a68f3b00ddd50a344d068f5f8e9233a7234baeef25e36de2a88aea44eba02b84dbdbf797945a48bcd359c422f60ac0aa810f2afe252f8bddeb32a5272aeff2eb8f4054bda24ecbc10e819bbd47dc90dde73e22057a3dabf4a7313e2862a6445b135cb591420e36051e5a085c8ada8be70ed7e0d2ffa5f8b47f438eb1895ab93f4b46ed66d79fb3a268fedec05a9c7724f9b090778cc070ae9699f35932208008b10845e9e720965ccdf385d10c1d9f439cacae90eefcf90008441cff8b0fbe3144e85155010fe6e110667d257269d1022db720998833370feb1dabb504f4e28ebc90c30fec30766a9da3fc925f52298d739020303a657aa37e8871d95ab0139b9f405b99b3e7a02dac6299bc2ddf61ea7be517466c</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-wave">      <input class="hbe hbe-input-field hbe-input-field-wave" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-wave" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-wave">您好, 这里需要密码.</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-wave" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -469,30 +497,6 @@
     
     
     <category term="Odin Inspector" scheme="http://yoursite.com/tags/Odin-Inspector/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用网站网址</title>
-    <link href="http://yoursite.com/2019/10/14/%E5%85%B6%E4%BB%96/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E7%BD%91%E5%9D%80/"/>
-    <id>http://yoursite.com/2019/10/14/%E5%85%B6%E4%BB%96/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E7%BD%91%E5%9D%80/</id>
-    <published>2019-10-14T05:20:04.000Z</published>
-    <updated>2022-01-27T03:51:09.131Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://zhutix.com/"><font color=steelblue size=5>致美化</font></a><br><a href="https://www.jianshu.com/p/f1b27e85bc35"><font color=steelblue size=5>Odin Inspector</font></a><br><a href="https://my.vultr.com/"><font color=steelblue size=5>Vultr服务器网址</font></a><br><a href="https://www.itblogcn.com/article/1501.html"><font color=steelblue size=5>VRay一键搭建VPN博客网址</font></a><br><a href="https://github.com/strangeioc/strangeioc"><font color=steelblue size=5>StrangeIOC开源网址</font></a><br><a href="https://kb.cnblogs.com/page/42470/"><font color=steelblue size=5>LINQ</font></a><br><a href="https://hexo.io/themes/"><font color=steelblue size=5>hexo主题</font></a><br><a href="https://blog.uwa4d.com/"><font color=steelblue size=5>UWA</font></a><br><a href="https://www.syntevo.com/cn/smartgit/register-non-commercial/"><font color=steelblue size=5>SmartGit获取免费key</font></a><br><a href="https://www.jishuqq.com/QQjiqiao/2019/0108/62573.html"><font color=steelblue size=5>在线接收短信</font></a><br><a href="https://refactoringguru.cn/"><font color=steelblue size=5>重构与设计模式</font></a><br><a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md"><font color=steelblue size=5>博客添加看板娘</font></a><br><a href="https://suulnnka.github.io/BullshitGenerator/index.html"><font color=steelblue size=5>文章生成器</font></a><br><a href="http://www.aisharing.com/archives"><font color=steelblue size=5>AI分享网站</font></a><br><a href="https://visualgo.net/zh"><font color=steelblue size=5>算法可视化</font></a><br><a href="https://bestcclm.com/"><font color=steelblue size=5>破解网址</font></a><br><a href="https://greasyfork.org/zh-CN"><font color=steelblue size=5>greasyfork</font></a><br><a href="https://www.jianshu.com/p/cd7be494435a"><font color=steelblue size=5>AWS CLI使用方法</font></a><br><a href="https://github.com/mob-sakai"><font color=steelblue size=5>特殊UI的Git仓库</font></a><br><a href="https://msdn.itellyou.cn/"><font color=steelblue size=5>MSDN</font></a><br><a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/install_setup.html"><font color=steelblue size=5>ECS手册</font></a>  </p><h1 id="Unity博客"><a href="#Unity博客" class="headerlink" title="Unity博客"></a>Unity博客</h1><p><a href="https://www.jianshu.com/p/4fee08fc531c?utm_campaign=haruki&utm_content=note&utm_medium=reader_share&utm_source=qq"><font color=steelblue size=5>【Unity项目实战】主程进阶之路文章整理</font></a><br><a href="https://aihailan.com/blog/"><font color=steelblue size=5>海澜大佬博客</font></a><br><a href="https://www.yomunchan.moe/"><font color=steelblue size=5>有木酱的小屋</font></a><br><a href="https://dingxiaowei.cn/"><font color=steelblue size=5>丁小未博客</font></a><br><a href="https://unityassetcollection.com/"><font color=steelblue size=5>Unity资源</font></a><br><a href="http://tonytang1990.github.io/2017/04/29/Unity%E8%87%AA%E5%8A%A8%E5%8C%96&IOS%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AD%BE%E5%8C%85/"><font color=steelblue size=5>Unity自动化&amp;IOS自动化签包</font></a><br><a href="https://www.jingfengji.tech/"><font color=steelblue size=5>JingFengJi博客</font></a><br><a href="https://www.cnblogs.com/wangshenhe/p/3256657.html"><font color=steelblue size=5>反射博客</font></a><br><a href="https://blog.csdn.net/qq_36848370/article/details/103125352"><font color=steelblue size=5>ShareSDK</font></a>   </p><pre><code>Markdown插入gif&amp;&amp;图片：&lt;iframe height=1375 width=1029                       src=&quot;https://upload-images.jianshu.io/upload_images/7643202-60190f219a6cbf63.gif&quot;                       frameborder=0 allowfullscreen&gt;&lt;/iframe&gt;    </code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://zhutix.com/&quot;&gt;&lt;font color=steelblue size=5&gt;致美化&lt;/font&gt;&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.jianshu.com/p/f1b27e85bc35&quot;&gt;&lt;font color</summary>
-      
-    
-    
-    
-    <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-    <category term="网址" scheme="http://yoursite.com/tags/%E7%BD%91%E5%9D%80/"/>
     
   </entry>
   
