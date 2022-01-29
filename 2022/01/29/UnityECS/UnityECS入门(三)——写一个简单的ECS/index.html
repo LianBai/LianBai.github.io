@@ -306,12 +306,7 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
+        <a 
                                            class="friends">Friends</a>
         
     </div>
@@ -866,12 +861,12 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-01-29 14:18:24'>2022-01-29 11:12</time>
+            Created At : <time class="date" title='Updated At: 2022-01-29 17:30:05'>2022-01-29 11:12</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:494</span>
+        <span>Count:504</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -980,7 +975,7 @@ public struct SimpleEcsComp : IComponentData
     public float m_MoveSpeed;
 &#125;
 </code></pre>
-<p>Component可以理解为Entity具有的属性或者组件，一个Entity是可以绑定多个Component的，就像一个GameObject上挂很多组件一样，</p>
+<p>Component可以理解为Entity具有的属性或者组件，一个Entity是可以绑定多个Component的，就像一个GameObject上挂很多组件一样。<br>Component继承IComponentData或者ISharedComponentData这两个接口。  </p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
@@ -992,18 +987,6 @@ public struct SimpleEcsComp : IComponentData
     <a  class="dashang" onclick="dashangToggle()">💰</a>
 </p>
 
-
-<div class="article_copyright">
-    <p><span class="copy-title">Title:</span>UnityECS入门(三)——写一个简单的ECS</p>
-    <p><span class="copy-title">Count:</span><span class="post-count">494</span></p>
-    <p><span class="copy-title">Author:</span><a  title="LianBai">LianBai</a></p>
-    <p><span class="copy-title">Created At:</span>2022-01-29, 11:12:57</p>
-    <p><span class="copy-title">Updated At:</span>2022-01-29, 14:18:24</p>
-    <span class="copy-title">Url:</span><a class="post-url" href="/2022/01/29/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%B8%89)%E2%80%94%E2%80%94%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84ECS/" title="UnityECS入门(三)——写一个简单的ECS">http://yoursite.com/2022/01/29/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%B8%89)%E2%80%94%E2%80%94%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84ECS/</a>
-    <p>
-        <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
-    </p>
-</div>
 
 
 
@@ -1093,6 +1076,20 @@ public struct SimpleEcsComp : IComponentData
 
         /*高亮代码块行号*/
         
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
 
         /*访问数量*/
         
@@ -1103,6 +1100,25 @@ public struct SimpleEcsComp : IComponentData
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
 
         
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
         
     }
 
@@ -1117,6 +1133,38 @@ public struct SimpleEcsComp : IComponentData
 </script>
 
 <!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
 
 <!--自定义样式设置-->
 <style>

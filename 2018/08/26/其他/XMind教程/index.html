@@ -306,12 +306,7 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
+        <a 
                                            class="friends">Friends</a>
         
     </div>
@@ -974,18 +969,6 @@
 </p>
 
 
-<div class="article_copyright">
-    <p><span class="copy-title">Title:</span>XMind教程</p>
-    <p><span class="copy-title">Count:</span><span class="post-count">1.2k</span></p>
-    <p><span class="copy-title">Author:</span><a  title="LianBai">LianBai</a></p>
-    <p><span class="copy-title">Created At:</span>2018-08-26, 09:27:54</p>
-    <p><span class="copy-title">Updated At:</span>2021-12-27, 11:39:09</p>
-    <span class="copy-title">Url:</span><a class="post-url" href="/2018/08/26/%E5%85%B6%E4%BB%96/XMind%E6%95%99%E7%A8%8B/" title="XMind教程">http://yoursite.com/2018/08/26/%E5%85%B6%E4%BB%96/XMind%E6%95%99%E7%A8%8B/</a>
-    <p>
-        <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
-    </p>
-</div>
-
 
 
     <div id="comments"></div>
@@ -1074,6 +1057,20 @@
 
         /*高亮代码块行号*/
         
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
 
         /*访问数量*/
         
@@ -1084,6 +1081,25 @@
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
 
         
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
         
     }
 
@@ -1098,6 +1114,38 @@
 </script>
 
 <!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
 
 <!--自定义样式设置-->
 <style>

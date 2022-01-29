@@ -306,12 +306,7 @@
     </div>
     <div>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
-        
-        <a style="width: 50%"
-                
+        <a 
                                            class="friends">Friends</a>
         
     </div>
@@ -932,7 +927,7 @@ ls:列出.ssh目录下的文件
 </code></pre>
 <p><img src="http://file.liangxiegame.com/7c48ab93-799b-411b-9ffe-3dc894a8b5d9.png">  </p>
 <p><img src="http://file.liangxiegame.com/e8feb75f-dfd5-42ae-b612-dc0650408e67.png"><br>3.生成秘钥，然后得到id_rsa和id_rsa.pub文件(默认保存路径：C:\Users\Administrator.ssh)，命令是：<strong>ssh-keygen -t rsa -C</strong> <strong>“自己的邮箱”<strong>，中间会有三次停顿，敲三次回车就行了<br><img src="http://file.liangxiegame.com/e0ce3e6f-c3bf-4686-a6ba-004c0c68121a.png"><br>4.添加秘钥到ssh-agent，命令是：</strong>eval “$(ssh-agent -s)”</strong><br><img src="http://file.liangxiegame.com/f9d5874b-a04c-4098-a9fb-d4ff74e61f76.png"><br>5.将生成的SSH key添加到ssh-agent,命令是：<strong>ssh-add ~/.ssh/id_rsa</strong><br><img src="http://file.liangxiegame.com/717e62d6-f236-49a0-a485-707efc0ccf5c.png">  </p>
-<h2 id="配置Github信息"><a href="#配置Github信息" class="headerlink" title="配置Github信息"></a>配置Github信息</h2><p>1.网页登录自己的github，然后点击右上角头像，选择setting<br>然后选择左侧的<strong>SSH and GPG keys</strong>,然后点击<strong>New ssh key</strong>添加一个ssh key<br><img src="http://file.liangxiegame.com/4186b9a5-9e02-4e91-8d08-c9aef5db1e23.png"><br>2.将上次创建的id_rsa.pub(默认保存路径：C:\Users\Administrator.ssh)里面的内容复制到github新建的ssh key里，Title可以随便起名字<br><img src="http://file.liangxiegame.com/d4473797-89f6-473e-bab8-a329fef0881c.png"><br>3.此时在git命令下测试ssh是不是成功，如果看到Hi 后面是你的名字，就说明成功了。命令是：<strong>ssh -T <a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#x6d;">&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#x6d;</a></strong><br><font size= 4 color=#FF0000>注：此时git所在的还是.ssh目录，如果不在此目录，输入：cd ~/.ssh跳到.ssh目录</font> </p>
+<h2 id="配置Github信息"><a href="#配置Github信息" class="headerlink" title="配置Github信息"></a>配置Github信息</h2><p>1.网页登录自己的github，然后点击右上角头像，选择setting<br>然后选择左侧的<strong>SSH and GPG keys</strong>,然后点击<strong>New ssh key</strong>添加一个ssh key<br><img src="http://file.liangxiegame.com/4186b9a5-9e02-4e91-8d08-c9aef5db1e23.png"><br>2.将上次创建的id_rsa.pub(默认保存路径：C:\Users\Administrator.ssh)里面的内容复制到github新建的ssh key里，Title可以随便起名字<br><img src="http://file.liangxiegame.com/d4473797-89f6-473e-bab8-a329fef0881c.png"><br>3.此时在git命令下测试ssh是不是成功，如果看到Hi 后面是你的名字，就说明成功了。命令是：<strong>ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a></strong><br><font size= 4 color=#FF0000>注：此时git所在的还是.ssh目录，如果不在此目录，输入：cd ~/.ssh跳到.ssh目录</font> </p>
 <h2 id="假如配置失败："><a href="#假如配置失败：" class="headerlink" title="假如配置失败："></a>假如配置失败：</h2><pre><code>    1.出现 Host key verification failed
     当出现 Are key sure you want to continue.... (yes/no)?的时候不要点击回车，输入yes就行了
 </code></pre>
@@ -972,18 +967,6 @@ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
     <a  class="dashang" onclick="dashangToggle()">💰</a>
 </p>
 
-
-<div class="article_copyright">
-    <p><span class="copy-title">Title:</span>github+hexo博客搭建</p>
-    <p><span class="copy-title">Count:</span><span class="post-count">1.4k</span></p>
-    <p><span class="copy-title">Author:</span><a  title="LianBai">LianBai</a></p>
-    <p><span class="copy-title">Created At:</span>2019-09-21, 10:44:45</p>
-    <p><span class="copy-title">Updated At:</span>2022-01-28, 15:25:58</p>
-    <span class="copy-title">Url:</span><a class="post-url" href="/2019/09/21/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/github-hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="github+hexo博客搭建">http://yoursite.com/2019/09/21/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/github-hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</a>
-    <p>
-        <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
-    </p>
-</div>
 
 
 
@@ -1073,6 +1056,20 @@ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
 
         /*高亮代码块行号*/
         
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
 
         /*访问数量*/
         
@@ -1083,6 +1080,25 @@ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
 
         
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
         
     }
 
@@ -1097,6 +1113,38 @@ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
 </script>
 
 <!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
 
 <!--自定义样式设置-->
 <style>
