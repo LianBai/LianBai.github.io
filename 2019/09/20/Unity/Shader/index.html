@@ -19,28 +19,27 @@
 
 <link rel="icon" href="/img/avatar.jpg">
 
-<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/atom-dark.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
 
-<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
-<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
-<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
 
-<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
 <script>
     hljs.initHighlightingOnLoad();
 </script>
 
-<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
 
 
 
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
 
-<script src="/js/iconfont.js?v=1.0.1" ></script>
+<script src="/js/iconfont.js?v=1.1.0" ></script>
 
 <meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="LianBai" type="application/atom+xml">
 </head>
@@ -48,12 +47,20 @@
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="false">
   <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
 </div>
+
+
+
 <body>
 <aside class="nav">
     <div class="nav-left">
-        <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.jpg" />
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
 </a>
 <div class="author">
     <span>LianBai</span>
@@ -62,31 +69,27 @@
 <div class="icon">
     
         
-        <a title="rss" href="/atom.xml" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-rss"></use>
-                </svg>
-            
-        </a>
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
         
     
         
-        <a title="github" href="https://github.com/lianbai" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-github"></use>
-                </svg>
-            
-        </a>
-        
-    
-        
-    
-        
-    
-        
-    
+            <a title="github"
+               href="https://github.com/lianbai"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
         
     
         
@@ -104,23 +107,35 @@
         
     
         
-        <a title="email" href="mailto:841774407@qq.com" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-email"></use>
-                </svg>
-            
-        </a>
+    
         
     
         
-        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=841774407&site=qq&menu=yes" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-qq"></use>
-                </svg>
-            
-        </a>
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:841774407@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=841774407&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
         
     
         
@@ -133,97 +148,173 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(40)</small></div></li>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(40)</small>
+            
+        </div>
+    </li>
     
         
             
-            <li><div data-rel="Unity">Unity<small>(9)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="UnityECS">UnityECS<small>(3)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="Unity杂文">Unity杂文<small>(14)</small></div>
-                
-            </li>
+                <li>
+                    <div data-rel="编程语言">
+                        
+                        编程语言
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
             
         
     
         
             
-            <li><div data-rel="Unity框架">Unity框架<small>(1)</small></div>
-                
-            </li>
+                <li>
+                    <div data-rel="搭建博客">
+                        
+                        搭建博客
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
             
         
     
         
             
-            <li><div data-rel="Unity专栏">Unity专栏<small>(1)</small></div>
-                
-            </li>
+                <li>
+                    <div data-rel="计算机基础">
+                        
+                        计算机基础
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
             
         
     
         
             
-            <li><div data-rel="其他">其他<small>(2)</small></div>
-                
-            </li>
+                <li>
+                    <div data-rel="其他">
+                        
+                        其他
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
             
         
     
         
             
-            <li><div data-rel="搭建博客">搭建博客<small>(3)</small></div>
-                
-            </li>
+                <li>
+                    <div data-rel="私人文件">
+                        
+                        私人文件
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
             
         
     
         
             
-            <li><div data-rel="私人文件">私人文件<small>(1)</small></div>
-                
-            </li>
+                <li>
+                    <div data-rel="Unity">
+                        
+                        Unity
+                        <small>(9)</small>
+                        
+                    </div>
+                    
+                </li>
             
         
     
         
             
-            <li><div data-rel="编程语言">编程语言<small>(3)</small></div>
-                
-            </li>
+                <li>
+                    <div data-rel="Unity框架">
+                        
+                        Unity框架
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
             
         
     
         
             
-            <li><div data-rel="计算机基础">计算机基础<small>(2)</small></div>
-                
-            </li>
+                <li>
+                    <div data-rel="Unity杂文">
+                        
+                        Unity杂文
+                        <small>(14)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Unity专栏">
+                        
+                        Unity专栏
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="UnityECS">
+                        
+                        UnityECS
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
             
         
     
 </ul>
 <div class="left-bottom">
     <div class="menus">
-    
-    
-    
-    
+        
+            
+            
+            
     </div>
-    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="40">
 <input type="hidden" id="yelog_site_word_count" value="74.8k">
@@ -236,8 +327,8 @@
     <div class="nav-right">
         <div class="friends-area">
     <div class="friends-title">
-        友情链接
-        <i class="back-title-list"></i>
+        Links
+        <i class="iconfont icon-left"></i>
     </div>
     <div class="friends-content">
         <ul>
@@ -248,146 +339,159 @@
     </div>
 </div>
         <div class="title-list">
-    <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
-        <i class="cross"></i>
-        <span>
-            <label for="tagswitch">Tags:</label>
-            <input id="tagswitch" type="checkbox" style="display: none" />
-            <i id="tagsWitchIcon"></i>
-        </span>
-    </form>
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
     <div class="tags-list">
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">IOC</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">VR</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">NUnit</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">Shader</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">UniRx</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">unity知识点</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">UGUI</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">AR</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">Lua</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ECS</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">插件</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">AssetBundle</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">Unity编辑器扩展</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Unity4IOS</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">JSON</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">C#-Property</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">Unity工具</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">Prefab</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">海外Google</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">LBFramework</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Odin Inspector</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">XMind</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">网址</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">hexo博客</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">博客Warning</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">密码记事本</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">博客密码</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">BAT</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">JAVA</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">git</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">操作系统</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">网络原理</a>
-    </li>
-    
-    <div class="clearfix"></div>
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>博客密码</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>博客Warning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>操作系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>插件</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>海外Google</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>密码记事本</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网络原理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网址</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>AR</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>AssetBundle</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>BAT</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C#-Property</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ECS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hexo博客</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>IOC</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JAVA</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JSON</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LBFramework</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Lua</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>NUnit</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Odin Inspector</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Prefab</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Shader</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>UGUI</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>UniRx</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unity4IOS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unity编辑器扩展</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unity工具</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>unity知识点</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>VR</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>XMind</a>
+            </li>
+        
+    </div>
+
 </div>
 
     
@@ -396,485 +500,8 @@
     </div>
     
     <nav id="title-list-nav">
-		
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
-		<a 
         
-        <a  class="Unity "
-           href="/2018/05/12/Unity/XLua/"
-           data-tag="Lua"
-           data-author="" >
-            <span class="post-title" title="XLua">XLua</span>
-            <span class="post-date" title="2018-05-12 09:33:32">2018/05/12</span>
-        </a>
-        
-        <a  class="计算机基础 "
-           href="/2018/05/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%E6%95%99%E7%A8%8B/"
-           data-tag="网络原理"
-           data-author="" >
-            <span class="post-title" title="计算机网络原理教程">计算机网络原理教程</span>
-            <span class="post-date" title="2018-05-16 16:21:13">2018/05/16</span>
-        </a>
-        
-        <a  class="Unity "
-           href="/2018/06/01/Unity/Vuforia%E6%95%99%E7%A8%8B/"
-           data-tag="AR"
-           data-author="" >
-            <span class="post-title" title="Vuforia教程">Vuforia教程</span>
-            <span class="post-date" title="2018-06-01 10:40:37">2018/06/01</span>
-        </a>
-        
-        <a  class="计算机基础 "
-           href="/2018/06/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/"
-           data-tag="操作系统"
-           data-author="" >
-            <span class="post-title" title="计算机操作系统教程">计算机操作系统教程</span>
-            <span class="post-date" title="2018-06-03 09:13:04">2018/06/03</span>
-        </a>
-        
-        <a  class="Unity "
-           href="/2018/08/19/Unity/HTC-VIVE/"
-           data-tag="VR"
-           data-author="" >
-            <span class="post-title" title="HTC VIVE">HTC VIVE</span>
-            <span class="post-date" title="2018-08-19 15:03:46">2018/08/19</span>
-        </a>
-        
-        <a  class="编程语言 "
-           href="/2018/08/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/JAVA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-           data-tag="JAVA"
-           data-author="" >
-            <span class="post-title" title="JAVA学习笔记">JAVA学习笔记</span>
-            <span class="post-date" title="2018-08-19 17:42:39">2018/08/19</span>
-        </a>
-        
-        <a  class="其他 "
-           href="/2018/08/26/%E5%85%B6%E4%BB%96/XMind%E6%95%99%E7%A8%8B/"
-           data-tag="XMind"
-           data-author="" >
-            <span class="post-title" title="XMind教程">XMind教程</span>
-            <span class="post-date" title="2018-08-26 09:27:54">2018/08/26</span>
-        </a>
-        
-        <a  class="Unity "
-           href="/2019/09/20/Unity/Shader/"
-           data-tag="Shader"
-           data-author="" >
-            <span class="post-title" title="Shader">Shader</span>
-            <span class="post-date" title="2019-09-20 11:05:18">2019/09/20</span>
-        </a>
-        
-        <a  class="搭建博客 "
-           href="/2019/09/21/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/github-hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"
-           data-tag="hexo博客"
-           data-author="" >
-            <span class="post-title" title="github+hexo博客搭建">github+hexo博客搭建</span>
-            <span class="post-date" title="2019-09-21 10:44:45">2019/09/21</span>
-        </a>
-        
-        <a  class="Unity "
-           href="/2019/09/23/Unity/NUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"
-           data-tag="NUnit"
-           data-author="" >
-            <span class="post-title" title="NUnit单元测试">NUnit单元测试</span>
-            <span class="post-date" title="2019-09-23 09:00:31">2019/09/23</span>
-        </a>
-        
-        <a  class="Unity "
-           href="/2019/09/23/Unity/UniRx%E5%85%A5%E9%97%A8/"
-           data-tag="UniRx"
-           data-author="" >
-            <span class="post-title" title="UniRx入门">UniRx入门</span>
-            <span class="post-date" title="2019-09-23 09:00:31">2019/09/23</span>
-        </a>
-        
-        <a  class="Unity "
-           href="/2019/09/23/Unity/UGUI/"
-           data-tag="UGUI"
-           data-author="" >
-            <span class="post-title" title="UGUI">UGUI</span>
-            <span class="post-date" title="2019-09-23 09:00:31">2019/09/23</span>
-        </a>
-        
-        <a  class="Unity "
-           href="/2019/09/27/Unity/IOC%E5%85%A5%E9%97%A8/"
-           data-tag="IOC"
-           data-author="" >
-            <span class="post-title" title="IOC入门">IOC入门</span>
-            <span class="post-date" title="2019-09-27 09:10:01">2019/09/27</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2019/09/28/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94AssetBundle%E8%87%AA%E5%8A%A8%E6%A0%87%E8%AE%B0/"
-           data-tag="AssetBundle"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——AssetBundle自动标记">Unity杂文——AssetBundle自动标记</span>
-            <span class="post-date" title="2019-09-28 16:35:10">2019/09/28</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2019/09/28/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94IOS%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81/"
-           data-tag="Unity4IOS"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——IOS后台推送">Unity杂文——IOS后台推送</span>
-            <span class="post-date" title="2019-09-28 17:09:59">2019/09/28</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2019/09/28/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%942D%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E9%9B%86%E5%90%88/"
-           data-tag="插件"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——2D游戏开发常用插件集合">Unity杂文——2D游戏开发常用插件集合</span>
-            <span class="post-date" title="2019-09-28 20:50:08">2019/09/28</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2019/09/30/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94JSON%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8C%96%E4%B8%BAExcel%E8%A1%A8%E6%A0%BC/"
-           data-tag="JSON"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——JSON数据转化为Excel表格">Unity杂文——JSON数据转化为Excel表格</span>
-            <span class="post-date" title="2019-09-30 10:41:20">2019/09/30</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2019/09/30/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94AssetDatabase%E8%B5%84%E6%BA%90%E6%95%B0%E6%8D%AE%E5%BA%93/"
-           data-tag="Unity编辑器扩展"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——AssetDatabase资源数据库">Unity杂文——AssetDatabase资源数据库</span>
-            <span class="post-date" title="2019-09-30 14:22:19">2019/09/30</span>
-        </a>
-        
-        <a  class="其他 "
-           href="/2019/10/14/%E5%85%B6%E4%BB%96/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E7%BD%91%E5%9D%80/"
-           data-tag="网址"
-           data-author="" >
-            <span class="post-title" title="常用网站网址">常用网站网址</span>
-            <span class="post-date" title="2019-10-14 13:20:04">2019/10/14</span>
-        </a>
-        
-        <a  class="Unity专栏 "
-           href="/2019/10/29/Unity%E4%B8%93%E6%A0%8F/Odin-Inspector%E5%85%A5%E9%97%A8/"
-           data-tag="Odin Inspector"
-           data-author="" >
-            <span class="post-title" title="Odin Inspector入门">Odin Inspector入门</span>
-            <span class="post-date" title="2019-10-29 15:41:56">2019/10/29</span>
-        </a>
-        
-        <a  class="编程语言 "
-           href="/2019/11/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/bat%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-           data-tag="BAT"
-           data-author="" >
-            <span class="post-title" title="bat学习笔记">bat学习笔记</span>
-            <span class="post-date" title="2019-11-24 10:05:06">2019/11/24</span>
-        </a>
-        
-        <a  class="编程语言 "
-           href="/2019/11/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-           data-tag="git"
-           data-author="" >
-            <span class="post-title" title="git学习笔记">git学习笔记</span>
-            <span class="post-date" title="2019-11-24 11:09:11">2019/11/24</span>
-        </a>
-        
-        <a  class="Unity框架 "
-           href="/2020/07/30/Unity%E6%A1%86%E6%9E%B6/LBFramwork%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/"
-           data-tag="LBFramework"
-           data-author="" >
-            <span class="post-title" title="LBFramwork框架搭建">LBFramwork框架搭建</span>
-            <span class="post-date" title="2020-07-30 14:40:08">2020/07/30</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2021/04/19/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94UGUI%E4%B8%AD%E7%B2%92%E5%AD%90%E7%9A%84%E9%81%AE%E7%BD%A9%E4%B8%8E%E8%A3%81%E5%89%AA/"
-           data-tag="UGUI"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——UGUI中粒子的遮罩与裁剪">Unity杂文——UGUI中粒子的遮罩与裁剪</span>
-            <span class="post-date" title="2021-04-19 10:48:13">2021/04/19</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2021/04/20/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94UGUI%E5%9F%BA%E4%BA%8E%E5%9B%BE%E9%9B%86%E7%9A%84shader%E9%81%AE%E7%BD%A9/"
-           data-tag="UGUI"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——UGUI基于图集的shader遮罩">Unity杂文——UGUI基于图集的shader遮罩</span>
-            <span class="post-date" title="2021-04-20 14:25:21">2021/04/20</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2021/04/30/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8EUGUI%E5%AE%9E%E7%8E%B0%E6%80%A7%E8%83%BD%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%9C%86%E5%BD%A2Image/"
-           data-tag="UGUI"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——基于UGUI实现性能更好的圆形Image">Unity杂文——基于UGUI实现性能更好的圆形Image</span>
-            <span class="post-date" title="2021-04-30 11:00:36">2021/04/30</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2021/07/09/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%B5%B7%E5%A4%96%E5%BC%80%E5%8F%91%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/"
-           data-tag="海外Google"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——海外开发踩坑笔记">Unity杂文——海外开发踩坑笔记</span>
-            <span class="post-date" title="2021-07-09 18:25:32">2021/07/09</span>
-        </a>
-        
-        <a  class=""
-           href="/2021/12/27/hello-world/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Hello World">Hello World</span>
-            <span class="post-date" title="2021-12-27 11:39:09">2021/12/27</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2021/12/30/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E8%A7%A3%E5%86%B3Unity%E4%BF%AE%E6%94%B9Prefab%E7%9A%84%E5%8F%82%E6%95%B0%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%8C%E6%97%A0%E6%B3%95%E4%BF%9D%E5%AD%98/"
-           data-tag="Prefab"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——解决Unity修改Prefab的参数不生效，无法保存">Unity杂文——解决Unity修改Prefab的参数不生效，无法保存</span>
-            <span class="post-date" title="2021-12-30 10:06:39">2021/12/30</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2022/01/07/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%89%A9%E5%B1%95%E5%8F%98%E9%87%8F%E5%A2%9E%E5%8A%A0OnValueChange%E5%8A%9F%E8%83%BD/"
-           data-tag="C#-Property"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——扩展变量增加OnValueChange功能">Unity杂文——扩展变量增加OnValueChange功能</span>
-            <span class="post-date" title="2022-01-07 14:00:09">2022/01/07</span>
-        </a>
-        
-        <a  class="Unity "
-           href="/2022/01/12/Unity/Unity%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/"
-           data-tag="unity知识点"
-           data-author="" >
-            <span class="post-title" title="Unity游戏开发知识点整理">Unity游戏开发知识点整理</span>
-            <span class="post-date" title="2022-01-12 20:23:29">2022/01/12</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2022/01/13/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%9B%E5%BB%BA%E6%A8%A1%E6%9D%BF%E8%84%9A%E6%9C%AC/"
-           data-tag="Unity工具"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——自定义创建模板脚本">Unity杂文——自定义创建模板脚本</span>
-            <span class="post-date" title="2022-01-13 14:33:29">2022/01/13</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2022/01/13/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8EUGUI%E7%9A%84UI%E6%8B%96%E6%8B%BD%E7%9B%91%E5%90%AC/"
-           data-tag="UGUI"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——基于UGUI的UI拖拽监听">Unity杂文——基于UGUI的UI拖拽监听</span>
-            <span class="post-date" title="2022-01-13 23:46:06">2022/01/13</span>
-        </a>
-        
-        <a  class="Unity杂文 "
-           href="/2022/01/25/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E5%BA%8F%E5%88%97%E5%8C%96AnimationCurve/"
-           data-tag="JSON"
-           data-author="" >
-            <span class="post-title" title="Unity杂文——序列化AnimationCurve">Unity杂文——序列化AnimationCurve</span>
-            <span class="post-date" title="2022-01-25 00:18:28">2022/01/25</span>
-        </a>
-        
-        <a  class="UnityECS "
-           href="/2022/01/27/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%B8%80)%E2%80%94%E2%80%94%E5%AE%89%E8%A3%85Unity%E5%AE%98%E6%96%B9%E7%9A%84ECS/"
-           data-tag="ECS"
-           data-author="" >
-            <span class="post-title" title="UnityECS入门(一)——安装Unity官方的ECS">UnityECS入门(一)——安装Unity官方的ECS</span>
-            <span class="post-date" title="2022-01-27 13:49:25">2022/01/27</span>
-        </a>
-        
-        <a  class="UnityECS "
-           href="/2022/01/28/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%BA%8C)%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E8%AE%B2%E8%A7%A3%E4%B8%80%E4%B8%8BECS/"
-           data-tag="ECS"
-           data-author="" >
-            <span class="post-title" title="UnityECS入门(二)——简单讲解一下ECS">UnityECS入门(二)——简单讲解一下ECS</span>
-            <span class="post-date" title="2022-01-28 13:17:37">2022/01/28</span>
-        </a>
-        
-        <a  class="私人文件 "
-           href="/2022/01/28/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E7%A7%81%E4%BA%BA%E5%AF%86%E7%A0%81%E8%AE%B0%E4%BA%8B%E6%9C%AC/"
-           data-tag="密码记事本"
-           data-author="" >
-            <span class="post-title" title="私人密码记事本">私人密码记事本</span>
-            <span class="post-date" title="2022-01-28 14:29:49">2022/01/28</span>
-        </a>
-        
-        <a  class="搭建博客 "
-           href="/2022/01/28/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E5%AF%86%E7%A0%81/"
-           data-tag="博客密码"
-           data-author="" >
-            <span class="post-title" title="给hexo博客添加访问密码">给hexo博客添加访问密码</span>
-            <span class="post-date" title="2022-01-28 15:31:45">2022/01/28</span>
-        </a>
-        
-        <a  class="UnityECS "
-           href="/2022/01/29/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%B8%89)%E2%80%94%E2%80%94%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84ECS/"
-           data-tag="ECS"
-           data-author="" >
-            <span class="post-title" title="UnityECS入门(三)——写一个简单的ECS">UnityECS入门(三)——写一个简单的ECS</span>
-            <span class="post-date" title="2022-01-29 11:12:57">2022/01/29</span>
-        </a>
-        
-        <a  class="搭建博客 "
+        <a  class="All 搭建博客 "
            href="/2022/01/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E8%A7%A3%E5%86%B3Hexo%E5%8D%9A%E5%AE%A2%E6%8F%90%E4%BA%A4Warning/"
            data-tag="博客Warning"
            data-author="" >
@@ -882,17 +509,335 @@
             <span class="post-date" title="2022-01-29 15:19:22">2022/01/29</span>
         </a>
         
+        <a  class="All UnityECS "
+           href="/2022/01/29/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%B8%89)%E2%80%94%E2%80%94%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84ECS/"
+           data-tag="ECS"
+           data-author="" >
+            <span class="post-title" title="UnityECS入门(三)——写一个简单的ECS">UnityECS入门(三)——写一个简单的ECS</span>
+            <span class="post-date" title="2022-01-29 11:12:57">2022/01/29</span>
+        </a>
+        
+        <a  class="All 搭建博客 "
+           href="/2022/01/28/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E5%AF%86%E7%A0%81/"
+           data-tag="博客密码"
+           data-author="" >
+            <span class="post-title" title="给hexo博客添加访问密码">给hexo博客添加访问密码</span>
+            <span class="post-date" title="2022-01-28 15:31:45">2022/01/28</span>
+        </a>
+        
+        <a  class="All 私人文件 "
+           href="/2022/01/28/%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E7%A7%81%E4%BA%BA%E5%AF%86%E7%A0%81%E8%AE%B0%E4%BA%8B%E6%9C%AC/"
+           data-tag="密码记事本"
+           data-author="" >
+            <span class="post-title" title="私人密码记事本">私人密码记事本</span>
+            <span class="post-date" title="2022-01-28 14:29:49">2022/01/28</span>
+        </a>
+        
+        <a  class="All UnityECS "
+           href="/2022/01/28/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%BA%8C)%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E8%AE%B2%E8%A7%A3%E4%B8%80%E4%B8%8BECS/"
+           data-tag="ECS"
+           data-author="" >
+            <span class="post-title" title="UnityECS入门(二)——简单讲解一下ECS">UnityECS入门(二)——简单讲解一下ECS</span>
+            <span class="post-date" title="2022-01-28 13:17:37">2022/01/28</span>
+        </a>
+        
+        <a  class="All UnityECS "
+           href="/2022/01/27/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%B8%80)%E2%80%94%E2%80%94%E5%AE%89%E8%A3%85Unity%E5%AE%98%E6%96%B9%E7%9A%84ECS/"
+           data-tag="ECS"
+           data-author="" >
+            <span class="post-title" title="UnityECS入门(一)——安装Unity官方的ECS">UnityECS入门(一)——安装Unity官方的ECS</span>
+            <span class="post-date" title="2022-01-27 13:49:25">2022/01/27</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2022/01/25/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E5%BA%8F%E5%88%97%E5%8C%96AnimationCurve/"
+           data-tag="JSON"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——序列化AnimationCurve">Unity杂文——序列化AnimationCurve</span>
+            <span class="post-date" title="2022-01-25 00:18:28">2022/01/25</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2022/01/13/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8EUGUI%E7%9A%84UI%E6%8B%96%E6%8B%BD%E7%9B%91%E5%90%AC/"
+           data-tag="UGUI"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——基于UGUI的UI拖拽监听">Unity杂文——基于UGUI的UI拖拽监听</span>
+            <span class="post-date" title="2022-01-13 23:46:06">2022/01/13</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2022/01/13/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%9B%E5%BB%BA%E6%A8%A1%E6%9D%BF%E8%84%9A%E6%9C%AC/"
+           data-tag="Unity工具"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——自定义创建模板脚本">Unity杂文——自定义创建模板脚本</span>
+            <span class="post-date" title="2022-01-13 14:33:29">2022/01/13</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2022/01/12/Unity/Unity%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/"
+           data-tag="unity知识点"
+           data-author="" >
+            <span class="post-title" title="Unity游戏开发知识点整理">Unity游戏开发知识点整理</span>
+            <span class="post-date" title="2022-01-12 20:23:29">2022/01/12</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2022/01/07/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%89%A9%E5%B1%95%E5%8F%98%E9%87%8F%E5%A2%9E%E5%8A%A0OnValueChange%E5%8A%9F%E8%83%BD/"
+           data-tag="C#-Property"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——扩展变量增加OnValueChange功能">Unity杂文——扩展变量增加OnValueChange功能</span>
+            <span class="post-date" title="2022-01-07 14:00:09">2022/01/07</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2021/12/30/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E8%A7%A3%E5%86%B3Unity%E4%BF%AE%E6%94%B9Prefab%E7%9A%84%E5%8F%82%E6%95%B0%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%8C%E6%97%A0%E6%B3%95%E4%BF%9D%E5%AD%98/"
+           data-tag="Prefab"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——解决Unity修改Prefab的参数不生效，无法保存">Unity杂文——解决Unity修改Prefab的参数不生效，无法保存</span>
+            <span class="post-date" title="2021-12-30 10:06:39">2021/12/30</span>
+        </a>
+        
+        <a  class="All "
+           href="/2021/12/27/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2021-12-27 11:39:09">2021/12/27</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2021/07/09/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%B5%B7%E5%A4%96%E5%BC%80%E5%8F%91%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/"
+           data-tag="海外Google"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——海外开发踩坑笔记">Unity杂文——海外开发踩坑笔记</span>
+            <span class="post-date" title="2021-07-09 18:25:32">2021/07/09</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2021/04/30/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8EUGUI%E5%AE%9E%E7%8E%B0%E6%80%A7%E8%83%BD%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%9C%86%E5%BD%A2Image/"
+           data-tag="UGUI"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——基于UGUI实现性能更好的圆形Image">Unity杂文——基于UGUI实现性能更好的圆形Image</span>
+            <span class="post-date" title="2021-04-30 11:00:36">2021/04/30</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2021/04/20/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94UGUI%E5%9F%BA%E4%BA%8E%E5%9B%BE%E9%9B%86%E7%9A%84shader%E9%81%AE%E7%BD%A9/"
+           data-tag="UGUI"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——UGUI基于图集的shader遮罩">Unity杂文——UGUI基于图集的shader遮罩</span>
+            <span class="post-date" title="2021-04-20 14:25:21">2021/04/20</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2021/04/19/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94UGUI%E4%B8%AD%E7%B2%92%E5%AD%90%E7%9A%84%E9%81%AE%E7%BD%A9%E4%B8%8E%E8%A3%81%E5%89%AA/"
+           data-tag="UGUI"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——UGUI中粒子的遮罩与裁剪">Unity杂文——UGUI中粒子的遮罩与裁剪</span>
+            <span class="post-date" title="2021-04-19 10:48:13">2021/04/19</span>
+        </a>
+        
+        <a  class="All Unity框架 "
+           href="/2020/07/30/Unity%E6%A1%86%E6%9E%B6/LBFramwork%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/"
+           data-tag="LBFramework"
+           data-author="" >
+            <span class="post-title" title="LBFramwork框架搭建">LBFramwork框架搭建</span>
+            <span class="post-date" title="2020-07-30 14:40:08">2020/07/30</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2019/11/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="git学习笔记">git学习笔记</span>
+            <span class="post-date" title="2019-11-24 11:09:11">2019/11/24</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2019/11/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/bat%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag="BAT"
+           data-author="" >
+            <span class="post-title" title="bat学习笔记">bat学习笔记</span>
+            <span class="post-date" title="2019-11-24 10:05:06">2019/11/24</span>
+        </a>
+        
+        <a  class="All Unity专栏 "
+           href="/2019/10/29/Unity%E4%B8%93%E6%A0%8F/Odin-Inspector%E5%85%A5%E9%97%A8/"
+           data-tag="Odin Inspector"
+           data-author="" >
+            <span class="post-title" title="Odin Inspector入门">Odin Inspector入门</span>
+            <span class="post-date" title="2019-10-29 15:41:56">2019/10/29</span>
+        </a>
+        
+        <a  class="All 其他 "
+           href="/2019/10/14/%E5%85%B6%E4%BB%96/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E7%BD%91%E5%9D%80/"
+           data-tag="网址"
+           data-author="" >
+            <span class="post-title" title="常用网站网址">常用网站网址</span>
+            <span class="post-date" title="2019-10-14 13:20:04">2019/10/14</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2019/09/30/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94AssetDatabase%E8%B5%84%E6%BA%90%E6%95%B0%E6%8D%AE%E5%BA%93/"
+           data-tag="Unity编辑器扩展"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——AssetDatabase资源数据库">Unity杂文——AssetDatabase资源数据库</span>
+            <span class="post-date" title="2019-09-30 14:22:19">2019/09/30</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2019/09/30/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94JSON%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8C%96%E4%B8%BAExcel%E8%A1%A8%E6%A0%BC/"
+           data-tag="JSON"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——JSON数据转化为Excel表格">Unity杂文——JSON数据转化为Excel表格</span>
+            <span class="post-date" title="2019-09-30 10:41:20">2019/09/30</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2019/09/28/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%942D%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E9%9B%86%E5%90%88/"
+           data-tag="插件"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——2D游戏开发常用插件集合">Unity杂文——2D游戏开发常用插件集合</span>
+            <span class="post-date" title="2019-09-28 20:50:08">2019/09/28</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2019/09/28/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94IOS%E5%90%8E%E5%8F%B0%E6%8E%A8%E9%80%81/"
+           data-tag="Unity4IOS"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——IOS后台推送">Unity杂文——IOS后台推送</span>
+            <span class="post-date" title="2019-09-28 17:09:59">2019/09/28</span>
+        </a>
+        
+        <a  class="All Unity杂文 "
+           href="/2019/09/28/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94AssetBundle%E8%87%AA%E5%8A%A8%E6%A0%87%E8%AE%B0/"
+           data-tag="AssetBundle"
+           data-author="" >
+            <span class="post-title" title="Unity杂文——AssetBundle自动标记">Unity杂文——AssetBundle自动标记</span>
+            <span class="post-date" title="2019-09-28 16:35:10">2019/09/28</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2019/09/27/Unity/IOC%E5%85%A5%E9%97%A8/"
+           data-tag="IOC"
+           data-author="" >
+            <span class="post-title" title="IOC入门">IOC入门</span>
+            <span class="post-date" title="2019-09-27 09:10:01">2019/09/27</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2019/09/23/Unity/NUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"
+           data-tag="NUnit"
+           data-author="" >
+            <span class="post-title" title="NUnit单元测试">NUnit单元测试</span>
+            <span class="post-date" title="2019-09-23 09:00:31">2019/09/23</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2019/09/23/Unity/UGUI/"
+           data-tag="UGUI"
+           data-author="" >
+            <span class="post-title" title="UGUI">UGUI</span>
+            <span class="post-date" title="2019-09-23 09:00:31">2019/09/23</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2019/09/23/Unity/UniRx%E5%85%A5%E9%97%A8/"
+           data-tag="UniRx"
+           data-author="" >
+            <span class="post-title" title="UniRx入门">UniRx入门</span>
+            <span class="post-date" title="2019-09-23 09:00:31">2019/09/23</span>
+        </a>
+        
+        <a  class="All 搭建博客 "
+           href="/2019/09/21/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/github-hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"
+           data-tag="hexo博客"
+           data-author="" >
+            <span class="post-title" title="github+hexo博客搭建">github+hexo博客搭建</span>
+            <span class="post-date" title="2019-09-21 10:44:45">2019/09/21</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2019/09/20/Unity/Shader/"
+           data-tag="Shader"
+           data-author="" >
+            <span class="post-title" title="Shader">Shader</span>
+            <span class="post-date" title="2019-09-20 11:05:18">2019/09/20</span>
+        </a>
+        
+        <a  class="All 其他 "
+           href="/2018/08/26/%E5%85%B6%E4%BB%96/XMind%E6%95%99%E7%A8%8B/"
+           data-tag="XMind"
+           data-author="" >
+            <span class="post-title" title="XMind教程">XMind教程</span>
+            <span class="post-date" title="2018-08-26 09:27:54">2018/08/26</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2018/08/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/JAVA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag="JAVA"
+           data-author="" >
+            <span class="post-title" title="JAVA学习笔记">JAVA学习笔记</span>
+            <span class="post-date" title="2018-08-19 17:42:39">2018/08/19</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2018/08/19/Unity/HTC-VIVE/"
+           data-tag="VR"
+           data-author="" >
+            <span class="post-title" title="HTC VIVE">HTC VIVE</span>
+            <span class="post-date" title="2018-08-19 15:03:46">2018/08/19</span>
+        </a>
+        
+        <a  class="All 计算机基础 "
+           href="/2018/06/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="计算机操作系统教程">计算机操作系统教程</span>
+            <span class="post-date" title="2018-06-03 09:13:04">2018/06/03</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2018/06/01/Unity/Vuforia%E6%95%99%E7%A8%8B/"
+           data-tag="AR"
+           data-author="" >
+            <span class="post-title" title="Vuforia教程">Vuforia教程</span>
+            <span class="post-date" title="2018-06-01 10:40:37">2018/06/01</span>
+        </a>
+        
+        <a  class="All 计算机基础 "
+           href="/2018/05/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%E6%95%99%E7%A8%8B/"
+           data-tag="网络原理"
+           data-author="" >
+            <span class="post-title" title="计算机网络原理教程">计算机网络原理教程</span>
+            <span class="post-date" title="2018-05-16 16:21:13">2018/05/16</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2018/05/12/Unity/XLua/"
+           data-tag="Lua"
+           data-author="" >
+            <span class="post-title" title="XLua">XLua</span>
+            <span class="post-date" title="2018-05-12 09:33:32">2018/05/12</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
     </nav>
+    <div id="outline-list">
+    </div>
 </div>
+
     </div>
     <div class="hide-list">
-        <div class="semicircle">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
             <div class="brackets first"><</div>
             <div class="brackets">&gt;</div>
         </div>
     </div>
 </aside>
-<div class="post">
+<div id="post">
     <div class="pjax">
         <article id="post-Unity/Shader" class="article article-type-post" itemscope itemprop="blogPost">
     
@@ -903,31 +848,34 @@
         
         
         <span class="book">
+            <i class="iconfont icon-category"></i>
             
-                <a href="javascript:" data-rel="Unity">Unity</a>
+            
+            <a  data-rel="Unity">Unity</a>
             
         </span>
         
         
         <span class="tag">
+            <i class="iconfont icon-tag"></i>
             
-            <a href="javascript:" class="color2">Shader</a>
+            <a class="color2">Shader</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2021-12-27 11:39:09'>2019-09-20 11:05</time>
+            Created At : <time class="date" title='Updated At: 2021-12-27 11:39:09'>2019-09-20 11:05</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:4.9k</span>
+        <span>Count:4.9k</span>
         
         
         <span id="busuanzi_container_page_pv">
-            阅读:<span id="busuanzi_value_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
                 <span class="count-comment">
                     <span class="spinner">
                       <div class="cube1"></div>
@@ -955,6 +903,7 @@
     }
 </style>
 </div>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Shader"><a href="#Shader" class="headerlink" title="Shader"></a>Shader</h1><pre><code>normalize() 用来把一个向量，单位化（原来方向保持不变，长度变为1）
@@ -1562,37 +1511,25 @@ normal = pixel*2 - 1
 <h3 id="凹凸映射和法线映射添加参数"><a href="#凹凸映射和法线映射添加参数" class="headerlink" title="凹凸映射和法线映射添加参数"></a>凹凸映射和法线映射添加参数</h3><p><strong>切线空间的z轴是和原来法线方向是一致的</strong>  </p>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
     </div>
-	<div class="post-nav">
-		
-			<div class="post-nav-prev post-nav-item">
-				<a href="/2018/08/26/%E5%85%B6%E4%BB%96/XMind%E6%95%99%E7%A8%8B/" >XMind教程<i class="fa fa-chevron-left"></i></a>
-			</div>
-		
-		
-			<div class="post-nav-next post-nav-item">
-			<a href="/2019/09/21/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/github-hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" >github+hexo博客搭建<i class="fa fa-chevron-right"></i></a>
-			</div>
-		
-	</div>
 </article>
 
 
 <p>
-    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
 </p>
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Shader</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">4.9k</span></p>
-    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="LianBai">LianBai</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-09-20, 11:05:18</p>
-    <p><span class="copy-title">最后更新:</span>2021-12-27, 11:39:09</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/09/20/Unity/Shader/" title="Shader">http://yoursite.com/2019/09/20/Unity/Shader/</a>
+    <p><span class="copy-title">Title:</span>Shader</p>
+    <p><span class="copy-title">Count:</span><span class="post-count">4.9k</span></p>
+    <p><span class="copy-title">Author:</span><a  title="LianBai">LianBai</a></p>
+    <p><span class="copy-title">Created At:</span>2019-09-20, 11:05:18</p>
+    <p><span class="copy-title">Updated At:</span>2021-12-27, 11:39:09</p>
+    <span class="copy-title">Url:</span><a class="post-url" href="/2019/09/20/Unity/Shader/" title="Shader">http://yoursite.com/2019/09/20/Unity/Shader/</a>
     <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
     </p>
 </div>
 
@@ -1605,640 +1542,26 @@ normal = pixel*2 - 1
 
 
 
-
-
-
-
-
-<h1 id="Shader"><a href="#Shader" class="headerlink" title="Shader"></a>Shader</h1><pre><code>normalize() 用来把一个向量，单位化（原来方向保持不变，长度变为1）
-max() 用来取得函数中最大的一个
-dot 用来取得两个向量的点积
-_WorldSpaceLightPos0 取得平行光的位置
-_LightColor0取得平行光的颜色
-UNITY_MATRIX_MVP 这个矩阵用来把一个坐标从模型空间转换到剪裁空间
-_World2Object 这个矩阵用来把一个方向从世界空间转换到模型空间
-UNITY_LIGHTMODEL_AMBIENT用来获取环境光
-_WorldSpaceCameraPos可以获得相机的位置
-</code></pre>
-<h2 id="shader简介"><a href="#shader简介" class="headerlink" title="shader简介"></a>shader简介</h2><h3 id="Mesh-Filter"><a href="#Mesh-Filter" class="headerlink" title="Mesh Filter"></a>Mesh Filter</h3><p> 存储一个Mesh（网格，模型的网格，就是模型的由哪些三角面组成，组成一个什么样子的模型，三角面的一些顶点信息）  </p>
-<h3 id="Mesh-Renderer"><a href="#Mesh-Renderer" class="headerlink" title="Mesh Renderer"></a>Mesh Renderer</h3><p>用来渲染一个模型的外观,就是样子,按照 mesh给它皮肤，给它颜色,通过Material（材质）控制模型渲染的样子</p>
-<h3 id="Material"><a href="#Material" class="headerlink" title="Material"></a>Material</h3><p>贴图(可以没有，可以是一个单纯的颜色)<br>Shader</p>
-<h2 id="OpenGL、DirectX-DX"><a href="#OpenGL、DirectX-DX" class="headerlink" title="OpenGL、DirectX(DX)"></a>OpenGL、DirectX(DX)</h2><p>shader可以认为是一种渲染命令 ，由opengl 或者dx进行解析，来控制渲染丰富多彩的图形  </p>
-<p>OpenGL 使用GLSL 编写shader<br>DirectX 使用HSSL 编写shader<br>英伟达 CG 编写shader（跨平台）</p>
-<h2 id="unity-shader的分类"><a href="#unity-shader的分类" class="headerlink" title="unity shader的分类"></a>unity shader的分类</h2><p>使用的是ShaderLab(对CG进行了封装)编写Unity中的Shader  </p>
-<h3 id="表面着色器Surface-Shader"><a href="#表面着色器Surface-Shader" class="headerlink" title="表面着色器Surface Shader"></a>表面着色器Surface Shader</h3><p>unity独有的着色器  </p>
-<h3 id="顶点-片元着色器Vertex-Fragment-Shader"><a href="#顶点-片元着色器Vertex-Fragment-Shader" class="headerlink" title="顶点/片元着色器Vertex/Fragment Shader"></a>顶点/片元着色器Vertex/Fragment Shader</h3><p>比较基本的着色器，表面着色器对顶点/片元着色器进行封装，最后还被解析成顶点片元着色器  </p>
-<h3 id="固定函数着色器Fixed-Function-Shader-已经被弃用"><a href="#固定函数着色器Fixed-Function-Shader-已经被弃用" class="headerlink" title="固定函数着色器Fixed Function Shader(已经被弃用)"></a>固定函数着色器Fixed Function Shader(已经被弃用)</h3><h2 id="创建一个unity-shader"><a href="#创建一个unity-shader" class="headerlink" title="创建一个unity shader"></a>创建一个unity shader</h2><p>基本结构</p>
-<pre><code>Shader &quot;LianBai/01-myshader&quot; //引号内为shader的路径+名字，可以跟文件名字不一样
-&#123; 
-    Properties    //属性（类似于C#脚本中的public属性，通过外界可以调节），一个shader只可以有一个
-    &#123;
-        //颜色，变量名字为_Color,面板上显示的名字为MyColor,类型为color,
-        _Color(&quot;MyColor&quot;,Color) = (1,1,1,1)
-    &#125;
-
-    SubShader    //子shader块，可以有很多个，编写渲染的代码。显卡运行效果的时候，从第一个SubShader,如果第一个SubShader中有部分无法实现，就会自动运行下一个SubShader
-    &#123;
-        Pass    //必须有一个pass块，可以有很多pass块，一个pass块代表的一个方法
-        &#123;
-            //编写shader代码 可以用CGPROGRAM 或者HLSLPROGRAM
-            CGPROGRAM
-            //使用CG语言编写代码
-            ENDCG
-        &#125;
-    &#125;
-    Fallback &quot;VertexLit&quot;    //当设备发现上面的SubShader都无法执行的时候，就会执行后这个后备方案
-&#125;
-</code></pre>
-<h3 id="属性可以有哪些数据类型"><a href="#属性可以有哪些数据类型" class="headerlink" title="属性可以有哪些数据类型"></a>属性可以有哪些数据类型</h3><pre><code>//颜色，变量名字为_Color,面板上显示的名字为MyColor,类型为color,
-_Color(&quot;MyColor&quot;,Color) = (1,1,1,1)
-//向量，四维向量,syzw,Color和Vector本质上是一种类型
-_Vector(&quot;MyVector&quot;,Vector) = (1,2,3,4)
-//整数
-_Int(&quot;MyInt&quot;,Int) = 1234
-//小数
-_Float(&quot;MyFloat&quot;,Float) = 4.5
-//范围类型
-_Range(&quot;MyRange&quot;,Range(1,11)) = 6
-//图片,当不指定图片的时候，用&quot;red&quot;,可以是其他颜色
-_2D(&quot;MyTexture&quot;,2D) = &quot;red&quot;&#123;&#125;
-//立方体纹理,天空盒子可以用到
-_Cube(&quot;MyCube&quot;,Cube) = &quot;white&quot;&#123;&#125;
-//3D纹理
-_3D(&quot;MyTexture&quot;,3D) = &quot;black&quot;&#123;&#125;
-</code></pre>
-<h3 id="如何使用属性"><a href="#如何使用属性" class="headerlink" title="如何使用属性"></a>如何使用属性</h3><pre><code>float4 _Color;
-float4 _Vector;
-float _Int;
-float _Float;
-float _Range;
-sampler2D _2D;
-samplerCube _Cube;
-sampler3D _3D;
-</code></pre>
-<p>float = half = fixed 都可以代替<br>float 32位存储<br>half 16位存储(-6万 ~ 6万)<br>fixed 11位存储(-2 ~ 2)    //color一般用fixed存储  </p>
-<h3 id="创建vertex和fragment"><a href="#创建vertex和fragment" class="headerlink" title="创建vertex和fragment"></a>创建vertex和fragment</h3><pre><code>//顶点函数 函数名vert 这里只是声明了顶点函数的函数名
-//基本作用是 完成顶点坐标从模型空间到剪裁空间的转换（从游戏环境转换到视野相机屏幕上）
-#pragma vertex vert
-//片元函数 
-//基本作用是 返回模型对应的屏幕上的每一个像素的颜色值
-#pragma fragment frag
-//返回值和参数都可以不固定 
-//通过语义告诉系统: POSITION标明要把顶点值传进v、SV_POSITION标明函数返回值是剪裁空间下的顶点坐标
-float4 vert(float4 v : POSITION) : SV_POSITION
-&#123;
-    return UnityObjectToClipPos(v);    //把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
-&#125;
-float4 frag(): SV_Target
-&#123;
-    return fixed4(0.5,0.5,1,1);
-&#125;
-</code></pre>
-<h3 id="顶点其他信息"><a href="#顶点其他信息" class="headerlink" title="顶点其他信息"></a>顶点其他信息</h3><pre><code>struct a2v
-&#123;
-    float4 vertex : POSITION;
-    //获取法线
-    float3 normal : NORMAL;
-    //纹理坐标    0代表第一套纹理坐标，纹理坐标一般0~1
-    float4 texcoord : TEXCOORD0;
-&#125;;
-</code></pre>
-<h3 id="语义总结"><a href="#语义总结" class="headerlink" title="语义总结"></a>语义总结</h3><p><strong>从应用程序传递到顶点函数的语义有哪些a2v</strong></p>
-<pre><code>POSITION 顶点坐标（模型空间下的）
-NORMAL 法线( 模型空间下)
-TANGENT 切线（模型空间）
-TEXCOORD0 ~ｎ　纹理坐标
-COLOR 顶点颜色
-</code></pre>
-<p><strong>从顶点函数传递给片元函数的时候可以使用的语义</strong></p>
-<pre><code>SV_POSITION 剪裁空间中的顶点坐标（一般是系统直接使用）
-COLOR0 可以传递一组值 4个
-COLOR1 可以传递一组值 4个
-TEXCOORD0~7 传递纹理坐标
-</code></pre>
-<p><strong>片元函数传递给系统</strong></p>
-<pre><code>SV_Target 颜色值，显示到屏幕上的颜色
-</code></pre>
-<h2 id="什么是光照模型"><a href="#什么是光照模型" class="headerlink" title="什么是光照模型"></a>什么是光照模型</h2><p><strong>光照模型就是一个公式，使用这个公式来计算在某个点的光照效果</strong><br><strong>只有定义了正确的LightMode才能得到一些Unity的内置光照变量</strong>  </p>
-<h3 id="标准光照模型"><a href="#标准光照模型" class="headerlink" title="标准光照模型"></a>标准光照模型</h3><p>在标准光照模型里面，我们把进入摄像机的光分为下面四个部分：</p>
-<blockquote>
-<p>自发光<br>高光反射<br>漫反射<br>环境光   </p>
-</blockquote>
-<h3 id="漫反射"><a href="#漫反射" class="headerlink" title="漫反射"></a>漫反射</h3><blockquote>
-<p>Diffuse = 直射光颜色 * max(0,cos夹角(光和法线的夹角) )<br>cosθ = 光方向· 法线方向（单位向量的点积）</p>
-</blockquote>
-<pre><code>Shader &quot;LianBai/04-Diffuse&quot;
-&#123;
-    SubShader
-    &#123;
-
-        Pass
-        &#123;
-            Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;    //只有定义了正确的LightMode才能得到一些Unity的内置光照变量
-            CGPROGRAM
-#include &quot;Lighting.cginc&quot;        //引入定义好的命名空间内的变量
-            //顶点函数 函数名vert 这里只是声明了顶点函数的函数名
-            //基本作用是 完成顶点坐标从模型空间到剪裁空间的转换（从游戏环境转换到视野相机屏幕上）
-#pragma vertex vert
-            //片元函数 
-            //基本作用是 返回模型对应的屏幕上的每一个像素的颜色值
-#pragma fragment frag
-        //返回值和参数都可以不固定 
-        //通过语义告诉系统: POSITION标明要把顶点值传进v、SV_POSITION标明函数返回值是剪裁空间下的顶点坐标
-
-            //application to wertex
-            struct a2v
-            &#123;
-                float4 vertex : POSITION;
-                float3 normal : NORMAL;
-            &#125;;
-
-            struct v2f
-            &#123;
-                float4 position : SV_POSITION;
-                fixed3 color : COLOR0;
-            &#125;;
-            v2f vert(a2v v)
-            &#123;
-                v2f f;
-                f.position = UnityObjectToClipPos(v.vertex);    //把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
-
-                //在Lighting.cginc命名空间下 _LightColor0取得第一个直射光的颜色 _WorldSpaceLightPos0第一个直射光的位置
-                //dot用于计算点乘  normalize用来把一个向量单位化 _World2Object这个矩阵用来把一个方向从世界空间转换到模型空间
-                float3 normalDir = normalize(mul(v.normal, (float3x3)unity_WorldToObject));    //变量位置交换，就是从模型空间转换到世界空间 float3x3强制把矩阵变成3*3的矩阵
-                fixed3 lightDir = normalize(_WorldSpaceLightPos0.xyz); //对于每一个点来说光的位置就是光的方向，因为光是平行光
-                fixed3 diffuse = _LightColor0.rgb * max(0, dot(normalDir, lightDir)); //取得漫反射的颜色
-                f.color = diffuse;
-                return f;
-            &#125;
-            float4 frag(v2f f) : SV_Target
-            &#123;
-                return fixed4(f.color,1);
-            &#125;
-
-            ENDCG
-
-        &#125;
-
-    &#125;
-        FallBack &quot;Diffuse&quot;
-&#125;
-</code></pre>
-<h3 id="漫反射颜色"><a href="#漫反射颜色" class="headerlink" title="漫反射颜色"></a>漫反射颜色</h3><pre><code>properties
-&#123;
-    _DiffuseColor(&quot;MyDiffuseColor&quot;,Color) = (1,1,1,1)
-&#125;
-
-fixed4 _DiffuseColor;
-fixed3 diffuse = _LightColor0.rgb * max(0, dot(normalDir, lightDir)) * _DiffuseColor.rgb; //把两种颜色融合
-</code></pre>
-<h3 id="环境光"><a href="#环境光" class="headerlink" title="环境光"></a>环境光</h3><pre><code>fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.rgb;    //得到系统的环境光
-f.color = diffuse + ambient;                    // + 代表颜色叠加
-</code></pre>
-<h3 id="逐像素漫反射"><a href="#逐像素漫反射" class="headerlink" title="逐像素漫反射"></a>逐像素漫反射</h3><pre><code>Shader &quot;LianBai/05-Diffuse Fragment&quot;
-&#123;
-    properties
-    &#123;
-        _DiffuseColor(&quot;MyDiffuseColor&quot;,Color) = (1,1,1,1)
-    &#125;
-    SubShader
-    &#123;
-
-        Pass
-        &#123;
-            
-
-            Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;    //只有定义了正确的LightMode才能得到一些Unity的内置光照变量
-            CGPROGRAM
-#include &quot;Lighting.cginc&quot;        //引入定义好的命名空间内的变量
-            //顶点函数 函数名vert 这里只是声明了顶点函数的函数名
-            //基本作用是 完成顶点坐标从模型空间到剪裁空间的转换（从游戏环境转换到视野相机屏幕上）
-#pragma vertex vert
-            //片元函数 
-            //基本作用是 返回模型对应的屏幕上的每一个像素的颜色值
-#pragma fragment frag
-        //返回值和参数都可以不固定 
-        //通过语义告诉系统: POSITION标明要把顶点值传进v、SV_POSITION标明函数返回值是剪裁空间下的顶点坐标
-
-            fixed4 _DiffuseColor;
-            //application to wertex
-            struct a2v
-            &#123;
-                float4 vertex : POSITION;
-                float3 normal : NORMAL;
-            &#125;;
-
-            struct v2f
-            &#123;
-                float4 position : SV_POSITION;
-                fixed3 worldnormaldir : COLOR0;
-            &#125;;
-            v2f vert(a2v v)
-            &#123;
-                v2f f;
-                f.position = UnityObjectToClipPos(v.vertex);    //把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
-
-                f.worldnormaldir = mul(v.normal, (float3x3)unity_WorldToObject);
-                return f;
-            &#125;
-            float4 frag(v2f f) : SV_Target
-            &#123;
-                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.rgb;    //得到系统的环境光
-
-                //在Lighting.cginc命名空间下 _LightColor0取得第一个直射光的颜色 _WorldSpaceLightPos0第一个直射光的位置
-                //dot用于计算点乘  normalize用来把一个向量单位化 _World2Object这个矩阵用来把一个方向从世界空间转换到模型空间
-                float3 normalDir = normalize(f.worldnormaldir);    //变量位置交换，就是从模型空间转换到世界空间 float3x3强制把矩阵变成3*3的矩阵
-                fixed3 lightDir = normalize(_WorldSpaceLightPos0.xyz); //对于每一个点来说光的位置就是光的方向，因为光是平行光
-                fixed3 diffuse = _LightColor0.rgb * max(0, dot(normalDir, lightDir)) * _DiffuseColor.rgb; //取得漫反射的颜色
-                fixed3 tempcolor = diffuse + ambient;
-                return fixed4(tempcolor,1);
-            &#125;
-
-            ENDCG
-
-        &#125;
-
-    &#125;
-        FallBack &quot;Diffuse&quot;
-&#125;
-</code></pre>
-<h3 id="半兰伯特光照模型"><a href="#半兰伯特光照模型" class="headerlink" title="半兰伯特光照模型"></a>半兰伯特光照模型</h3><pre><code>Diffuse = 直射光颜色 *（ cosθ *0.5 +0.５ ）
-
-float halfLambert = dot(normalDir, lightDir) * 0.5 + 0.5;
-fixed3 diffuse = _LightColor0.rgb * halfLambert * _DiffuseColor.rgb; //取得漫反射的颜色
-</code></pre>
-<h2 id="高光反射"><a href="#高光反射" class="headerlink" title="高光反射"></a>高光反射</h2><p><strong>Blinn光照模型</strong>   </p>
-<pre><code>Specular(高光反射) =直射光  * pow( max(cosθ,0),高光参数)  
-θ:是法线和x的夹角  x 是平行光和视野方向的平分线
-高光参数可以控制高光范围，值越小，范围越大，一般情况是高光参数&gt;=10
-</code></pre>
-<p><strong>Blinn-Phong光照模型(改进)</strong>  </p>
-<pre><code>Specular=直射光  * pow( max(cosθ,0),10)  
-θ:是法线和x的夹角  x 是平行光和视野方向的平分线
-</code></pre>
-<h3 id="高光反射-逐顶点"><a href="#高光反射-逐顶点" class="headerlink" title="高光反射(逐顶点)"></a>高光反射(逐顶点)</h3><pre><code>Shader &quot;LianBai/07-Specular Vertex&quot;
-&#123;
-    properties
-    &#123;
-        _DiffuseColor(&quot;MyDiffuseColor&quot;,Color) = (1,1,1,1)
-    &#125;
-    SubShader
-    &#123;
-
-        Pass
-        &#123;
-            
-
-            Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;    //只有定义了正确的LightMode才能得到一些Unity的内置光照变量
-            CGPROGRAM
-#include &quot;Lighting.cginc&quot;        //引入定义好的命名空间内的变量
-            //顶点函数 函数名vert 这里只是声明了顶点函数的函数名
-            //基本作用是 完成顶点坐标从模型空间到剪裁空间的转换（从游戏环境转换到视野相机屏幕上）
-#pragma vertex vert
-            //片元函数 
-            //基本作用是 返回模型对应的屏幕上的每一个像素的颜色值
-#pragma fragment frag
-        //返回值和参数都可以不固定 
-        //通过语义告诉系统: POSITION标明要把顶点值传进v、SV_POSITION标明函数返回值是剪裁空间下的顶点坐标
-
-            fixed4 _DiffuseColor;
-            //application to wertex
-            struct a2v
-            &#123;
-                float4 vertex : POSITION;
-                float3 normal : NORMAL;
-            &#125;;
-
-            struct v2f
-            &#123;
-                float4 position : SV_POSITION;
-                fixed3 color : COLOR0;
-            &#125;;
-            v2f vert(a2v v)
-            &#123;
-                v2f f;
-                f.position = UnityObjectToClipPos(v.vertex);    //把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
-
-                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.rgb;    //得到系统的环境光
-
-                //在Lighting.cginc命名空间下 _LightColor0取得第一个直射光的颜色 _WorldSpaceLightPos0第一个直射光的位置
-                //dot用于计算点乘  normalize用来把一个向量单位化 _World2Object这个矩阵用来把一个方向从世界空间转换到模型空间
-                float3 normalDir = normalize(mul(v.normal, (float3x3)unity_WorldToObject));    //变量位置交换，就是从模型空间转换到世界空间 float3x3强制把矩阵变成3*3的矩阵
-                fixed3 lightDir = normalize(_WorldSpaceLightPos0.xyz); //对于每一个点来说光的位置就是光的方向，因为光是平行光
-                fixed3 diffuse = _LightColor0.rgb * max(0, dot(normalDir, lightDir)) * _DiffuseColor.rgb; //取得漫反射的颜色
-
-                fixed3 reflectDir = normalize(reflect(-lightDir, normalDir));    //reflect 用来求反射光方向向量，lightDir是指向平行光的方向，所以需要带符号变成入射方向，
-                fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - mul(v.vertex, unity_WorldToObject).xyz); //_WorldSpaceCameraPos.xyz相机的位置，
-                fixed3 specular = _LightColor0.rgb * pow(max(0, dot(reflectDir, viewDir)), 10);
-
-                f.color = diffuse + ambient + specular;
-                return f;
-            &#125;
-            float4 frag(v2f f) : SV_Target
-            &#123;
-                return fixed4(f.color,1);
-            &#125;
-
-            ENDCG
-
-        &#125;
-
-    &#125;
-        FallBack &quot;Diffuse&quot;
-&#125;
-</code></pre>
-<h3 id="高光反射-逐像素"><a href="#高光反射-逐像素" class="headerlink" title="高光反射(逐像素)"></a>高光反射(逐像素)</h3><pre><code>Shader &quot;LianBai/08-Specular Fragment&quot;
-&#123;
-    properties
-    &#123;
-        _DiffuseColor(&quot;MyDiffuseColor&quot;,Color) = (1,1,1,1)
-        _Gloss(&quot;MyGloss&quot;,Range(8,200)) = 10
-        _SpecularColor(&quot;MySpecularColor&quot;,Color) = (1,1,1,1)
-    &#125;
-    SubShader
-    &#123;
-
-        Pass
-        &#123;
-            
-
-            Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;    //只有定义了正确的LightMode才能得到一些Unity的内置光照变量
-            CGPROGRAM
-#include &quot;Lighting.cginc&quot;        //引入定义好的命名空间内的变量
-            //顶点函数 函数名vert 这里只是声明了顶点函数的函数名
-            //基本作用是 完成顶点坐标从模型空间到剪裁空间的转换（从游戏环境转换到视野相机屏幕上）
-#pragma vertex vert
-            //片元函数 
-            //基本作用是 返回模型对应的屏幕上的每一个像素的颜色值
-#pragma fragment frag
-        //返回值和参数都可以不固定 
-        //通过语义告诉系统: POSITION标明要把顶点值传进v、SV_POSITION标明函数返回值是剪裁空间下的顶点坐标
-
-            fixed4 _DiffuseColor;
-            fixed4 _SpecularColor;
-            half _Gloss;
-
-            //application to wertex
-            struct a2v
-            &#123;
-                float4 vertex : POSITION;
-                float3 normal : NORMAL;
-            &#125;;
-
-            struct v2f
-            &#123;
-                float4 position : SV_POSITION;
-                float3 worldnormal : TEXCOORD0;
-                float3 worldvertex : TEXCOORD1;
-            &#125;;
-            v2f vert(a2v v)
-            &#123;
-                v2f f;
-                f.position = UnityObjectToClipPos(v.vertex);    //把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
-                f.worldnormal = mul(v.normal, (float3x3)unity_WorldToObject);
-                f.worldvertex = mul(v.vertex, unity_WorldToObject).xyz;
-                return f;
-            &#125;
-            float4 frag(v2f f) : SV_Target
-            &#123;
-                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.rgb;    //得到系统的环境光
-
-                //在Lighting.cginc命名空间下 _LightColor0取得第一个直射光的颜色 _WorldSpaceLightPos0第一个直射光的位置
-                //dot用于计算点乘  normalize用来把一个向量单位化 _World2Object这个矩阵用来把一个方向从世界空间转换到模型空间
-                float3 normalDir = normalize(f.worldnormal);    //变量位置交换，就是从模型空间转换到世界空间 float3x3强制把矩阵变成3*3的矩阵
-                fixed3 lightDir = normalize(_WorldSpaceLightPos0.xyz); //对于每一个点来说光的位置就是光的方向，因为光是平行光
-                fixed3 diffuse = _LightColor0.rgb * max(0, dot(normalDir, lightDir)) * _DiffuseColor.rgb; //取得漫反射的颜色
-
-                fixed3 reflectDir = normalize(reflect(-lightDir, normalDir));    //reflect 用来求反射光方向向量，lightDir是指向平行光的方向，所以需要带符号变成入射方向，
-                fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - f.worldvertex); //_WorldSpaceCameraPos.xyz相机的位置，
-                fixed3 specular = _LightColor0.rgb * pow(max(0, dot(reflectDir, viewDir)), _Gloss) * _SpecularColor.rgb;
-                fixed3 tempcolor = diffuse + ambient + specular;
-
-                return fixed4(tempcolor,1);
-            &#125;
-
-            ENDCG
-
-        &#125;
-
-    &#125;
-        FallBack &quot;Diffuse&quot;
-&#125;
-</code></pre>
-<h2 id="unity内置函数"><a href="#unity内置函数" class="headerlink" title="unity内置函数"></a>unity内置函数</h2><pre><code>//摄像机方向（视角方向）
-float3 WorldSpaceViewDir(float4 v)      根据模型空间中的顶点坐标 得到 （世界空间）从这个点到摄像机的观察方向
-float3 UnityWorldSpaceViewDir(float4 v) 世界空间中的顶点坐标==》世界空间从这个点到摄像机的观察方向
-float3 ObjSpaceViewDir(float4 v)         模型空间中的顶点坐标==》模型空间从这个点到摄像机的观察方向
-//光源方向
-float3 WorldSpaceLightDir(float4 v)     模型空间中的顶点坐标==》世界空间中从这个点到光源的方向
-float3 UnityWorldSpaceLightDir(float4 v)     世界空间中的顶点坐标==》世界空间中从这个点到光源的方向
-float3 ObjSpaceLightDir(float4 v)     模型空间中的顶点坐标==》模型空间中从这个点到光源的方向
-//方向转换
-float3 UnityObjectToWorldNormal(float3 norm) 把法线方向 模型空间==》世界空间
-float3 UnityObjectToWorldDir(float3 dir) 把方向 模型空间=》世界空间
-float3 UnityWorldToObjectDir(float3 dir) 把方向 世界空间=》模型空间
-</code></pre>
-<h2 id="纹理"><a href="#纹理" class="headerlink" title="纹理"></a>纹理</h2><p><strong>使用纹理的颜色代替漫反射的颜色(需要逐像素，这样三角形内不会出现偏差)</strong>  </p>
-<blockquote>
-<p>纹理坐标只能在顶点函数里取到，所以需要传递  </p>
-</blockquote>
-<p><strong>在使用纹理的时候，环境光与纹理颜色做一个融合比较好一点</strong>   </p>
-<pre><code>fixed3 tempcolor = diffuse + specular + UNITY_LIGHTMODEL_AMBIENT.rgb * texColor;
-</code></pre>
-<p><strong>示例脚本</strong>  </p>
-<pre><code>Shader &quot;LianBai/11-Single Texture&quot;
-&#123;
-    Properties
-    &#123;
-        //_DiffuseColor(&quot;MyDiffuseColor&quot;,Color) = (1,1,1,1)
-        _TexColor(&quot;MyTexColor&quot;,Color) = (1,1,1,1)
-        _MainTex(&quot;MyMainTex&quot;,2D) = &quot;white&quot;&#123;&#125;
-        _SpecularColor(&quot;MySpecularColor&quot;,Color) = (1,1,1,1)
-        _Gloss(&quot;MyGloss&quot;,Range(10,200)) = 20
-    &#125;
-        SubShader
-        &#123;
-            Pass
-            &#123;
-                Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;
-                CGPROGRAM
-    #include &quot;Lighting.cginc&quot;
-    #pragma vertex vert
-    #pragma fragment frag
-            //float4 _DiffuseColor;
-            fixed4 _TexColor;
-            sampler2D _MainTex;
-            float4 _SpecularColor;
-            float _Gloss;
-
-            struct a2v
-            &#123;
-                float4 vertex : POSITION;
-                float4 normal : NORMAL;
-                float4 texcoord :TEXCOORD0;        //得到纹理坐标
-            &#125;;
-            struct v2f
-            &#123;
-                float4 svPos : SV_POSITION;
-                float3 worldnormal : TEXCOORD0;
-                float4 worldvertex : TEXCOORD1;
-                float4 uv:TEXCOORD2;
-            &#125;;
-            v2f vert(a2v v)
-            &#123;
-                v2f f;
-                f.svPos = UnityObjectToClipPos(v.vertex);
-                f.worldnormal = UnityObjectToWorldNormal(v.normal);
-                f.worldvertex = mul(v.vertex, unity_WorldToObject);
-                f.uv = v.texcoord;
-                return f;
-            &#125;
-            fixed4 frag(v2f f) : SV_Target
-            &#123;
-                fixed3 normalDir = normalize(f.worldnormal);
-                fixed3 lightDir = normalize(WorldSpaceLightDir(f.worldvertex));
-                fixed3 viewDir = normalize(UnityWorldSpaceViewDir(f.worldvertex));
-                fixed3 halfDir = normalize(viewDir + lightDir);
-
-                fixed3 texColor = tex2D(_MainTex, f.uv.xy) * _TexColor;    //的到纹理上的颜色tex()
-
-                fixed3 diffuse = _LightColor0.rgb * texColor * max(0,dot(normalDir,lightDir));
-                fixed3 specular = _LightColor0.rgb * _SpecularColor.rgb * pow(max(0,dot(normalDir, halfDir)),_Gloss);
-
-                fixed3 tempcolor = diffuse + specular + UNITY_LIGHTMODEL_AMBIENT.rgb * texColor;
-                return fixed4(tempcolor,1);
-            &#125;
-            ENDCG
-        &#125;
-    &#125;
-    FallBack &quot;Diffuse&quot;
-&#125;
-</code></pre>
-<h3 id="给纹理添加便宜和缩放"><a href="#给纹理添加便宜和缩放" class="headerlink" title="给纹理添加便宜和缩放"></a>给纹理添加便宜和缩放</h3><blockquote>
-<p>Offset:控制材质的偏移<br>Tiling:图片的压缩倍数  </p>
-</blockquote>
-<p><strong>固定的，必须是：纹理的名字_ST</strong>  </p>
-<pre><code>float4 _MainTex_ST;
-</code></pre>
-<p><strong>示例脚本</strong>  </p>
-<pre><code>f.uv = v.texcoord.xy *_MainTex_ST.xy + _MainTex_ST.zw;    //xy是缩放，zw是偏移
-</code></pre>
-<h2 id="凹凸映射和法线映射"><a href="#凹凸映射和法线映射" class="headerlink" title="凹凸映射和法线映射"></a>凹凸映射和法线映射</h2><h3 id="基础-示例脚本"><a href="#基础-示例脚本" class="headerlink" title="基础+示例脚本"></a>基础+示例脚本</h3><pre><code>pixel = (normal+1)/2
-
-normal = pixel*2 - 1
-</code></pre>
-<blockquote>
-<p>把所有跟法线方向有关的运算都放在切线空间下<br>因为从法线贴图里面取得的法线方向是在切线空间下的  </p>
-</blockquote>
-<pre><code>Shader &quot;LianBai/13-Rock NormalMap&quot;
-&#123;
-    Properties
-    &#123;
-        //_DiffuseColor(&quot;MyDiffuseColor&quot;,Color) = (1,1,1,1)
-        _TexColor(&quot;MyTexColor&quot;,Color) = (1,1,1,1)
-        _MainTex(&quot;MyMainTex&quot;,2D) = &quot;white&quot;&#123;&#125;
-        _NorMap(&quot;MyNormap&quot;,2D) = &quot;bump&quot;&#123;&#125;
-    &#125;
-    SubShader
-    &#123;
-        Pass
-        &#123;
-            Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;
-            CGPROGRAM
-#include &quot;Lighting.cginc&quot;
-#pragma vertex vert
-#pragma fragment frag
-            //float4 _DiffuseColor;
-            fixed4 _TexColor;
-            sampler2D _MainTex;
-            float4 _MainTex_ST;        //固定的，必须是：纹理的名字_ST
-            sampler2D _NorMap;
-            float4 _NorMap_ST;
-
-            struct a2v
-            &#123;
-                float4 vertex : POSITION;
-                float3 normal : NORMAL;            //切线空间的确定是通过(存储到模型里面的)法线和(存储到模型里面的)切线确定的
-                float4 tangent : TANGENT;        //tangent.w是用来确定切线空间中坐标轴方向的
-                float4 texcoord :TEXCOORD0;        //得到纹理坐标
-            &#125;;
-            struct v2f
-            &#123;
-                float4 svPos : SV_POSITION;
-                //float3 worldnormal : TEXCOORD0;
-                float3 lightDir : TEXCOORD0;    //切线空间下平行光的方向
-                float4 worldvertex : TEXCOORD1;
-                float4 uv : TEXCOORD2;            //xy用来存储maintex zw用来存储法线贴图的纹理
-            &#125;;
-            v2f vert(a2v v)
-            &#123;
-                v2f f;
-                f.svPos = UnityObjectToClipPos(v.vertex);
-                //f.worldnormal = UnityObjectToWorldNormal(v.normal);
-                f.worldvertex = mul(v.vertex, unity_WorldToObject);
-                f.uv.xy = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;    //xy是缩放，zw是偏移
-                f.uv.zw = v.texcoord.xy * _NorMap_ST.xy + _NorMap_ST.zw;
-
-                TANGENT_SPACE_ROTATION;    //调用这个宏之后会得到一个矩阵 rotation 用来把模型空间下的方向转换成切线空间下
-                /*float3 binormal = cross(v.normal, v.tangent.xyz) * v.tangent.w;
-                float3x3 rotation = float3x3(v.tangent.xyz, binormal, v.normal);*/
-
-                //ObjSpaceLightDir(v.vertex);    //得到模型空间下的平行光的方向
-                f.lightDir = mul(rotation, ObjSpaceLightDir(v.vertex));
-                return f;
-            &#125;
-            //把所有跟法线方向有关的运算都放在切线空间下
-            //因为从法线贴图里面取得的法线方向是在切线空间下的
-            fixed4 frag(v2f f) : SV_Target
-            &#123;
-                //fixed3 normalDir = normalize(f.worldnormal);
-                fixed4 normalcolor = tex2D(_NorMap,f.uv.zw);
-                //fixed3 tangentNormal = normalize(normalcolor.xyz * 2 - 1);
-                fixed3 tangentNormal = UnpackNormal(normalcolor);
-                tangentNormal = normalize(tangentNormal);
-
-                fixed3 lightDir = normalize(f.lightDir);
-
-                fixed3 texColor = tex2D(_MainTex, f.uv.xy) * _TexColor;    //的到纹理上的颜色tex()
-
-                fixed3 diffuse = _LightColor0.rgb * texColor * max(0,dot(tangentNormal,lightDir));
-
-                fixed3 tempcolor = diffuse + UNITY_LIGHTMODEL_AMBIENT.rgb * texColor;
-                return fixed4(tempcolor,1);
-            &#125;
-            ENDCG
-        &#125;
-    &#125;
-    FallBack &quot;Diffuse&quot;
-&#125;
-</code></pre>
-<h3 id="凹凸映射和法线映射添加参数"><a href="#凹凸映射和法线映射添加参数" class="headerlink" title="凹凸映射和法线映射添加参数"></a>凹凸映射和法线映射添加参数</h3><p><strong>切线空间的z轴是和原来法线方向是一致的</strong>  </p>
-
-
     </div>
     <div class="copyright">
-        <p class="footer-entry">©2016-2019 lianbai</p>
+        <p class="footer-entry">
+    ©2016-2020 lianbai
+</p>
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
     <div class="full-toc">
-        <button class="full"><span class="min "></span></button>
-<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
-<div class="post-toc"><span class="post-toc-title">目录</span>
-    <div class="post-toc-content">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
 
     </div>
 </div>
-<a class="" id="rocket" href="javascript:void(0)"></a>
-    </div>
-</div>
-<div class="acParent"></div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
 <div class="shang_box">
-    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
     <div class="shang_tit">
-        <p>喜欢就点赞,疼爱就打赏</p>
+        <p>Help us with donation</p>
     </div>
     <div class="shang_payimg">
         <div class="pay_img">
@@ -2247,29 +1570,21 @@ normal = pixel*2 - 1
         </div>
     </div>
     <div class="shang_payselect">
-        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
     </div>
 </div>
 
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
-<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
 
-<script src="/js/script.js?v=1.0.1" ></script>
+<script src="/js/script.js?v=1.1.0" ></script>
 <script>
     var img_resize = 'default';
-    /*作者、标签的自动补全*/
-    $(function () {
-        $('.search').AutoComplete({
-            'data': ['@脸白','#IOC','#VR','#NUnit','#Shader','#UniRx','#unity知识点','#UGUI','#AR','#Lua','#ECS','#插件','#AssetBundle','#Unity编辑器扩展','#Unity4IOS','#JSON','#C#-Property','#Unity工具','#Prefab','#海外Google','#LBFramework','#Odin Inspector','#XMind','#网址','#hexo博客','#博客Warning','#密码记事本','#博客密码','#BAT','#JAVA','#git','#操作系统','#网络原理',],
-            'itemHeight': 20,
-            'width': 418
-        }).AutoComplete('show');
-    })
     function initArticle() {
         /*渲染对应的表格样式*/
         
-            $(".post .pjax table").addClass("green_title");
+            $("#post .pjax table").addClass("green_title");
         
 
         /*渲染打赏样式*/
@@ -2285,20 +1600,6 @@ normal = pixel*2 - 1
 
         /*高亮代码块行号*/
         
-        $('pre code').each(function(){
-            var lines = $(this).text().split('\n').length - 1, widther='';
-            if (lines>99) {
-                widther = 'widther'
-            }
-            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
-            $(this).addClass('has-numbering ' + widther)
-                    .parent()
-                    .append($numbering);
-            for(var i=1;i<=lines;i++){
-                $numbering.append($('<li/>').text(i));
-            }
-        });
-        
 
         /*访问数量*/
         
@@ -2308,6 +1609,7 @@ normal = pixel*2 - 1
         /*代码高亮，行号对齐*/
         $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
 
+        
         
     }
 
@@ -2322,38 +1624,6 @@ normal = pixel*2 - 1
 </script>
 
 <!--加入行号的高亮代码块样式-->
-
-<style>
-    pre{
-        position: relative;
-        margin-bottom: 24px;
-        border-radius: 10px;
-        border: 1px solid #e2dede;
-        background: #FFF;
-        overflow: hidden;
-    }
-    code.has-numbering{
-        margin-left: 30px;
-    }
-    code.has-numbering.widther{
-        margin-left: 35px;
-    }
-    .pre-numbering{
-        margin: 0px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 20px;
-        padding: 0.5em 3px 0.7em 5px;
-        border-right: 1px solid #C3CCD0;
-        text-align: right;
-        color: #AAA;
-        background-color: ;
-    }
-    .pre-numbering.widther {
-        width: 35px;
-    }
-</style>
 
 <!--自定义样式设置-->
 <style>
@@ -2391,9 +1661,6 @@ normal = pixel*2 - 1
         .nav.fullscreen {
             margin-left: 0;
         }
-        .nav .hide-list.fullscreen {
-            left: 492px
-        }
     }
     
     @media screen and (max-width: 426px) {
@@ -2424,20 +1691,20 @@ normal = pixel*2 - 1
 
     /*列表样式*/
     
-    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+    #post .pjax article .article-entry>ol, #post .pjax article .article-entry>ul, #post .pjax article>ol, #post .pjax article>ul{
         border: #e2dede solid 1px;
         border-radius: 10px;
         padding: 10px 32px 10px 56px;
     }
-    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+    #post .pjax article .article-entry li>ol, #post .pjax article .article-entry li>ul,#post .pjax article li>ol, #post .pjax article li>ul{
         padding-top: 5px;
         padding-bottom: 5px;
     }
-    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+    #post .pjax article .article-entry>ol>li, #post .pjax article .article-entry>ul>li,#post .pjax article>ol>li, #post .pjax article>ul>li{
         margin-bottom: auto;
         margin-left: auto;
     }
-    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+    #post .pjax article .article-entry li>ol>li, #post .pjax article .article-entry li>ul>li,#post .pjax article li>ol>li, #post .pjax article li>ul>li{
         margin-bottom: auto;
         margin-left: auto;
     }
@@ -2445,10 +1712,8 @@ normal = pixel*2 - 1
 
     /* 背景图样式 */
     
-    .post {
+    #post {
         background: url(http://file.liangxiegame.com/229fb8f1-d85a-417c-ac21-7b33f12f191f.png);
-		background-size: cover;
-		background: rgba(27,31,35,.05);
     }
     
     
@@ -2487,8 +1752,5 @@ normal = pixel*2 - 1
 
 
 
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
 
 </html>
