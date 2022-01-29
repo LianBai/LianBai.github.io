@@ -886,6 +886,17 @@
         </span>
         
         
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
     </div>
     
     <div class="toc-ref">
@@ -1019,7 +1030,7 @@ public static class CreatNewCShapScript
 <p>此代码有一个比较重要的一点就是获取文件所在的程序集的命名空间名字，因为要自动添加命名空间，最后找到了对应的API，通过**CompilationPipeline.GetAssemblyRootNamespaceFromScriptPath(pathName)**获取地址路径下的命名空间名字，然后动态替换就可以了。  </p>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
     </div>
 </article>
 
@@ -1041,6 +1052,27 @@ public static class CreatNewCShapScript
     </p>
 </div>
 
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'c34e81406aa752b9f8f1',
+            clientSecret: 'a028397c94e1f9f94ed2a97e92096cf0e915f7ca',
+            repo: 'LianBai.github.io',
+            owner: 'LianBai',
+            admin: ['LianBai'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
 
 
 

@@ -886,6 +886,17 @@
         </span>
         
         
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
     </div>
     
     <div class="toc-ref">
@@ -922,7 +933,7 @@
 <h1 id="无法搜到的Preview-Package的URL"><a href="#无法搜到的Preview-Package的URL" class="headerlink" title="无法搜到的Preview Package的URL"></a>无法搜到的Preview Package的URL</h1><p>com.ptc.vuforia.engine<br>com.unity.2d.entities<br>com.unity.ai.planner<br>com.unity.aovrecorder<br>com.unity.assetbundlebrowser<br>com.unity.assetgraph<br>com.unity.barracuda<br>com.unity.barracuda.burst<br>com.unity.build-report-inspector<br>com.unity.cloud.userreporting<br>com.unity.collections<br>com.unity.connect.share<br>com.unity.dots.editor<br>com.unity.entities<br>com.unity.film-tv.toolbox<br>com.unity.google.resonance.audio<br>com.unity.immediate-window<br>com.unity.mathematics<br>com.unity.meshsync<br>com.unity.multiplayer-hlapi<br>com.unity.package-manager-doctools<br>com.unity.package-manager-ui<br>com.unity.package-validation-suite<br>com.unity.physics<br>com.unity.platforms<br>com.unity.platforms.android<br>com.unity.platforms.linux<br>com.unity.platforms.macos<br>com.unity.platforms.web<br>com.unity.platforms.windows<br>com.unity.playablegraph-visualizer<br>com.unity.render-pipelines.lightweight<br>com.unity.rendering.hybrid<br>com.unity.renderstreaming<br>com.unity.scene-template<br>com.unity.simulation.client<br>com.unity.simulation.core<br>com.unity.simulation.capture<br>com.unity.simulation.games<br>com.unity.standardevents<br>com.unity.streaming-image-sequence<br>com.unity.test-framework.performance<br>com.unity.tiny.all<br>com.unity.transport<br>com.unity.upm.develop<br>com.unity.vectorgraphics<br>com.unity.webrtc<br>com.unity.xr.googlevr.android<br>com.unity.xr.googlevr.ios<br>com.unity.xr.legacyinputhelpers<br>com.unity.xr.oculus.android<br>com.unity.xr.oculus.standalone<br>com.unity.xr.openvr.standalone<br>com.unity.xr.arsubsystems<br>com.unity.xr.interactionsubsystems<br>com.unity.xr.windowsmr.metro  </p>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
     </div>
 </article>
 
@@ -944,6 +955,27 @@
     </p>
 </div>
 
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'c34e81406aa752b9f8f1',
+            clientSecret: 'a028397c94e1f9f94ed2a97e92096cf0e915f7ca',
+            repo: 'LianBai.github.io',
+            owner: 'LianBai',
+            admin: ['LianBai'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
 
 
 
