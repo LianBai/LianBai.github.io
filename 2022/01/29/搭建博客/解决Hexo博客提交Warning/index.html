@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Unity杂文——自定义创建模板脚本 | LianBai</title>
-  <meta name="keywords" content=" Unity工具 ">
-  <meta name="description" content="Unity杂文——自定义创建模板脚本 | LianBai">
+  <title>解决Hexo博客提交Warning | LianBai</title>
+  <meta name="keywords" content=" 博客Warning ">
+  <meta name="description" content="解决Hexo博客提交Warning | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -893,9 +893,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Unity杂文/Unity杂文——自定义创建模板脚本" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-搭建博客/解决Hexo博客提交Warning" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Unity杂文——自定义创建模板脚本</h1>
+        <h1 class="article-title">解决Hexo博客提交Warning</h1>
     
     <div class="article-meta">
         
@@ -903,26 +903,26 @@
         
         <span class="book">
             
-                <a href="javascript:" data-rel="Unity杂文">Unity杂文</a>
+                <a href="javascript:" data-rel="搭建博客">搭建博客</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a href="javascript:" class="color3">Unity工具</a>
+            <a href="javascript:" class="color5">博客Warning</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2022-01-18 17:39:48'>2022-01-13 14:33</time>
+        创建时间:<time class="date" title='更新时间: 2022-01-29 15:26:23'>2022-01-29 15:19</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:981</span>
+        <span>字数:176</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -941,7 +941,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">解决方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E9%80%89%E4%B8%AD%E7%9A%84%E7%9B%AE%E5%BD%95%E9%87%8C%E5%88%9B%E5%BB%BA%E6%A8%A1%E6%9D%BF%E8%84%9A%E6%9C%AC"><span class="toc-text">在选中的目录里创建模板脚本</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Warning-Accessing-non-existent-property-%E2%80%98XXX%E2%80%99-of-module-exports-inside-circular-dependency"><span class="toc-text">Warning: Accessing non-existent property ‘XXX’ of module exports inside circular dependency</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="toc-text">方法二</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -956,117 +956,18 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相信大多数Unity开发人员在创建脚本的时候，经常会修改自从生成的脚本内容，比如去掉继承的MonoBehavior,添加命名空间，或者继承固定的接口、类等。这样重复的工作看似花费不了多少时间，但是如果每次创建都需要修改，还是有点麻烦的，所以如果我们能按照我们自定一的模板脚本去创建脚本就可以了。</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>笔者在团队开发中发现，每次创建UI的脚本的时候都需要固定修改继承，和添加一些标签等，这些重复性的工作笔者想了想可不可按照自定义的模板创建脚本。笔者发现unity自带的在unity安装目录下创建模板脚本有很大的缺点，只能创建C#脚本，并且只可以自己使用，并不可以上传到项目的库进行团队使用，于是笔者参考网上的一些文章写了下面的解决方案。  </p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>首先我们在创建一个Editor Default Resources目录，这个目录是提供为编辑器模式使用的资源路径，加载此目录的资源文件代码如下：<br><strong>EditorGUIUtility.Load(filePath)</strong><br>加载后通过as转换成需要的类型就可以了<br>笔者模板文件存放的目录如下：<br>—Assets<br>——Editor Default Resources<br>———CustomScriptTemplate<br>————C# Script-NewNoMonoBehaviourScript.text  </p>
-<p>模板文件的内容如下：  </p>
-<pre><code>using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace #NAMESPACE#
-&#123;
-    public class #SCRIPTNAME#
-    &#123;
-        #region 字段
-
-        
-
-        #endregion
-        
-        #region 属性
-
-        
-
-        #endregion
-        
-        #region 方法
-        
-        
-        
-        #endregion
-    &#125;
-&#125;
+        <h1 id="Warning-Accessing-non-existent-property-‘XXX’-of-module-exports-inside-circular-dependency"><a href="#Warning-Accessing-non-existent-property-‘XXX’-of-module-exports-inside-circular-dependency" class="headerlink" title="Warning: Accessing non-existent property ‘XXX’ of module exports inside circular dependency"></a>Warning: Accessing non-existent property ‘XXX’ of module exports inside circular dependency</h1><p>笔者在更新本地npm和node后，提交hexo博客的时候遇到了这个问题。原因在于本地node的版本太高导致的。  </p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>降低node的版本，选择一个低版本的node，node的12版本应该就可以。  </p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/"><font color=steelblue size=5>node各版本下载</font></a>  </p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>笔者并不想更新node版本，于是笔者找到了第二种解决方案，在博客目录下：  </p>
+<pre><code>myBlog\node_modules\nib\node_modules\stylus\lib\nodes\index.js
+myBlog\node_modules\stylus\lib\nodes\index.js.
 </code></pre>
-<h2 id="在选中的目录里创建模板脚本"><a href="#在选中的目录里创建模板脚本" class="headerlink" title="在选中的目录里创建模板脚本"></a>在选中的目录里创建模板脚本</h2><p>制作的原理就是通过读取模板文件的内容，然后将内容写入新的脚本中，监听编辑结束后替换新模板中的固定字符串就可以了。<br>直接上代码：  </p>
-<pre><code>using System.Text;
-using System.Text.RegularExpressions;
-using UnityEditor;
-using UnityEditor.Compilation;
-using UnityEditor.ProjectWindowCallback;
-using UnityEngine;
-
-public static class CreatNewCShapScript
-&#123;
-        /// &lt;summary&gt;
-        /// 创建不继承MonoBehaviour脚本
-        /// &lt;/summary&gt;
-        [MenuItem(&quot;Assets/Create/C# Scripts Menu/C# NoMonoBehaviourScript&quot;, false,81)]
-        public static void CreatNoMonoBehaviourScript()
-        &#123;
-            //参数为传递给CreateEventCSScriptAsset类action方法的参数
-            ProjectWindowUtil.StartNameEditingIfProjectWindowExists(0,
-                ScriptableObject.CreateInstance&lt;CreateNewCShapScriptAsset&gt;(),
-                GetSelectPathOrFallback() + &quot;/NewNoMonoBehaviourScript.cs&quot;, null,
-                &quot;CustomScriptTemplate/C# Script-NewNoMonoBehaviourScript.txt&quot;);
-        &#125;
-
-        /// &lt;summary&gt;
-        /// 取得要创建文件的路径
-        /// &lt;/summary&gt;
-        /// &lt;returns&gt;&lt;/returns&gt;
-        public static string GetSelectPathOrFallback()
-        &#123;
-            string path = &quot;Assets&quot;;
-            //遍历选中的资源以获得路径
-            //Selection.GetFiltered是过滤选择文件或文件夹下的物体，assets表示只返回选择对象本身
-            foreach (UnityEngine.Object obj in Selection.GetFiltered(typeof(UnityEngine.Object), SelectionMode.Assets))
-            &#123;
-                path = AssetDatabase.GetAssetPath(obj);
-                if (!string.IsNullOrEmpty(path) &amp;&amp; File.Exists(path))
-                &#123;
-                    path = Path.GetDirectoryName(path);
-                    break;
-                &#125;
-            &#125;
-            return path;
-        &#125;
-
-        /// &lt;summary&gt;
-        /// 创建脚本文件的委托类
-        /// &lt;/summary&gt;
-        class CreateNewCShapScriptAsset : EndNameEditAction
-        &#123;
-            public override void Action(int instanceId, string pathName, string resourceFile)
-            &#123;
-                UnityEngine.Object obj = CreateScriptAssetFromTemplate(pathName, resourceFile);                         //创建资源
-                ProjectWindowUtil.ShowCreatedAsset(obj);                                                                //高亮显示资源
-            &#125;
-            
-            internal static UnityEngine.Object CreateScriptAssetFromTemplate(string pathName, string resourceFile)
-            &#123;
-                string fullPath = Path.GetFullPath(pathName);                                                           //获取要创建资源的绝对路径
-                string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(pathName);                           //获取文件名，不含扩展名
-                var textAsset = EditorGUIUtility.Load(resourceFile) as TextAsset;
-                string resourceFileText = textAsset.text;
-                resourceFileText = Regex.Replace(resourceFileText, &quot;#NAMESPACE#&quot;,
-                    CompilationPipeline.GetAssemblyRootNamespaceFromScriptPath(pathName));
-                resourceFileText = Regex.Replace(resourceFileText, &quot;#SCRIPTNAME#&quot;, fileNameWithoutExtension);              //将模板类中的类名替换成你创建的文件名
-                bool encoderShouldEmitUTF8Identifier = true;                                                            //参数指定是否提供 Unicode 字节顺序标记
-                bool throwOnInvalidBytes = false;                                                                       //是否在检测到无效的编码时引发异常
-                UTF8Encoding encoding = new UTF8Encoding(encoderShouldEmitUTF8Identifier, throwOnInvalidBytes);
-                bool append = false;
-                StreamWriter streamWriter = new StreamWriter(fullPath, append, encoding);                               //写入文件
-                streamWriter.Write(resourceFileText);
-                streamWriter.Close();
-                AssetDatabase.ImportAsset(pathName);                                                                    //刷新资源管理器
-                AssetDatabase.Refresh();
-                return AssetDatabase.LoadAssetAtPath(pathName, typeof(UnityEngine.Object));
-            &#125;
-        &#125;
-&#125;
+<p>上面两个路径下的<strong>index.js</strong>文件的前面分别添加下面代码即可。(两个文件都需要添加)  </p>
+<pre><code>exports.lineno = null;
+exports.column = null;
+exports.filename = null;
 </code></pre>
-<p>此代码有一个比较重要的一点就是获取文件所在的程序集的命名空间名字，因为要自动添加命名空间，最后找到了对应的API，通过**CompilationPipeline.GetAssemblyRootNamespaceFromScriptPath(pathName)**获取地址路径下的命名空间名字，然后动态替换就可以了。  </p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
@@ -1074,13 +975,9 @@ public static class CreatNewCShapScript
 	<div class="post-nav">
 		
 			<div class="post-nav-prev post-nav-item">
-				<a href="/2022/01/12/Unity/Unity%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" >Unity游戏开发知识点整理<i class="fa fa-chevron-left"></i></a>
+				<a href="/2022/01/29/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%B8%89)%E2%80%94%E2%80%94%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84ECS/" >UnityECS入门(三)——写一个简单的ECS<i class="fa fa-chevron-left"></i></a>
 			</div>
 		
-		
-			<div class="post-nav-next post-nav-item">
-			<a href="/2022/01/13/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8EUGUI%E7%9A%84UI%E6%8B%96%E6%8B%BD%E7%9B%91%E5%90%AC/" >Unity杂文——基于UGUI的UI拖拽监听<i class="fa fa-chevron-right"></i></a>
-			</div>
 		
 	</div>
 </article>
@@ -1092,12 +989,12 @@ public static class CreatNewCShapScript
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Unity杂文——自定义创建模板脚本</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">981</span></p>
+    <p><span class="copy-title">文章标题:</span>解决Hexo博客提交Warning</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">176</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="LianBai">LianBai</a></p>
-    <p><span class="copy-title">发布时间:</span>2022-01-13, 14:33:29</p>
-    <p><span class="copy-title">最后更新:</span>2022-01-18, 17:39:48</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2022/01/13/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%9B%E5%BB%BA%E6%A8%A1%E6%9D%BF%E8%84%9A%E6%9C%AC/" title="Unity杂文——自定义创建模板脚本">http://yoursite.com/2022/01/13/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%9B%E5%BB%BA%E6%A8%A1%E6%9D%BF%E8%84%9A%E6%9C%AC/</a>
+    <p><span class="copy-title">发布时间:</span>2022-01-29, 15:19:22</p>
+    <p><span class="copy-title">最后更新:</span>2022-01-29, 15:26:23</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2022/01/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E8%A7%A3%E5%86%B3Hexo%E5%8D%9A%E5%AE%A2%E6%8F%90%E4%BA%A4Warning/" title="解决Hexo博客提交Warning">http://yoursite.com/2022/01/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E8%A7%A3%E5%86%B3Hexo%E5%8D%9A%E5%AE%A2%E6%8F%90%E4%BA%A4Warning/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
@@ -1117,117 +1014,18 @@ public static class CreatNewCShapScript
 
 
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相信大多数Unity开发人员在创建脚本的时候，经常会修改自从生成的脚本内容，比如去掉继承的MonoBehavior,添加命名空间，或者继承固定的接口、类等。这样重复的工作看似花费不了多少时间，但是如果每次创建都需要修改，还是有点麻烦的，所以如果我们能按照我们自定一的模板脚本去创建脚本就可以了。</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>笔者在团队开发中发现，每次创建UI的脚本的时候都需要固定修改继承，和添加一些标签等，这些重复性的工作笔者想了想可不可按照自定义的模板创建脚本。笔者发现unity自带的在unity安装目录下创建模板脚本有很大的缺点，只能创建C#脚本，并且只可以自己使用，并不可以上传到项目的库进行团队使用，于是笔者参考网上的一些文章写了下面的解决方案。  </p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>首先我们在创建一个Editor Default Resources目录，这个目录是提供为编辑器模式使用的资源路径，加载此目录的资源文件代码如下：<br><strong>EditorGUIUtility.Load(filePath)</strong><br>加载后通过as转换成需要的类型就可以了<br>笔者模板文件存放的目录如下：<br>—Assets<br>——Editor Default Resources<br>———CustomScriptTemplate<br>————C# Script-NewNoMonoBehaviourScript.text  </p>
-<p>模板文件的内容如下：  </p>
-<pre><code>using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace #NAMESPACE#
-&#123;
-    public class #SCRIPTNAME#
-    &#123;
-        #region 字段
-
-        
-
-        #endregion
-        
-        #region 属性
-
-        
-
-        #endregion
-        
-        #region 方法
-        
-        
-        
-        #endregion
-    &#125;
-&#125;
+<h1 id="Warning-Accessing-non-existent-property-‘XXX’-of-module-exports-inside-circular-dependency"><a href="#Warning-Accessing-non-existent-property-‘XXX’-of-module-exports-inside-circular-dependency" class="headerlink" title="Warning: Accessing non-existent property ‘XXX’ of module exports inside circular dependency"></a>Warning: Accessing non-existent property ‘XXX’ of module exports inside circular dependency</h1><p>笔者在更新本地npm和node后，提交hexo博客的时候遇到了这个问题。原因在于本地node的版本太高导致的。  </p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>降低node的版本，选择一个低版本的node，node的12版本应该就可以。  </p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/"><font color=steelblue size=5>node各版本下载</font></a>  </p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>笔者并不想更新node版本，于是笔者找到了第二种解决方案，在博客目录下：  </p>
+<pre><code>myBlog\node_modules\nib\node_modules\stylus\lib\nodes\index.js
+myBlog\node_modules\stylus\lib\nodes\index.js.
 </code></pre>
-<h2 id="在选中的目录里创建模板脚本"><a href="#在选中的目录里创建模板脚本" class="headerlink" title="在选中的目录里创建模板脚本"></a>在选中的目录里创建模板脚本</h2><p>制作的原理就是通过读取模板文件的内容，然后将内容写入新的脚本中，监听编辑结束后替换新模板中的固定字符串就可以了。<br>直接上代码：  </p>
-<pre><code>using System.Text;
-using System.Text.RegularExpressions;
-using UnityEditor;
-using UnityEditor.Compilation;
-using UnityEditor.ProjectWindowCallback;
-using UnityEngine;
-
-public static class CreatNewCShapScript
-&#123;
-        /// &lt;summary&gt;
-        /// 创建不继承MonoBehaviour脚本
-        /// &lt;/summary&gt;
-        [MenuItem(&quot;Assets/Create/C# Scripts Menu/C# NoMonoBehaviourScript&quot;, false,81)]
-        public static void CreatNoMonoBehaviourScript()
-        &#123;
-            //参数为传递给CreateEventCSScriptAsset类action方法的参数
-            ProjectWindowUtil.StartNameEditingIfProjectWindowExists(0,
-                ScriptableObject.CreateInstance&lt;CreateNewCShapScriptAsset&gt;(),
-                GetSelectPathOrFallback() + &quot;/NewNoMonoBehaviourScript.cs&quot;, null,
-                &quot;CustomScriptTemplate/C# Script-NewNoMonoBehaviourScript.txt&quot;);
-        &#125;
-
-        /// &lt;summary&gt;
-        /// 取得要创建文件的路径
-        /// &lt;/summary&gt;
-        /// &lt;returns&gt;&lt;/returns&gt;
-        public static string GetSelectPathOrFallback()
-        &#123;
-            string path = &quot;Assets&quot;;
-            //遍历选中的资源以获得路径
-            //Selection.GetFiltered是过滤选择文件或文件夹下的物体，assets表示只返回选择对象本身
-            foreach (UnityEngine.Object obj in Selection.GetFiltered(typeof(UnityEngine.Object), SelectionMode.Assets))
-            &#123;
-                path = AssetDatabase.GetAssetPath(obj);
-                if (!string.IsNullOrEmpty(path) &amp;&amp; File.Exists(path))
-                &#123;
-                    path = Path.GetDirectoryName(path);
-                    break;
-                &#125;
-            &#125;
-            return path;
-        &#125;
-
-        /// &lt;summary&gt;
-        /// 创建脚本文件的委托类
-        /// &lt;/summary&gt;
-        class CreateNewCShapScriptAsset : EndNameEditAction
-        &#123;
-            public override void Action(int instanceId, string pathName, string resourceFile)
-            &#123;
-                UnityEngine.Object obj = CreateScriptAssetFromTemplate(pathName, resourceFile);                         //创建资源
-                ProjectWindowUtil.ShowCreatedAsset(obj);                                                                //高亮显示资源
-            &#125;
-            
-            internal static UnityEngine.Object CreateScriptAssetFromTemplate(string pathName, string resourceFile)
-            &#123;
-                string fullPath = Path.GetFullPath(pathName);                                                           //获取要创建资源的绝对路径
-                string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(pathName);                           //获取文件名，不含扩展名
-                var textAsset = EditorGUIUtility.Load(resourceFile) as TextAsset;
-                string resourceFileText = textAsset.text;
-                resourceFileText = Regex.Replace(resourceFileText, &quot;#NAMESPACE#&quot;,
-                    CompilationPipeline.GetAssemblyRootNamespaceFromScriptPath(pathName));
-                resourceFileText = Regex.Replace(resourceFileText, &quot;#SCRIPTNAME#&quot;, fileNameWithoutExtension);              //将模板类中的类名替换成你创建的文件名
-                bool encoderShouldEmitUTF8Identifier = true;                                                            //参数指定是否提供 Unicode 字节顺序标记
-                bool throwOnInvalidBytes = false;                                                                       //是否在检测到无效的编码时引发异常
-                UTF8Encoding encoding = new UTF8Encoding(encoderShouldEmitUTF8Identifier, throwOnInvalidBytes);
-                bool append = false;
-                StreamWriter streamWriter = new StreamWriter(fullPath, append, encoding);                               //写入文件
-                streamWriter.Write(resourceFileText);
-                streamWriter.Close();
-                AssetDatabase.ImportAsset(pathName);                                                                    //刷新资源管理器
-                AssetDatabase.Refresh();
-                return AssetDatabase.LoadAssetAtPath(pathName, typeof(UnityEngine.Object));
-            &#125;
-        &#125;
-&#125;
+<p>上面两个路径下的<strong>index.js</strong>文件的前面分别添加下面代码即可。(两个文件都需要添加)  </p>
+<pre><code>exports.lineno = null;
+exports.column = null;
+exports.filename = null;
 </code></pre>
-<p>此代码有一个比较重要的一点就是获取文件所在的程序集的命名空间名字，因为要自动添加命名空间，最后找到了对应的API，通过**CompilationPipeline.GetAssemblyRootNamespaceFromScriptPath(pathName)**获取地址路径下的命名空间名字，然后动态替换就可以了。  </p>
 
 
     </div>
