@@ -7,11 +7,11 @@
   <meta name="description" content="UnityECS入门(三)——写一个简单的ECS | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="LianBai">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-05-12T01:20:03.000Z">
+<meta property="article:published_time" content="2018-05-10T03:44:56.000Z">
 <meta property="article:modified_time" content="2021-12-27T03:39:09.486Z">
 <meta property="article:author" content="LianBai">
 <meta name="twitter:card" content="summary">
@@ -861,12 +861,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-01-29 17:30:05'>2022-01-29 11:12</time>
+            发布时间 : <time class="date" title='最后更新: 2022-01-29 18:15:18'>2022-01-29 11:12</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:504</span>
+        <span>字数:511</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -947,7 +947,6 @@ namespace Unity.Entities
         public override bool Equals(object compare)
         &#123;
             return this == (Entity)compare;
-        &#125;
 
         public override int GetHashCode()
         &#123;
@@ -975,7 +974,7 @@ public struct SimpleEcsComp : IComponentData
     public float m_MoveSpeed;
 &#125;
 </code></pre>
-<p>Component可以理解为Entity具有的属性或者组件，一个Entity是可以绑定多个Component的，就像一个GameObject上挂很多组件一样。<br>Component继承IComponentData或者ISharedComponentData这两个接口。  </p>
+<p>Component可以理解为Entity具有的属性或者组件，一个Entity是可以绑定多个Component的，就像一个GameObject上挂很多组件一样。<br>Component一般定义成struct，并且继承IComponentData或者ISharedComponentData这两个接口。   </p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
