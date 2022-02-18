@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-01-29T07:26:23.374Z</updated>
+  <updated>2022-02-18T07:23:45.913Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unity杂文——扩展Inspector面板(一)</title>
+    <link href="http://yoursite.com/2022/02/18/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%89%A9%E5%B1%95Inspector%E9%9D%A2%E6%9D%BF(%E4%B8%80)/"/>
+    <id>http://yoursite.com/2022/02/18/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%89%A9%E5%B1%95Inspector%E9%9D%A2%E6%9D%BF(%E4%B8%80)/</id>
+    <published>2022-02-18T05:45:59.000Z</published>
+    <updated>2022-02-18T07:23:45.913Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在使用unity的时候我们会经常使用到inspector面板来查看我们选中对象的信息，也会经常修改一些信息，但是，untiy默认的指挥显示我们组件上序列化的信息，也并不是所有的序列化的信息都显示，我们只需要添加**[HideInInspector]**标签就可以隐藏信息。但是这些并不能满足我们修改信息的需求，unity也为我们提供了自动绘制面板，这样我们不仅仅有修改字段的功能，还可以添加更多的功能了。  </p><h1 id="自定义绘制Inspector"><a href="#自定义绘制Inspector" class="headerlink" title="自定义绘制Inspector"></a>自定义绘制Inspector</h1><p>笔者是以自己写的一个UI的动画控制器为例来讲解的。  </p><h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>存放文件的目录如下  </p><blockquote><p>—Asset<br>——Scripts<br>———Editor<br>————UIAnimManagerEditor.cs<br>———Engine<br>————UIAnimManager.cs  </p></blockquote><h2 id="组件脚本"><a href="#组件脚本" class="headerlink" title="组件脚本"></a>组件脚本</h2><p>首先我们先创建一个需要绘制的脚本：  </p><pre><code>/// &lt;summary&gt;/// 动画播放状态/// &lt;/summary&gt;public enum UIAnimPlayState&#123;    Stop,                   //停止    Playing,                //播放中    Pause,                  //暂停    Finish,                 //完成&#125;/// &lt;summary&gt;/// 动画播放控制器/// &lt;/summary&gt;public class UIAnimManager : MonoBehaviour&#123;    public float m_SumTime;                                                     //总时间    public bool m_IsDefReversed;                                                //默认的是否倒放    public bool m_IsDefLoop;                                                    //默认的是否循环    public bool m_IsDefAutoPlay;                                                //默认的是否自动播放        [NonSerialized]    public float m_CurTime;                                                     //当前时间    [NonSerialized]    public UIAnimPlayState m_UIAnimPlayState = UIAnimPlayState.Stop;            //当前状态&#125;</code></pre><p>下面我们来看看默认的inspector的面板显示：  </p><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1645165132213-2022-2-1814:18:53.png"></p><p>不仅仅**[HideInInspector]<strong>标签会隐藏字段，</strong>[NonSerialized]**标记没有序列化的字段也不会显示出来。  </p><h2 id="绘制Inspector面板脚本-CustomEditor"><a href="#绘制Inspector面板脚本-CustomEditor" class="headerlink" title="绘制Inspector面板脚本(CustomEditor)"></a>绘制Inspector面板脚本(CustomEditor)</h2><pre><code>[CustomEditor(typeof(UIAnimManager))]public class UIAnimManagerEditor : UnityEditor.Editor&#123;    #region 字段    private UIAnimManager m_UIAnimManager;                                      //面板的脚本        private SerializedProperty m_IsDefReversed;                                 //是否倒放    private SerializedProperty m_IsDefLoop;                                     //是否循环    private SerializedProperty m_IsDefAutoPlay;                                 //是否自动播放    #endregion        #region 继承方法    private void OnEnable()    &#123;        m_UIAnimManager = (UIAnimManager) target;                               //获取绑定的脚本                m_IsDefReversed = serializedObject.FindProperty(&quot;m_IsDefReversed&quot;);     //获取m_IsDefReversed字段        m_IsDefLoop = serializedObject.FindProperty(&quot;m_IsDefLoop&quot;);             //获取m_IsDefLoop字段        m_IsDefAutoPlay = serializedObject.FindProperty(&quot;m_IsDefAutoPlay&quot;);     //获取m_IsDefAutoPlay字段    &#125;    /// &lt;summary&gt;    /// 自定义绘制Inspector面板    /// &lt;/summary&gt;    public override void OnInspectorGUI()    &#123;        OnPropertyFieldGUI();    &#125;    #endregion        #region 自定义方法    /// &lt;summary&gt;    /// 绘制属性字段    /// &lt;/summary&gt;    private void OnPropertyFieldGUI()    &#123;        EditorGUI.BeginChangeCheck();                                       //监听面板是否发生变化        &#123;            EditorGUILayout.PropertyField(m_IsDefReversed);                 //绘制m_IsDefReversed属性            EditorGUILayout.PropertyField(m_IsDefLoop);                     //绘制m_IsDefLoop属性            EditorGUILayout.PropertyField(m_IsDefAutoPlay);                    //绘制m_IsAutoPlay属性        &#125;        if (EditorGUI.EndChangeCheck())                                     //如果发生变化为true        &#123;            EditorUtility.SetDirty(target);                                 //标记用于触发保存            serializedObject.ApplyModifiedProperties();                     //更新序列化的数据        &#125;    &#125;    #endregion&#125;</code></pre><p>如上述代码，编写脚本只需要类上面打上**[CustomEditor(typeof(UIAnimManager))]<strong>即可，中间的UIAnimManager换成需要绑定的类即可，然后在代码中继承</strong>OnInspectorGUI**方法，在这个方法里绘制自己想绘制的面板。<br>绘制样子如下：  </p><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1645168657839-2022-2-1815:17:38.png">  </p><h2 id="代码讲解"><a href="#代码讲解" class="headerlink" title="代码讲解"></a>代码讲解</h2><p>首先开<strong>OnEnable</strong>函数里：  </p><blockquote><p>m_UIAnimManager = (UIAnimManager) target;获取当前绑定的脚本对象<br>serializedObject.FindProperty是获取脚本上的属性，是拿这些属性绘制的  </p></blockquote><p><strong>OnInspectorGUI</strong>函数就是我们编写绘制Inspector面板的函数，在代码里我们可以编写untiy提供的编辑器代码，笔者这里只是通过EditorGUILayout.PropertyField来绘制属性，也可以使用其他unity的编辑器绘制代码，这里就不举例了。  </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;在使用unity的时候我们会经常使用到inspector面板来查看我们选中对象的信息，也会经常修改一些信息，但是，untiy默认的指挥显示我</summary>
+      
+    
+    
+    
+    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
+    
+    
+    <category term="Unity编辑器" scheme="http://yoursite.com/tags/Unity%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>解决Hexo博客提交Warning</title>
@@ -473,30 +497,6 @@ Jobs: 0.8.0
     
     
     <category term="git" scheme="http://yoursite.com/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bat学习笔记</title>
-    <link href="http://yoursite.com/2019/11/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/bat%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://yoursite.com/2019/11/24/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/bat%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
-    <published>2019-11-24T02:05:06.000Z</published>
-    <updated>2021-12-27T03:39:09.485Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="bat文件执行多条命令"><a href="#bat文件执行多条命令" class="headerlink" title=".bat文件执行多条命令"></a>.bat文件执行多条命令</h2><p>笔者博客利用的是hexo+github搭建的，每次提交都会重复输入多条命令，于是笔者想到用一个bat脚本来代替这些重复的命令，但是，笔者发现bat在执行多条命令的情况下，不会等第一条命令执行完再去执行下一条命令，第一条命令执行的时候下一条命令还会继续执行，所以就会导致只执行第一条命令，笔者查了许多资料，最后了以下两种方法：  </p><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><pre><code>命令1 &amp; 命令2 &amp; 命令3 ... (无论前面命令是否故障,照样执行后面)   命令1 &amp;&amp; 命令2 &amp;&amp; 命令3....(仅当前面命令成功时,才执行后面)   命令1 || 命令2 || 命令3.... (仅当前面命令失败时.才执行后面)</code></pre><p>下面来看看示例代码：</p><pre><code>call git add .&amp;&amp;git status&amp;&amp;git commit -m &quot;backups&quot;&amp;&amp;git pull --rebase origin master&amp;&amp;git push</code></pre><p>这条执行会一步一步执行命令，如果一条命令失败，就会停止。  </p><h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>此类方法并不是作者从网上查到了，是笔者一步一步试验出来的，如果存在问题，欢迎联系作者讨论。  </p><pre><code>call 命令1call 命令2call 命令3...</code></pre><p>笔者发现，每次在命令前加上call，就会等上一个命令结束后执行(不管错与对，只要上面结束就会停止)。<br>下面来看看笔者完成后的完整代码：  </p><pre><code>@echo off call cd D:/blogcall hexo cleancall hexo g -dcall pausecall git add .&amp;&amp;git status&amp;&amp;git commit -m &quot;backups&quot;&amp;&amp;git pull --rebase origin master&amp;&amp;git pushcall pause</code></pre><h2 id="bat变量的输入和赋值"><a href="#bat变量的输入和赋值" class="headerlink" title=".bat变量的输入和赋值"></a>.bat变量的输入和赋值</h2><p>在上文中，我们还可以改进一下，就是博客文件地址，其实可以用变量代替，因为代码有点短，而且很少更改，所以这一点就不用改进了，换地址直接换一行就行了，笔者在每次创建博客的时候，也会重复输入“hexo new post ‘’”,这种重复命令，虽然不多，但是，当你写一些专栏的时候，你会发现名字有很多重复的地方，这时候就会体现出变量的作用。<br>示例代码：</p><pre><code>@echo off call cd D:/blogset/p name=please input name:call hexo new post &quot;%name%&quot;call pause</code></pre><p>从代码中可以看书，输入变量的命令就是：**set/p 变量名 = 输入描述(可以为空)**，这里要切记，set/p中间不要加空格，笔者在这里也被坑了，加上空格后，有些变量赋值就会出现问题，至于原因，笔者还在研究，大家先记住就好了，下面来看看写专栏重复名字的时候，应该如何优化吧。<br>代码如下：  </p><pre><code>@echo off call cd D:/blogset/p number=please input UniRx number:set/p name=please input UniRx name:call hexo new post &quot;UniRx精讲(%number%)——%name%&quot;call pause</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;bat文件执行多条命令&quot;&gt;&lt;a href=&quot;#bat文件执行多条命令&quot; class=&quot;headerlink&quot; title=&quot;.bat文件执行多条命令&quot;&gt;&lt;/a&gt;.bat文件执行多条命令&lt;/h2&gt;&lt;p&gt;笔者博客利用的是hexo+github搭建的，每次提交都会重复输</summary>
-      
-    
-    
-    
-    <category term="编程语言" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-    
-    <category term="BAT" scheme="http://yoursite.com/tags/BAT/"/>
     
   </entry>
   
