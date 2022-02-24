@@ -312,7 +312,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="42">
-<input type="hidden" id="yelog_site_word_count" value="76.1k">
+<input type="hidden" id="yelog_site_word_count" value="76.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -881,12 +881,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-02-23 18:35:30'>2022-02-23 18:30</time>
+            发布时间 : <time class="date" title='最后更新: 2022-02-24 18:37:15'>2022-02-23 18:30</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:154</span>
+        <span>字数:776</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -916,7 +916,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%98%E5%88%B6Inspector"><span class="toc-text">自定义绘制Inspector</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text">文件结构</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%98%E5%88%B6Inspector"><span class="toc-text">自定义绘制Inspector</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text">文件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AATransform%E7%9A%84%E4%BF%A1%E6%81%AF%E7%9A%84%E7%B1%BB%EF%BC%88UIAnimTransformInfo%EF%BC%89"><span class="toc-text">创建一个Transform的信息的类（UIAnimTransformInfo）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E7%BB%98%E5%88%B6%E7%B1%BB%E4%B8%AD%E7%B1%BB%E5%AF%B9%E8%B1%A1%E7%9A%84Inspector%E9%9D%A2%E6%9D%BF"><span class="toc-text">默认绘制类中类对象的Inspector面板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%98%E5%88%B6%E7%B1%BB%E4%B8%AD%E7%B1%BB%E5%AF%B9%E8%B1%A1%E7%9A%84Inspector%E9%9D%A2%E6%9D%BF"><span class="toc-text">自定义绘制类中类对象的Inspector面板</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -936,9 +936,87 @@
 <h1 id="自定义绘制Inspector"><a href="#自定义绘制Inspector" class="headerlink" title="自定义绘制Inspector"></a>自定义绘制Inspector</h1><p>笔者依旧拿笔者写的动画编辑器作为案例来进行讲解。  </p>
 <h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>存放文件的目录如下  </p>
 <blockquote>
-<p>—Asset<br>——Scripts<br>———Editor<br>————UIAnimManagerEditor.cs<br>———Engine<br>————UIAnimManager.cs  </p>
+<p>—Asset<br>——Scripts<br>———Editor<br>————UIAnimManagerEditor.cs<br>————<font color=#00FF00>UIAnimTransformInfoEditor.cs</font><br>———Engine<br>————UIAnimManager.cs<br>————<font color=#00FF00>UIAnimInfoBase.cs</font><br>————<font color=#00FF00>UIAnimTransformInfo.cs</font>  </p>
 </blockquote>
+<h2 id="创建一个Transform的信息的类（UIAnimTransformInfo）"><a href="#创建一个Transform的信息的类（UIAnimTransformInfo）" class="headerlink" title="创建一个Transform的信息的类（UIAnimTransformInfo）"></a>创建一个Transform的信息的类（UIAnimTransformInfo）</h2><p>为了方便我们可以绘制动画信息在Inspector面板上，我们需要在信息类上加上**[Serializable]**标签方便我们序列化</p>
+<pre><code>[Serializable]
+public class UIAnimTransformInfo
+&#123;
+    
+    public Transform m_Transform;
 
+&#125;
+</code></pre>
+<p>然后我们在UIAnimManager上添加我们的信息就可以了</p>
+<pre><code>public class UIAnimManager : MonoBehaviour
+&#123;
+    public float m_SumTime;                                                     //总时间
+    public bool m_IsDefReversed;                                                //默认的是否倒放
+    public bool m_IsDefLoop;                                                    //默认的是否循环
+    public bool m_IsDefAutoPlay;                                                //默认的是否自动播放
+
+    public UIAnimTransformInfo m_UIAnimTransformInfo;                           //Transform动画信息
+    
+    [NonSerialized]
+    public float m_CurTime;                                                     //当前时间
+    [NonSerialized]
+    public UIAnimPlayState m_UIAnimPlayState = UIAnimPlayState.Stop;            //当前状态
+    
+&#125;
+</code></pre>
+<h2 id="默认绘制类中类对象的Inspector面板"><a href="#默认绘制类中类对象的Inspector面板" class="headerlink" title="默认绘制类中类对象的Inspector面板"></a>默认绘制类中类对象的Inspector面板</h2><p>我们可以通过绘制属性的方式直接绘制我们的变量，代码如下：  </p>
+<pre><code>EditorGUILayout.PropertyField(m_UIAnimTransformInfo);
+</code></pre>
+<p>效果如下：  </p>
+<p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1645698365713-2022-2-2418:26:06.png">  </p>
+<p>这个绘制是unity默认的绘制。  </p>
+<h2 id="自定义绘制类中类对象的Inspector面板"><a href="#自定义绘制类中类对象的Inspector面板" class="headerlink" title="自定义绘制类中类对象的Inspector面板"></a>自定义绘制类中类对象的Inspector面板</h2><p>如果我们类中的对象不想使用自定义的绘制，我们可以采用CustomPropertyDrawer这个属性标签来绑定我们类的绘制编辑器类。<br>代码如下  </p>
+<pre><code>[CustomPropertyDrawer(typeof(UIAnimTransformInfo))]
+public class UIAnimTransformInfoEditor : PropertyDrawer
+&#123;
+    /// &lt;summary&gt;
+    /// 获取属性绘制的高度
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;property&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;label&quot;&gt;&lt;/param&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    &#123;
+        return EditorGUI.GetPropertyHeight(property);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 绘制自定义的面板
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;position&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;property&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;label&quot;&gt;&lt;/param&gt;
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    &#123;
+        
+    &#125;
+&#125;
+</code></pre>
+<p>上述代码中，GetPropertyHeight函数是用来设置绘制面板的高度的，然后OnGUI的函数是写自定义的绘制的。  </p>
+<font size=5 color=FF0000>
+提示：   
+在GetPropertyHeight函数离，如果类比较复杂，通过EditorGUI.GetPropertyHeight(property)获取的高度会出错，最好把属性里的需要绘制的字段分别获取高度再加一起返回。  
+在OnGUI函数里绘制的时候不能采用GUILayout和EditorGuiLayout的绘制方式，因为这个是给Rect进行绘制的，每次绘制的时候只需要计算宽度，然后绘制后坐标再自己移动绘制下一个。举例代码如下：  
+
+<pre><code>/// &lt;summary&gt;
+/// 绘制单个可滑动的列表
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;position&quot;&gt;&lt;/param&gt;
+/// &lt;param name=&quot;property&quot;&gt;&lt;/param&gt;
+/// &lt;param name=&quot;uiReorderableList&quot;&gt;&lt;/param&gt;
+public static void OnReorderableListPropertyItemGUI(ref Rect position, SerializedProperty property,ReorderableList uiReorderableList)
+&#123;
+    position.height = GetReorderableListHeight(property);
+    uiReorderableList.DoList(position);
+    position.y += position.height;
+&#125;
+</code></pre>
+</font>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
     </div>
