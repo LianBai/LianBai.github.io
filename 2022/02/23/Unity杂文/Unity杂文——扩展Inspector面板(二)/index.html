@@ -881,7 +881,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-02-24 18:37:15'>2022-02-23 18:30</time>
+            发布时间 : <time class="date" title='最后更新: 2022-02-25 10:08:27'>2022-02-23 18:30</time>
         
     </div>
     <div class="article-meta">
@@ -1001,7 +1001,8 @@ public class UIAnimTransformInfoEditor : PropertyDrawer
 <font size=5 color=FF0000>
 提示：   
 在GetPropertyHeight函数离，如果类比较复杂，通过EditorGUI.GetPropertyHeight(property)获取的高度会出错，最好把属性里的需要绘制的字段分别获取高度再加一起返回。  
-在OnGUI函数里绘制的时候不能采用GUILayout和EditorGuiLayout的绘制方式，因为这个是给Rect进行绘制的，每次绘制的时候只需要计算宽度，然后绘制后坐标再自己移动绘制下一个。举例代码如下：  
+在OnGUI函数里绘制的时候不能采用GUILayout和EditorGuiLayout的绘制方式，因为这个是给Rect进行绘制的，每次绘制的时候只需要计算宽度，然后绘制后坐标再自己移动绘制下一个。举例代码如下：
+</font>  
 
 <pre><code>/// &lt;summary&gt;
 /// 绘制单个可滑动的列表
@@ -1016,7 +1017,7 @@ public static void OnReorderableListPropertyItemGUI(ref Rect position, Serialize
     position.y += position.height;
 &#125;
 </code></pre>
-</font>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
     </div>
