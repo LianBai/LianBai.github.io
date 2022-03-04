@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-03-04T02:16:15.260Z</updated>
+  <updated>2022-03-04T08:19:44.199Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>StarUML使用笔记</title>
+    <link href="http://yoursite.com/2022/03/04/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/StarUML%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2022/03/04/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/StarUML%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</id>
+    <published>2022-03-04T07:46:19.000Z</published>
+    <updated>2022-03-04T08:19:44.199Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="图操作菜单"><a href="#图操作菜单" class="headerlink" title="图操作菜单"></a>图操作菜单</h1><h2 id="Add-Diagram"><a href="#Add-Diagram" class="headerlink" title="Add Diagram"></a>Add Diagram</h2><pre><code>Class Diagram                    类图Package Diagram                    包图Object Diagram                    对象图Composite Structure Diagram        复合结构图Component Diagram                组件图Deployment Diagram                展开图Use Case Diagram                用例图Sequence Diagram                时序图Communication Diagram            交流图Statechart Diagram                状态图Activity Diagram                活动图Profile Diagram                    ER Diagram                        E-R图Flowchart Diagram                流程图Data Flow Diagram                数据流程图</code></pre><h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><h3 id="Add"><a href="#Add" class="headerlink" title="Add"></a>Add</h3><pre><code>Tempalate Parameter        模板参数Attribute                属性Port                    端口Operation                操作Reception                接待Class                    类Interface                接口Signal                    信号DataType                数据类型PrimitiveType            原始类型Enumeration                枚举Artifact                工件Component                组件Node                    节点UseCase                    ActorInformationItemCollaborationInteraction                交互State Machine            状态机    Activity                活动Opaque Behavior            不透明树    Constraint                约束Requirement                要求Block                    块Value Type                数值类型Interface Block            接口块Constraint Block        约束快Tag                        标签</code></pre><h3 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h3><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1646381948452-2022-3-416:19:09.png">   </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;图操作菜单&quot;&gt;&lt;a href=&quot;#图操作菜单&quot; class=&quot;headerlink&quot; title=&quot;图操作菜单&quot;&gt;&lt;/a&gt;图操作菜单&lt;/h1&gt;&lt;h2 id=&quot;Add-Diagram&quot;&gt;&lt;a href=&quot;#Add-Diagram&quot; class=&quot;headerlink</summary>
+      
+    
+    
+    
+    <category term="个人笔记" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Unity杂文——String按行删除</title>
@@ -469,30 +491,6 @@ Jobs: 0.8.0
       
       
     <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在Unity开发过程中，为了节省图，经常会做一些图形的遮罩，笔者开发UI使用的是UGUI遮罩，用过UGUI的Mask做遮罩的应该都知道，UG</summary>
-      
-    
-    
-    
-    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
-    
-    
-    <category term="UGUI" scheme="http://yoursite.com/tags/UGUI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity杂文——UGUI中粒子的遮罩与裁剪</title>
-    <link href="http://yoursite.com/2021/04/19/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94UGUI%E4%B8%AD%E7%B2%92%E5%AD%90%E7%9A%84%E9%81%AE%E7%BD%A9%E4%B8%8E%E8%A3%81%E5%89%AA/"/>
-    <id>http://yoursite.com/2021/04/19/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94UGUI%E4%B8%AD%E7%B2%92%E5%AD%90%E7%9A%84%E9%81%AE%E7%BD%A9%E4%B8%8E%E8%A3%81%E5%89%AA/</id>
-    <published>2021-04-19T02:48:13.000Z</published>
-    <updated>2021-12-27T03:39:09.483Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在Unity开发中，在使用UGUI的mask的时候，如果子节点存在粒子特效，发现mask并不能裁剪粒子，比如笔者在开发中，有一个滑动列表，列表中的button上面存在按钮特效，在滑动的时候滑动的mask并不能裁剪粒子，因此笔者从网上找到了一些解决方案，并应用了一下，用着还可以。</p><h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>粒子的裁剪是用shader制作的，但是仅仅用shader是并不能满足需求的，因为特效有可能是会动的，这样剪裁区域就会发生变化，所以需要一个脚本把裁剪的区域传递给shader，然后shader在进行裁剪处理。  </p><h1 id="C-代码"><a href="#C-代码" class="headerlink" title="C#代码"></a>C#代码</h1><pre><code>public class TailorParticle : MonoBehaviour&#123;    private Material material;    private Mask mask;    private RectMask2D rectmask2d;    public void Start()    &#123;        material = GetComponentInChildren&lt;ParticleSystem&gt;().GetComponent&lt;Renderer&gt;().material;        mask = GetComponentInParent&lt;Mask&gt;();        rectmask2d = GetComponentInParent&lt;RectMask2D&gt;();        SetClip();        //如果运行时裁剪区域不会发生改变，可以注释掉下面这句代码        var scrollrecct = GetComponentInParent&lt;ScrollRect&gt;();        if (scrollrecct)        &#123;            scrollrecct.onValueChanged.AddListener(v =&gt; &#123; SetClip(); &#125;);        &#125;    &#125;    private bool isMask;    private Vector3[] corners = new Vector3[4];    private Vector3[] cornerstemp = new Vector3[4];    public void SetClip()    &#123;        //获取到需要裁剪的区域        isMask = false;        if (mask)         &#123;            mask.GetComponent&lt;RectTransform&gt;().GetWorldCorners(corners);            isMask = true;        &#125;        if(rectmask2d)        &#123;            rectmask2d.GetComponent&lt;RectTransform&gt;().GetWorldCorners(cornerstemp);            if (isMask)            &#123;                corners[0].x = Mathf.Min(corners[0].x, cornerstemp[0].x);                corners[0].y = Mathf.Min(corners[0].y, cornerstemp[0].y);                corners[2].x = Mathf.Max(corners[2].x, cornerstemp[2].x);                corners[2].y = Mathf.Max(corners[2].y, cornerstemp[2].y);            &#125;            else            &#123;                isMask = true;            &#125;        &#125;        if (material &amp;&amp; isMask)        &#123;            //将裁剪区域传入到Shader中            material.SetFloat(&quot;_MinX&quot;, corners[0].x);            material.SetFloat(&quot;_MinY&quot;, corners[0].y);            material.SetFloat(&quot;_MaxX&quot;, corners[2].x);            material.SetFloat(&quot;_MaxY&quot;, corners[2].y);        &#125;    &#125;&#125;</code></pre><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><pre><code>material = GetComponentInChildren&lt;ParticleSystem&gt;().GetComponent&lt;Renderer&gt;().material;mask = GetComponentInParent&lt;Mask&gt;();rectmask2d = GetComponentInParent&lt;RectMask2D&gt;();SetClip();//如果运行时裁剪区域不会发生改变，可以注释掉下面这句代码var scrollrecct = GetComponentInParent&lt;ScrollRect&gt;();if (scrollrecct)&#123;    scrollrecct.onValueChanged.AddListener(v =&gt; &#123; SetClip(); &#125;);&#125;</code></pre><p>首先我们先看Start函数中，material是获取子节点的粒子特效的材质(如果粒子多了可以自己扩展成组)，mask是获取父节点的Mask遮罩，rectmask2d和mask一样是获取父节点的RectMask2D组件，笔者之所以获取RectMask2D这个组件是因为笔者有些裁剪是用这个做的。接着就是进行裁剪函数，这里后面介绍。正常的裁剪到这里就结束了，但是我们如果想裁剪区域进行动态变化，那我们就要进行动态刷新shader，笔者这里只是简单的用ScrollRect进行举例，大家可以根据自己的项目进行监听。只要当变化的时候刷新一下裁剪就行了。  </p><pre><code>isMask = false;if (mask) &#123;    mask.GetComponent&lt;RectTransform&gt;().GetWorldCorners(corners);    isMask = true;&#125;if(rectmask2d)&#123;    rectmask2d.GetComponent&lt;RectTransform&gt;().GetWorldCorners(cornerstemp);    if (isMask)    &#123;        corners[0].x = Mathf.Min(corners[0].x, cornerstemp[0].x);        corners[0].y = Mathf.Min(corners[0].y, cornerstemp[0].y);        corners[2].x = Mathf.Max(corners[2].x, cornerstemp[2].x);        corners[2].y = Mathf.Max(corners[2].y, cornerstemp[2].y);    &#125;    else    &#123;        isMask = true;    &#125;&#125;</code></pre><p>接着我们来看一下裁剪的代码，首先是标记不需要裁剪，只有当父节点存在Mask的时候才进行裁剪，然后就是获取父节点的剪裁区域，笔者这里是把两个Mask进行融合，获取最小的范围，这里可以根据自己的需求进行变化，然后就是关键性的代码  </p><pre><code>if (material &amp;&amp; isMask)&#123;    //将裁剪区域传入到Shader中    material.SetFloat(&quot;_MinX&quot;, corners[0].x);    material.SetFloat(&quot;_MinY&quot;, corners[0].y);    material.SetFloat(&quot;_MaxX&quot;, corners[2].x);    material.SetFloat(&quot;_MaxY&quot;, corners[2].y);&#125;</code></pre><p>这里就是将剪裁区域传递给次材质的shader，然后shader进行裁剪。</p><h1 id="Shader关键代码"><a href="#Shader关键代码" class="headerlink" title="Shader关键代码"></a>Shader关键代码</h1><pre><code>Properties &#123;        ...    _MinX (&quot;Min X&quot;, Float) = -10    _MaxX (&quot;Max X&quot;, Float) = 10    _MinY (&quot;Min Y&quot;, Float) = -10    _MaxY (&quot;Max Y&quot;, Float) = 10&#125;SubShader &#123;    Pass &#123;        ...        float _MinX;        float _MaxX;        float _MinY;        float _MaxY;                ...        float4 frag(VertexOutput i) : COLOR &#123;                        ...                    c.a *= (i.vpos.x &gt;= _MinX );               c.a *= (i.vpos.x &lt;= _MaxX);            c.a *= (i.vpos.y &gt;= _MinY);            c.a *= (i.vpos.y &lt;= _MaxY);            c.rgb *= c.a;            return c;        &#125;        ...    &#125;&#125;</code></pre><p>shader的代码也比较简单，就是将传过来的区域进行判断，如果在区域内据显示，如果超出区域就将颜色的透明度设置为0，也就看不见了。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在Unity开发中，在使用UGUI的mask的时候，如果子节点存在粒子特效，发现mask并不能裁剪粒子，比如笔者在开发中，有一个滑动列表，列</summary>
       
     
     

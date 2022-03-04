@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>NUnit单元测试 | LianBai</title>
-  <meta name="keywords" content=" NUnit ">
-  <meta name="description" content="NUnit单元测试 | LianBai">
+  <title>StarUML使用笔记 | LianBai</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="StarUML使用笔记 | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
@@ -892,9 +892,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Unity/NUnit单元测试" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-个人笔记/StarUML使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">NUnit单元测试</h1>
+        <h1 class="article-title">StarUML使用笔记</h1>
     
     <div class="article-meta">
         
@@ -904,27 +904,20 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Unity">Unity</a>
+            <a  data-rel="个人笔记">个人笔记</a>
             
         </span>
         
         
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color1">NUnit</a>
-            
-        </span>
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-03-04 16:19:44'>2022-03-04 15:46</time>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-12-27 11:39:09'>2019-09-23 09:00</time>
-        
-    </div>
-    <div class="article-meta">
-        
-        <span>字数:507</span>
+        <span>字数:182</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -954,7 +947,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="toc-text">配置环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E7%A8%8B%E5%BA%8F%E9%9B%86"><span class="toc-text">配置项目中的程序集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95Assert%E7%B1%BB%E4%B8%BB%E8%A6%81%E9%9D%99%E6%80%81%E6%88%90%E5%91%98"><span class="toc-text">单元测试Assert类主要静态成员</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC"><span class="toc-text">单元测试脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC"><span class="toc-text">创建第一个测试脚本</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E6%93%8D%E4%BD%9C%E8%8F%9C%E5%8D%95"><span class="toc-text">图操作菜单</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Diagram"><span class="toc-text">Add Diagram</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9B%BE"><span class="toc-text">类图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Add"><span class="toc-text">Add</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Classes"><span class="toc-text">Classes</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -970,36 +963,54 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h1><p><font size=4><strong>单元测试环境： NSubstitute</strong></font><br><font size=4><strong>编写脚本环境： rider 2020.1.4</strong></font><br><font size=4><strong>Unity环境: unity2019.4.3f1(LTS)</strong></font>    </p>
-<p>首先下载<a target="_blank" rel="noopener" href="https://github.com/nsubstitute/nsubstitute/downloads"><font color=steelblue size=3>NSubstitute</font></a>插件。<br>然后把下载的文件中的NSubstitute.dll放进需要单元测试的项目中。  </p>
-<h1 id="配置项目中的程序集"><a href="#配置项目中的程序集" class="headerlink" title="配置项目中的程序集"></a>配置项目中的程序集</h1><p>导入需要的dll文件后，点击Unity菜单中的<strong>Window/General/Test Runner</strong>,会弹出创建界面。<br><img src="http://file.liangxiegame.com/068a79ae-72a7-49bf-904c-2e20e67a921e.png"><br>在TestRunner界面中的右上角三个点的菜单上点击选择<strong>Enable playmode  tests…</strong>,然后打开PlayMode界面就可以了。<br><img src="http://file.liangxiegame.com/c24e5014-2852-492c-8476-e15006ccc222.png">  </p>
-<h1 id="单元测试Assert类主要静态成员"><a href="#单元测试Assert类主要静态成员" class="headerlink" title="单元测试Assert类主要静态成员"></a>单元测试Assert类主要静态成员</h1><pre><code>AreEqual：方法被重载了N多次，主要功能是判断两个值是否相等；如果两个值不相等，则测试失败。
-AreNotEqual：方法被重载了N多次，主要功能是判断两个值是否不相等；如果两个值相等，则测试失败。
-AreNotSame：引用的对象是否不相同；如果两个输入内容引用相同的对象，则测试失败.
-AreSame：引用的对象是否相同；如果两个输入内容引用不相同的对象，则测试失败
-Fail：断言失败。
- 
-Inconclusive：表示无法证明为 true 或 false 的测试结果
-IsFalse：指定的条件是否为 false；如果该条件为 true，则测试失败。
-IsTrue：指定的条件是否为 true；如果该条件为 false，则测试失败
-IsInstanceofType：测试指定的对象是否为所需类型的实例；如果所需的实例不在该对象的继承层次结构中，则测试失
- 
-IsNotInstanceofType: 测试指定的对象是否为所需类型的实例；如果所需的实例在该对象的继承层次结构中，则测试失败
-IsNull：测试指定的对象是否为非空
-IsNotNull：测试指定的对象是否为非空
+        <h1 id="图操作菜单"><a href="#图操作菜单" class="headerlink" title="图操作菜单"></a>图操作菜单</h1><h2 id="Add-Diagram"><a href="#Add-Diagram" class="headerlink" title="Add Diagram"></a>Add Diagram</h2><pre><code>Class Diagram                    类图
+Package Diagram                    包图
+Object Diagram                    对象图
+Composite Structure Diagram        复合结构图
+Component Diagram                组件图
+Deployment Diagram                展开图
+Use Case Diagram                用例图
+Sequence Diagram                时序图
+Communication Diagram            交流图
+Statechart Diagram                状态图
+Activity Diagram                活动图
+Profile Diagram                    
+ER Diagram                        E-R图
+Flowchart Diagram                流程图
+Data Flow Diagram                数据流程图
 </code></pre>
-<h1 id="单元测试脚本"><a href="#单元测试脚本" class="headerlink" title="单元测试脚本"></a>单元测试脚本</h1><h2 id="创建第一个测试脚本"><a href="#创建第一个测试脚本" class="headerlink" title="创建第一个测试脚本"></a>创建第一个测试脚本</h2><pre><code>    public interface ICalculator  
-    &#123;
-        int Add(int a, int b);
-        string Mode &#123; get; set; &#125;
-        event EventHandler PoweringUp;
-    &#125;
-    [Test]
-    public void Test_GetSubstitute()    //NSubstitute创建类型实例
-    &#123;
-        ICalculator calculator = Substitute.For&lt;ICalculator&gt;();    //创建实例
-    &#125;
+<h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><h3 id="Add"><a href="#Add" class="headerlink" title="Add"></a>Add</h3><pre><code>Tempalate Parameter        模板参数
+Attribute                属性
+Port                    端口
+Operation                操作
+Reception                接待
+Class                    类
+Interface                接口
+Signal                    信号
+DataType                数据类型
+PrimitiveType            原始类型
+Enumeration                枚举
+Artifact                工件
+Component                组件
+Node                    节点
+UseCase                    
+Actor
+InformationItem
+Collaboration
+Interaction                交互
+State Machine            状态机    
+Activity                活动
+Opaque Behavior            不透明树    
+Constraint                约束
+Requirement                要求
+Block                    块
+Value Type                数值类型
+Interface Block            接口块
+Constraint Block        约束快
+Tag                        标签
 </code></pre>
+<h3 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h3><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1646381948452-2022-3-416:19:09.png">  
+ </p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
