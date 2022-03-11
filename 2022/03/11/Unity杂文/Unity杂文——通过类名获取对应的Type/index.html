@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>github | LianBai</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="github | LianBai">
+  <title>Unity杂文——通过类名获取对应的Type | LianBai</title>
+  <meta name="keywords" content=" C#反射 ">
+  <meta name="description" content="Unity杂文——通过类名获取对应的Type | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
@@ -912,24 +912,39 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-Unity杂文/Unity杂文——通过类名获取对应的Type" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">github</h1>
+        <h1 class="article-title">Unity杂文——通过类名获取对应的Type</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Unity杂文">Unity杂文</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">C#反射</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-12-27 11:39:09'>2018-05-10 10:52</time>
+            发布时间 : <time class="date" title='最后更新: 2022-03-11 16:06:58'>2022-03-11 15:36</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:0</span>
+        <span>字数:379</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -959,7 +974,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-text">解决</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%96%B9%E5%BC%8F%E8%AE%B2%E8%A7%A3"><span class="toc-text">获取方式讲解</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -975,7 +990,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>笔者在编辑器开发过程中遇到一个问题，笔者想通过一个类的名字获取对应的类的Type然后再做一系列的操作，但是笔者发现无法直接获取，于是笔者通过不断的尝试通过下面的方法获取到了，如果有更好的方法欢迎告诉笔者。  </p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>话不多说，先上代码：  </p>
+<pre><code>[MenuItem(&quot;Assets/GetType&quot;,false,81)]
+public static void GetClassTypeByClassTypeName()
+&#123;
+    const string className = &quot;TestScripts&quot;;
+    //方法一（在同一程序集内并且非自身Class才能获取到）
+    var type = Type.GetType(className);
+    Debug.LogError(type);
+    
+    var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+    
+    //方法二（有特殊情况会获取不到，笔者没找到获取不到的原因）
+    type = allAssemblies.Select(assembly =&gt; assembly.GetType(className)).FirstOrDefault(assembly =&gt; assembly != null);
+    Debug.LogError(type);
+    
+    //方法三（如果存在类重名的情况有概率获取错误，可以通过路径做限制）
+    type = allAssemblies.SelectMany(assembly =&gt; assembly.GetTypes()).FirstOrDefault(type1 =&gt; type1.Name == className);
+    Debug.LogError(type);
+&#125;
+</code></pre>
+<p>运行结果如下  </p>
+<p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1646985481130-2022-3-1115:58:02.png">  </p>
+<p>方法一和方法二的获取条件都有限制，因此笔者建议使用方法三进行获取。  </p>
+<h1 id="获取方式讲解"><a href="#获取方式讲解" class="headerlink" title="获取方式讲解"></a>获取方式讲解</h1><p>方法一是直接在当前程序集进行获取的。<br>方法二是通过遍历当前程序的所有程序集，然后通过程序集直接GetType进行获取<br>方法三是类似于方法二，得到所有的程序集再遍历程序集中的Type，判断名字是否相同来得到对应的Type</p>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
     </div>
