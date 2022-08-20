@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-03-24T06:34:51.539Z</updated>
+  <updated>2022-08-20T07:19:42.281Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unity杂文——Unity的Animation无法播放</title>
+    <link href="http://yoursite.com/2022/08/20/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94Unity%E7%9A%84Animation%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE/"/>
+    <id>http://yoursite.com/2022/08/20/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94Unity%E7%9A%84Animation%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE/</id>
+    <published>2022-08-20T06:57:28.000Z</published>
+    <updated>2022-08-20T07:19:42.281Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>笔者再开发过程中，有个功能需求是在游戏中移动Camera，笔者采用了两种方式，第一种是K动画用动画播放，另一种是用曲线表示运动节奏直线运动。第二种方式和本文无关，主要阐述第一种方式在播放Animation的时候无法播放的问题。  </p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>笔者采用的是Animation的方式播放动画，笔者并未采用Animator，是在游戏中进行动态添加Animation组件，然后根据资源名字动态加载动画资源进行播放，下面是案例代码：  </p><pre><code>public float LookAtAnim(string animName)&#123;    if (!m_Transfrom.TryGetComponent(out Animation animation))    &#123;        animation = m_Transfrom.gameObject.AddComponent&lt;Animation&gt;();    &#125;    var clip = animation.GetClip(animName);    if (clip == null)    &#123;        clip = ResManager.LoadAsset&lt;AnimationClip&gt;(animName);        animation.AddClip(clip, animName);    &#125;    animation.clip = clip;    animation.Play(animName);    return clip.length;&#125;</code></pre><p>但是笔者在运行过程中发现编辑器并不能正常播放动画，通过断点调试，笔者发现在添加动画clip的时候并不能添加到Animation的clip列表里，于是笔者通过各种百度，谷歌等搜索发现需要打开Animation的legacy，修改后的代码如下：</p><pre><code>public float LookAtAnim(string animName)&#123;    ...    if (clip == null)    &#123;        clip = ResManager.LoadAsset&lt;AnimationClip&gt;(animName);        clip.legacy = true;        animation.AddClip(clip, animName);    &#125;    ...&#125;</code></pre><p>这时候动画播放正常了，但是笔者打包成apk后，在模拟器上依旧无法正常播放，笔者打印日志发现动画都正常添加了，于是笔者便尝试解决问题。  </p><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>笔者思考**clip.legacy = true;**这行代码的作用，于是笔者发现有可能是动画的问题，首先打开inspector的debug模式   </p><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1660979445735-2022-8-2015:10:46.png"><br>然后发现有些动画的Legacy是打开的，有些是关闭的，于是笔者都手动打开了  </p><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1660979791351-2022-8-2015:16:31.png"><br>发现模拟器依旧没办法播放，最后发现真机上只需要把这个关闭就可以了。<br>笔者最终抛弃了Animation的方法，因为还需要手动加载资源，笔者采用了Animator的方式进行播放。代码如下：  </p><pre><code>/// &lt;summary&gt;/// 播放相机动画/// &lt;/summary&gt;/// &lt;param name=&quot;animName&quot;&gt;动画名字&lt;/param&gt;public float LookAtAnim(string animName)&#123;    SetAnimatorVisible(true);    m_Animator.Play(animName);    return (from animationClip in m_Animator.runtimeAnimatorController.animationClips        where animationClip.name == animName        select animationClip.length).FirstOrDefault();&#125;public void SetAnimatorVisible(bool visible)&#123;    if (m_Animator != null &amp;&amp; m_Animator.enabled == visible) return;    if(visible)    &#123;        if(m_Animator == null)        &#123;            m_Animator = m_Transfrom.gameObject.AddComponent&lt;Animator&gt;();            m_Animator.runtimeAnimatorController =                ResManager.LoadAsset&lt;RuntimeAnimatorController&gt;(TableGlobal.CameraController);        &#125;        else        &#123;            m_Animator.enabled = true;        &#125;    &#125;    else if (m_Animator != null)    &#123;        m_Animator.DOKill();        m_Animator.enabled = false;    &#125;&#125;</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><strong>切记要把动画资源的Legacy关闭，否则Animator也无法播放动画片段</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;笔者再开发过程中，有个功能需求是在游戏中移动Camera，笔者采用了两种方式，第一种是K动画用动画播放，另一种是用曲线表示运动节奏直线运动。</summary>
+      
+    
+    
+    
+    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
+    
+    
+    <category term="Animation" scheme="http://yoursite.com/tags/Animation/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity杂文——根据条件禁用编辑器菜单</title>
@@ -468,30 +492,6 @@ Jobs: 0.8.0
     
     
     <category term="unity知识点" scheme="http://yoursite.com/tags/unity%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity杂文——扩展变量增加OnValueChange功能</title>
-    <link href="http://yoursite.com/2022/01/07/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%89%A9%E5%B1%95%E5%8F%98%E9%87%8F%E5%A2%9E%E5%8A%A0OnValueChange%E5%8A%9F%E8%83%BD/"/>
-    <id>http://yoursite.com/2022/01/07/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%89%A9%E5%B1%95%E5%8F%98%E9%87%8F%E5%A2%9E%E5%8A%A0OnValueChange%E5%8A%9F%E8%83%BD/</id>
-    <published>2022-01-07T06:00:09.000Z</published>
-    <updated>2022-01-07T06:31:58.212Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>笔者参与的项目的UI框架并没有采用MVC结构，而是把MVC中的C去掉了，只使用了MV，把C的逻辑拆分了一下，分别分为M里的C和V里的C，分别写在了对应的M或者V里面，V是根据M里的数据变化从而进行变化的。</p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>C#自带的属性并没有数据变化响应的事件或者委托，笔者的UI结构是需要根据数据变化进行更新的，所以笔者希望属性能有一个类似于OnValueChange的功能。</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><h2 id="方法一（使用委托）"><a href="#方法一（使用委托）" class="headerlink" title="方法一（使用委托）"></a>方法一（使用委托）</h2><p>这种方式是自己增加一个变量的委托事，然后在属性的set方法里进行响应对应的委托，每次需要监听数据变化的时候注册一下对应的委托就可以了。<br>缺点：变量需要定义成委托，并且每个需要监听变化的变量都需要增加一个委托的变量。<br>代码如下：  </p><pre><code>public class ExtendProperty&#123;    private int m_Value;    public Action&lt;int, int&gt; OnValueChange;    public int Value    &#123;        get =&gt; m_Value;        set        &#123;            OnValueChange?.Invoke(m_Value, value);            m_Value = value;        &#125;    &#125;&#125;</code></pre><p>根据代码可以看出，如果是属性使用只需要两个变量，但是如果是字段使用就需要三个变量了。<br>使用方法如下：  </p><pre><code> void Start()&#123;    ExtendProperty property = new ExtendProperty();    property.Value = 10;    property.OnValueChange += OnValueChange;    property.Value = 20;&#125;private void OnValueChange(int arg1, int arg2)&#123;    Debug.Log(string.Format(&quot;&#123;0&#125;-&#123;1&#125;&quot;, arg1, arg2));&#125;</code></pre><h2 id="方法二（推荐）"><a href="#方法二（推荐）" class="headerlink" title="方法二（推荐）"></a>方法二（推荐）</h2><p>方法一的缺点很明显，如果是少数变量使用还可以，但是如果大量的变量都需要监听会比较麻烦，于是笔者就找到了另外的解决办法，笔者自定义一个类，然后变量都使用这个类定义，在类里面进行变量监听就可以了。<br>代码如下：  </p><pre><code>public class ExtendProperty&lt;T&gt;&#123;    private T m_Value;    public Action&lt;T, T&gt; OnValueChange;    public T Value    &#123;        get =&gt; m_Value;        set        &#123;            OnValueChange?.Invoke(m_Value, value);            m_Value = value;        &#125;    &#125;    public ExtendProperty(T value)    &#123;        m_Value = value;    &#125;        public ExtendProperty()    &#123;        m_Value = default;    &#125;        public static implicit operator T(ExtendProperty&lt;T&gt; vl)    &#123;        return vl.Value;    &#125;&#125;</code></pre><p>缺点：定义普通变量的时候都需要初始化，不会默认赋值，并且每次使用变量的时候都不是直接赋值，而是采用property.Value = value的方式赋值。<br>使用案例如下：  </p><pre><code>ExtendProperty&lt;int&gt; property = new ExtendProperty&lt;int&gt;(10);property.OnValueChange += OnValueChange;property.Value = 20;</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>采用OnValue的方式是一种简单的响应式框架，类似于UniRx，笔者在使用方法二的时候一直在想办法解决如何让使用者使用的时候像普通变量一样赋值而不是采用.Value的方式赋值，奈何一直找不到能拿到赋值的左值的方法。第二种方式更像是把第一种方式整合成一个对象，从而减少代码量。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;笔者参与的项目的UI框架并没有采用MVC结构，而是把MVC中的C去掉了，只使用了MV，把C的逻辑拆分了一下，分别分为M里的C和V里的C，分别</summary>
-      
-    
-    
-    
-    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
-    
-    
-    <category term="C#-Property" scheme="http://yoursite.com/tags/C-Property/"/>
     
   </entry>
   
