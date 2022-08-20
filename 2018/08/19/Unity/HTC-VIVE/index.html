@@ -7,11 +7,11 @@
   <meta name="description" content="HTC VIVE | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
-<meta property="og:title" content="github">
-<meta property="og:url" content="http://yoursite.com/github/index.html">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="LianBai">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-05-10T02:52:17.000Z">
+<meta property="article:published_time" content="2018-05-10T03:44:56.000Z">
 <meta property="article:modified_time" content="2021-12-27T03:39:09.486Z">
 <meta property="article:author" content="LianBai">
 <meta name="twitter:card" content="summary">
@@ -326,7 +326,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="49">
-<input type="hidden" id="yelog_site_word_count" value="77.7k">
+<input type="hidden" id="yelog_site_word_count" value="77.9k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -1042,7 +1042,9 @@
 <li>首先导入VIVE Input Unility包，导入时如下图，选择Accept All。<br><img src="https://i.imgur.com/Lt2gga0.png">  </li>
 <li>导入后会出现一个HTC.UnityPlugin文件夹，在文件夹里会有给的案例，可以通过案例进行学习<br><img src="https://i.imgur.com/5Hil8nD.png">  </li>
 <li>导入Steam VR Plugin包，因为我用的unity是2017.3.1f1版本，所有会一些错误，接下来开始改错</li>
-<li>通过报错找到代码所指向的地方，把所有的VR全部改成XR，但是这里面还会有一个错误，XRSetting的一个方法过时了，换成另一个方法即可<br><img src="https://i.imgur.com/whV4vdb.png">  <h2 id="案例一：button-按钮"><a href="#案例一：button-按钮" class="headerlink" title="案例一：button 按钮"></a>案例一：button 按钮</h2></li>
+<li>通过报错找到代码所指向的地方，把所有的VR全部改成XR，但是这里面还会有一个错误，XRSetting的一个方法过时了，换成另一个方法即可<br><img src="https://i.imgur.com/whV4vdb.png"></li>
+</ol>
+<h2 id="案例一：button-按钮"><a href="#案例一：button-按钮" class="headerlink" title="案例一：button 按钮"></a>案例一：button 按钮</h2><ol>
 <li>首先新建一个场景，在场景中把main camera去掉，然后在刚才导入的文件夹的Prefabs文件里找到ViveCameraRig和VivePointers两个预制体，导入到场景中即可<br><img src="https://i.imgur.com/Nj2ST54.png">  </li>
 <li>在场景中添加UGUI的button按钮，然后把EventSystem去掉</li>
 <li>把canvas物体上的canvas组件中的Render Mode改为World space（世界坐标）<br><img src="https://i.imgur.com/QtwuUIq.png">  </li>
@@ -1050,9 +1052,11 @@
 <li>把canvas上canvas组件中的Addition Shader Channes的值选中TexCoord1、Normal和Tangent（每次打开选中一个，打开三次依次选中三个即可）<br><img src="https://i.imgur.com/CWAeDJl.png">  </li>
 <li>在canvas上面添加canvas Raycast Target脚本<br><img src="https://i.imgur.com/vCNxajz.png">  </li>
 <li>然后把canvas缩小到原来的0.01,然后把canvas移动到ViveCameraRig摄像头能看到的地方，最好先移动到摄像头在的位置，然后微调，离摄像头近一些，否则手柄射线无法扫描到button，就无法进行点击<br><img src="https://i.imgur.com/bDilsoP.png">  </li>
-<li>接着连接HTC VIVE设备直接运行即可  <h2 id="案例二：2D-Drag-amp-Drop-拖拽"><a href="#案例二：2D-Drag-amp-Drop-拖拽" class="headerlink" title="案例二：2D Drag&amp;Drop(拖拽)"></a>案例二：2D Drag&amp;Drop(拖拽)</h2></li>
+<li>接着连接HTC VIVE设备直接运行即可</li>
+</ol>
+<h2 id="案例二：2D-Drag-amp-Drop-拖拽"><a href="#案例二：2D-Drag-amp-Drop-拖拽" class="headerlink" title="案例二：2D Drag&amp;Drop(拖拽)"></a>案例二：2D Drag&amp;Drop(拖拽)</h2><ol>
 <li>跟案例一一样建立一个UGUI的场景，把案例一中的button换成image  </li>
-<li>创建一个脚本(作者脚本名字UIDropDrag),然后在脚本中继承IBeginDragHandler,IDragHandler,IEndDragHandler并实现接口    </li>
+<li>创建一个脚本(作者脚本名字UIDropDrag),然后在脚本中继承IBeginDragHandler,IDragHandler,IEndDragHandler并实现接口</li>
 </ol>
 <p>脚本如下  </p>
 <pre><code>using System.Collections;
@@ -1062,25 +1066,25 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class UIDropDrag : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler
 &#123;
-    private RectTransform DragObject;    //保留拖拽物体
-    public void OnBeginDrag(PointerEventData eventData)    //开始拖拽
+    private RectTransform DragObject;	//保留拖拽物体
+    public void OnBeginDrag(PointerEventData eventData)	//开始拖拽
     &#123;
-        DragObject = eventData.pointerEnter.transform as RectTransform;    //初始化拖拽物体
-        SetDraggedPosition(eventData);                //设置拖拽物体的坐标
+        DragObject = eventData.pointerEnter.transform as RectTransform;	//初始化拖拽物体
+        SetDraggedPosition(eventData);				//设置拖拽物体的坐标
     &#125;
 
-    public void OnDrag(PointerEventData eventData)    //正在拖拽
+    public void OnDrag(PointerEventData eventData)	//正在拖拽
     &#123;
-        if (DragObject != null)     //判断拖拽物体是否为空
-            SetDraggedPosition(eventData);    //设置拖拽物体的坐标
+        if (DragObject != null) 	//判断拖拽物体是否为空
+            SetDraggedPosition(eventData);	//设置拖拽物体的坐标
     &#125;
 
     public void OnEndDrag(PointerEventData eventData)
     &#123;
         if (DragObject != null)
         &#123;
-            SetDraggedPosition(eventData);    //设置拖拽物体的坐标
-            DragObject = null;            //清空拖拽物体
+            SetDraggedPosition(eventData);	//设置拖拽物体的坐标
+            DragObject = null;			//清空拖拽物体
         &#125;
     &#125;
     //设置拖拽物体坐标
@@ -1100,22 +1104,28 @@ public class UIDropDrag : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDrag
 <li>如案例一搭建一个VR场景，但是不用创建UGUI画布</li>
 <li>在场景中新建一个3D物体（作者创建的是个cube）</li>
 <li>在3D物体上添加一个rigibody组件和一个Draggable脚本，组件和脚本的设置如下<br><img src="https://i.imgur.com/Ic8Aa0P.png">  </li>
-<li>接下来直接运行就好了，通过手柄扳机进行拖拽，手柄触摸区域进行远近拉伸<h2 id="案例四：Telrport-远程传送"><a href="#案例四：Telrport-远程传送" class="headerlink" title="案例四：Telrport(远程传送)"></a>案例四：Telrport(远程传送)</h2></li>
+<li>接下来直接运行就好了，通过手柄扳机进行拖拽，手柄触摸区域进行远近拉伸</li>
+</ol>
+<h2 id="案例四：Telrport-远程传送"><a href="#案例四：Telrport-远程传送" class="headerlink" title="案例四：Telrport(远程传送)"></a>案例四：Telrport(远程传送)</h2><ol>
 <li>新建一个场景，把默认添加的相机去掉，然后在场景中搭建添加ViveCameraRig和ViveCurvePointers两个物体，把这俩物体挂在空物体上(作者空物体名字VROrigins)<br><img src="https://i.imgur.com/XWoJ3Xf.png">  </li>
 <li>在场景中搭建一个用来移动的场景，最好设置一些障碍<br><img src="https://i.imgur.com/ZFKYXdm.png">  </li>
 <li>在允许位移的物体上添加一个Teleportable组件，这样就可以在物体上移动了，障碍物不添加这个组件就不会移动到这个组件中了<br><img src="https://i.imgur.com/hcrcBS6.png">  </li>
-<li>接下来直接运行游戏就行了，通过按下触摸键来改变位置移动<h2 id="案例五：Collider-Evenrt-碰撞事件"><a href="#案例五：Collider-Evenrt-碰撞事件" class="headerlink" title="案例五：Collider Evenrt(碰撞事件)"></a>案例五：Collider Evenrt(碰撞事件)</h2></li>
+<li>接下来直接运行游戏就行了，通过按下触摸键来改变位置移动</li>
+</ol>
+<h2 id="案例五：Collider-Evenrt-碰撞事件"><a href="#案例五：Collider-Evenrt-碰撞事件" class="headerlink" title="案例五：Collider Evenrt(碰撞事件)"></a>案例五：Collider Evenrt(碰撞事件)</h2><ol>
 <li>新建一个场景，把默认添加的相机去掉，然后在场景中搭建添加ViveCameraRig、ViveCurvePointers和ViveColliders三个物体，把这俩物体挂在空物体上(作者空物体名字VROrigins)<br><img src="https://i.imgur.com/tLPcc0b.png">  </li>
 <li>在场景中搭建一个场景，分别创建5个3D物体(作者使用的是5个Capsule,并且用颜色区分开),并且分别为他们添加了Rigibody，并且把Use Gravity取消掉,是为了方便抓取<br><img src="https://i.imgur.com/thsUtpt.png">   </li>
 <li>为前两个Capsule添加Basic Grabbable脚本，并且两个Unblockable Grab一个勾选上，一个不勾选<br><img src="https://i.imgur.com/RMKNsy3.png">  </li>
 <li>为后两个Capsule添加Sticky Grabbable脚本，并且两个Unblockable Grab一个勾选上，一个不勾选<br><img src="https://i.imgur.com/7To7ZlV.png">  </li>
 <li>运行脚本进行抓取，可以发现抓取Basic Grabbable脚本物体的时候手柄扳机一直扣着才可以一直抓取，扳机松开就会结束，然而抓取Sticky Grabbable脚本物体的时候扣动一次扳机就代表抓取，扳机松开后还是一直抓取，再次扣动扳机就松开了，两个脚本的Unblockable Grab功能其实是一样的，如果打上对勾，代表的是抓取过程中无视障碍，不会被阻挡，不勾选代表抓取过程中会被物体阻挡，在抓取过程中碰撞物体就可以试试了</li>
-<li>为场景添加一个新的Capsule,为其添加一个Material Changer脚本，这个脚本是根据触碰物体后扣动扳机来触发材质改变，类似于button的点击<br><img src="https://i.imgur.com/5uqNt1E.png">  <h2 id="案例六：Collider-Evenrt-Manager-控制器事件管理"><a href="#案例六：Collider-Evenrt-Manager-控制器事件管理" class="headerlink" title="案例六：Collider Evenrt Manager(控制器事件管理)"></a>案例六：Collider Evenrt Manager(控制器事件管理)</h2></li>
+<li>为场景添加一个新的Capsule,为其添加一个Material Changer脚本，这个脚本是根据触碰物体后扣动扳机来触发材质改变，类似于button的点击<br><img src="https://i.imgur.com/5uqNt1E.png"></li>
+</ol>
+<h2 id="案例六：Collider-Evenrt-Manager-控制器事件管理"><a href="#案例六：Collider-Evenrt-Manager-控制器事件管理" class="headerlink" title="案例六：Collider Evenrt Manager(控制器事件管理)"></a>案例六：Collider Evenrt Manager(控制器事件管理)</h2><ol>
 <li>如案例五新建一个3D的场景，并且能够瞬间移动  </li>
 <li>在场景中添加一个Capsule，并且如案例一添加一个UI界面，并且在界面里添加一个image和Test用来输出触发事件信息，方便监测<br><img src="https://i.imgur.com/iVo6e4Z.png">  </li>
 <li>在Capssule身上添加Material Changer脚本，用来观测触发事件  </li>
 <li>新建一个脚本(作者脚本名字ColliderEventManage),并且悬挂在Capsule物体上<br><img src="https://i.imgur.com/2HAUTx0.png"></li>
-<li>脚本中添加一个Text变量，用来修改显示数据，监测事件触发，脚本继承,IColliderEventHoverEnterHandler,IColliderEventHoverExitHandler,IColliderEventPressEnterHandler, IColliderEventPressExitHandler分别实现接口，这些接口就可以触发事件。  </li>
+<li>脚本中添加一个Text变量，用来修改显示数据，监测事件触发，脚本继承,IColliderEventHoverEnterHandler,IColliderEventHoverExitHandler,IColliderEventPressEnterHandler, IColliderEventPressExitHandler分别实现接口，这些接口就可以触发事件。</li>
 </ol>
 <p>脚本内容如下 </p>
 <pre><code>using HTC.UnityPlugin.ColliderEvent;
@@ -1154,7 +1164,7 @@ public class ColliderEventManage : MonoBehaviour
 <ol start="6">
 <li>连接设备，运行程序即可发现触发的事件</li>
 </ol>
-<p>本文仅仅是带领读者入门，看完本文后从**<a target="_blank" rel="noopener" href="https://www.vive.com/cn/forum/1728?1"><font color=steelblue size=3>点击这里</font></a>**可进行详细学习   </p>
+<p>本文仅仅是带领读者入门，看完本文后从**<a target="_blank" rel="noopener" href="https://www.vive.com/cn/forum/1728?1"><font color="steelblue" size="3">点击这里</font></a>**可进行详细学习   </p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>

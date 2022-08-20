@@ -7,11 +7,11 @@
   <meta name="description" content="Odin Inspector入门 | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
-<meta property="og:title" content="github">
-<meta property="og:url" content="http://yoursite.com/github/index.html">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="LianBai">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-05-10T02:52:17.000Z">
+<meta property="article:published_time" content="2018-05-10T03:44:56.000Z">
 <meta property="article:modified_time" content="2021-12-27T03:39:09.486Z">
 <meta property="article:author" content="LianBai">
 <meta name="twitter:card" content="summary">
@@ -326,7 +326,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="49">
-<input type="hidden" id="yelog_site_word_count" value="77.7k">
+<input type="hidden" id="yelog_site_word_count" value="77.9k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -1026,13 +1026,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><a target="_blank" rel="noopener" href="https://odininspector.com/"><font color=steelblue size=5>官网</font></a><br><a target="_blank" rel="noopener" href="https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041"><font color=steelblue size=5>AssetsStord地址</font></a><br><strong><font size=4>集成须知：如需获取对应Odin插件，请加QQ群：46885339，可在群文件中自行获取（如果放在github上就太放肆了。。。。）</font></strong>  </p>
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><a target="_blank" rel="noopener" href="https://odininspector.com/"><font color="steelblue" size="5">官网</font></a><br><a target="_blank" rel="noopener" href="https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041"><font color="steelblue" size="5">AssetsStord地址</font></a><br><strong><font size="4">集成须知：如需获取对应Odin插件，请加QQ群：46885339，可在群文件中自行获取（如果放在github上就太放肆了。。。。）</font></strong>  </p>
 <pre><code>unity:2019.2.0f1  
 Odin版本 2.1.5  
 </code></pre>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f1b27e85bc35"><font color=steelblue size=3>参考博客：https://www.jianshu.com/p/f1b27e85bc35</font></a>  </p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f1b27e85bc35"><font color="steelblue" size="3">参考博客：https://www.jianshu.com/p/f1b27e85bc35</font></a>  </p>
 <h1 id="Essentials"><a href="#Essentials" class="headerlink" title="Essentials"></a>Essentials</h1><h2 id="Assets-Only-Attribute"><a href="#Assets-Only-Attribute" class="headerlink" title="Assets Only Attribute"></a>Assets Only Attribute</h2><p>Assets Only Attribute特性有两类：<br><strong>1.AssetsOnly</strong>： 点击需要序列化的资源字段时，在出现的弹窗中只有Project中的资源文件，不会出现Hierachy（场景）的资源<br><strong>2.SceneObjectsOnly</strong>： 点击需要序列化的资源字段时，在出现的弹窗中只有Hierachy中的资源文件，不会出现Project中的资源<br><strong>注意：例如：预制体等资源在Scene或者Project中都含有，出现的弹窗中也都会含有对应的资源</strong>   </p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><iframe height=1029 width=1375 src="https://upload-images.jianshu.io/upload_images/7643202-60190f219a6cbf63.gif">    
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><iframe height="1029" width="1375" src="https://upload-images.jianshu.io/upload_images/7643202-60190f219a6cbf63.gif">    
 
 <p>完整代码示例：  </p>
 <pre><code>using Sirenix.OdinInspector;
@@ -1081,7 +1081,7 @@ public string NoLabelNameFunction(string tempName, GUIContent label)
     return EditorGUILayout.TextField(label,tempName);
 &#125;
 </code></pre>
-<h3 id="绘制Slider滑动条"><a href="#绘制Slider滑动条" class="headerlink" title="绘制Slider滑动条"></a>绘制Slider滑动条</h3><iframe height=692 width=952 src="https://upload-images.jianshu.io/upload_images/7643202-0888c5e4ea14c3bb.gif">     
+<h3 id="绘制Slider滑动条"><a href="#绘制Slider滑动条" class="headerlink" title="绘制Slider滑动条"></a>绘制Slider滑动条</h3><iframe height="692" width="952" src="https://upload-images.jianshu.io/upload_images/7643202-0888c5e4ea14c3bb.gif">     
 代码如下： 
  
 <pre><code>public float Max = 100, Min = 0;
@@ -1111,7 +1111,7 @@ private float MyStaticCustomDrawerArray(float value, GUIContent label)
 &#125;
 </code></pre>
 <h2 id="Delayed-Property-Attribute"><a href="#Delayed-Property-Attribute" class="headerlink" title="Delayed Property Attribute"></a>Delayed Property Attribute</h2><p>Delayed Property Attribute：此特性会延迟在editor中的序列化操作  </p>
-<h3 id="即时性（非延迟）序列化"><a href="#即时性（非延迟）序列化" class="headerlink" title="即时性（非延迟）序列化"></a>即时性（非延迟）序列化</h3><iframe height=1060 width=1165 src="https://upload-images.jianshu.io/upload_images/7643202-24e1915e0255bb85.gif">   
+<h3 id="即时性（非延迟）序列化"><a href="#即时性（非延迟）序列化" class="headerlink" title="即时性（非延迟）序列化"></a>即时性（非延迟）序列化</h3><iframe height="1060" width="1165" src="https://upload-images.jianshu.io/upload_images/7643202-24e1915e0255bb85.gif">   
 代码示例：  
 
 <pre><code>[OnValueChanged(&quot;ValueChangeCallBack&quot;)]
@@ -1126,7 +1126,7 @@ public void ValueChangeCallBack()
     Debug.Log(&quot;数值有变化&quot;);
 &#125;
 </code></pre>
-<h3 id="延迟序列化"><a href="#延迟序列化" class="headerlink" title="延迟序列化"></a>延迟序列化</h3><iframe height=1060 width=1165 src="https://upload-images.jianshu.io/upload_images/7643202-aabb2c0456a4b3db.gif">   
+<h3 id="延迟序列化"><a href="#延迟序列化" class="headerlink" title="延迟序列化"></a>延迟序列化</h3><iframe height="1060" width="1165" src="https://upload-images.jianshu.io/upload_images/7643202-aabb2c0456a4b3db.gif">   
 代码示例：  
 
 <pre><code>// 延迟和延迟属性实际上是相同的
@@ -1177,9 +1177,9 @@ public class DelayedPropertyExample : MonoBehaviour
 <h2 id="Detailed-Info-Box-Attribute"><a href="#Detailed-Info-Box-Attribute" class="headerlink" title="Detailed Info Box Attribute"></a>Detailed Info Box Attribute</h2><pre><code>Detailed Info Box Attribute特性：  
 在Inspector面板中绘制一个信息面板，添加对应标题和详细信息描述，点击时可以显示出对应填写的详细信息
 </code></pre>
-<iframe height=497 width=1178 src="https://upload-images.jianshu.io/upload_images/7643202-1f53cd969010afdc.gif">   
+<iframe height="497" width="1178" src="https://upload-images.jianshu.io/upload_images/7643202-1f53cd969010afdc.gif">   
 ### 不同形式的消息框
-<iframe height=913 width=1320 src="https://upload-images.jianshu.io/upload_images/7643202-dc94efb220edcae3.gif">  
+<iframe height="913" width="1320" src="https://upload-images.jianshu.io/upload_images/7643202-dc94efb220edcae3.gif">  
 示例代码：  
 
 <pre><code>[DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.None)]
@@ -1192,7 +1192,7 @@ public string WarningMessage = &quot;无&quot;;
 public string ErrorMessage = &quot;无&quot;;
 </code></pre>
 <p>还可以通过一个方法的返回值（bool）来控制消息框是否显示，例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。<br><img src="https://upload-images.jianshu.io/upload_images/7643202-7dc744da0b791cdd.png"><br>示例代码：  </p>
-<p>   [DetailedInfoBox(“简介消息”, “默认情况下VisibleIf为True。” +<br>        “所以此消息框可见.还可以通过一个方法的返回值（bool）来控制消息框是否显示，” +<br>        “例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。”,<br>        InfoMessageType = InfoMessageType.None, VisibleIf = “VisibleFunction”)]<br>    public string haveVisibleIfMessage = “”;</p>
+<p>   [DetailedInfoBox(“简介消息”, “默认情况下VisibleIf为True。” +<br>        “所以此消息框可见.还可以通过一个方法的返回值（bool）来控制消息框是否显示，” +<br>        “例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。”,<br>        InfoMessageType &#x3D; InfoMessageType.None, VisibleIf &#x3D; “VisibleFunction”)]<br>    public string haveVisibleIfMessage &#x3D; “”;</p>
 <pre><code>[DetailedInfoBox(&quot;简介消息&quot;, &quot;还可以通过一个方法的返回值（bool）来控制消息框是否显示，例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。&quot;, InfoMessageType = InfoMessageType.None, VisibleIf = &quot;NoVisibleFunction&quot;)]
 public string noVisibleIfMessage = &quot;&quot;;
 
@@ -1268,7 +1268,7 @@ public class EnableGUIExample : MonoBehaviour
 </code></pre>
 <h2 id="GUIColor-Attribute"><a href="#GUIColor-Attribute" class="headerlink" title="GUIColor Attribute"></a>GUIColor Attribute</h2><pre><code>GUIColor Attribute特性：用于任何属性，并更改用于绘制属性的GUI颜色。
 </code></pre>
-<iframe height=617 width=1178 src="https://upload-images.jianshu.io/upload_images/7643202-e08001dd13334857.gif" >  
+<iframe height="617" width="1178" src="https://upload-images.jianshu.io/upload_images/7643202-e08001dd13334857.gif">  
 **绘制颜色提供两种形式，一种为直接填写RGBA**  
 ![](https://upload-images.jianshu.io/upload_images/7643202-5257872b7b4864c0.png)  
 代码如下：  
@@ -1294,7 +1294,7 @@ private void Cancel()
 &#125;
 </code></pre>
 <p><strong>另一种是提供一个返回Color的方法，所以这种方式可有实现动态颜色效果，逼格满满</strong>   </p>
-<iframe height=322 width=758 src="https://upload-images.jianshu.io/upload_images/7643202-568d1ad9fd14b5ed.gif"></iframe>  
+<iframe height="322" width="758" src="https://upload-images.jianshu.io/upload_images/7643202-568d1ad9fd14b5ed.gif"></iframe>  
 代码如下：  
 
 <pre><code>[GUIColor(&quot;GetButtonColor&quot;)]
@@ -1395,7 +1395,7 @@ public class GUIColorExample : MonoBehaviour
 # endif
 &#125;
 </code></pre>
-
+</iframe></iframe></iframe></iframe></iframe></iframe></iframe>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
     </div>

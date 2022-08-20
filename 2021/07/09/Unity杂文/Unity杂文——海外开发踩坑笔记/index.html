@@ -7,11 +7,11 @@
   <meta name="description" content="Unity杂文——海外开发踩坑笔记 | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
-<meta property="og:title" content="github">
-<meta property="og:url" content="http://yoursite.com/github/index.html">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="LianBai">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-05-10T02:52:17.000Z">
+<meta property="article:published_time" content="2018-05-10T03:44:56.000Z">
 <meta property="article:modified_time" content="2021-12-27T03:39:09.486Z">
 <meta property="article:author" content="LianBai">
 <meta name="twitter:card" content="summary">
@@ -326,7 +326,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="49">
-<input type="hidden" id="yelog_site_word_count" value="77.7k">
+<input type="hidden" id="yelog_site_word_count" value="77.9k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -1043,7 +1043,7 @@ allprojects &#123;
 </code></pre>
 <p>如上图，可以看到插件版本为3.4.0，如果unity里本身修改了baseProjectTemplate.gradle就按照修改后的来，这个文件夹内所有的gradle和properties都是默认的，如果程序里修改就按照程序里的来。修改的方法在Editor–&gt;ProjectSettings–&gt;Player–&gt;Publishing Settings，如下图所示：  </p>
 <p>  <img src="https://file.liangxiegame.com/f69ca480-57fe-4313-8391-4318b1cead9a.png" alt="image.png">   </p>
-<p>如上图，其实就是对应编辑器文件夹下的gradle文件，如果打勾就会在pluging/Android文件夹下生成对应的文件，就可以直接修改，不再按照unity默认的来，就可以修改配置了。</p>
+<p>如上图，其实就是对应编辑器文件夹下的gradle文件，如果打勾就会在pluging&#x2F;Android文件夹下生成对应的文件，就可以直接修改，不再按照unity默认的来，就可以修改配置了。</p>
 <p>经过上面的介绍已经知道如何查看并修改unity的gradle插件版本，下面就是修改对应的gradle版本。首先打开Editor–&gt;Preference–&gt;External Tools就可以看到Android的打包环境配置。  </p>
 <p><img src="https://file.liangxiegame.com/13b80d7b-6dd0-4fdd-8199-82222a81d8e2.png" alt="image.png">   </p>
 <p>2020版本以后的Unity是默认路径下就自己配置好环境，选择默认就可以，但是依旧可能会存在环境不存在或者版本不对，所以可以自己配置，这样修改也方便。这里有需要特别关注的一点也是大部分打包失败的原因，就是gradle的版本和对应的插件版本是有对照关系的，必须对照上才能正常打包。对应关系如下图：  </p>
@@ -1134,7 +1134,7 @@ dependencies &#123;
  android:name=&quot;notch.config&quot;
  android:value=&quot;portrait|landscape&quot;/&gt;
 </code></pre>
-<h2 id="如何修改build-gradle"><a href="#如何修改build-gradle" class="headerlink" title="如何修改build.gradle"></a>如何修改build.gradle</h2><p>关于对Android的gradle的脚本进行修改，其实上面已经介绍了。Pluging/Android文件夹下的XXXTemplate对应的其实就是导出android工程下的build.gradle，修改对应的Template就是修改对应的build.gradle。  </p>
+<h2 id="如何修改build-gradle"><a href="#如何修改build-gradle" class="headerlink" title="如何修改build.gradle"></a>如何修改build.gradle</h2><p>关于对Android的gradle的脚本进行修改，其实上面已经介绍了。Pluging&#x2F;Android文件夹下的XXXTemplate对应的其实就是导出android工程下的build.gradle，修改对应的Template就是修改对应的build.gradle。  </p>
 <h2 id="如何添加Android需要的java脚本"><a href="#如何添加Android需要的java脚本" class="headerlink" title="如何添加Android需要的java脚本"></a>如何添加Android需要的java脚本</h2><p>首先导出一个安卓工程，然后用AndroidStudio打开导出的Android工程，然后直接在安卓工程里写对应的脚本，脚本完成后直接复制到unity工程中pluging下Android文件夹下面。这里因为每次都要复制文件，所以笔者写了一个脚本直接一键复制所有的bat脚本。脚本内容如下：  </p>
 <pre><code>@echo off
 
@@ -1154,7 +1154,7 @@ pause
     RunBat(&quot;CopyJavaScripts.bat&quot;, &quot;&quot;, filepath);
 &#125;
 
-//cmd是执行的脚本的名字    args是参数，可以直接设置为“”        workingDir是执行bat文件所在文件夹路径
+//cmd是执行的脚本的名字	args是参数，可以直接设置为“”		workingDir是执行bat文件所在文件夹路径
 public static System.Diagnostics.Process CreateShellExProcess(string cmd, string args, string workingDir = &quot;&quot;)
 &#123;
     var pStartInfo = new System.Diagnostics.ProcessStartInfo(cmd);
@@ -1175,7 +1175,7 @@ public static void RunBat(string batfile, string args, string workingDir = &quot
     p.Close();
 &#125;
 </code></pre>
-<p>在执行bat脚本的时候笔者发现，自己完全可以写一个复制用的脚本，就不需要再依靠bat脚本进行执行。脚本如下：<br>    public static void SyncAndroidJava()<br>    {<br>        var filepath = FileEditorTools.FormatPath(Application.dataPath + “/../../android/AndroidBDSDK_R/unityLibrary/src/main/java/com/ks/“);            //需要复制的java文件所在的文件夹<br>        var folderpath = Application.dataPath + “/Plugins/Android/“;            //复制到的文件位置<br>        var filelist = FileEditorTools.GetallFile(filepath, “.java”);</p>
+<p>在执行bat脚本的时候笔者发现，自己完全可以写一个复制用的脚本，就不需要再依靠bat脚本进行执行。脚本如下：<br>    public static void SyncAndroidJava()<br>    {<br>        var filepath &#x3D; FileEditorTools.FormatPath(Application.dataPath + “&#x2F;..&#x2F;..&#x2F;android&#x2F;AndroidBDSDK_R&#x2F;unityLibrary&#x2F;src&#x2F;main&#x2F;java&#x2F;com&#x2F;ks&#x2F;“);			&#x2F;&#x2F;需要复制的java文件所在的文件夹<br>        var folderpath &#x3D; Application.dataPath + “&#x2F;Plugins&#x2F;Android&#x2F;“;			&#x2F;&#x2F;复制到的文件位置<br>        var filelist &#x3D; FileEditorTools.GetallFile(filepath, “.java”);</p>
 <pre><code>    var curcount = 0;
     var sumcount = filelist.Count;
     
@@ -1295,28 +1295,28 @@ public class FileEditorTools
 <pre><code>private static String deviceId;
 public String GetDeviceID() 
 &#123;
-    Application yourApplicatoin = this;            //这里只是举个例子，这里需要大家获取一下自己的Application
+    Application yourApplicatoin = this;			//这里只是举个例子，这里需要大家获取一下自己的Application
     if (yourApplicatoin.getApplicationContext() == null) //这里是获取Application的实例，如果没有就可以直接返回空
         return &quot;&quot;;
     else &#123;
         String var1;
-        if ((var1 = deviceId) != null)            //先判断deviceID是否已经赋值过了，如果已经赋值就直接返回就行了
+        if ((var1 = deviceId) != null)			//先判断deviceID是否已经赋值过了，如果已经赋值就直接返回就行了
             return var1;
         else &#123;
-            deviceId = getSPValue(yourApplicatoin, &quot;DeviceId&quot;);    //如果没有就先从文件里获取一下
-            if (!TextUtils.isEmpty(deviceId)) &#123;                    //如果获取到了就直接返回
+            deviceId = getSPValue(yourApplicatoin, &quot;DeviceId&quot;);	//如果没有就先从文件里获取一下
+            if (!TextUtils.isEmpty(deviceId)) &#123;					//如果获取到了就直接返回
                 return deviceId;
             &#125; else &#123;
-                deviceId = getAndroidIdAsDeviceId(yourApplicatoin);    //如果文件里没有就先尝试获取一下androidID作为设备唯一标识
-                if (!TextUtils.isEmpty(deviceId)) &#123;                    //获取到了就进行保存并返回这个标识
-                    saveSPValue(yourApplicatoin, &quot;DeviceId&quot;, deviceId);    
+                deviceId = getAndroidIdAsDeviceId(yourApplicatoin);	//如果文件里没有就先尝试获取一下androidID作为设备唯一标识
+                if (!TextUtils.isEmpty(deviceId)) &#123;					//获取到了就进行保存并返回这个标识
+                    saveSPValue(yourApplicatoin, &quot;DeviceId&quot;, deviceId);	
                     return deviceId;
                 &#125; else &#123;
-                    deviceId = generateSoftDeviceId();                //如果没有获取到就通过自己的混合加密方式进行缓存
-                    if (!TextUtils.isEmpty(deviceId)) &#123;                //如果不为空就保存然后返回标识
+                    deviceId = generateSoftDeviceId();				//如果没有获取到就通过自己的混合加密方式进行缓存
+                    if (!TextUtils.isEmpty(deviceId)) &#123;				//如果不为空就保存然后返回标识
                         saveSPValue(yourApplicatoin, &quot;DeviceId&quot;, deviceId);
                         return deviceId;
-                    &#125; else &#123;                                        //如果都没获取到就是特殊情况，直接返回
+                    &#125; else &#123;										//如果都没获取到就是特殊情况，直接返回
                         return deviceId;
                     &#125;
                 &#125;
@@ -1337,13 +1337,13 @@ public String GetDeviceID()
 </code></pre>
 <p>myappsdkdeviceid是文件名字，datakey是保存的关键字名字。 </p>
 <h2 id="获取设备的AndroidID"><a href="#获取设备的AndroidID" class="headerlink" title="获取设备的AndroidID"></a>获取设备的AndroidID</h2><pre><code>private static String getAndroidIdAsDeviceId(Context mycontext) &#123;
-    String andid = Settings.Secure.getString(mycontext.getContentResolver(), &quot;android_id&quot;);    //获取设备的AndroidID
-    return isLegalAndroidId(andid) ? &quot;ANDROID_&quot; + andid : null;                //如果符合条件就添加前缀，不符合就返回空
+    String andid = Settings.Secure.getString(mycontext.getContentResolver(), &quot;android_id&quot;);	//获取设备的AndroidID
+    return isLegalAndroidId(andid) ? &quot;ANDROID_&quot; + andid : null;				//如果符合条件就添加前缀，不符合就返回空
 &#125;
 
 private static final Pattern ANDROID_ID_PATTERN = Pattern.compile(&quot;^[0-9a-fA-F]&#123;16&#125;$&quot;);
 
-private static boolean isLegalAndroidId(String andid) &#123;                        
+private static boolean isLegalAndroidId(String andid) &#123;						
         return !TextUtils.isEmpty(andid) &amp;&amp; ANDROID_ID_PATTERN.matcher(andid).find();
 &#125;
 </code></pre>
@@ -1353,27 +1353,27 @@ private static boolean isLegalAndroidId(String andid) &#123;
 &#125;
 
 private static String generateSoftDeviceId() &#123;
-    String arg0  = Build.SERIAL;            //首先获取序列号
-    if (TextUtils.isEmpty(arg0)) &#123;            //如果没有获取到序列化就赋值为&quot;NA&quot;
+    String arg0  = Build.SERIAL;			//首先获取序列号
+    if (TextUtils.isEmpty(arg0)) &#123;			//如果没有获取到序列化就赋值为&quot;NA&quot;
         arg0 = &quot;NA&quot;;
     &#125;
 
-    long arg1 = 2564562216496361285L;        //设置两个随机的long型的数据
+    long arg1 = 2564562216496361285L;		//设置两个随机的long型的数据
     long arg2 = 8545649582269949258L;
 
-    arg2 = randomLong(arg2);        //获取一个随机数，获取失败就调回去重新获取
+    arg2 = randomLong(arg2);		//获取一个随机数，获取失败就调回去重新获取
     arg1 += arg2;
-    String var8 = &quot;ANDROID_%1$s_%2$s&quot;;        //设置一下格式
+    String var8 = &quot;ANDROID_%1$s_%2$s&quot;;		//设置一下格式
 
     Object[] arg3 = new Object[2];
-    arg3[0] = Long.toHexString(arg1);        //设置第一个参数
+    arg3[0] = Long.toHexString(arg1);		//设置第一个参数
     try &#123;
-        arg3[1] = arg0;                        //设置第二个参数
+        arg3[1] = arg0;						//设置第二个参数
         return String.format(var8, arg3);
     &#125; catch (Throwable var3) &#123;
     &#125;
 
-    Object[] arg4;                            //如果上述存在问题就根据时间设置一个随机数
+    Object[] arg4;							//如果上述存在问题就根据时间设置一个随机数
     Object[] arg5 = arg4 = new Object[2];
     arg5[0] = &quot;NA&quot; + Long.toHexString(System.currentTimeMillis());
     arg5[1] = arg0;
@@ -1385,7 +1385,7 @@ private static String generateSoftDeviceId() &#123;
 <h2 id="Python环境配置"><a href="#Python环境配置" class="headerlink" title="Python环境配置"></a>Python环境配置</h2><p>首先需要在Python虚拟环境中安装 AWS CLI  </p>
 <pre><code>$ pip install awscli
 </code></pre>
-<p>这里介绍一个python比较好的版本管理工具，可以管理本地多版本的python。<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d66fce9a7bdc"><font color=steelblue size=3>pyenv</font></a>   </p>
+<p>这里介绍一个python比较好的版本管理工具，可以管理本地多版本的python。<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d66fce9a7bdc"><font color="steelblue" size="3">pyenv</font></a>   </p>
 <h2 id="aws版本查看"><a href="#aws版本查看" class="headerlink" title="aws版本查看"></a>aws版本查看</h2><pre><code>$ aws --version
 </code></pre>
 <p><img src="https://file.liangxiegame.com/12c0d1cf-5a76-4322-bbb6-55654310b33d.png" alt="image.png">   </p>
@@ -1425,11 +1425,11 @@ for %%i in (*.zip) do (
 pause
 </code></pre>
 <h1 id="海外文本替换"><a href="#海外文本替换" class="headerlink" title="海外文本替换"></a>海外文本替换</h1><h2 id="提取Prefab中文字到表里"><a href="#提取Prefab中文字到表里" class="headerlink" title="提取Prefab中文字到表里"></a>提取Prefab中文字到表里</h2><p>这里是把prefab上的文字全部提取到一个自定定义的Language表里。首先需要读取自定义的Language表里的数据，这是为了去重用的。然后加载本地所有的prefab，再遍历prefab所有的节点，然后判断是否包含Text的组件，如果包含文字就把文字记录在自己的字典中。在放进字典中是需要排重的。<br>加载Prefab的代码  </p>
-<pre><code>private static void doLoadPrefab(bool clearText,bool onlyFindText = false)        //两个参数分别是是否清除Text组件和是否之查找文本，下面会有详细介绍
+<pre><code>private static void doLoadPrefab(bool clearText,bool onlyFindText = false)		//两个参数分别是是否清除Text组件和是否之查找文本，下面会有详细介绍
 &#123;
     ...
 
-    if (string.IsNullOrEmpty(ExportExcel.excelFolder))        //接下来是查找自己的需要导入的表，不存在就创建一个新的表
+    if (string.IsNullOrEmpty(ExportExcel.excelFolder))		//接下来是查找自己的需要导入的表，不存在就创建一个新的表
     &#123;
         excelPath = EditorUtility.OpenFilePanel(&quot;选择SVN中的ProgramLanguage表&quot;,&quot;&quot;,&quot;&quot;);
     &#125;
@@ -1439,13 +1439,13 @@ pause
     &#125;
     if (!string.IsNullOrEmpty(excelPath))
     &#123;
-        ReadExcel();                                        //进行读取加载表格
-        LoadAllPrefabText(clearText,onlyFindText);            //进行加载所有prefab的文本内容
-        if (clearText)                                        //如果是清除文本组件的就只是需要清除字典
+        ReadExcel();										//进行读取加载表格
+        LoadAllPrefabText(clearText,onlyFindText);			//进行加载所有prefab的文本内容
+        if (clearText)										//如果是清除文本组件的就只是需要清除字典
         &#123;
             textDesAddDic.Clear();
         &#125;
-        else                                                //如果不是清除的就把读取内容写入到表格中
+        else												//如果不是清除的就把读取内容写入到表格中
         &#123;
             WroadExcel();
         &#125;
@@ -1457,11 +1457,11 @@ pause
 private static string exValue;
 public static void ReadExcel()
 &#123;
-    var attrArr = File.GetAttributes(excelPath);            //这个是获取表格的属性，因为有些表格可能是只读属性，需要修改
-    File.SetAttributes(excelPath, FileAttributes.Normal);    //把表格的属性设置成普通属性，这样就一定能写入了，之所以不是去掉只读属性是因为只是单独修改可读属性不知道为何还是不能写入，就先设置为普通的属性了
-    textDesDic.Clear();                                        //清空自己的字典
-    excelFile = new FileInfo(excelPath);                    //接着就是获取表格文件
-    using (ExcelPackage excelPackage = new ExcelPackage(excelFile))        //下面就是循环读取表格内容然后写入到字典中
+    var attrArr = File.GetAttributes(excelPath);			//这个是获取表格的属性，因为有些表格可能是只读属性，需要修改
+    File.SetAttributes(excelPath, FileAttributes.Normal);	//把表格的属性设置成普通属性，这样就一定能写入了，之所以不是去掉只读属性是因为只是单独修改可读属性不知道为何还是不能写入，就先设置为普通的属性了
+    textDesDic.Clear();										//清空自己的字典
+    excelFile = new FileInfo(excelPath);					//接着就是获取表格文件
+    using (ExcelPackage excelPackage = new ExcelPackage(excelFile))		//下面就是循环读取表格内容然后写入到字典中
     &#123;
         var worksheet = excelPackage.Workbook.Worksheets[1];
         for (int i = startRow; i &lt;= worksheet.Dimension.End.Row; i++)
@@ -1472,8 +1472,8 @@ public static void ReadExcel()
             textDesDic.Add(exKey, exValue);
         &#125;
     &#125;
-    textDesAddDic.Clear();                                    //接着就是把第二个增加的字典清空，是为了记录新增的文字
-    File.SetAttributes(excelPath, attrArr);                    //然后就是把文件属性设置为原来的属性
+    textDesAddDic.Clear();									//接着就是把第二个增加的字典清空，是为了记录新增的文字
+    File.SetAttributes(excelPath, attrArr);					//然后就是把文件属性设置为原来的属性
 &#125;
 </code></pre>
 <p>写入Language和读取类似，只是把原来的遍历读取变成遍历新增字典，然后一行一行写入。代码如下:  </p>
@@ -1493,7 +1493,7 @@ public static void ReadExcel()
             worksheet.Cells[curRow, valueVolumn].Value = textdespair.Value;
         &#125;
         
-        excelPackage.Save();                                //保存表
+        excelPackage.Save();								//保存表
     &#125;
     
     File.SetAttributes(excelPath, attrArr);
@@ -1505,104 +1505,104 @@ public static void ReadExcel()
 <pre><code>static StringBuilder newTexts = new StringBuilder();
 public static void LoadAllPrefabText(bool isClearText,bool onlyFindTxt = false)
 &#123;
-    newTexts.Clear();                            //清空字符串
-    textDesAddDic.Clear();                        //清空新增的字典
-    var sdirs =GetAllPrefabFiles();                //获取Prefab的存在文件夹
-    EditorUtility.DisplayProgressBar(&quot;Progress&quot;, &quot;LoadPrefabTxtDes...&quot;, 0);        //打开一个进度掉，为了方便查看加载进度使用
-    var asstIds = AssetDatabase.FindAssets(&quot;t:Prefab&quot;, sdirs);                    //得到所有Prefab的资源
-    int count = 0;                                //初始化加载的进度
-    for (int i = 0; i &lt; asstIds.Length; i++)    //循环遍历一下自己加载出来的prefab
+    newTexts.Clear();							//清空字符串
+    textDesAddDic.Clear();						//清空新增的字典
+    var sdirs =GetAllPrefabFiles();				//获取Prefab的存在文件夹
+    EditorUtility.DisplayProgressBar(&quot;Progress&quot;, &quot;LoadPrefabTxtDes...&quot;, 0);		//打开一个进度掉，为了方便查看加载进度使用
+    var asstIds = AssetDatabase.FindAssets(&quot;t:Prefab&quot;, sdirs);					//得到所有Prefab的资源
+    int count = 0;								//初始化加载的进度
+    for (int i = 0; i &lt; asstIds.Length; i++)	//循环遍历一下自己加载出来的prefab
     &#123;
-        string path = AssetDatabase.GUIDToAssetPath(asstIds[i]);            //得到prefab资源的路径
-        //Debug.LogError(&quot;try deal with path &quot;+path);                        
-        var pfb = AssetDatabase.LoadAssetAtPath&lt;GameObject&gt;(path);            //根据路径加载对应的prefab
-        var texts = pfb.GetComponentsInChildren&lt;Text&gt;(true);                //得到prefab上所有节点的Text组件
-        if (texts == null || texts.Length &lt;= 0)                                //如果不存在就跳过，遍历到下一个prefab
+        string path = AssetDatabase.GUIDToAssetPath(asstIds[i]);			//得到prefab资源的路径
+        //Debug.LogError(&quot;try deal with path &quot;+path);						
+        var pfb = AssetDatabase.LoadAssetAtPath&lt;GameObject&gt;(path);			//根据路径加载对应的prefab
+        var texts = pfb.GetComponentsInChildren&lt;Text&gt;(true);				//得到prefab上所有节点的Text组件
+        if (texts == null || texts.Length &lt;= 0)								//如果不存在就跳过，遍历到下一个prefab
         &#123;
             //Debug.LogError(&quot;asset no texts: &quot;+path);
             continue;
         &#125;
-        foreach (var item in texts)                                            //遍历prefab中的Text组件
+        foreach (var item in texts)											//遍历prefab中的Text组件
         &#123;
-            textDes = item.text;                                            //获取组件上的文字
-            if (textDes.IsNullOrWhitespace())                                //如果文字为空就跳过到下一个
+            textDes = item.text;											//获取组件上的文字
+            if (textDes.IsNullOrWhitespace())								//如果文字为空就跳过到下一个
                 continue;
             
             var langTextComp = item.gameObject.GetComponent&lt;MutiLangText&gt;();//获取Text文本上的脚本，自己写的替换文本的脚本
-            if (langTextComp &amp;&amp; onlyFindTxt)                                //如果存在脚本并且只是查找文本，说明已经添加过就可以直接跳过了
+            if (langTextComp &amp;&amp; onlyFindTxt)								//如果存在脚本并且只是查找文本，说明已经添加过就可以直接跳过了
             &#123;
                 continue;
                 //Debug.LogError(&quot;has Added MutiText: &quot;+item.name);
             &#125;
-            bool addComP = false;                                            //标记是否增加组件为false
-            if (isClearText)                                                //判断是否需要清除自己的替换语言脚本
+            bool addComP = false;											//标记是否增加组件为false
+            if (isClearText)												//判断是否需要清除自己的替换语言脚本
             &#123;
-                if (!textDesDic.ContainsValue(textDes))                        //判断表里是否已经存在文本
+                if (!textDesDic.ContainsValue(textDes))						//判断表里是否已经存在文本
                 &#123;
-                    item.text = &quot;&quot;;                                            //如果不存在就先清除文字
-                    if (langTextComp)                                        //如果不存在自己的脚本就一并删除
+                    item.text = &quot;&quot;;											//如果不存在就先清除文字
+                    if (langTextComp)										//如果不存在自己的脚本就一并删除
                     &#123;
                         //TODO  remove  comp
                         DestroyImmediate(langTextComp);
                     &#125;
                 &#125;
-                else                                                        //如果表里存在就从字典里获取到表里的ID
+                else														//如果表里存在就从字典里获取到表里的ID
                 &#123;
                     curDesId = textDesDic.Where(q =&gt; q.Value == textDes).Select(q =&gt; q.Key).ToArray()[0];
-                    addComP = true;                                            //标记需要增加组件
+                    addComP = true;											//标记需要增加组件
                 &#125;
             &#125;
-            else                                                            //如果不是清除文本
+            else															//如果不是清除文本
             &#123;
-                if (onlyFindTxt)                                            //如果只是查找文本
+                if (onlyFindTxt)											//如果只是查找文本
                 &#123;
-                    if (!textDesDic.ContainsValue(textDes))                    //如果字典中不存在就记录下来
+                    if (!textDesDic.ContainsValue(textDes))					//如果字典中不存在就记录下来
                     &#123;
                         newTexts.AppendLine(textDes);
                     &#125;
                     continue;
                 &#125;
-                if (!textDesDic.ContainsValue(textDes))                        //如果字典中不存在，就往字典中添加，并且在新增字典中增加
+                if (!textDesDic.ContainsValue(textDes))						//如果字典中不存在，就往字典中添加，并且在新增字典中增加
                 &#123;
                     textDesDic.Add(++startTextIndex, textDes);
                     textDesAddDic.Add(startTextIndex,textDes);
                     curDesId = startTextIndex;
                 &#125;
-                else                                                        //如果存在就记录下来文本对应的ID
+                else														//如果存在就记录下来文本对应的ID
                 &#123;
                     curDesId = textDesDic.Where(q =&gt; q.Value == textDes).Select(q =&gt; q.Key).ToArray()[0];
                 &#125;
                 
-                if(!langTextComp)                                            //如果并没有增加切换语言脚本就标记需要增加脚本
+                if(!langTextComp)											//如果并没有增加切换语言脚本就标记需要增加脚本
                 &#123;
                     addComP = true;
                 &#125;
             &#125;
 
-            if (addComP &amp;&amp; !langTextComp)                                    //如果需要增加并且组件不存在，就增加一下自己的脚本        
+            if (addComP &amp;&amp; !langTextComp)									//如果需要增加并且组件不存在，就增加一下自己的脚本		
             &#123;
                 langTextComp = item.gameObject.AddComponent&lt;MutiLangText&gt;();
                 langTextComp.baseText = item;
             &#125;
             
-            if (langTextComp)                                                //如果存在组件就更新一下ID
+            if (langTextComp)												//如果存在组件就更新一下ID
                 langTextComp.languageID = curDesId;
         &#125;
-        PrefabUtility.SavePrefabAsset(pfb, out bool success);                //修改完毕保存prefab就可以了
-        if (success)                                                        //记录加载进度，然后更新进度条
+        PrefabUtility.SavePrefabAsset(pfb, out bool success);				//修改完毕保存prefab就可以了
+        if (success)														//记录加载进度，然后更新进度条
         &#123;
             count++;
         &#125;
         EditorUtility.DisplayProgressBar(&quot;LoadPrefabTxtDes Progress&quot;, pfb.name, count / (float)asstIds.Length);
     &#125;
 
-    if (newTexts.Length &gt; 0)                                                //如果有新增的文字就记录下来
+    if (newTexts.Length &gt; 0)												//如果有新增的文字就记录下来
     &#123;
         Debug.LogError(&quot;write new text: &quot;+newTexts.Length);
         File.WriteAllText(ExportExcel.excelFolder + &quot;/newText.txt&quot;,newTexts.ToString());
     &#125;
 
-    EditorUtility.ClearProgressBar();                                        //结束之后清除加载进度条
+    EditorUtility.ClearProgressBar();										//结束之后清除加载进度条
 &#125;
 </code></pre>
 <p>获取Prefab文件路径的代码：  </p>
@@ -1661,24 +1661,24 @@ public class FindChineseWindow : EditorWindow
         &#125;
 
         DirectoryInfo[] allDir = dir.GetDirectories();
-        foreach (DirectoryInfo d in allDir)        //遍历子文件夹
+        foreach (DirectoryInfo d in allDir)		//遍历子文件夹
         &#123;
             GetAllFile(d);
         &#125;
     &#125;
 
-    public void OnGUI()            //面板显示的代码
+    public void OnGUI()			//面板显示的代码
     &#123;
-        filePath = EditorGUILayout.TextField(&quot;路径：&quot;, filePath);        //输入路径
+        filePath = EditorGUILayout.TextField(&quot;路径：&quot;, filePath);		//输入路径
 
         EditorGUILayout.Space();
         EditorGUILayout.Space();
 
-        if (GUILayout.Button(&quot;开始遍历目录&quot;))                                //显示的按钮
+        if (GUILayout.Button(&quot;开始遍历目录&quot;))								//显示的按钮
         &#123;
             csList.Clear();
-            DirectoryInfo d = new DirectoryInfo(Application.dataPath + filePath);    //从绝对路径读取文件
-            GetAllFile(d);                                                //获取所有的文件
+            DirectoryInfo d = new DirectoryInfo(Application.dataPath + filePath);	//从绝对路径读取文件
+            GetAllFile(d);												//获取所有的文件
             //GetAllFile(d);
             outputText = &quot;游戏内代码文件的数量：&quot; + csList.Count;
             isBeginUpdate = true;
@@ -1689,14 +1689,14 @@ public class FindChineseWindow : EditorWindow
     &#125;
 
 
-    private bool HasChinese(string str)                //这是个判断是否是中文的方法
+    private bool HasChinese(string str)				//这是个判断是否是中文的方法
     &#123;
         return Regex.IsMatch(str, @&quot;[\u4e00-\u9fa5]&quot;);
     &#125;
 
     private Regex regex = new Regex(&quot;\&quot;[^\&quot;]*\&quot;&quot;);
 
-    private void printChinese(string path)            //开始输出中文文字所在位置
+    private void printChinese(string path)			//开始输出中文文字所在位置
     &#123;
         if (File.Exists(path))
         &#123;

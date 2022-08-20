@@ -7,11 +7,11 @@
   <meta name="description" content="Shader | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
-<meta property="og:title" content="github">
-<meta property="og:url" content="http://yoursite.com/github/index.html">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="LianBai">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-05-10T02:52:17.000Z">
+<meta property="article:published_time" content="2018-05-10T03:44:56.000Z">
 <meta property="article:modified_time" content="2021-12-27T03:39:09.486Z">
 <meta property="article:author" content="LianBai">
 <meta name="twitter:card" content="summary">
@@ -326,7 +326,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="49">
-<input type="hidden" id="yelog_site_word_count" value="77.7k">
+<input type="hidden" id="yelog_site_word_count" value="77.9k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -1010,7 +1010,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shader"><span class="toc-text">Shader</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#shader%E7%AE%80%E4%BB%8B"><span class="toc-text">shader简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mesh-Filter"><span class="toc-text">Mesh Filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mesh-Renderer"><span class="toc-text">Mesh Renderer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Material"><span class="toc-text">Material</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenGL%E3%80%81DirectX-DX"><span class="toc-text">OpenGL、DirectX(DX)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unity-shader%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">unity shader的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E9%9D%A2%E7%9D%80%E8%89%B2%E5%99%A8Surface-Shader"><span class="toc-text">表面着色器Surface Shader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B6%E7%82%B9-%E7%89%87%E5%85%83%E7%9D%80%E8%89%B2%E5%99%A8Vertex-Fragment-Shader"><span class="toc-text">顶点&#x2F;片元着色器Vertex&#x2F;Fragment Shader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%87%BD%E6%95%B0%E7%9D%80%E8%89%B2%E5%99%A8Fixed-Function-Shader-%E5%B7%B2%E7%BB%8F%E8%A2%AB%E5%BC%83%E7%94%A8"><span class="toc-text">固定函数着色器Fixed Function Shader(已经被弃用)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAunity-shader"><span class="toc-text">创建一个unity shader</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E5%8F%AF%E4%BB%A5%E6%9C%89%E5%93%AA%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">属性可以有哪些数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%B1%9E%E6%80%A7"><span class="toc-text">如何使用属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAvertex%E5%92%8Cfragment"><span class="toc-text">创建vertex和fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B6%E7%82%B9%E5%85%B6%E4%BB%96%E4%BF%A1%E6%81%AF"><span class="toc-text">顶点其他信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89%E6%80%BB%E7%BB%93"><span class="toc-text">语义总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="toc-text">什么是光照模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="toc-text">标准光照模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%AB%E5%8F%8D%E5%B0%84"><span class="toc-text">漫反射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%AB%E5%8F%8D%E5%B0%84%E9%A2%9C%E8%89%B2"><span class="toc-text">漫反射颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%85%89"><span class="toc-text">环境光</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%90%E5%83%8F%E7%B4%A0%E6%BC%AB%E5%8F%8D%E5%B0%84"><span class="toc-text">逐像素漫反射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8A%E5%85%B0%E4%BC%AF%E7%89%B9%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="toc-text">半兰伯特光照模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E5%85%89%E5%8F%8D%E5%B0%84"><span class="toc-text">高光反射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E5%85%89%E5%8F%8D%E5%B0%84-%E9%80%90%E9%A1%B6%E7%82%B9"><span class="toc-text">高光反射(逐顶点)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E5%85%89%E5%8F%8D%E5%B0%84-%E9%80%90%E5%83%8F%E7%B4%A0"><span class="toc-text">高光反射(逐像素)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unity%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="toc-text">unity内置函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%B9%E7%90%86"><span class="toc-text">纹理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E7%BA%B9%E7%90%86%E6%B7%BB%E5%8A%A0%E4%BE%BF%E5%AE%9C%E5%92%8C%E7%BC%A9%E6%94%BE"><span class="toc-text">给纹理添加便宜和缩放</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%B9%E5%87%B8%E6%98%A0%E5%B0%84%E5%92%8C%E6%B3%95%E7%BA%BF%E6%98%A0%E5%B0%84"><span class="toc-text">凹凸映射和法线映射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80-%E7%A4%BA%E4%BE%8B%E8%84%9A%E6%9C%AC"><span class="toc-text">基础+示例脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%B9%E5%87%B8%E6%98%A0%E5%B0%84%E5%92%8C%E6%B3%95%E7%BA%BF%E6%98%A0%E5%B0%84%E6%B7%BB%E5%8A%A0%E5%8F%82%E6%95%B0"><span class="toc-text">凹凸映射和法线映射添加参数</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shader"><span class="toc-text">Shader</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#shader%E7%AE%80%E4%BB%8B"><span class="toc-text">shader简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mesh-Filter"><span class="toc-text">Mesh Filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mesh-Renderer"><span class="toc-text">Mesh Renderer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Material"><span class="toc-text">Material</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenGL%E3%80%81DirectX-DX"><span class="toc-text">OpenGL、DirectX(DX)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unity-shader%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">unity shader的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E9%9D%A2%E7%9D%80%E8%89%B2%E5%99%A8Surface-Shader"><span class="toc-text">表面着色器Surface Shader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B6%E7%82%B9-x2F-%E7%89%87%E5%85%83%E7%9D%80%E8%89%B2%E5%99%A8Vertex-x2F-Fragment-Shader"><span class="toc-text">顶点&#x2F;片元着色器Vertex&#x2F;Fragment Shader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%87%BD%E6%95%B0%E7%9D%80%E8%89%B2%E5%99%A8Fixed-Function-Shader-%E5%B7%B2%E7%BB%8F%E8%A2%AB%E5%BC%83%E7%94%A8"><span class="toc-text">固定函数着色器Fixed Function Shader(已经被弃用)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAunity-shader"><span class="toc-text">创建一个unity shader</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E5%8F%AF%E4%BB%A5%E6%9C%89%E5%93%AA%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">属性可以有哪些数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%B1%9E%E6%80%A7"><span class="toc-text">如何使用属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAvertex%E5%92%8Cfragment"><span class="toc-text">创建vertex和fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B6%E7%82%B9%E5%85%B6%E4%BB%96%E4%BF%A1%E6%81%AF"><span class="toc-text">顶点其他信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89%E6%80%BB%E7%BB%93"><span class="toc-text">语义总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="toc-text">什么是光照模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="toc-text">标准光照模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%AB%E5%8F%8D%E5%B0%84"><span class="toc-text">漫反射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%AB%E5%8F%8D%E5%B0%84%E9%A2%9C%E8%89%B2"><span class="toc-text">漫反射颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%85%89"><span class="toc-text">环境光</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%90%E5%83%8F%E7%B4%A0%E6%BC%AB%E5%8F%8D%E5%B0%84"><span class="toc-text">逐像素漫反射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8A%E5%85%B0%E4%BC%AF%E7%89%B9%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="toc-text">半兰伯特光照模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E5%85%89%E5%8F%8D%E5%B0%84"><span class="toc-text">高光反射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E5%85%89%E5%8F%8D%E5%B0%84-%E9%80%90%E9%A1%B6%E7%82%B9"><span class="toc-text">高光反射(逐顶点)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E5%85%89%E5%8F%8D%E5%B0%84-%E9%80%90%E5%83%8F%E7%B4%A0"><span class="toc-text">高光反射(逐像素)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unity%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="toc-text">unity内置函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%B9%E7%90%86"><span class="toc-text">纹理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E7%BA%B9%E7%90%86%E6%B7%BB%E5%8A%A0%E4%BE%BF%E5%AE%9C%E5%92%8C%E7%BC%A9%E6%94%BE"><span class="toc-text">给纹理添加便宜和缩放</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%B9%E5%87%B8%E6%98%A0%E5%B0%84%E5%92%8C%E6%B3%95%E7%BA%BF%E6%98%A0%E5%B0%84"><span class="toc-text">凹凸映射和法线映射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80-%E7%A4%BA%E4%BE%8B%E8%84%9A%E6%9C%AC"><span class="toc-text">基础+示例脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%B9%E5%87%B8%E6%98%A0%E5%B0%84%E5%92%8C%E6%B3%95%E7%BA%BF%E6%98%A0%E5%B0%84%E6%B7%BB%E5%8A%A0%E5%8F%82%E6%95%B0"><span class="toc-text">凹凸映射和法线映射添加参数</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1043,19 +1043,19 @@ _WorldSpaceCameraPos可以获得相机的位置
 <p>OpenGL 使用GLSL 编写shader<br>DirectX 使用HSSL 编写shader<br>英伟达 CG 编写shader（跨平台）</p>
 <h2 id="unity-shader的分类"><a href="#unity-shader的分类" class="headerlink" title="unity shader的分类"></a>unity shader的分类</h2><p>使用的是ShaderLab(对CG进行了封装)编写Unity中的Shader  </p>
 <h3 id="表面着色器Surface-Shader"><a href="#表面着色器Surface-Shader" class="headerlink" title="表面着色器Surface Shader"></a>表面着色器Surface Shader</h3><p>unity独有的着色器  </p>
-<h3 id="顶点-片元着色器Vertex-Fragment-Shader"><a href="#顶点-片元着色器Vertex-Fragment-Shader" class="headerlink" title="顶点/片元着色器Vertex/Fragment Shader"></a>顶点/片元着色器Vertex/Fragment Shader</h3><p>比较基本的着色器，表面着色器对顶点/片元着色器进行封装，最后还被解析成顶点片元着色器  </p>
+<h3 id="顶点-x2F-片元着色器Vertex-x2F-Fragment-Shader"><a href="#顶点-x2F-片元着色器Vertex-x2F-Fragment-Shader" class="headerlink" title="顶点&#x2F;片元着色器Vertex&#x2F;Fragment Shader"></a>顶点&#x2F;片元着色器Vertex&#x2F;Fragment Shader</h3><p>比较基本的着色器，表面着色器对顶点&#x2F;片元着色器进行封装，最后还被解析成顶点片元着色器  </p>
 <h3 id="固定函数着色器Fixed-Function-Shader-已经被弃用"><a href="#固定函数着色器Fixed-Function-Shader-已经被弃用" class="headerlink" title="固定函数着色器Fixed Function Shader(已经被弃用)"></a>固定函数着色器Fixed Function Shader(已经被弃用)</h3><h2 id="创建一个unity-shader"><a href="#创建一个unity-shader" class="headerlink" title="创建一个unity shader"></a>创建一个unity shader</h2><p>基本结构</p>
 <pre><code>Shader &quot;LianBai/01-myshader&quot; //引号内为shader的路径+名字，可以跟文件名字不一样
 &#123; 
-    Properties    //属性（类似于C#脚本中的public属性，通过外界可以调节），一个shader只可以有一个
+    Properties	//属性（类似于C#脚本中的public属性，通过外界可以调节），一个shader只可以有一个
     &#123;
         //颜色，变量名字为_Color,面板上显示的名字为MyColor,类型为color,
         _Color(&quot;MyColor&quot;,Color) = (1,1,1,1)
     &#125;
 
-    SubShader    //子shader块，可以有很多个，编写渲染的代码。显卡运行效果的时候，从第一个SubShader,如果第一个SubShader中有部分无法实现，就会自动运行下一个SubShader
+    SubShader	//子shader块，可以有很多个，编写渲染的代码。显卡运行效果的时候，从第一个SubShader,如果第一个SubShader中有部分无法实现，就会自动运行下一个SubShader
     &#123;
-        Pass    //必须有一个pass块，可以有很多pass块，一个pass块代表的一个方法
+        Pass	//必须有一个pass块，可以有很多pass块，一个pass块代表的一个方法
         &#123;
             //编写shader代码 可以用CGPROGRAM 或者HLSLPROGRAM
             CGPROGRAM
@@ -1063,7 +1063,7 @@ _WorldSpaceCameraPos可以获得相机的位置
             ENDCG
         &#125;
     &#125;
-    Fallback &quot;VertexLit&quot;    //当设备发现上面的SubShader都无法执行的时候，就会执行后这个后备方案
+    Fallback &quot;VertexLit&quot;	//当设备发现上面的SubShader都无法执行的时候，就会执行后这个后备方案
 &#125;
 </code></pre>
 <h3 id="属性可以有哪些数据类型"><a href="#属性可以有哪些数据类型" class="headerlink" title="属性可以有哪些数据类型"></a>属性可以有哪些数据类型</h3><pre><code>//颜色，变量名字为_Color,面板上显示的名字为MyColor,类型为color,
@@ -1092,7 +1092,7 @@ sampler2D _2D;
 samplerCube _Cube;
 sampler3D _3D;
 </code></pre>
-<p>float = half = fixed 都可以代替<br>float 32位存储<br>half 16位存储(-6万 ~ 6万)<br>fixed 11位存储(-2 ~ 2)    //color一般用fixed存储  </p>
+<p>float &#x3D; half &#x3D; fixed 都可以代替<br>float 32位存储<br>half 16位存储(-6万 ~ 6万)<br>fixed 11位存储(-2 ~ 2)	&#x2F;&#x2F;color一般用fixed存储  </p>
 <h3 id="创建vertex和fragment"><a href="#创建vertex和fragment" class="headerlink" title="创建vertex和fragment"></a>创建vertex和fragment</h3><pre><code>//顶点函数 函数名vert 这里只是声明了顶点函数的函数名
 //基本作用是 完成顶点坐标从模型空间到剪裁空间的转换（从游戏环境转换到视野相机屏幕上）
 #pragma vertex vert
@@ -1103,7 +1103,7 @@ sampler3D _3D;
 //通过语义告诉系统: POSITION标明要把顶点值传进v、SV_POSITION标明函数返回值是剪裁空间下的顶点坐标
 float4 vert(float4 v : POSITION) : SV_POSITION
 &#123;
-    return UnityObjectToClipPos(v);    //把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
+    return UnityObjectToClipPos(v);	//把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
 &#125;
 float4 frag(): SV_Target
 &#123;
@@ -1115,7 +1115,7 @@ float4 frag(): SV_Target
     float4 vertex : POSITION;
     //获取法线
     float3 normal : NORMAL;
-    //纹理坐标    0代表第一套纹理坐标，纹理坐标一般0~1
+    //纹理坐标	0代表第一套纹理坐标，纹理坐标一般0~1
     float4 texcoord : TEXCOORD0;
 &#125;;
 </code></pre>
@@ -1141,7 +1141,7 @@ TEXCOORD0~7 传递纹理坐标
 <p>自发光<br>高光反射<br>漫反射<br>环境光   </p>
 </blockquote>
 <h3 id="漫反射"><a href="#漫反射" class="headerlink" title="漫反射"></a>漫反射</h3><blockquote>
-<p>Diffuse = 直射光颜色 * max(0,cos夹角(光和法线的夹角) )<br>cosθ = 光方向· 法线方向（单位向量的点积）</p>
+<p>Diffuse &#x3D; 直射光颜色 * max(0,cos夹角(光和法线的夹角) )<br>cosθ &#x3D; 光方向· 法线方向（单位向量的点积）</p>
 </blockquote>
 <pre><code>Shader &quot;LianBai/04-Diffuse&quot;
 &#123;
@@ -1150,9 +1150,9 @@ TEXCOORD0~7 传递纹理坐标
 
         Pass
         &#123;
-            Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;    //只有定义了正确的LightMode才能得到一些Unity的内置光照变量
+            Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;	//只有定义了正确的LightMode才能得到一些Unity的内置光照变量
             CGPROGRAM
-#include &quot;Lighting.cginc&quot;        //引入定义好的命名空间内的变量
+#include &quot;Lighting.cginc&quot;		//引入定义好的命名空间内的变量
             //顶点函数 函数名vert 这里只是声明了顶点函数的函数名
             //基本作用是 完成顶点坐标从模型空间到剪裁空间的转换（从游戏环境转换到视野相机屏幕上）
 #pragma vertex vert
@@ -1177,11 +1177,11 @@ TEXCOORD0~7 传递纹理坐标
             v2f vert(a2v v)
             &#123;
                 v2f f;
-                f.position = UnityObjectToClipPos(v.vertex);    //把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
+                f.position = UnityObjectToClipPos(v.vertex);	//把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
 
                 //在Lighting.cginc命名空间下 _LightColor0取得第一个直射光的颜色 _WorldSpaceLightPos0第一个直射光的位置
                 //dot用于计算点乘  normalize用来把一个向量单位化 _World2Object这个矩阵用来把一个方向从世界空间转换到模型空间
-                float3 normalDir = normalize(mul(v.normal, (float3x3)unity_WorldToObject));    //变量位置交换，就是从模型空间转换到世界空间 float3x3强制把矩阵变成3*3的矩阵
+                float3 normalDir = normalize(mul(v.normal, (float3x3)unity_WorldToObject));	//变量位置交换，就是从模型空间转换到世界空间 float3x3强制把矩阵变成3*3的矩阵
                 fixed3 lightDir = normalize(_WorldSpaceLightPos0.xyz); //对于每一个点来说光的位置就是光的方向，因为光是平行光
                 fixed3 diffuse = _LightColor0.rgb * max(0, dot(normalDir, lightDir)); //取得漫反射的颜色
                 f.color = diffuse;
@@ -1208,8 +1208,8 @@ TEXCOORD0~7 传递纹理坐标
 fixed4 _DiffuseColor;
 fixed3 diffuse = _LightColor0.rgb * max(0, dot(normalDir, lightDir)) * _DiffuseColor.rgb; //把两种颜色融合
 </code></pre>
-<h3 id="环境光"><a href="#环境光" class="headerlink" title="环境光"></a>环境光</h3><pre><code>fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.rgb;    //得到系统的环境光
-f.color = diffuse + ambient;                    // + 代表颜色叠加
+<h3 id="环境光"><a href="#环境光" class="headerlink" title="环境光"></a>环境光</h3><pre><code>fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.rgb;	//得到系统的环境光
+f.color = diffuse + ambient;					// + 代表颜色叠加
 </code></pre>
 <h3 id="逐像素漫反射"><a href="#逐像素漫反射" class="headerlink" title="逐像素漫反射"></a>逐像素漫反射</h3><pre><code>Shader &quot;LianBai/05-Diffuse Fragment&quot;
 &#123;
@@ -1224,9 +1224,9 @@ f.color = diffuse + ambient;                    // + 代表颜色叠加
         &#123;
             
 
-            Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;    //只有定义了正确的LightMode才能得到一些Unity的内置光照变量
+            Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;	//只有定义了正确的LightMode才能得到一些Unity的内置光照变量
             CGPROGRAM
-#include &quot;Lighting.cginc&quot;        //引入定义好的命名空间内的变量
+#include &quot;Lighting.cginc&quot;		//引入定义好的命名空间内的变量
             //顶点函数 函数名vert 这里只是声明了顶点函数的函数名
             //基本作用是 完成顶点坐标从模型空间到剪裁空间的转换（从游戏环境转换到视野相机屏幕上）
 #pragma vertex vert
@@ -1252,18 +1252,18 @@ f.color = diffuse + ambient;                    // + 代表颜色叠加
             v2f vert(a2v v)
             &#123;
                 v2f f;
-                f.position = UnityObjectToClipPos(v.vertex);    //把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
+                f.position = UnityObjectToClipPos(v.vertex);	//把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
 
                 f.worldnormaldir = mul(v.normal, (float3x3)unity_WorldToObject);
                 return f;
             &#125;
             float4 frag(v2f f) : SV_Target
             &#123;
-                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.rgb;    //得到系统的环境光
+                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.rgb;	//得到系统的环境光
 
                 //在Lighting.cginc命名空间下 _LightColor0取得第一个直射光的颜色 _WorldSpaceLightPos0第一个直射光的位置
                 //dot用于计算点乘  normalize用来把一个向量单位化 _World2Object这个矩阵用来把一个方向从世界空间转换到模型空间
-                float3 normalDir = normalize(f.worldnormaldir);    //变量位置交换，就是从模型空间转换到世界空间 float3x3强制把矩阵变成3*3的矩阵
+                float3 normalDir = normalize(f.worldnormaldir);	//变量位置交换，就是从模型空间转换到世界空间 float3x3强制把矩阵变成3*3的矩阵
                 fixed3 lightDir = normalize(_WorldSpaceLightPos0.xyz); //对于每一个点来说光的位置就是光的方向，因为光是平行光
                 fixed3 diffuse = _LightColor0.rgb * max(0, dot(normalDir, lightDir)) * _DiffuseColor.rgb; //取得漫反射的颜色
                 fixed3 tempcolor = diffuse + ambient;
@@ -1305,9 +1305,9 @@ fixed3 diffuse = _LightColor0.rgb * halfLambert * _DiffuseColor.rgb; //取得漫
         &#123;
             
 
-            Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;    //只有定义了正确的LightMode才能得到一些Unity的内置光照变量
+            Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;	//只有定义了正确的LightMode才能得到一些Unity的内置光照变量
             CGPROGRAM
-#include &quot;Lighting.cginc&quot;        //引入定义好的命名空间内的变量
+#include &quot;Lighting.cginc&quot;		//引入定义好的命名空间内的变量
             //顶点函数 函数名vert 这里只是声明了顶点函数的函数名
             //基本作用是 完成顶点坐标从模型空间到剪裁空间的转换（从游戏环境转换到视野相机屏幕上）
 #pragma vertex vert
@@ -1333,17 +1333,17 @@ fixed3 diffuse = _LightColor0.rgb * halfLambert * _DiffuseColor.rgb; //取得漫
             v2f vert(a2v v)
             &#123;
                 v2f f;
-                f.position = UnityObjectToClipPos(v.vertex);    //把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
+                f.position = UnityObjectToClipPos(v.vertex);	//把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
 
-                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.rgb;    //得到系统的环境光
+                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.rgb;	//得到系统的环境光
 
                 //在Lighting.cginc命名空间下 _LightColor0取得第一个直射光的颜色 _WorldSpaceLightPos0第一个直射光的位置
                 //dot用于计算点乘  normalize用来把一个向量单位化 _World2Object这个矩阵用来把一个方向从世界空间转换到模型空间
-                float3 normalDir = normalize(mul(v.normal, (float3x3)unity_WorldToObject));    //变量位置交换，就是从模型空间转换到世界空间 float3x3强制把矩阵变成3*3的矩阵
+                float3 normalDir = normalize(mul(v.normal, (float3x3)unity_WorldToObject));	//变量位置交换，就是从模型空间转换到世界空间 float3x3强制把矩阵变成3*3的矩阵
                 fixed3 lightDir = normalize(_WorldSpaceLightPos0.xyz); //对于每一个点来说光的位置就是光的方向，因为光是平行光
                 fixed3 diffuse = _LightColor0.rgb * max(0, dot(normalDir, lightDir)) * _DiffuseColor.rgb; //取得漫反射的颜色
 
-                fixed3 reflectDir = normalize(reflect(-lightDir, normalDir));    //reflect 用来求反射光方向向量，lightDir是指向平行光的方向，所以需要带符号变成入射方向，
+                fixed3 reflectDir = normalize(reflect(-lightDir, normalDir));	//reflect 用来求反射光方向向量，lightDir是指向平行光的方向，所以需要带符号变成入射方向，
                 fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - mul(v.vertex, unity_WorldToObject).xyz); //_WorldSpaceCameraPos.xyz相机的位置，
                 fixed3 specular = _LightColor0.rgb * pow(max(0, dot(reflectDir, viewDir)), 10);
 
@@ -1378,9 +1378,9 @@ fixed3 diffuse = _LightColor0.rgb * halfLambert * _DiffuseColor.rgb; //取得漫
         &#123;
             
 
-            Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;    //只有定义了正确的LightMode才能得到一些Unity的内置光照变量
+            Tags&#123;&quot;LightMode&quot; = &quot;ForwardBase&quot;&#125;	//只有定义了正确的LightMode才能得到一些Unity的内置光照变量
             CGPROGRAM
-#include &quot;Lighting.cginc&quot;        //引入定义好的命名空间内的变量
+#include &quot;Lighting.cginc&quot;		//引入定义好的命名空间内的变量
             //顶点函数 函数名vert 这里只是声明了顶点函数的函数名
             //基本作用是 完成顶点坐标从模型空间到剪裁空间的转换（从游戏环境转换到视野相机屏幕上）
 #pragma vertex vert
@@ -1410,22 +1410,22 @@ fixed3 diffuse = _LightColor0.rgb * halfLambert * _DiffuseColor.rgb; //取得漫
             v2f vert(a2v v)
             &#123;
                 v2f f;
-                f.position = UnityObjectToClipPos(v.vertex);    //把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
+                f.position = UnityObjectToClipPos(v.vertex);	//把模型空间坐标转换到剪裁空间坐标,UNITY_MATRIX_MVP(4x4矩阵)
                 f.worldnormal = mul(v.normal, (float3x3)unity_WorldToObject);
                 f.worldvertex = mul(v.vertex, unity_WorldToObject).xyz;
                 return f;
             &#125;
             float4 frag(v2f f) : SV_Target
             &#123;
-                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.rgb;    //得到系统的环境光
+                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.rgb;	//得到系统的环境光
 
                 //在Lighting.cginc命名空间下 _LightColor0取得第一个直射光的颜色 _WorldSpaceLightPos0第一个直射光的位置
                 //dot用于计算点乘  normalize用来把一个向量单位化 _World2Object这个矩阵用来把一个方向从世界空间转换到模型空间
-                float3 normalDir = normalize(f.worldnormal);    //变量位置交换，就是从模型空间转换到世界空间 float3x3强制把矩阵变成3*3的矩阵
+                float3 normalDir = normalize(f.worldnormal);	//变量位置交换，就是从模型空间转换到世界空间 float3x3强制把矩阵变成3*3的矩阵
                 fixed3 lightDir = normalize(_WorldSpaceLightPos0.xyz); //对于每一个点来说光的位置就是光的方向，因为光是平行光
                 fixed3 diffuse = _LightColor0.rgb * max(0, dot(normalDir, lightDir)) * _DiffuseColor.rgb; //取得漫反射的颜色
 
-                fixed3 reflectDir = normalize(reflect(-lightDir, normalDir));    //reflect 用来求反射光方向向量，lightDir是指向平行光的方向，所以需要带符号变成入射方向，
+                fixed3 reflectDir = normalize(reflect(-lightDir, normalDir));	//reflect 用来求反射光方向向量，lightDir是指向平行光的方向，所以需要带符号变成入射方向，
                 fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - f.worldvertex); //_WorldSpaceCameraPos.xyz相机的位置，
                 fixed3 specular = _LightColor0.rgb * pow(max(0, dot(reflectDir, viewDir)), _Gloss) * _SpecularColor.rgb;
                 fixed3 tempcolor = diffuse + ambient + specular;
@@ -1442,13 +1442,13 @@ fixed3 diffuse = _LightColor0.rgb * halfLambert * _DiffuseColor.rgb; //取得漫
 &#125;
 </code></pre>
 <h2 id="unity内置函数"><a href="#unity内置函数" class="headerlink" title="unity内置函数"></a>unity内置函数</h2><pre><code>//摄像机方向（视角方向）
-float3 WorldSpaceViewDir(float4 v)      根据模型空间中的顶点坐标 得到 （世界空间）从这个点到摄像机的观察方向
+float3 WorldSpaceViewDir(float4 v)  	根据模型空间中的顶点坐标 得到 （世界空间）从这个点到摄像机的观察方向
 float3 UnityWorldSpaceViewDir(float4 v) 世界空间中的顶点坐标==》世界空间从这个点到摄像机的观察方向
-float3 ObjSpaceViewDir(float4 v)         模型空间中的顶点坐标==》模型空间从这个点到摄像机的观察方向
+float3 ObjSpaceViewDir(float4 v) 		模型空间中的顶点坐标==》模型空间从这个点到摄像机的观察方向
 //光源方向
-float3 WorldSpaceLightDir(float4 v)     模型空间中的顶点坐标==》世界空间中从这个点到光源的方向
-float3 UnityWorldSpaceLightDir(float4 v)     世界空间中的顶点坐标==》世界空间中从这个点到光源的方向
-float3 ObjSpaceLightDir(float4 v)     模型空间中的顶点坐标==》模型空间中从这个点到光源的方向
+float3 WorldSpaceLightDir(float4 v) 	模型空间中的顶点坐标==》世界空间中从这个点到光源的方向
+float3 UnityWorldSpaceLightDir(float4 v) 	世界空间中的顶点坐标==》世界空间中从这个点到光源的方向
+float3 ObjSpaceLightDir(float4 v) 	模型空间中的顶点坐标==》模型空间中从这个点到光源的方向
 //方向转换
 float3 UnityObjectToWorldNormal(float3 norm) 把法线方向 模型空间==》世界空间
 float3 UnityObjectToWorldDir(float3 dir) 把方向 模型空间=》世界空间
@@ -1491,7 +1491,7 @@ float3 UnityWorldToObjectDir(float3 dir) 把方向 世界空间=》模型空间
             &#123;
                 float4 vertex : POSITION;
                 float4 normal : NORMAL;
-                float4 texcoord :TEXCOORD0;        //得到纹理坐标
+                float4 texcoord :TEXCOORD0;		//得到纹理坐标
             &#125;;
             struct v2f
             &#123;
@@ -1516,7 +1516,7 @@ float3 UnityWorldToObjectDir(float3 dir) 把方向 世界空间=》模型空间
                 fixed3 viewDir = normalize(UnityWorldSpaceViewDir(f.worldvertex));
                 fixed3 halfDir = normalize(viewDir + lightDir);
 
-                fixed3 texColor = tex2D(_MainTex, f.uv.xy) * _TexColor;    //的到纹理上的颜色tex()
+                fixed3 texColor = tex2D(_MainTex, f.uv.xy) * _TexColor;	//的到纹理上的颜色tex()
 
                 fixed3 diffuse = _LightColor0.rgb * texColor * max(0,dot(normalDir,lightDir));
                 fixed3 specular = _LightColor0.rgb * _SpecularColor.rgb * pow(max(0,dot(normalDir, halfDir)),_Gloss);
@@ -1537,7 +1537,7 @@ float3 UnityWorldToObjectDir(float3 dir) 把方向 世界空间=》模型空间
 <pre><code>float4 _MainTex_ST;
 </code></pre>
 <p><strong>示例脚本</strong>  </p>
-<pre><code>f.uv = v.texcoord.xy *_MainTex_ST.xy + _MainTex_ST.zw;    //xy是缩放，zw是偏移
+<pre><code>f.uv = v.texcoord.xy *_MainTex_ST.xy + _MainTex_ST.zw;	//xy是缩放，zw是偏移
 </code></pre>
 <h2 id="凹凸映射和法线映射"><a href="#凹凸映射和法线映射" class="headerlink" title="凹凸映射和法线映射"></a>凹凸映射和法线映射</h2><h3 id="基础-示例脚本"><a href="#基础-示例脚本" class="headerlink" title="基础+示例脚本"></a>基础+示例脚本</h3><pre><code>pixel = (normal+1)/2
 
@@ -1567,24 +1567,24 @@ normal = pixel*2 - 1
             //float4 _DiffuseColor;
             fixed4 _TexColor;
             sampler2D _MainTex;
-            float4 _MainTex_ST;        //固定的，必须是：纹理的名字_ST
+            float4 _MainTex_ST;		//固定的，必须是：纹理的名字_ST
             sampler2D _NorMap;
             float4 _NorMap_ST;
 
             struct a2v
             &#123;
                 float4 vertex : POSITION;
-                float3 normal : NORMAL;            //切线空间的确定是通过(存储到模型里面的)法线和(存储到模型里面的)切线确定的
-                float4 tangent : TANGENT;        //tangent.w是用来确定切线空间中坐标轴方向的
-                float4 texcoord :TEXCOORD0;        //得到纹理坐标
+                float3 normal : NORMAL;			//切线空间的确定是通过(存储到模型里面的)法线和(存储到模型里面的)切线确定的
+                float4 tangent : TANGENT;		//tangent.w是用来确定切线空间中坐标轴方向的
+                float4 texcoord :TEXCOORD0;		//得到纹理坐标
             &#125;;
             struct v2f
             &#123;
                 float4 svPos : SV_POSITION;
                 //float3 worldnormal : TEXCOORD0;
-                float3 lightDir : TEXCOORD0;    //切线空间下平行光的方向
+                float3 lightDir : TEXCOORD0;	//切线空间下平行光的方向
                 float4 worldvertex : TEXCOORD1;
-                float4 uv : TEXCOORD2;            //xy用来存储maintex zw用来存储法线贴图的纹理
+                float4 uv : TEXCOORD2;			//xy用来存储maintex zw用来存储法线贴图的纹理
             &#125;;
             v2f vert(a2v v)
             &#123;
@@ -1592,14 +1592,14 @@ normal = pixel*2 - 1
                 f.svPos = UnityObjectToClipPos(v.vertex);
                 //f.worldnormal = UnityObjectToWorldNormal(v.normal);
                 f.worldvertex = mul(v.vertex, unity_WorldToObject);
-                f.uv.xy = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;    //xy是缩放，zw是偏移
+                f.uv.xy = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;	//xy是缩放，zw是偏移
                 f.uv.zw = v.texcoord.xy * _NorMap_ST.xy + _NorMap_ST.zw;
 
-                TANGENT_SPACE_ROTATION;    //调用这个宏之后会得到一个矩阵 rotation 用来把模型空间下的方向转换成切线空间下
+                TANGENT_SPACE_ROTATION;	//调用这个宏之后会得到一个矩阵 rotation 用来把模型空间下的方向转换成切线空间下
                 /*float3 binormal = cross(v.normal, v.tangent.xyz) * v.tangent.w;
                 float3x3 rotation = float3x3(v.tangent.xyz, binormal, v.normal);*/
 
-                //ObjSpaceLightDir(v.vertex);    //得到模型空间下的平行光的方向
+                //ObjSpaceLightDir(v.vertex);	//得到模型空间下的平行光的方向
                 f.lightDir = mul(rotation, ObjSpaceLightDir(v.vertex));
                 return f;
             &#125;
@@ -1615,7 +1615,7 @@ normal = pixel*2 - 1
 
                 fixed3 lightDir = normalize(f.lightDir);
 
-                fixed3 texColor = tex2D(_MainTex, f.uv.xy) * _TexColor;    //的到纹理上的颜色tex()
+                fixed3 texColor = tex2D(_MainTex, f.uv.xy) * _TexColor;	//的到纹理上的颜色tex()
 
                 fixed3 diffuse = _LightColor0.rgb * texColor * max(0,dot(tangentNormal,lightDir));
 
