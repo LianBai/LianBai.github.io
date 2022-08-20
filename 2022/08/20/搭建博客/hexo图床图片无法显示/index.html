@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Unity笔记 | LianBai</title>
-  <meta name="keywords" content=" Unity ">
+  <title>hexo图床图片无法显示 | LianBai</title>
+  <meta name="keywords" content=" hexo博客 ">
   <meta name="referrer" content="no-referrer" />
-  <meta name="description" content="Unity笔记 | LianBai">
+  <meta name="description" content="hexo图床图片无法显示 | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -957,9 +957,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-个人笔记/Unity笔记" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-搭建博客/hexo图床图片无法显示" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Unity笔记</h1>
+        <h1 class="article-title">hexo图床图片无法显示</h1>
     
     <div class="article-meta">
         
@@ -969,7 +969,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="个人笔记">个人笔记</a>
+            <a  data-rel="搭建博客">搭建博客</a>
             
         </span>
         
@@ -977,19 +977,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color1">Unity</a>
+            <a class="color2">hexo博客</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-03-18 16:43:22'>2022-03-03 15:14</time>
+            发布时间 : <time class="date" title='最后更新: 2022-08-20 18:15:38'>2022-08-20 18:05</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:25</span>
+        <span>字数:235</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1019,7 +1019,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-text">特性</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-text">方法一（不推荐）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-text">方法二（推荐）</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1035,7 +1035,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><p><strong>[Conditional(“XXX”)]</strong>: 指定XXX宏下进行编译<br><strong>[RuntimeInitializeOnLoadMethod]</strong>:游戏运行是就执行的方法</p>
+        <meta name="referrer" content="no-referrer">
+
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>今天更新自己博客的时候发现新博客的图片都无法显示，这个听说只存在于没有域名的博客中，笔者因为没有域名，所以不清除是不是。  </p>
+<blockquote>
+<p>图床：gitee<br>博客：github+hexo<br>原因猜测：gitee开始对图床进行限制，没有域名的博客也访问不到图床的图片  </p>
+</blockquote>
+<p>#解决方法 </p>
+<h2 id="方法一（不推荐）"><a href="#方法一（不推荐）" class="headerlink" title="方法一（不推荐）"></a>方法一（不推荐）</h2><p>最快捷的解决方案就是再自己博客的文章开头加上下面代码   </p>
+<pre><code>&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+</code></pre>
+<p>看下面举例  </p>
+<p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1660990253369-2022-8-2018:10:54.png"></p>
+<h2 id="方法二（推荐）"><a href="#方法二（推荐）" class="headerlink" title="方法二（推荐）"></a>方法二（推荐）</h2><p>在自己播放的主题文件加里直接加上就不需要了，具体路径：<br>拿3-hexo主题举例：<br>在**…\themes\3-hexo\layout_partial\header.ejs**文件里加入刚才的代码，如下：  </p>
+<p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1660990452909-2022-8-2018:14:13.png">  </p>
+<p>其他主题文件在类似位置：<strong>hexo\themes...\layout_partial\head.ejs</strong><br>其他主题的文件名字应该叫：<strong>head.ejs</strong>。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
