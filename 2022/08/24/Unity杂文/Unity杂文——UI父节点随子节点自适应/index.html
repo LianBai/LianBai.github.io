@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Odin Inspector入门 | LianBai</title>
-  <meta name="keywords" content=" Odin Inspector ">
+  <title>Unity杂文——UI父节点随子节点自适应 | LianBai</title>
+  <meta name="keywords" content=" UGUI ">
   <meta name="referrer" content="no-referrer" />
-  <meta name="description" content="Odin Inspector入门 | LianBai">
+  <meta name="description" content="Unity杂文——UI父节点随子节点自适应 | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
@@ -965,9 +965,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Unity专栏/Odin-Inspector入门" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Unity杂文/Unity杂文——UI父节点随子节点自适应" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Odin Inspector入门</h1>
+        <h1 class="article-title">Unity杂文——UI父节点随子节点自适应</h1>
     
     <div class="article-meta">
         
@@ -977,7 +977,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Unity专栏">Unity专栏</a>
+            <a  data-rel="Unity杂文">Unity杂文</a>
             
         </span>
         
@@ -985,19 +985,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color5">Odin Inspector</a>
+            <a class="color5">UGUI</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-12-27 11:39:09'>2019-10-29 15:41</time>
+            发布时间 : <time class="date" title='最后更新: 2022-08-24 20:11:41'>2022-08-24 19:56</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:2.2k</span>
+        <span>字数:1.3k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1027,7 +1027,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Essentials"><span class="toc-text">Essentials</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Assets-Only-Attribute"><span class="toc-text">Assets Only Attribute</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Custom-Value-Drawer-Attribute"><span class="toc-text">Custom Value Drawer Attribute</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AB%E6%9C%89Label%E5%92%8C%E4%B8%8D%E5%90%AB%E6%9C%89Label%E7%9A%84%E5%AD%97%E6%AE%B5"><span class="toc-text">含有Label和不含有Label的字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%98%E5%88%B6Slider%E6%BB%91%E5%8A%A8%E6%9D%A1"><span class="toc-text">绘制Slider滑动条</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delayed-Property-Attribute"><span class="toc-text">Delayed Property Attribute</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B3%E6%97%B6%E6%80%A7%EF%BC%88%E9%9D%9E%E5%BB%B6%E8%BF%9F%EF%BC%89%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">即时性（非延迟）序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">延迟序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-text">完整的代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Detailed-Info-Box-Attribute"><span class="toc-text">Detailed Info Box Attribute</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="toc-text">完整代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Enable-GUIAttribute"><span class="toc-text">Enable GUIAttribute</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUIColor-Attribute"><span class="toc-text">GUIColor Attribute</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E6%94%AF%E6%8C%81%E7%9A%84%E8%84%9A%E6%9C%AC%EF%BC%88%E6%BA%90%E7%A0%81%E6%8A%84%E6%9D%A5%E7%9A%84SetPropertyUtility%EF%BC%89"><span class="toc-text">需要支持的脚本（源码抄来的SetPropertyUtility）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8%E6%98%BE%E7%A4%BAEditor%E4%BB%A3%E7%A0%81"><span class="toc-text">编辑器显示Editor代码</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1043,376 +1043,362 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><a target="_blank" rel="noopener" href="https://odininspector.com/"><font color="steelblue" size="5">官网</font></a><br><a target="_blank" rel="noopener" href="https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041"><font color="steelblue" size="5">AssetsStord地址</font></a><br><strong><font size="4">集成须知：如需获取对应Odin插件，请加QQ群：46885339，可在群文件中自行获取（如果放在github上就太放肆了。。。。）</font></strong>  </p>
-<pre><code>unity:2019.2.0f1  
-Odin版本 2.1.5  
-</code></pre>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f1b27e85bc35"><font color="steelblue" size="3">参考博客：https://www.jianshu.com/p/f1b27e85bc35</font></a>  </p>
-<h1 id="Essentials"><a href="#Essentials" class="headerlink" title="Essentials"></a>Essentials</h1><h2 id="Assets-Only-Attribute"><a href="#Assets-Only-Attribute" class="headerlink" title="Assets Only Attribute"></a>Assets Only Attribute</h2><p>Assets Only Attribute特性有两类：<br><strong>1.AssetsOnly</strong>： 点击需要序列化的资源字段时，在出现的弹窗中只有Project中的资源文件，不会出现Hierachy（场景）的资源<br><strong>2.SceneObjectsOnly</strong>： 点击需要序列化的资源字段时，在出现的弹窗中只有Hierachy中的资源文件，不会出现Project中的资源<br><strong>注意：例如：预制体等资源在Scene或者Project中都含有，出现的弹窗中也都会含有对应的资源</strong>   </p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><iframe height="1029" width="1375" src="https://upload-images.jianshu.io/upload_images/7643202-60190f219a6cbf63.gif">    
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在UI的开发过程中，经常会遇到Image随子节点的文字变化自动缩放，就是拿Image当背景。笔者遇到这种问题每次都是利用Layout+Content Size Fitter来完成的，笔者想了想每次都要加两个组件，并且Layout只用到了随自己点自适应的功能，于是笔者便想办法把两个功能合成一个脚本来实现需求，于是便有了下面的脚本。  </p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>代码如下： </p>
+<pre><code>using System;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-<p>完整代码示例：  </p>
-<pre><code>using Sirenix.OdinInspector;
-using System.Collections;
+/// &lt;summary&gt;
+/// 未完成，暂时别用
+/// &lt;/summary&gt;
+[AddComponentMenu(&quot;Layout/Rect Transform Fitter&quot;, 142)]
+[ExecuteAlways]
+[RequireComponent(typeof(RectTransform))]
+public class RectTransformFit : UIBehaviour, ILayoutGroup
+&#123;
+    [SerializeField] protected RectTransform m_RectChildren;
+    [SerializeField] protected RectOffset m_Padding = new RectOffset();
+    [SerializeField] protected TextAnchor m_ChildAlignment = TextAnchor.UpperLeft;
+    [SerializeField] protected bool m_ChildControlWidth = false;
+    [SerializeField] protected bool m_ChildControlHeight = false;
+    [SerializeField] protected ContentSizeFitter.FitMode m_HorizontalFit = ContentSizeFitter.FitMode.Unconstrained;
+    [SerializeField] protected ContentSizeFitter.FitMode m_VerticalFit = ContentSizeFitter.FitMode.Unconstrained;
+
+    public RectOffset padding
+    &#123;
+        get =&gt; m_Padding;
+        set =&gt; SetProperty(ref m_Padding, value);
+    &#125;
+    public TextAnchor childAlignment &#123; get =&gt; m_ChildAlignment;
+        set =&gt; SetProperty(ref m_ChildAlignment, value);
+    &#125;
+    public bool childControlWidth
+    &#123;
+        get =&gt; m_ChildControlWidth;
+        set =&gt; SetProperty(ref m_ChildControlWidth, value);
+    &#125;
+    public bool childControlHeight
+    &#123;
+        get =&gt; m_ChildControlHeight;
+        set =&gt; SetProperty(ref m_ChildControlHeight, value);
+    &#125;
+    public ContentSizeFitter.FitMode horizontalFit
+    &#123;
+        get =&gt; m_HorizontalFit;
+        set
+        &#123;
+            if (SetPropertyUtility.SetStruct(ref m_HorizontalFit, value)) SetDirty();
+        &#125;
+    &#125;
+    public ContentSizeFitter.FitMode verticalFit
+    &#123;
+        get =&gt; m_VerticalFit;
+        set
+        &#123;
+            if (SetPropertyUtility.SetStruct(ref m_VerticalFit, value)) SetDirty();
+        &#125;
+    &#125;
+
+    [NonSerialized] private RectTransform m_Rect;
+    protected RectTransform rectTransform
+    &#123;
+        get
+        &#123;
+            if (m_Rect == null)
+                m_Rect = GetComponent&lt;RectTransform&gt;();
+            return m_Rect;
+        &#125;
+    &#125;
+
+#pragma warning disable 649
+    private DrivenRectTransformTracker m_Tracker;
+#pragma warning restore 649
+
+    private void OnEnable()
+    &#123;
+        m_Rect ??= GetComponent&lt;RectTransform&gt;();
+        SetDirty();
+    &#125;
+
+    protected override void OnRectTransformDimensionsChange()
+    &#123;
+        SetDirty();
+    &#125;
+
+    protected override void OnDisable()
+    &#123;
+        m_Tracker.Clear();
+        base.OnDisable();
+    &#125;
+
+    /// &lt;summary&gt;
+    /// Calculate and apply the horizontal component of the size to the RectTransform
+    /// &lt;/summary&gt;
+    public void SetLayoutHorizontal()
+    &#123;
+        m_Tracker.Clear();
+        if (m_RectChildren == null || !m_ChildControlWidth)
+        &#123;
+            SetDirty();
+            return;
+        &#125;
+        HandleSelfFittingAlongAxis(0, m_RectChildren);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// Calculate and apply the vertical component of the size to the RectTransform
+    /// &lt;/summary&gt;
+    public void SetLayoutVertical()
+    &#123;
+        if (m_RectChildren == null || !m_ChildControlHeight)
+        &#123;
+            SetDirty();
+            return;
+        &#125;
+        HandleSelfFittingAlongAxis(1, m_RectChildren);
+    &#125;
+
+    private void HandleSelfFittingAlongAxis(int axis, RectTransform rectChild)
+    &#123;
+        if (rectChild == null) return;
+        var fitting = (axis == 0 ? horizontalFit : verticalFit);
+        if (fitting == ContentSizeFitter.FitMode.Unconstrained)
+        &#123;
+            // Keep a reference to the tracked transform, but don&#39;t control its properties:
+            m_Tracker.Add(this, rectChild, DrivenTransformProperties.None);
+            return;
+        &#125;
+
+        m_Tracker.Add(this, rectChild,
+            (axis == 0 ? DrivenTransformProperties.SizeDeltaX : DrivenTransformProperties.SizeDeltaY));
+
+        // Set size to min or preferred size
+        rectChild.SetSizeWithCurrentAnchors((RectTransform.Axis)axis,
+            fitting == ContentSizeFitter.FitMode.MinSize
+                ? LayoutUtility.GetMinSize(rectChild, axis)
+                : LayoutUtility.GetPreferredSize(rectChild, axis));
+
+        SetDirty();
+    &#125;
+
+    /// &lt;summary&gt;
+    /// Helper method used to set a given property if it has changed.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;currentValue&quot;&gt;A reference to the member value.&lt;/param&gt;
+    /// &lt;param name=&quot;newValue&quot;&gt;The new value.&lt;/param&gt;
+    protected void SetProperty&lt;T&gt;(ref T currentValue, T newValue)
+    &#123;
+        if ((currentValue == null &amp;&amp; newValue == null) || (currentValue != null &amp;&amp; currentValue.Equals(newValue)))
+            return;
+        currentValue = newValue;
+        SetDirty();
+    &#125;
+
+    protected void SetDirty()
+    &#123;
+        if (!IsActive())
+            return;
+
+        RefreshRect();
+        LayoutRebuilder.MarkLayoutForRebuild(m_RectChildren);
+        LayoutRebuilder.MarkLayoutForRebuild(m_Rect);
+    &#125;
+
+    public void RefreshRect()
+    &#123;
+        if (m_RectChildren == null) return;
+        Vector2 anchoredPos;
+        var childSize = m_RectChildren.sizeDelta;
+        var width = childSize.x + padding.left + padding.right;
+        var height = childSize.y + padding.top + padding.bottom;
+        var rectSize = rectTransform.sizeDelta;
+        if (horizontalFit != ContentSizeFitter.FitMode.Unconstrained &amp;&amp;
+            verticalFit != ContentSizeFitter.FitMode.Unconstrained)
+        &#123;
+            rectTransform.sizeDelta = new Vector2(width, height);
+        &#125;
+        else if (horizontalFit != ContentSizeFitter.FitMode.Unconstrained)
+        &#123;
+            rectTransform.sizeDelta = new Vector2(width, rectSize.y);
+        &#125;
+        else if (verticalFit != ContentSizeFitter.FitMode.Unconstrained)
+        &#123;
+            rectTransform.sizeDelta = new Vector2(rectSize.x, height);
+        &#125;
+        rectSize = rectTransform.sizeDelta;
+        var oldPos = rectTransform.anchoredPosition;
+        var oldPivot = rectTransform.pivot;
+
+        switch (m_ChildAlignment)
+        &#123;
+            case TextAnchor.UpperLeft:
+                rectTransform.pivot = new Vector2(0, 1);
+                anchoredPos = new Vector2(padding.left, -padding.top);
+                break;
+            case TextAnchor.UpperCenter:
+                rectTransform.pivot = new Vector2(0.5f, 1);
+                anchoredPos = new Vector2(0, -padding.top);
+                break;
+            case TextAnchor.UpperRight:
+                rectTransform.pivot = new Vector2(1, 1);
+                anchoredPos = new Vector2(-padding.right, -padding.top);
+                break;
+            case TextAnchor.MiddleLeft:
+                rectTransform.pivot = new Vector2(0, 0.5f);
+                anchoredPos = new Vector2(padding.left, 0);
+                break;
+            case TextAnchor.MiddleCenter:
+                rectTransform.pivot = new Vector2(0.5f, 0);
+                anchoredPos = new Vector2(0, 0);
+                break;
+            case TextAnchor.MiddleRight:
+                rectTransform.pivot = new Vector2(1, 0);
+                anchoredPos = new Vector2(-padding.right, 0);
+                break;
+            case TextAnchor.LowerLeft:
+                rectTransform.pivot = new Vector2(0, 0);
+                anchoredPos = new Vector2(padding.left, padding.bottom);
+                break;
+            case TextAnchor.LowerCenter:
+                rectTransform.pivot = new Vector2(0.5f, 0);
+                anchoredPos = new Vector2(0, padding.bottom);
+                break;
+            case TextAnchor.LowerRight:
+                rectTransform.pivot = new Vector2(1, 0);
+                anchoredPos = new Vector2(-padding.right, padding.bottom);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        &#125;
+        var pivot = rectTransform.pivot;
+        rectTransform.anchoredPosition = new Vector2(oldPos.x + rectSize.x * (pivot.x - oldPivot.x),
+            oldPos.y + rectSize.y * (pivot.y - oldPivot.y));
+        m_RectChildren.anchorMax = pivot;
+        m_RectChildren.anchorMin = pivot;
+        m_RectChildren.pivot = pivot;
+        m_RectChildren.anchoredPosition = anchoredPos;
+    &#125;
+
+#if UNITY_EDITOR
+
+    protected override void OnValidate()
+    &#123;
+        SetDirty();
+    &#125;
+
+#endif
+&#125;
+</code></pre>
+<h1 id="需要支持的脚本（源码抄来的SetPropertyUtility）"><a href="#需要支持的脚本（源码抄来的SetPropertyUtility）" class="headerlink" title="需要支持的脚本（源码抄来的SetPropertyUtility）"></a>需要支持的脚本（源码抄来的SetPropertyUtility）</h1><pre><code>using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AssetsOnlyExample : MonoBehaviour
+internal static class SetPropertyUtility
 &#123;
-    [Sirenix.OdinInspector.AssetsOnly]
-    public List&lt;GameObject&gt; OnlyPrefabs;
+    private const float Tolerance = 0.000001f;                 //通过此值判断值是否发生变化
 
-    [Sirenix.OdinInspector.AssetsOnly]
-    public GameObject SomePrefab;
-
-    [Sirenix.OdinInspector.AssetsOnly]
-    public Material MaterialAsset;
-
-    [Sirenix.OdinInspector.AssetsOnly]
-    public MeshRenderer SomeMeshRendererOnPrefab;
-
-    [SceneObjectsOnly]
-    public List&lt;GameObject&gt; OnlySceneObjects;
-
-    [SceneObjectsOnly]
-    public GameObject SomeSceneObject;
-
-    [SceneObjectsOnly]
-    public MeshRenderer SomeMeshRenderer;
-&#125;
-</code></pre>
-<p>创建上述脚本，添加到一个物体上即可，不同的标签选择资源的方式不一样。  </p>
-<h2 id="Custom-Value-Drawer-Attribute"><a href="#Custom-Value-Drawer-Attribute" class="headerlink" title="Custom Value Drawer Attribute"></a>Custom Value Drawer Attribute</h2><p><strong>Custom Value Drawer Attribute 特性，允许用户自定义一个绘制方法，字段将以自定的绘制方式展示在Inspector中，非常灵活。</strong>  </p>
-<h3 id="含有Label和不含有Label的字段"><a href="#含有Label和不含有Label的字段" class="headerlink" title="含有Label和不含有Label的字段"></a>含有Label和不含有Label的字段</h3><p><img src="https://upload-images.jianshu.io/upload_images/7643202-313444f24f0b9c5d.png"><br>代码如下：  </p>
-<pre><code>[CustomValueDrawer(&quot;HaveLabelNameFunction&quot;)]
-public string HaveLabelName;
-[CustomValueDrawer(&quot;NoLabelNameFunction&quot;)]
-public string NoLabelName;
-
-public string HaveLabelNameFunction(string tempName, GUIContent label)
-&#123;
-    return EditorGUILayout.TextField(tempName);
-&#125;
-public string NoLabelNameFunction(string tempName, GUIContent label)
-&#123;
-    return EditorGUILayout.TextField(label,tempName);
-&#125;
-</code></pre>
-<h3 id="绘制Slider滑动条"><a href="#绘制Slider滑动条" class="headerlink" title="绘制Slider滑动条"></a>绘制Slider滑动条</h3><iframe height="692" width="952" src="https://upload-images.jianshu.io/upload_images/7643202-0888c5e4ea14c3bb.gif">     
-代码如下： 
- 
-<pre><code>public float Max = 100, Min = 0;
-
-[CustomValueDrawer(&quot;MyStaticCustomDrawerStatic&quot;)]
-public float CustomDrawerStatic;
-private static float MyStaticCustomDrawerStatic(float value, GUIContent label)
-&#123;
-    return EditorGUILayout.Slider(label, value, 0f, 10f);
-&#125;
-
-[CustomValueDrawer(&quot;MyStaticCustomDrawerInstance&quot;)]
-public float CustomDrawerInstance;
-
-private float MyStaticCustomDrawerInstance(float value, GUIContent label)
-&#123;
-    return EditorGUILayout.Slider(label, value, this.Min, this.Max);
-&#125;
-
-[CustomValueDrawer(&quot;MyStaticCustomDrawerArray&quot;)]
-public float[] CustomDrawerArray = new float[] &#123; 3f, 5f, 6f &#125;;
-
-
-private float MyStaticCustomDrawerArray(float value, GUIContent label)
-&#123;
-    return EditorGUILayout.Slider(value, this.Min, this.Max);
-&#125;
-</code></pre>
-<h2 id="Delayed-Property-Attribute"><a href="#Delayed-Property-Attribute" class="headerlink" title="Delayed Property Attribute"></a>Delayed Property Attribute</h2><p>Delayed Property Attribute：此特性会延迟在editor中的序列化操作  </p>
-<h3 id="即时性（非延迟）序列化"><a href="#即时性（非延迟）序列化" class="headerlink" title="即时性（非延迟）序列化"></a>即时性（非延迟）序列化</h3><iframe height="1060" width="1165" src="https://upload-images.jianshu.io/upload_images/7643202-24e1915e0255bb85.gif">   
-代码示例：  
-
-<pre><code>[OnValueChanged(&quot;ValueChangeCallBack&quot;)]
-public int field;
-//但是，正如名称所示，DelayedProperty应用于属性。
-[ShowInInspector]
-[OnValueChanged(&quot;ValueChangeCallBack&quot;)]
-public string property &#123; get; set; &#125;
-
-public void ValueChangeCallBack()
-&#123;
-    Debug.Log(&quot;数值有变化&quot;);
-&#125;
-</code></pre>
-<h3 id="延迟序列化"><a href="#延迟序列化" class="headerlink" title="延迟序列化"></a>延迟序列化</h3><iframe height="1060" width="1165" src="https://upload-images.jianshu.io/upload_images/7643202-aabb2c0456a4b3db.gif">   
-代码示例：  
-
-<pre><code>// 延迟和延迟属性实际上是相同的
-[Delayed]
-[OnValueChanged (&quot;ValueChangeCallBack&quot;)]
-public int delayedField;
-
-//但是，正如名称所示，DelayedProperty应用于属性。
-[ShowInInspector, DelayedProperty]
-[OnValueChanged(&quot;ValueChangeCallBack&quot;)]
-public string delayedProperty &#123; get; set; &#125;
-
-public void ValueChangeCallBack()
-&#123;
-    Debug.Log(&quot;数值有变化&quot;);
-&#125;
-</code></pre>
-<h3 id="完整的代码"><a href="#完整的代码" class="headerlink" title="完整的代码"></a>完整的代码</h3><pre><code>using Sirenix.OdinInspector;
-using UnityEngine;
-
-public class DelayedPropertyExample : MonoBehaviour
-&#123;
-
-    [OnValueChanged(&quot;ValueChangeCallBack&quot;)]
-    public int field;
-    //但是，正如名称所示，DelayedProperty应用于属性。
-    [ShowInInspector]
-    [OnValueChanged(&quot;ValueChangeCallBack&quot;)]
-    public string property &#123; get; set; &#125;
-
-
-    // 延迟和延迟属性实际上是相同的
-    [Delayed]
-    [OnValueChanged (&quot;ValueChangeCallBack&quot;)]
-    public int delayedField;
-
-    //但是，正如名称所示，DelayedProperty应用于属性。
-    [ShowInInspector, DelayedProperty]
-    [OnValueChanged(&quot;ValueChangeCallBack&quot;)]
-    public string delayedProperty &#123; get; set; &#125;
-
-    public void ValueChangeCallBack()
+    public static bool SetColor(ref Color currentValue, Color newValue)
     &#123;
-        Debug.Log(&quot;数值有变化&quot;);
-    &#125;
-&#125;
-</code></pre>
-<h2 id="Detailed-Info-Box-Attribute"><a href="#Detailed-Info-Box-Attribute" class="headerlink" title="Detailed Info Box Attribute"></a>Detailed Info Box Attribute</h2><pre><code>Detailed Info Box Attribute特性：  
-在Inspector面板中绘制一个信息面板，添加对应标题和详细信息描述，点击时可以显示出对应填写的详细信息
-</code></pre>
-<iframe height="497" width="1178" src="https://upload-images.jianshu.io/upload_images/7643202-1f53cd969010afdc.gif">   
-### 不同形式的消息框
-<iframe height="913" width="1320" src="https://upload-images.jianshu.io/upload_images/7643202-dc94efb220edcae3.gif">  
-示例代码：  
+        if (Math.Abs(currentValue.r - newValue.r) &lt; Tolerance &amp;&amp;
+            Math.Abs(currentValue.g - newValue.g) &lt; Tolerance &amp;&amp;
+            Math.Abs(currentValue.b - newValue.b) &lt; Tolerance &amp;&amp;
+            Math.Abs(currentValue.a - newValue.a) &lt; Tolerance)
+            return false;
 
-<pre><code>[DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.None)]
-public string NoneMessage = &quot;无&quot;;
-[DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.Info)]
-public string InfoMessage = &quot;无&quot;;
-[DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.Warning)]
-public string WarningMessage = &quot;无&quot;;
-[DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.Error)]
-public string ErrorMessage = &quot;无&quot;;
-</code></pre>
-<p>还可以通过一个方法的返回值（bool）来控制消息框是否显示，例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。<br><img src="https://upload-images.jianshu.io/upload_images/7643202-7dc744da0b791cdd.png"><br>示例代码：  </p>
-<p>   [DetailedInfoBox(“简介消息”, “默认情况下VisibleIf为True。” +<br>        “所以此消息框可见.还可以通过一个方法的返回值（bool）来控制消息框是否显示，” +<br>        “例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。”,<br>        InfoMessageType &#x3D; InfoMessageType.None, VisibleIf &#x3D; “VisibleFunction”)]<br>    public string haveVisibleIfMessage &#x3D; “”;</p>
-<pre><code>[DetailedInfoBox(&quot;简介消息&quot;, &quot;还可以通过一个方法的返回值（bool）来控制消息框是否显示，例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。&quot;, InfoMessageType = InfoMessageType.None, VisibleIf = &quot;NoVisibleFunction&quot;)]
-public string noVisibleIfMessage = &quot;&quot;;
-
-public  bool VisibleFunction()
-&#123;
-    /*
-     * 根据情况下选择返回true或者false，让对应的消息框显示或者不显示
-     */
-    return true;
-&#125;
-
-public bool NoVisibleFunction()
-&#123;
-    return false;
-&#125;
-</code></pre>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><pre><code>using Sirenix.OdinInspector;
-using UnityEngine;
-
-public class DetailedInfoBoxExample : MonoBehaviour
-&#123;
-    [DetailedInfoBox(&quot;详情请点击...&quot;,
-        &quot;菜鸟海澜：下面是详细信息，这个欢迎大家留言指正，对应的工程已经上传Github，&quot; +
-        &quot;地址为：https://github.com/su9257/Odin-Inspector-Chinese-Tutorial&quot;)]
-    public string message = &quot;无&quot;;
-
-    [DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.None)]
-    public string NoneMessage = &quot;无&quot;;
-    [DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.Info)]
-    public string InfoMessage = &quot;无&quot;;
-    [DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.Warning)]
-    public string WarningMessage = &quot;无&quot;;
-    [DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True，所以此消息框可见&quot;, InfoMessageType = InfoMessageType.Error)]
-    public string ErrorMessage = &quot;无&quot;;
-
-    [DetailedInfoBox(&quot;简介消息&quot;, &quot;默认情况下VisibleIf为True。&quot; +
-        &quot;所以此消息框可见.还可以通过一个方法的返回值（bool）来控制消息框是否显示，&quot; +
-        &quot;例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。&quot;, 
-        InfoMessageType = InfoMessageType.None, VisibleIf = &quot;VisibleFunction&quot;)]
-    public string haveVisibleIfMessage = &quot;&quot;;
-
-    [DetailedInfoBox(&quot;简介消息&quot;, &quot;还可以通过一个方法的返回值（bool）来控制消息框是否显示，例如在这个函数中判断此字段是否为null，如果为null在出现弹窗提示等。&quot;, InfoMessageType = InfoMessageType.None, VisibleIf = &quot;NoVisibleFunction&quot;)]
-    public string noVisibleIfMessage = &quot;&quot;;
-
-    public  bool VisibleFunction()
-    &#123;
-        /*
-         * 根据情况下选择返回true或者false，让对应的消息框显示或者不显示
-         */
+        currentValue = newValue;
         return true;
     &#125;
 
-    public bool NoVisibleFunction()
+    public static bool SetStruct&lt;T&gt;(ref T currentValue, T newValue) where T : struct
     &#123;
-        return false;
+        if (EqualityComparer&lt;T&gt;.Default.Equals(currentValue, newValue))
+            return false;
+
+        currentValue = newValue;
+        return true;
+    &#125;
+
+    public static bool SetClass&lt;T&gt;(ref T currentValue, T newValue) where T : class
+    &#123;
+        if ((currentValue == null &amp;&amp; newValue == null) || (currentValue != null &amp;&amp; currentValue.Equals(newValue)))
+            return false;
+
+        currentValue = newValue;
+        return true;
     &#125;
 &#125;
 </code></pre>
-<h2 id="Enable-GUIAttribute"><a href="#Enable-GUIAttribute" class="headerlink" title="Enable GUIAttribute"></a>Enable GUIAttribute</h2><pre><code>Enable GUIAttribute特性：可以控制只有Get的属性，在Inspector中是否为可灰态的（但是依然不可编辑），不写则默认为灰态。
-</code></pre>
-<p><img src="https://upload-images.jianshu.io/upload_images/7643202-f2480f12bbd7a2aa.png"><br>完整代码：  </p>
-<pre><code>using Sirenix.OdinInspector;
-using UnityEngine;
-
-public class EnableGUIExample : MonoBehaviour
-&#123;
-    [ShowInInspector]
-    public int GUIDisabledProperty &#123; get &#123; return 20; &#125; &#125;
-
-    [ShowInInspector, EnableGUI]
-    public int GUIEnabledProperty &#123; get &#123; return 10; &#125; &#125;
-&#125;
-</code></pre>
-<h2 id="GUIColor-Attribute"><a href="#GUIColor-Attribute" class="headerlink" title="GUIColor Attribute"></a>GUIColor Attribute</h2><pre><code>GUIColor Attribute特性：用于任何属性，并更改用于绘制属性的GUI颜色。
-</code></pre>
-<iframe height="617" width="1178" src="https://upload-images.jianshu.io/upload_images/7643202-e08001dd13334857.gif">  
-**绘制颜色提供两种形式，一种为直接填写RGBA**  
-![](https://upload-images.jianshu.io/upload_images/7643202-5257872b7b4864c0.png)  
-代码如下：  
-  
-<pre><code>[GUIColor(0.3f, 0.8f, 0.8f, 1f)]
-public int ColoredInt1;
-
-[GUIColor(0.3f, 0.8f, 0.8f, 1f)]
-public int ColoredInt2;
-
-[ButtonGroup]
-[GUIColor(0, 1, 0)]
-private void Apply()
-&#123;
-    Debug.Log(&quot;应用&quot;);
-&#125;
-
-[ButtonGroup]
-[GUIColor(1, 0.6f, 0.4f)]
-private void Cancel()
-&#123;
-    Debug.Log(&quot;取消&quot;);
-&#125;
-</code></pre>
-<p><strong>另一种是提供一个返回Color的方法，所以这种方式可有实现动态颜色效果，逼格满满</strong>   </p>
-<iframe height="322" width="758" src="https://upload-images.jianshu.io/upload_images/7643202-568d1ad9fd14b5ed.gif"></iframe>  
-代码如下：  
-
-<pre><code>[GUIColor(&quot;GetButtonColor&quot;)]
-[Button(ButtonSizes.Gigantic)]
-private static void IAmFabulous()
-&#123;
-&#125;
-
-private static Color GetButtonColor()
-&#123;
-    Sirenix.Utilities.Editor.GUIHelper.RequestRepaint();
-    return Color.HSVToRGB(Mathf.Cos((float)UnityEditor.EditorApplication.timeSinceStartup + 1f) * 0.225f + 0.325f, 1, 1);
-&#125;
-</code></pre>
-<p><strong>当然还有另一种写法，使用@关键字将对应的方法体以字符串的形式传入进去，也能达到和方法一样的效果</strong>  </p>
-<pre><code>// [GUIColor(&quot;@Color.Lerp(Color.red, Color.green, Mathf.Sin((float)EditorApplication.timeSinceStartup))&quot;)]
-// [GUIColor(&quot;CustomColor&quot;)]
-// 这两个写法相等
-[Button(ButtonSizes.Large)]
-[GUIColor(&quot;@Color.Lerp(Color.red, Color.green, Mathf.Sin((float)EditorApplication.timeSinceStartup))&quot;)]
-private static void Expressive_One()
-&#123;
-&#125;
-
-[Button(ButtonSizes.Large)]
-[GUIColor(&quot;CustomColor&quot;)]
-private static void Expressive_Two()
-&#123;
-&#125;
-
-# if UNITY_EDITOR
-public Color CustomColor()
-&#123;
-    return Color.Lerp(Color.red, Color.green, Mathf.Sin((float)EditorApplication.timeSinceStartup));
-&#125;
-# endif
-</code></pre>
-<p>完整的代码：  </p>
-<pre><code>using Sirenix.OdinInspector;
+<h1 id="编辑器显示Editor代码"><a href="#编辑器显示Editor代码" class="headerlink" title="编辑器显示Editor代码"></a>编辑器显示Editor代码</h1><p>代码如下： </p>
+<pre><code>using System;
 using UnityEditor;
+using UnityEditor.UI;
 using UnityEngine;
 
-public class GUIColorExample : MonoBehaviour
+[CustomEditor(typeof(RectTransformFit))]
+public class RectTransformFitEditor : SelfControllerEditor
 &#123;
-    [GUIColor(0.3f, 0.8f, 0.8f, 1f)]
-    public int ColoredInt1;
 
-    [GUIColor(0.3f, 0.8f, 0.8f, 1f)]
-    public int ColoredInt2;
+    SerializedProperty m_Padding;
+    SerializedProperty m_ChildAlignment;
+    SerializedProperty m_RectChildren;
+    SerializedProperty m_HorizontalFit;
+    SerializedProperty m_VerticalFit;
+    SerializedProperty m_ChildControlWidth;
+    SerializedProperty m_ChildControlHeight;
 
-    [ButtonGroup]
-    [GUIColor(0, 1, 0)]
-    private void Apply()
+    protected void OnEnable()
     &#123;
-        Debug.Log(&quot;应用&quot;);
-    &#125;
-
-    [ButtonGroup]
-    [GUIColor(1, 0.6f, 0.4f)]
-    private void Cancel()
-    &#123;
-        Debug.Log(&quot;取消&quot;);
-    &#125;
-
-    [GUIColor(&quot;GetButtonColor&quot;)]
-    [Button(ButtonSizes.Gigantic)]
-    private static void IAmFabulous()
-    &#123;
-    &#125;
-
-    private static Color GetButtonColor()
-    &#123;
-        Sirenix.Utilities.Editor.GUIHelper.RequestRepaint();
-        return Color.HSVToRGB(Mathf.Cos((float)UnityEditor.EditorApplication.timeSinceStartup + 1f) * 0.225f + 0.325f, 1, 1);
+        m_Padding = serializedObject.FindProperty(&quot;m_Padding&quot;);
+        m_ChildAlignment = serializedObject.FindProperty(&quot;m_ChildAlignment&quot;);
+        m_RectChildren = serializedObject.FindProperty(&quot;m_RectChildren&quot;);
+        m_ChildControlWidth = serializedObject.FindProperty(&quot;m_ChildControlWidth&quot;);
+        m_ChildControlHeight = serializedObject.FindProperty(&quot;m_ChildControlHeight&quot;);
+        m_HorizontalFit = serializedObject.FindProperty(&quot;m_HorizontalFit&quot;);
+        m_VerticalFit = serializedObject.FindProperty(&quot;m_VerticalFit&quot;);
     &#125;
 
 
-    // [GUIColor(&quot;@Color.Lerp(Color.red, Color.green, Mathf.Sin((float)EditorApplication.timeSinceStartup))&quot;)]
-    // [GUIColor(&quot;CustomColor&quot;)]
-    // 这两个写法相等
-    [Button(ButtonSizes.Large)]
-    [GUIColor(&quot;@Color.Lerp(Color.red, Color.green, Mathf.Sin((float)EditorApplication.timeSinceStartup))&quot;)]
-    private static void Expressive_One()
+    public override void OnInspectorGUI()
     &#123;
+        serializedObject.Update();
+        EditorGUILayout.PropertyField(m_Padding, true);
+        EditorGUILayout.PropertyField(m_ChildAlignment, true);
+        EditorGUILayout.PropertyField(m_RectChildren, true);
+
+        Rect rect = EditorGUILayout.GetControlRect();
+        rect = EditorGUI.PrefixLabel(rect, -1, EditorGUIUtility.TrTextContent(&quot;Control Child Size&quot;));
+        rect.width = Mathf.Max(50, (rect.width - 4) / 3);
+        EditorGUIUtility.labelWidth = 50;
+        ToggleLeft(rect, m_ChildControlWidth, EditorGUIUtility.TrTextContent(&quot;Width&quot;));
+        rect.x += rect.width + 2;
+        ToggleLeft(rect, m_ChildControlHeight, EditorGUIUtility.TrTextContent(&quot;Height&quot;));
+        EditorGUIUtility.labelWidth = 0;
+
+        EditorGUILayout.PropertyField(m_HorizontalFit, true);
+        EditorGUILayout.PropertyField(m_VerticalFit, true);
+        serializedObject.ApplyModifiedProperties();
     &#125;
 
-    [Button(ButtonSizes.Large)]
-    [GUIColor(&quot;CustomColor&quot;)]
-    private static void Expressive_Two()
+    void ToggleLeft(Rect position, SerializedProperty property, GUIContent label)
     &#123;
+        bool toggle = property.boolValue;
+        EditorGUI.showMixedValue = property.hasMultipleDifferentValues;
+        EditorGUI.BeginChangeCheck();
+        int oldIndent = EditorGUI.indentLevel;
+        EditorGUI.indentLevel = 0;
+        toggle = EditorGUI.ToggleLeft(position, label, toggle);
+        EditorGUI.indentLevel = oldIndent;
+        if (EditorGUI.EndChangeCheck())
+        &#123;
+            property.boolValue = property.hasMultipleDifferentValues || !property.boolValue;
+        &#125;
+        EditorGUI.showMixedValue = false;
     &#125;
-
-# if UNITY_EDITOR
-    public Color CustomColor()
-    &#123;
-        return Color.Lerp(Color.red, Color.green, Mathf.Sin((float)EditorApplication.timeSinceStartup));
-    &#125;
-# endif
 &#125;
 </code></pre>
-</iframe></iframe></iframe></iframe></iframe></iframe></iframe>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
     </div>
