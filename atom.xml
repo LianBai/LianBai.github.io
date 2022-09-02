@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-08-24T12:11:41.816Z</updated>
+  <updated>2022-09-02T09:32:07.533Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unity杂文——Android设备唯一标识</title>
+    <link href="http://yoursite.com/2022/09/02/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94Android%E8%AE%BE%E5%A4%87%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86/"/>
+    <id>http://yoursite.com/2022/09/02/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94Android%E8%AE%BE%E5%A4%87%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86/</id>
+    <published>2022-09-02T09:18:27.000Z</published>
+    <updated>2022-09-02T09:32:07.533Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>获取设备唯一标识的方法。</p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>需要的变量： </p><pre><code>//设备唯一标识private static String deviceId;//设备唯一标识文件名字private static String deviceIdFileName = &quot;all_in_sdk&quot;;//设备唯一标识缓存关键字keyprivate static String deviceIdKey = &quot;DeviceId&quot;;//设备唯一标识正则private static final Pattern ANDROID_ID_PATTERN = Pattern.compile(&quot;^[0-9a-fA-F]&#123;16&#125;$&quot;);</code></pre><p>获取的方法：</p><pre><code>public static String getDeviceId() &#123;    if(m_Activity == null)&#123;        m_Activity = UnityPlayer.currentActivity;    &#125;    Application application = m_Activity.getApplication();    if (application == null)        return &quot;&quot;;    if (deviceId != null)        return deviceId;    deviceId = getSPValue((Context)application, deviceIdKey);    if (!TextUtils.isEmpty(deviceId))        return deviceId;    deviceId = getAndroidIdAsDeviceId((Context)application);    if (!TextUtils.isEmpty(deviceId)) &#123;        saveSPValue((Context)application, deviceIdKey, deviceId);        return deviceId;    &#125;    deviceId = generateSoftDeviceId();    if (!TextUtils.isEmpty(deviceId)) &#123;        saveSPValue((Context)application, deviceIdKey, deviceId);        return deviceId;    &#125;    return deviceId;&#125;private static String getSPValue(Context paramContext, String paramString) &#123;    SharedPreferences sharedPreferences = paramContext.getSharedPreferences(deviceIdFileName, 0);    return sharedPreferences.getString(paramString, null);&#125;private static String getAndroidIdAsDeviceId(Context paramContext) &#123;    String str = Settings.Secure.getString(paramContext.getContentResolver(), &quot;android_id&quot;);    if (isLegalAndroidId(str, true))        return &quot;ANDROID_&quot; + str;    return null;&#125;private static String generateSoftDeviceId() &#123;    String str1 = Build.SERIAL;    String str2 = !TextUtils.isEmpty(str1) ? str1 : &quot;NA&quot;;    try &#123;        long l1 = 1152921504606846976L;        long l2 = randomLong(Long.MAX_VALUE - l1) + l1;        return String.format(&quot;ANDROID_%1$s_%2$s&quot;, new Object[] &#123; Long.toHexString(l2), str2 &#125;);    &#125; catch (Throwable throwable) &#123;        return String.format(&quot;ANDROID_%1$s_%2$s&quot;, new Object[] &#123; &quot;NA&quot; + Long.toHexString(System.currentTimeMillis()), str2 &#125;);    &#125;&#125;private static void saveSPValue(Context paramContext, String paramString1, String paramString2) &#123;    SharedPreferences sharedPreferences = paramContext.getSharedPreferences(deviceIdFileName, 0);    sharedPreferences.edit().putString(paramString1, paramString2).apply();&#125;private static long randomLong(long paramLong) &#123;    if (Build.VERSION.SDK_INT &gt;= 21)        return ThreadLocalRandom.current().nextLong(paramLong);    return (long)((new Random()).nextDouble() * (paramLong - 1L));&#125;private static boolean isLegalAndroidId(String paramString, boolean paramBoolean) &#123;    if (paramBoolean)        return (!TextUtils.isEmpty(paramString) &amp;&amp; ANDROID_ID_PATTERN                .matcher(paramString).find());    return (!TextUtils.isEmpty(paramString) &amp;&amp; ANDROID_ID_PATTERN            .matcher(paramString).find());&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;获取设备唯一标识的方法。&lt;/p&gt;
+&lt;h1 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代</summary>
+      
+    
+    
+    
+    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
+    
+    
+    <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity杂文——UI父节点随子节点自适应</title>
@@ -470,33 +495,6 @@ Jobs: 0.8.0
     
     
     <category term="JSON" scheme="http://yoursite.com/tags/JSON/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity杂文——基于UGUI的UI拖拽监听</title>
-    <link href="http://yoursite.com/2022/01/13/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8EUGUI%E7%9A%84UI%E6%8B%96%E6%8B%BD%E7%9B%91%E5%90%AC/"/>
-    <id>http://yoursite.com/2022/01/13/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8EUGUI%E7%9A%84UI%E6%8B%96%E6%8B%BD%E7%9B%91%E5%90%AC/</id>
-    <published>2022-01-13T15:46:06.000Z</published>
-    <updated>2022-01-14T01:57:54.240Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>如果一个UI的面板想监听拖拽事件通常会有两种方式：  </p><blockquote><ol><li>继承IBeginDragHandler，IDragHandler，IEndDragHandler接口，然后实现自己需要的逻辑。（此方法需要脚本继承MonoBehaviour）  </li><li>监听Input的输入，通过判断按下和按住来实现自己拖拽的逻辑。</li></ol></blockquote><p>已经有写好的放发笔者为什么还要写这边文章呢，是因为笔者目前参与的项目中的UI框架，面板的脚本都不是继承MonoBeehaviour的，都是通过统一管理的，这样的方式的好处就是UI的初始化和Update的一些都可以自己控制。面板的View都是通过绑定的方式进行操作的，了解框架的应该都知道，这样的好处有很多，这里就不过多介绍了。</p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>如果一个UI面板是通过绑定的方式进行的，没有继承MonoBehaviour，有不想在Update里写大量的逻辑，我们想见监听一个UI的拖拽应该怎么操作呢。  </p><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>我们只需要自己写一个继承MonoBehaviour的脚本，然后脚本继承这些接口，在脚本里添加拖拽需要的一些参数，然后脚本里添加我们需要注册的委托就可以了，我们的面板脚本可以绑定面板的UI，我们只需要通过UI物体获取我们需要的拖拽脚本组件，然后注册我们需要的一些委托就可以了。脚本如下：  </p><pre><code>using System;using UnityEngine;using UnityEngine.EventSystems;public class UDragEvent : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler&#123;    private bool m_IsDraging;    public bool IsDraging    &#123;        get =&gt; m_IsDraging;        private set =&gt; m_IsDraging = value;    &#125;    public Action&lt;PointerEventData&gt; OnBeginDragEvent;    public Action&lt;PointerEventData&gt; OnDragEvent;    public Action&lt;PointerEventData&gt; OnEndDragEvent;    public void OnBeginDrag(PointerEventData eventData)    &#123;        OnBeginDragEvent?.Invoke(eventData);        m_IsDraging = true;    &#125;    public void OnDrag(PointerEventData eventData)    &#123;        OnDragEvent?.Invoke(eventData);    &#125;    public void OnEndDrag(PointerEventData eventData)    &#123;        OnEndDragEvent?.Invoke(eventData);        m_IsDraging = false;    &#125;&#125;</code></pre><p>上述脚本非常简单，只是把一些接口转换成了委托，然后在需要监听拖拽的组件上放上挂上这个脚本，在面板的控制脚本里获取这个脚本，然后绑定上对应的委托就可以使用了。  </p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>当我们使用一个接口或者方法的时候，如果我们没有办法直接调用，我们不仅仅只考虑找和它相同功能的方法替换掉，我们还可以通过转换的方式，间接的使用我们需要的。笔者就是通过委托的方式简介的使用了拖拽的接口。不仅仅是拖拽，很多接口我们都可以这样间接使用。也不仅仅是接口，很多开发者遇到的阻挡，我们不应该考虑换路，我们也要考虑能不能跨过阻挡或者绕过阻挡。  </p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;如果一个UI的面板想监听拖拽事件通常会有两种方式：  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;继承IBeginDragHand</summary>
-      
-    
-    
-    
-    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
-    
-    
-    <category term="UGUI" scheme="http://yoursite.com/tags/UGUI/"/>
     
   </entry>
   
