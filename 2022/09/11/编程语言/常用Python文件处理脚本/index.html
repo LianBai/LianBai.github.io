@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>StarUML使用笔记 | LianBai</title>
-  <meta name="keywords" content="">
+  <title>常用Python文件处理脚本 | LianBai</title>
+  <meta name="keywords" content=" Python ">
   <meta name="referrer" content="no-referrer" />
-  <meta name="description" content="StarUML使用笔记 | LianBai">
+  <meta name="description" content="常用Python文件处理脚本 | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -989,9 +989,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-个人笔记/StarUML使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-编程语言/常用Python文件处理脚本" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">StarUML使用笔记</h1>
+        <h1 class="article-title">常用Python文件处理脚本</h1>
     
     <div class="article-meta">
         
@@ -1001,20 +1001,27 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="个人笔记">个人笔记</a>
+            <a  data-rel="编程语言">编程语言</a>
             
         </span>
         
         
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">Python</a>
+            
+        </span>
+        
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-03-10 15:01:11'>2022-03-04 15:46</time>
+            发布时间 : <time class="date" title='最后更新: 2022-09-11 23:13:21'>2022-09-11 22:50</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:182</span>
+        <span>字数:366</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1044,7 +1051,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E6%93%8D%E4%BD%9C%E8%8F%9C%E5%8D%95"><span class="toc-text">图操作菜单</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Diagram"><span class="toc-text">Add Diagram</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9B%BE"><span class="toc-text">类图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Add"><span class="toc-text">Add</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Classes"><span class="toc-text">Classes</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%9A%84%E5%BA%93"><span class="toc-text">引用的库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A9%E7%94%A8json%E9%85%8D%E7%BD%AE%E9%9C%80%E8%A6%81%E6%8E%A7%E5%88%B6%E7%9A%84%E6%96%87%E4%BB%B6%E6%88%96%E8%80%85%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-text">利用json配置需要控制的文件或者文件夹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96"><span class="toc-text">参数读取</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96Config%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%88json%EF%BC%89"><span class="toc-text">读取Config配置文件（json）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E6%88%96%E8%80%85%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-text">删除目录文件或者文件夹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E6%88%96%E8%80%85%E6%96%87%E4%BB%B6%E5%A4%B9%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95"><span class="toc-text">复制文件或者文件夹到指定目录</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1060,54 +1067,65 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="图操作菜单"><a href="#图操作菜单" class="headerlink" title="图操作菜单"></a>图操作菜单</h1><h2 id="Add-Diagram"><a href="#Add-Diagram" class="headerlink" title="Add Diagram"></a>Add Diagram</h2><pre><code>Class Diagram                   类图
-Package Diagram                 包图
-Object Diagram                  对象图
-Composite Structure Diagram     复合结构图
-Component Diagram               组件图
-Deployment Diagram              展开图
-Use Case Diagram                用例图
-Sequence Diagram                时序图
-Communication Diagram           交流图
-Statechart Diagram              状态图
-Activity Diagram                活动图
-Profile Diagram					
-ER Diagram                      E-R图
-Flowchart Diagram               流程图
-Data Flow Diagram               数据流程图
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Unity打包经常会用一些文件的复制粘贴到一些文件到自己指定的SDK目录，一开始我们使用的是bat脚本，但是笔者发现这个脚本没办法在打包机（MAC）上使用，于是笔者便想到了python脚本来实现。  </p>
+<h1 id="引用的库"><a href="#引用的库" class="headerlink" title="引用的库"></a>引用的库</h1><pre><code>import sys
+import os
+import json
+import shutil
 </code></pre>
-<h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><h3 id="Add"><a href="#Add" class="headerlink" title="Add"></a>Add</h3><pre><code>Tempalate Parameter     模板参数
-Attribute               属性
-Port                    端口
-Operation               操作
-Reception               接待
-Class                   类
-Interface               接口
-Signal                  信号
-DataType                数据类型
-PrimitiveType           原始类型
-Enumeration             枚举
-Artifact                工件
-Component               组件
-Node                    节点
-UseCase					
-Actor
-InformationItem
-Collaboration
-Interaction             交互
-State Machine           状态机	
-Activity                活动
-Opaque Behavior         不透明树	
-Constraint              约束
-Requirement             要求
-Block                   块
-Value Type              数值类型
-Interface Block         接口块
-Constraint Block        约束快
-Tag                     标签
+<h1 id="利用json配置需要控制的文件或者文件夹"><a href="#利用json配置需要控制的文件或者文件夹" class="headerlink" title="利用json配置需要控制的文件或者文件夹"></a>利用json配置需要控制的文件或者文件夹</h1><pre><code>&#123;
+    &quot;remdir&quot;:[
+        &quot;data/libs/&quot;,
+        &quot;data/src/main/assets/&quot;
+    
+    ],
+    &quot;copydir&quot;:[
+        &quot;../xarchive/android/unityLibrary/libs/&quot;,
+        &quot;../xarchive/android/unityLibrary/
+    ]
+&#125;
 </code></pre>
-<h3 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h3><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1646381948452-2022-3-416:19:09.png">  
- </p>
+<h1 id="参数读取"><a href="#参数读取" class="headerlink" title="参数读取"></a>参数读取</h1><pre><code>if (len(sys.argv) &gt; 1):
+    isPAD = sys.argv[1]
+
+if(isPAD == &quot;0&quot;)
+    ...
+</code></pre>
+<p>这里python读取<strong>sys.argv</strong>便可以读取，这里需要注意的是读取的都是字符串，所以笔者在读数字0的时候需要用到**”0”**。  </p>
+<h1 id="读取Config配置文件（json）"><a href="#读取Config配置文件（json）" class="headerlink" title="读取Config配置文件（json）"></a>读取Config配置文件（json）</h1><pre><code>configFilePath = &quot;config.json&quot;;
+
+with open(configFilePath,&#39;r&#39;) as load_f:
+    load_dict = json.load(load_f)
+</code></pre>
+<h1 id="删除目录文件或者文件夹"><a href="#删除目录文件或者文件夹" class="headerlink" title="删除目录文件或者文件夹"></a>删除目录文件或者文件夹</h1><pre><code>def path_remove(removepath):
+    for remdirPath in removepath:
+        try:
+            if os.path.exists(remdirPath):
+                if os.path.isdir(remdirPath):
+                    shutil.rmtree(remdirPath)
+                else:
+                    os.remove(remdirPath)
+                print(&quot;Remove Success: &quot;+remdirPath)
+        except OSError as e:
+            print(&quot;Error: %s : %s&quot; % (remdirPath, e.strerror))
+</code></pre>
+<h1 id="复制文件或者文件夹到指定目录"><a href="#复制文件或者文件夹到指定目录" class="headerlink" title="复制文件或者文件夹到指定目录"></a>复制文件或者文件夹到指定目录</h1><pre><code>def proc_copy(old_path, new_path):
+    if os.path.exists(old_path):
+        if os.path.isdir(old_path):
+            shutil.copytree(old_path, new_path)
+        elif os.path.isfile(old_path):
+            shutil.copyfile(old_path, new_path)
+        print(&quot;Copy Success: &quot; + old_path)
+    else:
+        print(&quot;NOT FOUND: &#123;&#125;&quot;.format(old_path))
+
+def path_copy(copydir, pastedir):
+    for index in range(len(copydir)):
+        if os.path.exists(pastedir[index]):
+            if os.path.isdir(pastedir[index]):
+                shutil.rmtree(pastedir[index])
+        proc_copy(copydir[index],pastedir[index])
+</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
