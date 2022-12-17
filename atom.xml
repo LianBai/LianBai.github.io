@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-09-27T16:37:18.844Z</updated>
+  <updated>2022-12-17T02:19:25.018Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unity杂文——UI点击穿透</title>
+    <link href="http://yoursite.com/2022/12/17/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94UI%E7%82%B9%E5%87%BB%E7%A9%BF%E9%80%8F/"/>
+    <id>http://yoursite.com/2022/12/17/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94UI%E7%82%B9%E5%87%BB%E7%A9%BF%E9%80%8F/</id>
+    <published>2022-12-17T02:11:15.000Z</published>
+    <updated>2022-12-17T02:19:25.018Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>当UI打开一个小的提示tip的时候，常见的需求是点击其他任意地方就关闭tip，这个功能很常见，空白出响应点击，监听到就关闭tip，这里会发现一个问题，我们并不能响应tip面板底下的其他按钮，这样玩家在操作的时候就需要先关掉tip，然后再点一下按钮，这往往不是策划想要的，所以我们需要在点击空白处关闭的时候同时响应底下的按钮，这个时候就需要点击穿透事件。  </p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code>using System.Collections.Generic;using UnityEngine;using UnityEngine.EventSystems;namespace ZHEngine.UI&#123;    public sealed class UTouchPass : MonoBehaviour, IPointerClickHandler,    IMoveHandler,IPointerDownHandler, IPointerUpHandler,IPointerEnterHandler,ISelectHandler, IDeselectHandler    , ISubmitHandler, IInitializePotentialDragHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IScrollHandler    &#123;        private GameObject CacheGameObject;        private readonly List&lt;RaycastResult&gt; result = new List&lt;RaycastResult&gt;();        public void OnPointerClick(PointerEventData eventData)        &#123;            PassEvent(eventData, ExecuteEvents.pointerClickHandler);        &#125;        public void OnPointerDown(PointerEventData eventData)        &#123;            PassEvent(eventData, ExecuteEvents.pointerDownHandler);            if (Input.GetButtonDown(&quot;Submit&quot;))               ExecuteEvents.Execute(eventData.pointerCurrentRaycast.gameObject, eventData, ExecuteEvents.submitHandler);        &#125;        public void OnPointerUp(PointerEventData eventData)        &#123;            PassEvent(eventData, ExecuteEvents.pointerUpHandler);        &#125;        public void OnPointerEnter(PointerEventData eventData)        &#123;            PassEvent(eventData, ExecuteEvents.pointerEnterHandler);        &#125;        public void OnSelect(BaseEventData eventData)        &#123;            PassEvent(eventData, ExecuteEvents.selectHandler);        &#125;        public void OnDeselect(BaseEventData eventData)        &#123;            PassEvent(eventData, ExecuteEvents.deselectHandler);        &#125;        public void OnSubmit(BaseEventData eventData)        &#123;            PassEvent(eventData, ExecuteEvents.submitHandler);        &#125;        public void OnMove(AxisEventData eventData)        &#123;            PassEvent(eventData, ExecuteEvents.moveHandler);        &#125;        public void OnInitializePotentialDrag(PointerEventData eventData)        &#123;            CacheGameObject = PassEvent(eventData, ExecuteEvents.initializePotentialDrag);        &#125;        public void OnBeginDrag(PointerEventData eventData)        &#123;             PassEvent(eventData, ExecuteEvents.beginDragHandler);        &#125;        public void OnDrag(PointerEventData eventData)        &#123;            ExecuteEvents.Execute(CacheGameObject, eventData, ExecuteEvents.dragHandler);        &#125;        public void OnEndDrag(PointerEventData eventData)        &#123;            ExecuteEvents.Execute(CacheGameObject, eventData, ExecuteEvents.endDragHandler);            CacheGameObject = null;        &#125;        public void OnScroll(PointerEventData eventData)        &#123;            ExecuteEvents.Execute(CacheGameObject, eventData, ExecuteEvents.scrollHandler);        &#125;        private GameObject PassEvent&lt;T&gt;(BaseEventData data, ExecuteEvents.EventFunction&lt;T&gt; function) where T : IEventSystemHandler        &#123;            if (data is PointerEventData eventData)            &#123;                var pointerGo = eventData.pointerCurrentRaycast.gameObject                    ? eventData.pointerCurrentRaycast.gameObject                    : eventData.pointerDrag;                EventSystem.current.RaycastAll(eventData, result);                foreach (var item in result)                &#123;                    var go = item.gameObject;                    if (go != null &amp;&amp; go != pointerGo)                    &#123;                        var executeGo = ExecuteEvents.GetEventHandler&lt;T&gt;(go);                        if (executeGo)                        &#123;                            if (executeGo.TryGetComponent&lt;UTouchPass&gt;(out var __))                                return null;                            ExecuteEvents.Execute(executeGo, data, function);                            return executeGo;                        &#125;                        else                        &#123;                            if(go.TryGetComponent&lt;UnityEngine.UI.Graphic&gt;(out var com))                            &#123;                                if (com.raycastTarget) return null;                            &#125;                        &#125;                    &#125;                &#125;            &#125;            return null;        &#125;    &#125;&#125;</code></pre><h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://www.xuanyusong.com/archives/4773">Unity3D研究院之UI完整透下事件（一百二十二）——雨松MOMO</a>  </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;当UI打开一个小的提示tip的时候，常见的需求是点击其他任意地方就关闭tip，这个功能很常见，空白出响应点击，监听到就关闭tip，这里会发现</summary>
+      
+    
+    
+    
+    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
+    
+    
+    <category term="UI" scheme="http://yoursite.com/tags/UI/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity杂文——编辑器下拉多选菜单</title>
@@ -470,31 +494,6 @@ Jobs: 0.8.0
     
     
     <category term="密码记事本" scheme="http://yoursite.com/tags/%E5%AF%86%E7%A0%81%E8%AE%B0%E4%BA%8B%E6%9C%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UnityECS入门(二)——简单讲解一下ECS</title>
-    <link href="http://yoursite.com/2022/01/28/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%BA%8C)%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E8%AE%B2%E8%A7%A3%E4%B8%80%E4%B8%8BECS/"/>
-    <id>http://yoursite.com/2022/01/28/UnityECS/UnityECS%E5%85%A5%E9%97%A8(%E4%BA%8C)%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E8%AE%B2%E8%A7%A3%E4%B8%80%E4%B8%8BECS/</id>
-    <published>2022-01-28T05:17:37.000Z</published>
-    <updated>2022-01-28T08:04:29.138Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在上一篇我们已经成功的配置好本地的环境了，接下来我们来简单的讲解一下ECS。(笔者也是初学者，如果有错误欢迎大家指出)  </p><h1 id="ECS简介"><a href="#ECS简介" class="headerlink" title="ECS简介"></a>ECS简介</h1><p>在写ECS之前我们先了解一下什么是ECS？  </p><h2 id="ECS是什么？"><a href="#ECS是什么？" class="headerlink" title="ECS是什么？"></a>ECS是什么？</h2><p>ECS的缩写就是Entity Component System。对应的就是实例、组件和系统。笔者认为这是和MVC框架类似，虽然作用不是一样的，但是都代表了一种思想。ECS的思想打破了我们面向对象的思想，让我们直接面向数据变成。以往的Unity提供给使用者的都是GameObject，让我们来面向对象思想，但是ECS则是把GameObject拆成了Entity和Component，然后由System再进行同意管理。  </p><h2 id="为什么使用ECS？"><a href="#为什么使用ECS？" class="headerlink" title="为什么使用ECS？"></a>为什么使用ECS？</h2><h3 id="在编写思想上"><a href="#在编写思想上" class="headerlink" title="在编写思想上"></a>在编写思想上</h3><p>笔者认为，现在的大部分游戏其实都是数据驱动的游戏，游戏的界面对象其实是给使用者提供的。一个好的程序猿应该做到真正的数据和显示分离，这样不管显示是什么样，数据都可以去应对，但其实这是理想化的，因为显示是很难统一的。  </p><h3 id="在编写代码上"><a href="#在编写代码上" class="headerlink" title="在编写代码上"></a>在编写代码上</h3><p>ECS为我们提供了面向数据编程的结构、强迫使我们数据和显示进行分离，这样虽然编写复杂了一些，但是我们的扩展性和适应性会有很大的提高。<br>Unity的MonoBehavior的class其实是非常笨重的，里面包含了大量的信息，我们在平时开发中其实用不到那么多信息，在ECS上我们只需要添加上我们需要用到的组件即可。  </p><h3 id="在内存管里方面"><a href="#在内存管里方面" class="headerlink" title="在内存管里方面"></a>在内存管里方面</h3><p>ECS引入了Archetype和Chuck两个概念，Archetype对应的是我们的Component，就是存放我们Entity需要的所有组件，然后多个Archetype会被封装成一个个的Archetype Chuck，然后在内存里按照顺序进行存放，如果一个Chuck存放满了，会在后面内存里创建新的Chuck，这样Component就是在一起的，每次查找Component的时候速度会大大提升。<br>下面我们来看一看内存结构图：  </p><p><img src="https://i0.hdslb.com/bfs/article/6cb305d158f9daf75ef880b035a26afdea2961af.png" alt="在这里插入图片描述"></p><p><img src="https://i0.hdslb.com/bfs/article/363335a8d53167863db8a0c040e29e37d2f9b269.png" alt="在这里插入图片描述">  </p><h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>Unity使用的是单线程，虽然里面会有携程一些，但其根本原理都是单线程，所以并不能完全发挥CPU，ECS引入了多线程的Job system，并且Job System会把Entities分发到CPU的线程上，这样就提高了CPU的利用率。  </p><h1 id="怎么使用ECS"><a href="#怎么使用ECS" class="headerlink" title="怎么使用ECS"></a>怎么使用ECS</h1><p>ECS主要提升的是CPU的性能，并不是所有的项目都适合使用ECS，因为ECS是新的思想，团队开发成本也是有一定提高的，笔者业主要是为了学习了解，拓展一下自己的思路。<br>接下来笔者会继续学习如何使用ECS。  </p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在上一篇我们已经成功的配置好本地的环境了，接下来我们来简单的讲解一下ECS。(笔者也是初学者，如果有错误欢迎大家指出)  &lt;/p&gt;
-&lt;h1 </summary>
-      
-    
-    
-    
-    <category term="UnityECS" scheme="http://yoursite.com/categories/UnityECS/"/>
-    
-    
-    <category term="ECS" scheme="http://yoursite.com/tags/ECS/"/>
     
   </entry>
   
