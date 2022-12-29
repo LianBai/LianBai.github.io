@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-12-28T03:18:14.299Z</updated>
+  <updated>2022-12-29T09:43:19.222Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unity杂文——阿拉伯数字转罗马数字</title>
+    <link href="http://yoursite.com/2022/12/29/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E9%98%BF%E6%8B%89%E4%BC%AF%E6%95%B0%E5%AD%97%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/"/>
+    <id>http://yoursite.com/2022/12/29/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E9%98%BF%E6%8B%89%E4%BC%AF%E6%95%B0%E5%AD%97%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/</id>
+    <published>2022-12-29T09:40:31.000Z</published>
+    <updated>2022-12-29T09:43:19.222Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>开发中美术想把一些数字换成罗马数字，于是笔者便从网上找到了一种将阿拉伯数字转成罗马数字的方法。  </p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code>/// &lt;summary&gt;/// 数字转罗马数字/// &lt;/summary&gt;/// &lt;param name=&quot;num&quot;&gt;&lt;/param&gt;/// &lt;returns&gt;&lt;/returns&gt;public static string IntToRoman(int num)&#123;    var res = string.Empty;    var val = new List&lt;int&gt; &#123; 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 &#125;;    var str = new List&lt;string&gt; &#123; &quot;M&quot;, &quot;CM&quot;, &quot;D&quot;, &quot;CD&quot;, &quot;C&quot;, &quot;XC&quot;, &quot;L&quot;, &quot;XL&quot;, &quot;X&quot;, &quot;IX&quot;, &quot;V&quot;, &quot;IV&quot;, &quot;I&quot; &#125;;    for(var i = 0;i &lt; val.Count; ++i)    &#123;        while(num &gt;= val[i])        &#123;            num -= val[i];            res += str[i];        &#125;    &#125;    return res;&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;开发中美术想把一些数字换成罗马数字，于是笔者便从网上找到了一种将阿拉伯数字转成罗马数字的方法。  &lt;/p&gt;
+&lt;h1 id=&quot;代码&quot;&gt;&lt;a h</summary>
+      
+    
+    
+    
+    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
+    
+    
+    <category term="字符串处理" scheme="http://yoursite.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity杂文——编辑器Foldout右键菜单</title>
@@ -473,30 +498,6 @@ Jobs: 0.8.0
     
     
     <category term="ECS" scheme="http://yoursite.com/tags/ECS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>给hexo博客添加访问密码</title>
-    <link href="http://yoursite.com/2022/01/28/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E5%AF%86%E7%A0%81/"/>
-    <id>http://yoursite.com/2022/01/28/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E5%AF%86%E7%A0%81/</id>
-    <published>2022-01-28T07:31:45.000Z</published>
-    <updated>2022-01-29T06:25:45.339Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>笔者记忆力比较差，于是笔者想有个空间能记录笔者一些私人的内容，于是笔者想起来比较经常会遇到一些加密的博客，笔者便想如果自己如果有一个博客能记录自己的私人内容，然后把博客进行加密即可，这样自己想要查看内容的额时候只需要访问隐私博客，然后输入密码就可以看到了。  </p><h1 id="安装Hexo-Blog-Encrypt"><a href="#安装Hexo-Blog-Encrypt" class="headerlink" title="安装Hexo-Blog-Encrypt"></a>安装Hexo-Blog-Encrypt</h1><p>hexo的博客添加密码其实只需要安装一个插件就可以了。<br>通过npm在hexo博客目录安装Hexo-Blog-Encrypt  </p><pre><code>npm install --save hexo-blog-encrypt</code></pre><h1 id="博客使用密码"><a href="#博客使用密码" class="headerlink" title="博客使用密码"></a>博客使用密码</h1><p>只需要在博客的开头使用  </p><pre><code>---title: Hello Worlddate: 2022-01-28 15:31:45password: 密码---</code></pre><p>还可以添加一些描述的标签  </p><pre><code>---title: Hello Worldtags:- 加密文章的tagdate: 2022-01-28 15:31:45password: 密码abstract: 这里有东西被加密了，需要输入密码查看哦。message: 您好，这里需要密码。wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。---</code></pre><h1 id="根目录添加配置文件"><a href="#根目录添加配置文件" class="headerlink" title="根目录添加配置文件"></a>根目录添加配置文件</h1><pre><code># 安全encrypt: # hexo-blog-encrypt  abstract: 这里有东西被加密了，需要输入密码查看哦。  message: 您好, 这里需要密码.  tags:  - &#123;name: tagName, password: 密码A&#125;  - &#123;name: tagName, password: 密码B&#125;  #密码主题 https://github.com/D0n9X1n/hexo-blog-encrypt#encrypt-theme  theme: wave  wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.  wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;笔者记忆力比较差，于是笔者想有个空间能记录笔者一些私人的内容，于是笔者想起来比较经常会遇到一些加密的博客，笔者便想如果自己如果有一个博客能记</summary>
-      
-    
-    
-    
-    <category term="搭建博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-    <category term="博客密码" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E5%AF%86%E7%A0%81/"/>
     
   </entry>
   
