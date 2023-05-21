@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>UnityECS入门(二)——简单讲解一下ECS | LianBai</title>
-  <meta name="keywords" content=" ECS ">
+  <title>Unity杂文——宏管理脚本 | LianBai</title>
+  <meta name="keywords" content="">
   <meta name="referrer" content="no-referrer" />
-  <meta name="description" content="UnityECS入门(二)——简单讲解一下ECS | LianBai">
+  <meta name="description" content="Unity杂文——宏管理脚本 | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -1045,9 +1045,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-UnityECS/UnityECS入门(二)——简单讲解一下ECS" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Unity杂文/Unity杂文——宏管理脚本" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">UnityECS入门(二)——简单讲解一下ECS</h1>
+        <h1 class="article-title">Unity杂文——宏管理脚本</h1>
     
     <div class="article-meta">
         
@@ -1057,27 +1057,20 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="UnityECS">UnityECS</a>
+            <a  data-rel="Unity杂文">Unity杂文</a>
             
         </span>
         
         
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color4">ECS</a>
-            
-        </span>
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2023-05-21 22:06:58'>2023-05-21 21:56</time>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-01-28 16:04:29'>2022-01-28 13:17</time>
-        
-    </div>
-    <div class="article-meta">
-        
-        <span>字数:719</span>
+        <span>字数:1.9k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1107,7 +1100,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ECS%E7%AE%80%E4%BB%8B"><span class="toc-text">ECS简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ECS%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">ECS是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8ECS%EF%BC%9F"><span class="toc-text">为什么使用ECS？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%BC%96%E5%86%99%E6%80%9D%E6%83%B3%E4%B8%8A"><span class="toc-text">在编写思想上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81%E4%B8%8A"><span class="toc-text">在编写代码上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E5%86%85%E5%AD%98%E7%AE%A1%E9%87%8C%E6%96%B9%E9%9D%A2"><span class="toc-text">在内存管里方面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="toc-text">线程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8ECS"><span class="toc-text">怎么使用ECS</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-text">依赖的代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ResCatalog"><span class="toc-text">ResCatalog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BuildTargetUtility"><span class="toc-text">BuildTargetUtility</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AssetLibrary"><span class="toc-text">AssetLibrary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SymbolsUtility"><span class="toc-text">SymbolsUtility</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E4%BB%A3%E7%A0%81"><span class="toc-text">管理工具代码</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1123,16 +1116,485 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在上一篇我们已经成功的配置好本地的环境了，接下来我们来简单的讲解一下ECS。(笔者也是初学者，如果有错误欢迎大家指出)  </p>
-<h1 id="ECS简介"><a href="#ECS简介" class="headerlink" title="ECS简介"></a>ECS简介</h1><p>在写ECS之前我们先了解一下什么是ECS？  </p>
-<h2 id="ECS是什么？"><a href="#ECS是什么？" class="headerlink" title="ECS是什么？"></a>ECS是什么？</h2><p>ECS的缩写就是Entity Component System。对应的就是实例、组件和系统。笔者认为这是和MVC框架类似，虽然作用不是一样的，但是都代表了一种思想。ECS的思想打破了我们面向对象的思想，让我们直接面向数据变成。以往的Unity提供给使用者的都是GameObject，让我们来面向对象思想，但是ECS则是把GameObject拆成了Entity和Component，然后由System再进行同意管理。  </p>
-<h2 id="为什么使用ECS？"><a href="#为什么使用ECS？" class="headerlink" title="为什么使用ECS？"></a>为什么使用ECS？</h2><h3 id="在编写思想上"><a href="#在编写思想上" class="headerlink" title="在编写思想上"></a>在编写思想上</h3><p>笔者认为，现在的大部分游戏其实都是数据驱动的游戏，游戏的界面对象其实是给使用者提供的。一个好的程序猿应该做到真正的数据和显示分离，这样不管显示是什么样，数据都可以去应对，但其实这是理想化的，因为显示是很难统一的。  </p>
-<h3 id="在编写代码上"><a href="#在编写代码上" class="headerlink" title="在编写代码上"></a>在编写代码上</h3><p>ECS为我们提供了面向数据编程的结构、强迫使我们数据和显示进行分离，这样虽然编写复杂了一些，但是我们的扩展性和适应性会有很大的提高。<br>Unity的MonoBehavior的class其实是非常笨重的，里面包含了大量的信息，我们在平时开发中其实用不到那么多信息，在ECS上我们只需要添加上我们需要用到的组件即可。  </p>
-<h3 id="在内存管里方面"><a href="#在内存管里方面" class="headerlink" title="在内存管里方面"></a>在内存管里方面</h3><p>ECS引入了Archetype和Chuck两个概念，Archetype对应的是我们的Component，就是存放我们Entity需要的所有组件，然后多个Archetype会被封装成一个个的Archetype Chuck，然后在内存里按照顺序进行存放，如果一个Chuck存放满了，会在后面内存里创建新的Chuck，这样Component就是在一起的，每次查找Component的时候速度会大大提升。<br>下面我们来看一看内存结构图：  </p>
-<p><img src="https://i0.hdslb.com/bfs/article/6cb305d158f9daf75ef880b035a26afdea2961af.png" alt="在这里插入图片描述"></p>
-<p><img src="https://i0.hdslb.com/bfs/article/363335a8d53167863db8a0c040e29e37d2f9b269.png" alt="在这里插入图片描述">  </p>
-<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>Unity使用的是单线程，虽然里面会有携程一些，但其根本原理都是单线程，所以并不能完全发挥CPU，ECS引入了多线程的Job system，并且Job System会把Entities分发到CPU的线程上，这样就提高了CPU的利用率。  </p>
-<h1 id="怎么使用ECS"><a href="#怎么使用ECS" class="headerlink" title="怎么使用ECS"></a>怎么使用ECS</h1><p>ECS主要提升的是CPU的性能，并不是所有的项目都适合使用ECS，因为ECS是新的思想，团队开发成本也是有一定提高的，笔者业主要是为了学习了解，拓展一下自己的思路。<br>接下来笔者会继续学习如何使用ECS。  </p>
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这是一个管理Unity宏设置的脚本工具，能快速的增删改查项目的脚本。<br>下面是效果图：<br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1684677675196-2023-5-2122:01:15.png"></p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="依赖的代码"><a href="#依赖的代码" class="headerlink" title="依赖的代码"></a>依赖的代码</h2><h3 id="ResCatalog"><a href="#ResCatalog" class="headerlink" title="ResCatalog"></a>ResCatalog</h3><pre><code>/// &lt;summary&gt;
+/// 资源路径
+/// &lt;/summary&gt;
+   public static class ResCatalog
+&#123;
+    public const string DefaultRes = &quot;Library/unity default resources&quot;;
+    public const string Temporary = &quot;Assets/_Temporary&quot;;
+    public const string Library = &quot;Assets/_Library&quot;;
+&#125;
+</code></pre>
+<h3 id="BuildTargetUtility"><a href="#BuildTargetUtility" class="headerlink" title="BuildTargetUtility"></a>BuildTargetUtility</h3><pre><code>/// &lt;summary&gt;
+/// 构建的辅助工具
+/// &lt;/summary&gt;
+public class BuildTargetUtility
+&#123;
+    /// &lt;summary&gt;
+    /// 获取对应平台的组
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;p&quot;&gt;&lt;/param&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public static BuildTargetGroup PlatformToGroup(RuntimePlatform p)
+    &#123;
+        return p switch
+        &#123;
+            RuntimePlatform.OSXEditor =&gt; BuildTargetGroup.Standalone,
+            RuntimePlatform.OSXPlayer =&gt; BuildTargetGroup.Standalone,
+            RuntimePlatform.WindowsPlayer =&gt; BuildTargetGroup.Standalone,
+            RuntimePlatform.WindowsEditor =&gt; BuildTargetGroup.Standalone,
+            RuntimePlatform.IPhonePlayer =&gt; BuildTargetGroup.iOS,
+            RuntimePlatform.Android =&gt; BuildTargetGroup.Android,
+            RuntimePlatform.LinuxPlayer =&gt; BuildTargetGroup.Standalone,
+            RuntimePlatform.LinuxEditor =&gt; BuildTargetGroup.Standalone,
+            RuntimePlatform.WebGLPlayer =&gt; BuildTargetGroup.WebGL,
+            RuntimePlatform.PS4 =&gt; BuildTargetGroup.PS4,
+            RuntimePlatform.XboxOne =&gt; BuildTargetGroup.XboxOne,
+            RuntimePlatform.tvOS =&gt; BuildTargetGroup.tvOS,
+            RuntimePlatform.Switch =&gt; BuildTargetGroup.Switch,
+            _ =&gt; BuildTargetGroup.Unknown
+        &#125;;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="AssetLibrary"><a href="#AssetLibrary" class="headerlink" title="AssetLibrary"></a>AssetLibrary</h3><pre><code> /// &lt;summary&gt;
+/// 资源的Library
+/// &lt;/summary&gt;
+public static class AssetLibrary
+&#123;
+    /// &lt;summary&gt;
+    /// 判断文件是否存在
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;path&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;temporary&quot;&gt;&lt;/param&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public static bool Exists(string path, bool temporary)
+    &#123;
+        return File.Exists(GetPath(path, temporary));
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 获取文件的地址
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;path&quot;&gt;文件名字&lt;/param&gt;
+    /// &lt;param name=&quot;temporary&quot;&gt;是否是临时文件&lt;/param&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public static string GetPath(string path, bool temporary)
+    &#123;
+        return Path.Combine(temporary ? ResCatalog.Temporary : ResCatalog.Library, path);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 保存文件
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;path&quot;&gt;文件地址&lt;/param&gt;
+    /// &lt;param name=&quot;text&quot;&gt;文件内容&lt;/param&gt;
+    /// &lt;param name=&quot;temporary&quot;&gt;是否是临时文件&lt;/param&gt;
+    public static void Save(string path, string text, bool temporary)
+    &#123;
+        WriteAllText(path, text, temporary);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 保存文件
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;path&quot;&gt;文件地址&lt;/param&gt;
+    /// &lt;param name=&quot;bytes&quot;&gt;写入的字节&lt;/param&gt;
+    /// &lt;param name=&quot;temporary&quot;&gt;是否是临时资源&lt;/param&gt;
+    public static void Save(string path, byte[] bytes, bool temporary)
+    &#123;
+        WriteAllBytes(path, bytes, temporary);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 获取文件内的所有内容
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;path&quot;&gt;文件地址&lt;/param&gt;
+    /// &lt;param name=&quot;temporary&quot;&gt;是否是临时文件&lt;/param&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public static string GetString(string path, bool temporary)
+    &#123;
+        return File.ReadAllText(GetPath(path, temporary));
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 获取文件的所有字节
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;path&quot;&gt;文件地址&lt;/param&gt;
+    /// &lt;param name=&quot;temporary&quot;&gt;是否是临时资源&lt;/param&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public static byte[] GetBytes(string path, bool temporary)
+    &#123;
+        return File.ReadAllBytes(GetPath(path, temporary));
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 写入所有的字节
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;path&quot;&gt;文件路径&lt;/param&gt;
+    /// &lt;param name=&quot;bytes&quot;&gt;写入字节&lt;/param&gt;
+    /// &lt;param name=&quot;temporary&quot;&gt;是否是临时资源&lt;/param&gt;
+    private static void WriteAllBytes(string path, byte[] bytes, bool temporary)
+    &#123;
+        var realPath = GetPath(path, temporary);
+        PathUtils.MakeDirectory(realPath);
+        File.WriteAllBytes(realPath, bytes);
+    &#125;
+    /// &lt;summary&gt;
+    /// 写入所有的文本内容
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;path&quot;&gt;文件路径&lt;/param&gt;
+    /// &lt;param name=&quot;text&quot;&gt;写入字符串&lt;/param&gt;
+    /// &lt;param name=&quot;temporary&quot;&gt;是否是临时资源&lt;/param&gt;
+    private static void WriteAllText(string path, string text, bool temporary)
+    &#123;
+        var realPath = GetPath(path, temporary);
+        PathUtils.MakeDirectory(realPath);
+        File.WriteAllText(realPath, text);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="SymbolsUtility"><a href="#SymbolsUtility" class="headerlink" title="SymbolsUtility"></a>SymbolsUtility</h3><pre><code> /// &lt;summary&gt;
+/// 宏的辅助工具
+/// &lt;/summary&gt;
+public static class SymbolsUtility
+&#123;
+    /// &lt;summary&gt;
+    /// 设置宏
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;symbols&quot;&gt;&lt;/param&gt;
+    public static void SetSymbols(params string[] symbols)
+    &#123;
+        var result = string.Join(&quot;;&quot;, symbols);
+        PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone, result);
+        PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.iOS, result);
+        PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Android, result);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 获取所有的宏
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public static string[] GetSymbols()
+    &#123;
+        var group = BuildTargetUtility.PlatformToGroup(Application.platform);
+        var symbols = PlayerSettings.GetScriptingDefineSymbolsForGroup(group);
+        return symbols.Split(&#39;;&#39;);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 增加宏
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;symbols&quot;&gt;宏的组&lt;/param&gt;
+    public static void AddSymbols(params string[] symbols)
+    &#123;
+        SetSymbols(GetSymbols().Union(symbols).ToArray());
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 移除宏
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;symbols&quot;&gt;宏的组&lt;/param&gt;
+    public static void RemoveSymbols(params string[] symbols)
+    &#123;
+        SetSymbols(GetSymbols().Except(symbols).ToArray());
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 判断是否拥有宏
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;symbol&quot;&gt;宏的名字&lt;/param&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public static bool HasSymbols(string symbol)
+    &#123;
+        return -1 != Array.IndexOf(GetSymbols(), symbol);
+    &#125;
+&#125;
+</code></pre>
+<h2 id="管理工具代码"><a href="#管理工具代码" class="headerlink" title="管理工具代码"></a>管理工具代码</h2><pre><code>internal class SymbolsManager : EditorWindow
+&#123;
+
+    /// &lt;summary&gt;
+    /// 宏的配置
+    /// &lt;/summary&gt;
+    public class SymbolsConfig
+    &#123;
+        /// &lt;summary&gt;
+        /// 宏的名字
+        /// &lt;/summary&gt;
+        public string name;
+        /// &lt;summary&gt;
+        /// 是否使用
+        /// &lt;/summary&gt;
+        [NonSerialized]
+        public bool used;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 宏的组
+    /// &lt;/summary&gt;
+    public class SymbolsGroup
+    &#123;
+        /// &lt;summary&gt;
+        /// 组的名字
+        /// &lt;/summary&gt;
+        public string name;
+        /// &lt;summary&gt;
+        /// 组的宏列表
+        /// &lt;/summary&gt;
+        public List&lt;SymbolsConfig&gt; list;
+        /// &lt;summary&gt;
+        /// 用于显示的List
+        /// &lt;/summary&gt;
+        [NonSerialized]
+        public ReorderableList reorderableList;
+        /// &lt;summary&gt;
+        /// 是否已经删除
+        /// &lt;/summary&gt;
+        [NonSerialized]
+        public bool deleted;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 组的列表
+    /// &lt;/summary&gt;
+    private List&lt;SymbolsGroup&gt; m_Groups;
+
+    /// &lt;summary&gt;
+    /// 宏管理窗口
+    /// &lt;/summary&gt;
+    [MenuItem(&quot;Tools/SymbolsManager&quot;, false)]
+    private static void OpenWindow()
+    &#123;
+        var window = GetWindow&lt;SymbolsManager&gt;(&quot;SymbolsManager&quot;);
+        window.minSize = new Vector2(350, 100);
+    &#125;
+
+    private void OnEnable()
+    &#123;
+        var path = GetSettingsFileName();
+        if (AssetLibrary.Exists(path, false))
+        &#123;
+            var text = AssetLibrary.GetString(path, false);
+            JsonUtils.ToObject(text, out m_Groups);
+            foreach (var group in m_Groups)
+            &#123;
+                if (null == group.list)
+                &#123;
+                    group.list = new List&lt;SymbolsConfig&gt;();
+                &#125;
+                else
+                &#123;
+                    foreach (var config in group.list)
+                    &#123;
+                        config.used = SymbolsUtility.HasSymbols(config.name);
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+
+        m_Groups ??= new List&lt;SymbolsGroup&gt;();
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 绘制面板
+    /// &lt;/summary&gt;
+    private void OnGUI()
+    &#123;
+        for (var i = 0; i &lt; m_Groups.Count;)
+        &#123;
+            var group = m_Groups[i];
+            GUILayout.BeginVertical(EditorStyles.helpBox);
+            &#123;
+                if (null == group.reorderableList)
+                &#123;
+                    group.list ??= new List&lt;SymbolsConfig&gt;();
+
+                    group.reorderableList = new ReorderableList(group.list, typeof(SymbolsConfig))
+                    &#123;
+                        drawHeaderCallback = rect =&gt;
+                        &#123;
+                            var textRt = rect;
+                            textRt.width /= 2f;
+                            group.name = EditorGUI.TextField(textRt, group.name, EditorStyles.boldLabel);
+
+                            var btnRt = rect;
+                            btnRt.x = btnRt.xMax - Styles.closeButton.lineHeight;
+                            if (GUI.Button(btnRt, GUIContent.none, Styles.closeButton))
+                            &#123;
+                                if (EditorUtility.DisplayDialog(
+                                    &quot;提示&quot;, &quot;是否确认删除?&quot;, &quot;确认&quot;, &quot;取消&quot;))
+                                &#123;
+                                    group.deleted = true;
+                                &#125;
+                            &#125;
+                        &#125;,
+                        drawElementCallback = (rect, index, active, focused) =&gt;
+                        &#123;
+                            var item = group.list[index];
+
+                            var textRect = new Rect(
+                                rect.position + Vector2.up * 2,
+                                new Vector2(rect.width - 100, EditorGUIUtility.singleLineHeight));
+                            item.name = GUI.TextField(textRect, item.name)?.Trim();
+                            const int btnWidth = 80;
+                            var oldColor = GUI.color;
+                            GUI.color = SymbolsUtility.HasSymbols(item.name) ? Color.green : Color.red;
+                            var btnRect = new Rect(
+                                rect.position + Vector2.up + Vector2.right * (rect.width - btnWidth),
+                                new Vector2(btnWidth, EditorGUIUtility.singleLineHeight));
+                            item.used = GUI.Toggle(btnRect, item.used,
+                                item.used ? Styles.used : Styles.unused,
+                                EditorStyles.toolbarButton);
+
+                            GUI.color = oldColor;
+                        &#125;,
+                        elementHeight = 22,
+                    &#125;;
+                &#125;
+
+                group.reorderableList.DoLayoutList();
+
+                GUILayout.BeginHorizontal();
+                GUILayout.FlexibleSpace();
+                if (GUILayout.Button(Styles.apply, GUILayout.Height(30), GUILayout.Width(100)))
+                &#123;
+                    foreach (var config in group.list)
+                    &#123;
+                        if (config.used)
+                        &#123;
+                            SymbolsUtility.AddSymbols(config.name);
+                        &#125;
+                        else
+                        &#123;
+                            SymbolsUtility.RemoveSymbols(config.name);
+                        &#125;
+                    &#125;
+
+                    AssetDatabase.SaveAssets();
+                    AssetDatabase.Refresh();
+                &#125;
+
+                GUILayout.FlexibleSpace();
+                GUILayout.EndHorizontal();
+                GUILayout.Space(5);
+            &#125;
+            GUILayout.EndVertical();
+
+            if (group.deleted)
+            &#123;
+                m_Groups.RemoveAt(i);
+            &#125;
+            else
+            &#123;
+                ++i;
+            &#125;
+        &#125;
+
+        //
+        GUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+        if (GUILayout.Button(Styles.addGroup, GUILayout.Height(30), GUILayout.Width(200)))
+        &#123;
+            m_Groups.Add(new SymbolsGroup
+            &#123;
+                name = Styles.customName,
+                list = new List&lt;SymbolsConfig&gt;()
+            &#125;);
+        &#125;
+
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
+
+
+        var e = Event.current;
+        if (e.keyCode == KeyCode.S &amp;&amp; e.type == EventType.KeyUp)
+        &#123;
+            e.Use();
+            Save();
+        &#125;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 销毁的时候保存
+    /// &lt;/summary&gt;
+    private void OnDisable()
+    &#123;
+        Save();
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 保存
+    /// &lt;/summary&gt;
+    private void Save()
+    &#123;
+        JsonResolver.NotSerializeDefault = true;
+
+        var text = JsonUtils.ToPrettyString(m_Groups);
+        AssetLibrary.Save(GetSettingsFileName(), text, false);
+
+        JsonResolver.NotSerializeDefault = false;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 序列化Json文件的名字，采用 “类名Settings.json”格式
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    private string GetSettingsFileName()
+    &#123;
+        return $&quot;&#123;GetType().Name&#125;Settings.json&quot;;
+    &#125;
+
+
+    #region 显示风格Style
+
+    /// &lt;summary&gt;
+    /// 编辑器的风格
+    /// &lt;/summary&gt;
+    private static class Styles
+    &#123;
+        /// &lt;summary&gt;
+        /// 已经使用
+        /// &lt;/summary&gt;
+        public static GUIContent used;
+        /// &lt;summary&gt;
+        /// 未使用
+        /// &lt;/summary&gt;
+        public static GUIContent unused;
+        /// &lt;summary&gt;
+        /// 应用
+        /// &lt;/summary&gt;
+        public static GUIContent apply;
+        /// &lt;summary&gt;
+        /// 新增分组
+        /// &lt;/summary&gt;
+        public static GUIContent addGroup;
+        /// &lt;summary&gt;
+        /// 自定义名称(点击修改)
+        /// &lt;/summary&gt;
+        public static string customName;
+        /// &lt;summary&gt;
+        /// WinBtnClose
+        /// &lt;/summary&gt;
+        public static GUIStyle closeButton;
+
+        static Styles()
+        &#123;
+            used = new GUIContent(&quot;已使用&quot;);
+            unused = new GUIContent(&quot;未使用&quot;);
+            apply = new GUIContent(&quot;应用&quot;);
+            addGroup = new GUIContent(&quot;新增分组&quot;);
+            customName = &quot;自定义名称(点击修改)&quot;;
+            closeButton = new GUIStyle(&quot;WinBtnClose&quot;);
+        &#125;
+    &#125;
+
+    #endregion
+
+&#125;
+</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
