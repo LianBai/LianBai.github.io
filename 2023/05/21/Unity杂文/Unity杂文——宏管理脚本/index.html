@@ -1065,7 +1065,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2023-05-21 22:06:58'>2023-05-21 21:56</time>
+            发布时间 : <time class="date" title='最后更新: 2023-05-21 22:18:02'>2023-05-21 21:56</time>
         
     </div>
     <div class="article-meta">
@@ -1100,7 +1100,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-text">依赖的代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ResCatalog"><span class="toc-text">ResCatalog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BuildTargetUtility"><span class="toc-text">BuildTargetUtility</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AssetLibrary"><span class="toc-text">AssetLibrary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SymbolsUtility"><span class="toc-text">SymbolsUtility</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E4%BB%A3%E7%A0%81"><span class="toc-text">管理工具代码</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-text">依赖的代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E4%BB%A3%E7%A0%81"><span class="toc-text">管理工具代码</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1117,17 +1117,25 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这是一个管理Unity宏设置的脚本工具，能快速的增删改查项目的脚本。<br>下面是效果图：<br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1684677675196-2023-5-2122:01:15.png"></p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="依赖的代码"><a href="#依赖的代码" class="headerlink" title="依赖的代码"></a>依赖的代码</h2><h3 id="ResCatalog"><a href="#ResCatalog" class="headerlink" title="ResCatalog"></a>ResCatalog</h3><pre><code>/// &lt;summary&gt;
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="依赖的代码"><a href="#依赖的代码" class="headerlink" title="依赖的代码"></a>依赖的代码</h2><details>  
+  <summary> ResCatalog </summary>  
+
+<pre><code>/// &lt;summary&gt;
 /// 资源路径
 /// &lt;/summary&gt;
-   public static class ResCatalog
+public static class ResCatalog
 &#123;
     public const string DefaultRes = &quot;Library/unity default resources&quot;;
     public const string Temporary = &quot;Assets/_Temporary&quot;;
     public const string Library = &quot;Assets/_Library&quot;;
 &#125;
 </code></pre>
-<h3 id="BuildTargetUtility"><a href="#BuildTargetUtility" class="headerlink" title="BuildTargetUtility"></a>BuildTargetUtility</h3><pre><code>/// &lt;summary&gt;
+</details>  
+
+<details>  
+  <summary> BuildTargetUtility </summary>  
+
+<pre><code>/// &lt;summary&gt;
 /// 构建的辅助工具
 /// &lt;/summary&gt;
 public class BuildTargetUtility
@@ -1159,7 +1167,12 @@ public class BuildTargetUtility
     &#125;
 &#125;
 </code></pre>
-<h3 id="AssetLibrary"><a href="#AssetLibrary" class="headerlink" title="AssetLibrary"></a>AssetLibrary</h3><pre><code> /// &lt;summary&gt;
+</details> 
+
+<details>  
+  <summary> AssetLibrary </summary>  
+
+<pre><code>/// &lt;summary&gt;
 /// 资源的Library
 /// &lt;/summary&gt;
 public static class AssetLibrary
@@ -1256,7 +1269,12 @@ public static class AssetLibrary
     &#125;
 &#125;
 </code></pre>
-<h3 id="SymbolsUtility"><a href="#SymbolsUtility" class="headerlink" title="SymbolsUtility"></a>SymbolsUtility</h3><pre><code> /// &lt;summary&gt;
+</details>  
+
+<details>  
+  <summary> SymbolsUtility </summary>  
+
+<pre><code>/// &lt;summary&gt;
 /// 宏的辅助工具
 /// &lt;/summary&gt;
 public static class SymbolsUtility
@@ -1313,6 +1331,8 @@ public static class SymbolsUtility
     &#125;
 &#125;
 </code></pre>
+</details> 
+
 <h2 id="管理工具代码"><a href="#管理工具代码" class="headerlink" title="管理工具代码"></a>管理工具代码</h2><pre><code>internal class SymbolsManager : EditorWindow
 &#123;
 
