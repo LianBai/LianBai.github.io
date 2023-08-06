@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2023-08-06T07:51:38.058Z</updated>
+  <updated>2023-08-06T09:34:35.657Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决无法显示图床图片问题</title>
+    <link href="http://yoursite.com/2023/08/06/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BA%8A%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2023/08/06/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BA%8A%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/</id>
+    <published>2023-08-06T08:55:00.000Z</published>
+    <updated>2023-08-06T09:34:35.657Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>Hexo 博客中使用的图床无法访问，经查询是图床拦截问题，需要修改 referrer 信息。</p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol><li><p>找到博客文件中的 head.ejs 或 header.ejs，路径一般在 {博客路径}\themes\3-hexo\layout_partial\ 下。</p></li><li><p>在 <head> 标签中添加以下代码：</head></p> <meta name="referrer" content="no-referrer"></li></ol><p>这将禁用 referrer 信息，从而绕过图床的防盗链限制。</p><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1691314374889-2023-8-617:32:55.png" alt="1691314374889-2023-8-617:32:55.png"></p><p>通过以上优化，可以使文章更加清晰易懂，让读者更容易理解和操作。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;Hexo 博客中使用的图床无法访问，经查询是图床拦截问题，需要修改 referrer 信息。&lt;/p&gt;
+&lt;h2 id=&quot;解决方法&quot;&gt;&lt;a hr</summary>
+      
+    
+    
+    
+    <category term="搭建博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="博客图床" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E5%BA%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>Python杂文——PyCharm配置QT环境</title>
@@ -466,30 +491,6 @@
     
     
     <category term="Unity" scheme="http://yoursite.com/tags/Unity/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity杂文——扩展Inspector面板(二)</title>
-    <link href="http://yoursite.com/2022/02/23/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%89%A9%E5%B1%95Inspector%E9%9D%A2%E6%9D%BF(%E4%BA%8C)/"/>
-    <id>http://yoursite.com/2022/02/23/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%89%A9%E5%B1%95Inspector%E9%9D%A2%E6%9D%BF(%E4%BA%8C)/</id>
-    <published>2022-02-23T10:30:36.000Z</published>
-    <updated>2022-02-25T02:08:27.880Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>上次笔者讲解了如何自定义Inspector面板的显示，但是这里还有一个问题，就是对于支持的字段我们可以绘制对应的属性，但是有些字段我们并不支持绘制，比如一些类定义的变量，我们又改如何绘制？下面笔者介绍一下如何绘制一些本身不支持的字段。  </p><h1 id="自定义绘制Inspector"><a href="#自定义绘制Inspector" class="headerlink" title="自定义绘制Inspector"></a>自定义绘制Inspector</h1><p>笔者依旧拿笔者写的动画编辑器作为案例来进行讲解。  </p><h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>存放文件的目录如下  </p><blockquote><p>—Asset<br>——Scripts<br>———Editor<br>————UIAnimManagerEditor.cs<br>————<font color="#00FF00">UIAnimTransformInfoEditor.cs</font><br>———Engine<br>————UIAnimManager.cs<br>————<font color="#00FF00">UIAnimInfoBase.cs</font><br>————<font color="#00FF00">UIAnimTransformInfo.cs</font>  </p></blockquote><h2 id="创建一个Transform的信息的类（UIAnimTransformInfo）"><a href="#创建一个Transform的信息的类（UIAnimTransformInfo）" class="headerlink" title="创建一个Transform的信息的类（UIAnimTransformInfo）"></a>创建一个Transform的信息的类（UIAnimTransformInfo）</h2><p>为了方便我们可以绘制动画信息在Inspector面板上，我们需要在信息类上加上**[Serializable]**标签方便我们序列化</p><pre><code>[Serializable]public class UIAnimTransformInfo&#123;        public Transform m_Transform;&#125;</code></pre><p>然后我们在UIAnimManager上添加我们的信息就可以了</p><pre><code>public class UIAnimManager : MonoBehaviour&#123;    public float m_SumTime;                                                     //总时间    public bool m_IsDefReversed;                                                //默认的是否倒放    public bool m_IsDefLoop;                                                    //默认的是否循环    public bool m_IsDefAutoPlay;                                                //默认的是否自动播放    public UIAnimTransformInfo m_UIAnimTransformInfo;                           //Transform动画信息        [NonSerialized]    public float m_CurTime;                                                     //当前时间    [NonSerialized]    public UIAnimPlayState m_UIAnimPlayState = UIAnimPlayState.Stop;            //当前状态    &#125;</code></pre><h2 id="默认绘制类中类对象的Inspector面板"><a href="#默认绘制类中类对象的Inspector面板" class="headerlink" title="默认绘制类中类对象的Inspector面板"></a>默认绘制类中类对象的Inspector面板</h2><p>我们可以通过绘制属性的方式直接绘制我们的变量，代码如下：  </p><pre><code>EditorGUILayout.PropertyField(m_UIAnimTransformInfo);</code></pre><p>效果如下：  </p><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1645698365713-2022-2-2418:26:06.png">  </p><p>这个绘制是unity默认的绘制。  </p><h2 id="自定义绘制类中类对象的Inspector面板"><a href="#自定义绘制类中类对象的Inspector面板" class="headerlink" title="自定义绘制类中类对象的Inspector面板"></a>自定义绘制类中类对象的Inspector面板</h2><p>如果我们类中的对象不想使用自定义的绘制，我们可以采用CustomPropertyDrawer这个属性标签来绑定我们类的绘制编辑器类。<br>代码如下  </p><pre><code>[CustomPropertyDrawer(typeof(UIAnimTransformInfo))]public class UIAnimTransformInfoEditor : PropertyDrawer&#123;    /// &lt;summary&gt;    /// 获取属性绘制的高度    /// &lt;/summary&gt;    /// &lt;param name=&quot;property&quot;&gt;&lt;/param&gt;    /// &lt;param name=&quot;label&quot;&gt;&lt;/param&gt;    /// &lt;returns&gt;&lt;/returns&gt;    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)    &#123;        return EditorGUI.GetPropertyHeight(property);    &#125;    /// &lt;summary&gt;    /// 绘制自定义的面板    /// &lt;/summary&gt;    /// &lt;param name=&quot;position&quot;&gt;&lt;/param&gt;    /// &lt;param name=&quot;property&quot;&gt;&lt;/param&gt;    /// &lt;param name=&quot;label&quot;&gt;&lt;/param&gt;    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)    &#123;            &#125;&#125;</code></pre><p>上述代码中，GetPropertyHeight函数是用来设置绘制面板的高度的，然后OnGUI的函数是写自定义的绘制的。  </p><font size="5" color="FF0000">提示：   在GetPropertyHeight函数离，如果类比较复杂，通过EditorGUI.GetPropertyHeight(property)获取的高度会出错，最好把属性里的需要绘制的字段分别获取高度再加一起返回。  在OnGUI函数里绘制的时候不能采用GUILayout和EditorGuiLayout的绘制方式，因为这个是给Rect进行绘制的，每次绘制的时候只需要计算宽度，然后绘制后坐标再自己移动绘制下一个。举例代码如下：</font>  <pre><code>/// &lt;summary&gt;/// 绘制单个可滑动的列表/// &lt;/summary&gt;/// &lt;param name=&quot;position&quot;&gt;&lt;/param&gt;/// &lt;param name=&quot;property&quot;&gt;&lt;/param&gt;/// &lt;param name=&quot;uiReorderableList&quot;&gt;&lt;/param&gt;public static void OnReorderableListPropertyItemGUI(ref Rect position, SerializedProperty property,ReorderableList uiReorderableList)&#123;    position.height = GetReorderableListHeight(property);    uiReorderableList.DoList(position);    position.y += position.height;&#125;</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;上次笔者讲解了如何自定义Inspector面板的显示，但是这里还有一个问题，就是对于支持的字段我们可以绘制对应的属性，但是有些字段我们并不支</summary>
-      
-    
-    
-    
-    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
-    
-    
-    <category term="Unity编辑器" scheme="http://yoursite.com/tags/Unity%E7%BC%96%E8%BE%91%E5%99%A8/"/>
     
   </entry>
   
