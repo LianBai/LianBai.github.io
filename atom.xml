@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2023-05-21T14:18:02.820Z</updated>
+  <updated>2023-08-06T07:41:06.675Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python杂文——PyCharm配置QT环境</title>
+    <link href="http://yoursite.com/2023/08/06/Python%E6%9D%82%E6%96%87/Python%E6%9D%82%E6%96%87%E2%80%94%E2%80%94PyCharm%E9%85%8D%E7%BD%AEQT%E7%8E%AF%E5%A2%83/"/>
+    <id>http://yoursite.com/2023/08/06/Python%E6%9D%82%E6%96%87/Python%E6%9D%82%E6%96%87%E2%80%94%E2%80%94PyCharm%E9%85%8D%E7%BD%AEQT%E7%8E%AF%E5%A2%83/</id>
+    <published>2023-08-06T07:07:46.000Z</published>
+    <updated>2023-08-06T07:41:06.675Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="安装pyqt5对应的库"><a href="#安装pyqt5对应的库" class="headerlink" title="安装pyqt5对应的库"></a>安装pyqt5对应的库</h1><h2 id="使用PyCharm安装（方法一）"><a href="#使用PyCharm安装（方法一）" class="headerlink" title="使用PyCharm安装（方法一）"></a>使用PyCharm安装（方法一）</h2><h3 id="安装pyqt5库"><a href="#安装pyqt5库" class="headerlink" title="安装pyqt5库"></a>安装pyqt5库</h3><p>打开PyChaem的安装源位置，位置是：<strong>File-&gt;setting-&gt;project-&gt;Python Interpreter</strong><br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1691306206191-2023-8-615:16:46.png" alt="1691306206191-2023-8-615:16:46.png">  </p><h3 id="安装PyQt5-tool库"><a href="#安装PyQt5-tool库" class="headerlink" title="安装PyQt5-tool库"></a>安装PyQt5-tool库</h3><p>同样的方法搜索PyQt5-tool这个库进行安装即可  </p><h2 id="使用终端命令安装（方法二）"><a href="#使用终端命令安装（方法二）" class="headerlink" title="使用终端命令安装（方法二）"></a>使用终端命令安装（方法二）</h2><p>终端输入下面两个名利即可安装对应的两个库  </p><pre><code>pip install pyqt5  pip install pyqt5-tool  </code></pre><h1 id="配置QT-Designer-界面设计-和PyUIC-界面转代码"><a href="#配置QT-Designer-界面设计-和PyUIC-界面转代码" class="headerlink" title="配置QT Designer(界面设计)和PyUIC(界面转代码)"></a>配置QT Designer(界面设计)和PyUIC(界面转代码)</h1><h2 id="配置QT-Designer"><a href="#配置QT-Designer" class="headerlink" title="配置QT Designer"></a>配置QT Designer</h2><ol><li><p>打开File-&gt;setting-&gt;Tools-&gt;External Tools  </p></li><li><p>点击+号,弹出一个编辑配置的框  </p></li><li><p>配置扩展工具的参数<br>参数配置如下：  </p><p> Name: 自己随便起个名字，一般都是<strong>QT Designer</strong><br> Program: designer.exe软件所在的路径，路径位置一般为：{python路径}\Lib\site-packages\qt5_applications\Qt\bin\designer.exe<br> Working directory: <strong>$FileDir$</strong></p></li></ol><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1691307145291-2023-8-615:32:26.png" alt="1691307145291-2023-8-615:32:26.png"></p><h2 id="配置PyUIC"><a href="#配置PyUIC" class="headerlink" title="配置PyUIC"></a>配置PyUIC</h2><ol><li><p>打开File-&gt;setting-&gt;Tools-&gt;External Tools  </p></li><li><p>点击+号,弹出一个编辑配置的框  </p></li><li><p>配置扩展工具的参数<br>参数配置如下：  </p><p> Name: 自己随便起个名字，一般都是<strong>配置PyUIC</strong><br> Program: pyside6-uic.exe软件所在的路径，路径位置一般为：{python路径}\Scripts\pyside6-uic.exe<br> Arguments: $FileName$ -o $FileNameWithoutExtension$.py<br> Working directory: <strong>$ProjectFileDir$</strong></p></li></ol><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1691307361271-2023-8-615:36:02.png" alt="1691307361271-2023-8-615:36:02.png"></p><h1 id="使用配置"><a href="#使用配置" class="headerlink" title="使用配置"></a>使用配置</h1><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1691307415934-2023-8-615:36:56.png" alt="1691307415934-2023-8-615:36:56.png">  </p><h2 id="制作界面（上图编号①）"><a href="#制作界面（上图编号①）" class="headerlink" title="制作界面（上图编号①）"></a>制作界面（上图编号①）</h2><p>点击上如编号①就可以打开编辑界面UI的编辑器了，既可以使用：<br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1691307518635-2023-8-615:38:39.png" alt="1691307518635-2023-8-615:38:39.png">  </p><h2 id="生成代码（上如编号②）"><a href="#生成代码（上如编号②）" class="headerlink" title="生成代码（上如编号②）"></a>生成代码（上如编号②）</h2><p>制作好图后在Pycharm选中刚才制作ui，右键-&gt;External Tools-&gt;PyUIC即可生成对应的代码<br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1691307659438-2023-8-615:41:00.png" alt="1691307659438-2023-8-615:41:00.png">  </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;安装pyqt5对应的库&quot;&gt;&lt;a href=&quot;#安装pyqt5对应的库&quot; class=&quot;headerlink&quot; title=&quot;安装pyqt5对应的库&quot;&gt;&lt;/a&gt;安装pyqt5对应的库&lt;/h1&gt;&lt;h2 id=&quot;使用PyCharm安装（方法一）&quot;&gt;&lt;a href=&quot;#使</summary>
+      
+    
+    
+    
+    <category term="Python杂文" scheme="http://yoursite.com/categories/Python%E6%9D%82%E6%96%87/"/>
+    
+    
+    <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity杂文——宏管理脚本</title>
@@ -458,30 +482,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;上次笔者讲解了如何自定义Inspector面板的显示，但是这里还有一个问题，就是对于支持的字段我们可以绘制对应的属性，但是有些字段我们并不支</summary>
-      
-    
-    
-    
-    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
-    
-    
-    <category term="Unity编辑器" scheme="http://yoursite.com/tags/Unity%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity杂文——扩展Inspector面板(一)</title>
-    <link href="http://yoursite.com/2022/02/18/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%89%A9%E5%B1%95Inspector%E9%9D%A2%E6%9D%BF(%E4%B8%80)/"/>
-    <id>http://yoursite.com/2022/02/18/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%89%A9%E5%B1%95Inspector%E9%9D%A2%E6%9D%BF(%E4%B8%80)/</id>
-    <published>2022-02-18T05:45:59.000Z</published>
-    <updated>2022-02-18T07:23:45.913Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在使用unity的时候我们会经常使用到inspector面板来查看我们选中对象的信息，也会经常修改一些信息，但是，untiy默认的指挥显示我们组件上序列化的信息，也并不是所有的序列化的信息都显示，我们只需要添加**[HideInInspector]**标签就可以隐藏信息。但是这些并不能满足我们修改信息的需求，unity也为我们提供了自动绘制面板，这样我们不仅仅有修改字段的功能，还可以添加更多的功能了。  </p><h1 id="自定义绘制Inspector"><a href="#自定义绘制Inspector" class="headerlink" title="自定义绘制Inspector"></a>自定义绘制Inspector</h1><p>笔者是以自己写的一个UI的动画控制器为例来讲解的。  </p><h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>存放文件的目录如下  </p><blockquote><p>—Asset<br>——Scripts<br>———Editor<br>————UIAnimManagerEditor.cs<br>———Engine<br>————UIAnimManager.cs  </p></blockquote><h2 id="组件脚本"><a href="#组件脚本" class="headerlink" title="组件脚本"></a>组件脚本</h2><p>首先我们先创建一个需要绘制的脚本：  </p><pre><code>/// &lt;summary&gt;/// 动画播放状态/// &lt;/summary&gt;public enum UIAnimPlayState&#123;    Stop,                   //停止    Playing,                //播放中    Pause,                  //暂停    Finish,                 //完成&#125;/// &lt;summary&gt;/// 动画播放控制器/// &lt;/summary&gt;public class UIAnimManager : MonoBehaviour&#123;    public float m_SumTime;                                                     //总时间    public bool m_IsDefReversed;                                                //默认的是否倒放    public bool m_IsDefLoop;                                                    //默认的是否循环    public bool m_IsDefAutoPlay;                                                //默认的是否自动播放        [NonSerialized]    public float m_CurTime;                                                     //当前时间    [NonSerialized]    public UIAnimPlayState m_UIAnimPlayState = UIAnimPlayState.Stop;            //当前状态&#125;</code></pre><p>下面我们来看看默认的inspector的面板显示：  </p><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1645165132213-2022-2-1814:18:53.png"></p><p>不仅仅**[HideInInspector]<strong>标签会隐藏字段，</strong>[NonSerialized]**标记没有序列化的字段也不会显示出来。  </p><h2 id="绘制Inspector面板脚本-CustomEditor"><a href="#绘制Inspector面板脚本-CustomEditor" class="headerlink" title="绘制Inspector面板脚本(CustomEditor)"></a>绘制Inspector面板脚本(CustomEditor)</h2><pre><code>[CustomEditor(typeof(UIAnimManager))]public class UIAnimManagerEditor : UnityEditor.Editor&#123;    #region 字段    private UIAnimManager m_UIAnimManager;                                      //面板的脚本        private SerializedProperty m_IsDefReversed;                                 //是否倒放    private SerializedProperty m_IsDefLoop;                                     //是否循环    private SerializedProperty m_IsDefAutoPlay;                                 //是否自动播放    #endregion        #region 继承方法    private void OnEnable()    &#123;        m_UIAnimManager = (UIAnimManager) target;                               //获取绑定的脚本                m_IsDefReversed = serializedObject.FindProperty(&quot;m_IsDefReversed&quot;);     //获取m_IsDefReversed字段        m_IsDefLoop = serializedObject.FindProperty(&quot;m_IsDefLoop&quot;);             //获取m_IsDefLoop字段        m_IsDefAutoPlay = serializedObject.FindProperty(&quot;m_IsDefAutoPlay&quot;);     //获取m_IsDefAutoPlay字段    &#125;    /// &lt;summary&gt;    /// 自定义绘制Inspector面板    /// &lt;/summary&gt;    public override void OnInspectorGUI()    &#123;        OnPropertyFieldGUI();    &#125;    #endregion        #region 自定义方法    /// &lt;summary&gt;    /// 绘制属性字段    /// &lt;/summary&gt;    private void OnPropertyFieldGUI()    &#123;        EditorGUI.BeginChangeCheck();                                       //监听面板是否发生变化        &#123;            EditorGUILayout.PropertyField(m_IsDefReversed);                 //绘制m_IsDefReversed属性            EditorGUILayout.PropertyField(m_IsDefLoop);                     //绘制m_IsDefLoop属性            EditorGUILayout.PropertyField(m_IsDefAutoPlay);                    //绘制m_IsAutoPlay属性        &#125;        if (EditorGUI.EndChangeCheck())                                     //如果发生变化为true        &#123;            EditorUtility.SetDirty(target);                                 //标记用于触发保存            serializedObject.ApplyModifiedProperties();                     //更新序列化的数据        &#125;    &#125;    #endregion&#125;</code></pre><p>如上述代码，编写脚本只需要类上面打上**[CustomEditor(typeof(UIAnimManager))]<strong>即可，中间的UIAnimManager换成需要绑定的类即可，然后在代码中继承</strong>OnInspectorGUI**方法，在这个方法里绘制自己想绘制的面板。<br>绘制样子如下：  </p><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1645168657839-2022-2-1815:17:38.png">  </p><h2 id="代码讲解"><a href="#代码讲解" class="headerlink" title="代码讲解"></a>代码讲解</h2><p>首先开<strong>OnEnable</strong>函数里：  </p><blockquote><p>m_UIAnimManager &#x3D; (UIAnimManager) target;获取当前绑定的脚本对象<br>serializedObject.FindProperty是获取脚本上的属性，是拿这些属性绘制的  </p></blockquote><p><strong>OnInspectorGUI</strong>函数就是我们编写绘制Inspector面板的函数，在代码里我们可以编写untiy提供的编辑器代码，笔者这里只是通过EditorGUILayout.PropertyField来绘制属性，也可以使用其他unity的编辑器绘制代码，这里就不举例了。  </p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;在使用unity的时候我们会经常使用到inspector面板来查看我们选中对象的信息，也会经常修改一些信息，但是，untiy默认的指挥显示我</summary>
       
     
     
