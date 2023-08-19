@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2023-08-06T09:34:35.657Z</updated>
+  <updated>2023-08-19T05:13:37.502Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python杂文——Label文字自适应大小</title>
+    <link href="http://yoursite.com/2023/08/19/Python%E6%9D%82%E6%96%87/Python%E6%9D%82%E6%96%87%E2%80%94%E2%80%94Label%E6%96%87%E5%AD%97%E8%87%AA%E9%80%82%E5%BA%94%E5%A4%A7%E5%B0%8F/"/>
+    <id>http://yoursite.com/2023/08/19/Python%E6%9D%82%E6%96%87/Python%E6%9D%82%E6%96%87%E2%80%94%E2%80%94Label%E6%96%87%E5%AD%97%E8%87%AA%E9%80%82%E5%BA%94%E5%A4%A7%E5%B0%8F/</id>
+    <published>2023-08-19T03:50:43.000Z</published>
+    <updated>2023-08-19T05:13:37.502Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="PyQt5中Label自适应大小的实现"><a href="#PyQt5中Label自适应大小的实现" class="headerlink" title="PyQt5中Label自适应大小的实现"></a>PyQt5中Label自适应大小的实现</h1><p>在PyQt5中，我们经常需要在widget中添加label来显示文本信息。但是，由于文本长度和label大小的不确定性，有时候会出现文本显示不全或者字体过小难以阅读的问题。本文将介绍如何使用Python编写脚本来实现label的自适应大小。  </p><h1 id="单行文本的自适应"><a href="#单行文本的自适应" class="headerlink" title="单行文本的自适应"></a>单行文本的自适应</h1><p>对于单行文本，我们可以使用以下脚本来实现自适应大小：  </p><pre><code>def AutoSingleLabelFontSize(label):    # 创建一个QFont对象    font = label.font()    # 计算字体大小的范围    fm = QFontMetrics(font)    min_size = 1    max_size = 20    # 二分查找适应的字体大小    low, high = min_size, max_size    while low &lt;= high:        mid = (low + high) // 2        font.setPointSize(mid)        fm = QFontMetrics(font)        rect = fm.boundingRect(label.text())        if rect.width() &lt;= label.width():            low = mid + 1        else:            high = mid - 1    # 设置QLabel的字体    font.setPointSize(high)    label.setFont(font)</code></pre><p>这个脚本使用二分查找来适应字体大小。我们可以通过调整min_size和max_size参数来控制字体大小的范围。  </p><h1 id="多行文本自适应"><a href="#多行文本自适应" class="headerlink" title="多行文本自适应"></a>多行文本自适应</h1><p>对于多行文本，我们可以使用以下脚本来实现自适应大小：  </p><pre><code>def AutoMultipleLabelFontSize(label):    # 创建一个QFont对象    font = label.font()    # 计算字体大小的范围    fm = QFontMetrics(font)    min_size = 1    max_size = 20    # 二分查找适应的字体大小    low, high = min_size, max_size    while low &lt;= high:        mid = (low + high) // 2        font.setPointSize(mid)        fm = QFontMetrics(font)        rect = fm.boundingRect(label.rect(), Qt.TextWordWrap, label.text())        if rect.width() &lt;= label.width() and rect.height() &lt;= label.height():            low = mid + 1        else:            high = mid - 1    # 设置QLabel的字体    font.setPointSize(high)    label.setFont(font)</code></pre><p>这个脚本与单行文本的脚本类似，但是我们可以通过word_wrap参数来控制文本是否自动换行。</p><p>以上就是使用Python编写的label自适应大小的脚本。希望这篇文章能够帮助您解决label大小自适应的问题。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;PyQt5中Label自适应大小的实现&quot;&gt;&lt;a href=&quot;#PyQt5中Label自适应大小的实现&quot; class=&quot;headerlink&quot; title=&quot;PyQt5中Label自适应大小的实现&quot;&gt;&lt;/a&gt;PyQt5中Label自适应大小的实现&lt;/h1&gt;&lt;p&gt;在P</summary>
+      
+    
+    
+    
+    <category term="Python杂文" scheme="http://yoursite.com/categories/Python%E6%9D%82%E6%96%87/"/>
+    
+    
+    <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>解决无法显示图床图片问题</title>
@@ -467,30 +491,6 @@
     
     
     <category term="C#" scheme="http://yoursite.com/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity笔记</title>
-    <link href="http://yoursite.com/2022/03/03/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/Unity%E7%AC%94%E8%AE%B0/"/>
-    <id>http://yoursite.com/2022/03/03/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/Unity%E7%AC%94%E8%AE%B0/</id>
-    <published>2022-03-03T07:14:26.000Z</published>
-    <updated>2022-03-18T08:43:22.118Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><p><strong>[Conditional(“XXX”)]</strong>: 指定XXX宏下进行编译<br><strong>[RuntimeInitializeOnLoadMethod]</strong>:游戏运行是就执行的方法</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;特性&quot;&gt;&lt;a href=&quot;#特性&quot; class=&quot;headerlink&quot; title=&quot;特性&quot;&gt;&lt;/a&gt;特性&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;[Conditional(“XXX”)]&lt;/strong&gt;: 指定XXX宏下进行编译&lt;br&gt;&lt;strong&gt;[Runtime</summary>
-      
-    
-    
-    
-    <category term="个人笔记" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Unity" scheme="http://yoursite.com/tags/Unity/"/>
     
   </entry>
   
