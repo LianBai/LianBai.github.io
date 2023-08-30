@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2023-08-19T05:13:37.502Z</updated>
+  <updated>2023-08-30T08:54:48.805Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unity杂文——FPS计算并显示</title>
+    <link href="http://yoursite.com/2023/08/30/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94FPS%E8%AE%A1%E7%AE%97%E5%B9%B6%E6%98%BE%E7%A4%BA/"/>
+    <id>http://yoursite.com/2023/08/30/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94FPS%E8%AE%A1%E7%AE%97%E5%B9%B6%E6%98%BE%E7%A4%BA/</id>
+    <published>2023-08-30T08:48:17.000Z</published>
+    <updated>2023-08-30T08:54:48.805Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="自制游戏FPS显示工具"><a href="#自制游戏FPS显示工具" class="headerlink" title="自制游戏FPS显示工具"></a>自制游戏FPS显示工具</h1><p>在游戏开发中，FPS（Frames Per Second）是一个非常重要的指标，它可以反映出游戏的流畅度和性能。为了帮助开发者更好地优化游戏性能，我们可以使用一个自制的游戏FPS显示工具，实时显示当前的帧率。</p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>以下是自制的游戏FPS显示工具的代码实现：  </p><pre><code>public class FPSUtils : MonoBehaviour&#123;    #region 实例化        private static FPSUtils s_FPS = null;    /// &lt;summary&gt;    /// 实例化一个FPS单位    /// &lt;/summary&gt;    /// &lt;param name=&quot;parent&quot;&gt;&lt;/param&gt;    public static void CreateInstance(GameObject parent = null)    &#123;        if (s_FPS != null) return;        var go = new GameObject(&quot;FPS&quot;);        s_FPS = go.AddComponent&lt;FPSUtils&gt;();        if (null == parent)        &#123;            DontDestroyOnLoad(go);        &#125;        else        &#123;            go.SetParent(parent);            go.SetAsFirstSibling();        &#125;    &#125;    /// &lt;summary&gt;    /// 销毁一个FPS单位    /// &lt;/summary&gt;    public static void DestroyInstance()    &#123;        if (null != s_FPS)        &#123;            Destroy(s_FPS.gameObject);            s_FPS = null;        &#125;    &#125;    #endregion    #region FPS统计    /// &lt;summary&gt;    /// 是否显示FPS    /// &lt;/summary&gt;    private bool m_IsShowFPS = true;    /// &lt;summary&gt;    /// 帧数计算刷新时间（s）    /// &lt;/summary&gt;    private const float m_ShowTime = 1f;    /// &lt;summary&gt;    /// 当前时间    /// &lt;/summary&gt;    private float m_CurTime = 0f;    /// &lt;summary&gt;    /// 当前帧数    /// &lt;/summary&gt;    private static int m_Frames = 0;    /// &lt;summary&gt;    /// 临时FPS    /// &lt;/summary&gt;    private int m_TempFPS = 0;    /// &lt;summary&gt;    /// 帧数变化比较容忍度    /// &lt;/summary&gt;    private const int TOLERANCE = 5;    /// &lt;summary&gt;    /// 当前FPS    /// &lt;/summary&gt;    private int m_CurFPS;    /// &lt;summary&gt;    /// 当前显示的帧数    /// &lt;/summary&gt;    private int m_CurShowFPS;    /// &lt;summary&gt;    /// 品质当前时间    /// &lt;/summary&gt;    private float m_QualityCurTime = 0f;    /// &lt;summary&gt;    /// 品质的容忍度    /// &lt;/summary&gt;    private const int m_TotalTime = 10;    /// &lt;summary&gt;    /// 帧数容忍度    /// &lt;/summary&gt;    private const int m_MaxFrameCount = 200;    /// &lt;summary&gt;    /// 最小FPS容忍度    /// &lt;/summary&gt;    private const int m_MinFPS = 10;        /// &lt;summary&gt;    /// 当前最小帧数    /// &lt;/summary&gt;    private int m_CurMinFrmCount = 0;    private void Update()    &#123;        m_CurTime += Time.unscaledDeltaTime;        m_Frames++;        m_CurFPS = (int)(1.0f / Time.unscaledDeltaTime);        if (m_CurTime &gt;= m_ShowTime)        &#123;            m_CurShowFPS = (int)(m_Frames / m_CurTime);            if (Math.Abs(m_CurShowFPS - m_TempFPS) &gt; TOLERANCE)            &#123;                m_TempFPS = m_CurShowFPS;            &#125;            m_CurTime = 0;            m_Frames = 0;        &#125;    &#125;    private void FixedUpdate()    &#123;        m_QualityCurTime += Time.unscaledDeltaTime;        if (m_QualityCurTime &gt;= m_TotalTime)        &#123;            m_CurMinFrmCount = 0;            m_QualityCurTime = 0;        &#125;        if (m_CurFPS &gt;= m_MinFPS) return;        m_CurMinFrmCount++;        if (m_CurMinFrmCount &gt; m_MaxFrameCount)        &#123;            //检测到帧率过低，可以做切换品质的功能        &#125;    &#125;    /// &lt;summary&gt;    /// 绘制FPS    /// &lt;/summary&gt;    private void OnGUI()    &#123;        if (m_IsShowFPS)        &#123;            var fpsStr = $&quot;FPS:&#123;m_CurShowFPS&#125;&quot;;            GUI.Label(new Rect(0, 0, 100, 20), fpsStr);        &#125;    &#125;    #endregion&#125;</code></pre><h1 id="代码解释"><a href="#代码解释" class="headerlink" title="代码解释"></a>代码解释</h1><p>以上代码中，FPSUtils类继承自MonoBehaviour，用于实现FPS统计和显示。  </p><p>首先，定义了一个静态的CreateInstance方法，用于创建一个FPSUtils实例。在该方法中，首先判断是否已经存在一个FPSUtils实例，如果存在则直接返回。如果不存在，则创建一个新的GameObject对象，并将FPSUtils组件添加到该对象上。如果指定了parent参数，则将新创建的对象设置为该parent对象的第一个子对象，否则将其设置为不会被销毁的对象。  </p><p>然后，定义了一个静态的DestroyInstance方法，用于销毁FPSUtils实例。在该方法中，首先判断是否存在FPSUtils实例，如果存在则销毁该实例，并将其设置为null。  </p><p>接下来，定义了一些用于FPS统计的变量，包括是否显示FPS、帧数计算刷新时间、当前时间、当前帧数、临时FPS、帧数变化比较容忍度、当前FPS、当前显示的帧数、品质当前时间、品质的容忍度、帧数容忍度、最小FPS容忍度、当前最小帧数等。  </p><p>然后，在Update方法中，每帧更新当前时间、帧数和当前FPS。如果当前时间超过了帧数计算刷新时间，则计算当前显示的帧数，并将临时FPS设置为当前显示的帧数。在计算当前显示的帧数时，如果当前显示的帧数与临时FPS的差值超过了帧数变化比较容忍度，则将临时FPS设置为当前显示的帧数，并将当前时间和帧数重置为0。  </p><p>在FixedUpdate方法中，每帧更新品质当前时间和当前最小帧数。如果当前FPS大于等于最小FPS，则直接返回。如果当前FPS小于最小FPS，则将当前最小帧数加1。如果当前最小帧数超过了帧数容忍度，则可以做一些切换品质的功能。  </p><p>最后，在OnGUI方法中，如果需要显示FPS，则绘制当前显示的帧数。  </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;自制游戏FPS显示工具&quot;&gt;&lt;a href=&quot;#自制游戏FPS显示工具&quot; class=&quot;headerlink&quot; title=&quot;自制游戏FPS显示工具&quot;&gt;&lt;/a&gt;自制游戏FPS显示工具&lt;/h1&gt;&lt;p&gt;在游戏开发中，FPS（Frames Per Second）是一个非常</summary>
+      
+    
+    
+    
+    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
+    
+    
+    <category term="Unity" scheme="http://yoursite.com/tags/Unity/"/>
+    
+  </entry>
   
   <entry>
     <title>Python杂文——Label文字自适应大小</title>
@@ -466,31 +490,6 @@
     
     <category term="个人笔记" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Unity杂文——String按行删除</title>
-    <link href="http://yoursite.com/2022/03/03/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94string%E6%8C%89%E8%A1%8C%E5%88%A0%E9%99%A4/"/>
-    <id>http://yoursite.com/2022/03/03/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94string%E6%8C%89%E8%A1%8C%E5%88%A0%E9%99%A4/</id>
-    <published>2022-03-03T07:19:36.000Z</published>
-    <updated>2022-03-04T02:16:15.260Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在unity开发过程中，如果一个string字符串有多行，如果我们想删除前面一行或者多行应该如何操作？  </p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><pre><code>private static string DeleteStrLine(string text, int startLine, int lineCount)&#123;    var curIndex = 0;    int? remStartIndex = null;    var sum = 1;    while (sum &lt; startLine + lineCount)     &#123;        if (sum == startLine) remStartIndex = curIndex;                curIndex = text.IndexOf(&quot;\n&quot;, curIndex, StringComparison.Ordinal);        if (curIndex &lt; 0)        &#123;            curIndex = text.Length;            break;        &#125;        curIndex++;        sum++;    &#125;    if (remStartIndex == null)    &#123;        return text;    &#125;    text = text.Remove(remStartIndex.Value, curIndex - remStartIndex.Value);    return text;&#125;</code></pre><p>思路就是通过<strong>IndexOf</strong>函数遍历找到需要删除的行对应的”\n”(换行)的索引，然后再通过<strong>Remove</strong>函数对开始和结束的索引进行删除。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;在unity开发过程中，如果一个string字符串有多行，如果我们想删除前面一行或者多行应该如何操作？  &lt;/p&gt;
-&lt;h1 id=&quot;解决方案</summary>
-      
-    
-    
-    
-    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
-    
-    
-    <category term="C#" scheme="http://yoursite.com/tags/C/"/>
     
   </entry>
   

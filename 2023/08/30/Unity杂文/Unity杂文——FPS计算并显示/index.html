@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="referrer" content="no-referrer">
-  <title>Unity杂文——IOS后台推送 | LianBai</title>
-  <meta name="keywords" content=" Unity4IOS ">
-  <meta name="description" content="Unity杂文——IOS后台推送 | LianBai">
+  <title>Unity杂文——FPS计算并显示 | LianBai</title>
+  <meta name="keywords" content=" Unity ">
+  <meta name="description" content="Unity杂文——FPS计算并显示 | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="github">
@@ -1037,9 +1037,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Unity杂文/Unity杂文——IOS后台推送" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Unity杂文/Unity杂文——FPS计算并显示" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Unity杂文——IOS后台推送</h1>
+        <h1 class="article-title">Unity杂文——FPS计算并显示</h1>
     
     <div class="article-meta">
         
@@ -1057,19 +1057,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color5">Unity4IOS</a>
+            <a class="color1">Unity</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-12-27 11:39:09'>2019-09-28 17:09</time>
+            发布时间 : <time class="date" title='最后更新: 2023-08-30 16:54:48'>2023-08-30 16:48</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:639</span>
+        <span>字数:1.1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1099,7 +1099,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IOS%E6%9C%AC%E5%9C%B0%E6%B6%88%E6%81%AF%E9%80%9A%E7%9F%A5"><span class="toc-text">IOS本地消息通知</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A2%E7%82%B9"><span class="toc-text">红点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E9%80%9A%E7%9F%A5"><span class="toc-text">消息通知</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%88%B6%E6%B8%B8%E6%88%8FFPS%E6%98%BE%E7%A4%BA%E5%B7%A5%E5%85%B7"><span class="toc-text">自制游戏FPS显示工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A"><span class="toc-text">代码解释</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1115,139 +1115,162 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="IOS本地消息通知"><a href="#IOS本地消息通知" class="headerlink" title="IOS本地消息通知"></a>IOS本地消息通知</h1><p>相信用过IOS的都会知道，IOS的软件在关闭后也会收到通知消息，软件上面有红点并且还会接到通知消息。<br>先带大家看看效果：  </p>
-<h2 id="红点"><a href="#红点" class="headerlink" title="红点"></a>红点</h2><p><img src="http://file.liangxiegame.com/d1844fda-c9d3-4190-851c-f59908891ebb.png">   </p>
-<h2 id="消息通知"><a href="#消息通知" class="headerlink" title="消息通知"></a>消息通知</h2><p><img src="http://file.liangxiegame.com/c25f8f72-e202-4964-b128-e7686c3f4275.png">  </p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>好了，大家来看看代码：  </p>
-<pre><code>using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Runtime.InteropServices;
-using System;
-using UnityEngine.iOS; //引入命名空间
-
-public class UnityToIOSManager : MonoBehaviour
+        <h1 id="自制游戏FPS显示工具"><a href="#自制游戏FPS显示工具" class="headerlink" title="自制游戏FPS显示工具"></a>自制游戏FPS显示工具</h1><p>在游戏开发中，FPS（Frames Per Second）是一个非常重要的指标，它可以反映出游戏的流畅度和性能。为了帮助开发者更好地优化游戏性能，我们可以使用一个自制的游戏FPS显示工具，实时显示当前的帧率。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>以下是自制的游戏FPS显示工具的代码实现：  </p>
+<pre><code>public class FPSUtils : MonoBehaviour
 &#123;
-    static UnityToIOSManager mInstance;
-    static long lastTime;
-
-    int PushIndex;//推送
-    string PushText; //推送信息
-
-    private void Awake()
+    #region 实例化
+    
+    private static FPSUtils s_FPS = null;
+    /// &lt;summary&gt;
+    /// 实例化一个FPS单位
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;parent&quot;&gt;&lt;/param&gt;
+    public static void CreateInstance(GameObject parent = null)
     &#123;
-        Screen.sleepTimeout = SleepTimeout.NeverSleep;//游戏运行时禁止休眠，游戏在前台时可以保持屏幕长亮
-        if (mInstance == null)
-            mInstance = this;
-        //先清空本地消息，然后注册
-        UnityEngine.iOS.NotificationServices.RegisterForNotifications(NotificationType.Badge | NotificationType.Alert | NotificationType.Sound);
-        CleanNotification();
 
-        DontDestroyOnLoad(this);
+        if (s_FPS != null) return;
 
-    &#125;
-//当有多条推送时，每次进入游戏时更换推送消息
-    private void Push()
-    &#123;
-        #region 推送条目记录
-        PushIndex = PlayerPrefs.GetInt(&quot;Push&quot;);
-        PushIndex++;
-        if (PushIndex &gt; 4)
-            PushIndex = 1;
-        PlayerPrefs.SetInt(&quot;Push&quot;, PushIndex);
-        PlayerPrefs.Save();
-        PushText = LanguageMananger.GetPushText(PushIndex);
-        #endregion
-    &#125;
-
-    //后台消息通知
-    //本地推送
-    public static void NotificationMessage(string message, int hour, bool isRepeatDay)
-    &#123;
-        int year = System.DateTime.Now.Year;
-        int month = System.DateTime.Now.Month;
-        int day = System.DateTime.Now.Day;
-        System.DateTime newDate = new System.DateTime(year, month, day, hour, 0, 0);
-        NotificationMessage(message, newDate, isRepeatDay);
-
-    &#125;
-    //本地推送 你可以传入一个固定的推送时间
-    public static void NotificationMessage(string message, System.DateTime newDate, bool isRepeatDay)
-    &#123;
-        if (isRepeatDay &amp;&amp; newDate &lt;= System.DateTime.Now)
+        var go = new GameObject(&quot;FPS&quot;);
+        s_FPS = go.AddComponent&lt;FPSUtils&gt;();
+        if (null == parent)
         &#123;
-            newDate = newDate.AddDays(1);
-        &#125;
-        //推送时间需要大于当前时间
-        if (newDate &gt; System.DateTime.Now)
-        &#123;
-            UnityEngine.iOS.LocalNotification localNotification = new UnityEngine.iOS.LocalNotification();
-            localNotification.fireDate = newDate;
-            localNotification.alertBody = message;
-            localNotification.applicationIconBadgeNumber = 1;
-            localNotification.hasAction = true;
-            if (isRepeatDay)
-            &#123;
-                //是否每天定期循环
-                localNotification.repeatCalendar = UnityEngine.iOS.CalendarIdentifier.ChineseCalendar;
-                localNotification.repeatInterval = UnityEngine.iOS.CalendarUnit.Day;
-            &#125;
-            localNotification.soundName = UnityEngine.iOS.LocalNotification.defaultSoundName;
-            UnityEngine.iOS.NotificationServices.ScheduleLocalNotification(localNotification);
-        &#125;
-    &#125;
-
-
-    void OnApplicationPause(bool paused)
-    &#123;
-        //程序进入后台时
-        if (paused)
-        &#123;
-            Push();
-            //每天中午12点推送
-            NotificationMessage(PushText, 19, true);
-            //10s后发送
-            NotificationMessage(&quot;10秒后发送&quot;,System.DateTime.Now.AddSeconds(10),false);
-            //时间戳
-            TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
-            lastTime = Convert.ToInt64(ts.TotalSeconds);
+            DontDestroyOnLoad(go);
         &#125;
         else
         &#123;
-            //程序从后台进入前台时
-            CleanNotification();
-            TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
-            long nowTime = Convert.ToInt64(ts.TotalSeconds);
-            if(nowTime - lastTime &gt; 180)
+            go.SetParent(parent);
+            go.SetAsFirstSibling();
+        &#125;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 销毁一个FPS单位
+    /// &lt;/summary&gt;
+    public static void DestroyInstance()
+    &#123;
+        if (null != s_FPS)
+        &#123;
+            Destroy(s_FPS.gameObject);
+            s_FPS = null;
+        &#125;
+    &#125;
+
+    #endregion
+
+    #region FPS统计
+
+    /// &lt;summary&gt;
+    /// 是否显示FPS
+    /// &lt;/summary&gt;
+    private bool m_IsShowFPS = true;
+    /// &lt;summary&gt;
+    /// 帧数计算刷新时间（s）
+    /// &lt;/summary&gt;
+    private const float m_ShowTime = 1f;
+    /// &lt;summary&gt;
+    /// 当前时间
+    /// &lt;/summary&gt;
+    private float m_CurTime = 0f;
+    /// &lt;summary&gt;
+    /// 当前帧数
+    /// &lt;/summary&gt;
+    private static int m_Frames = 0;
+    /// &lt;summary&gt;
+    /// 临时FPS
+    /// &lt;/summary&gt;
+    private int m_TempFPS = 0;
+    /// &lt;summary&gt;
+    /// 帧数变化比较容忍度
+    /// &lt;/summary&gt;
+    private const int TOLERANCE = 5;
+    /// &lt;summary&gt;
+    /// 当前FPS
+    /// &lt;/summary&gt;
+    private int m_CurFPS;
+    /// &lt;summary&gt;
+    /// 当前显示的帧数
+    /// &lt;/summary&gt;
+    private int m_CurShowFPS;
+    /// &lt;summary&gt;
+    /// 品质当前时间
+    /// &lt;/summary&gt;
+    private float m_QualityCurTime = 0f;
+    /// &lt;summary&gt;
+    /// 品质的容忍度
+    /// &lt;/summary&gt;
+    private const int m_TotalTime = 10;
+    /// &lt;summary&gt;
+    /// 帧数容忍度
+    /// &lt;/summary&gt;
+    private const int m_MaxFrameCount = 200;
+    /// &lt;summary&gt;
+    /// 最小FPS容忍度
+    /// &lt;/summary&gt;
+    private const int m_MinFPS = 10;
+    
+    /// &lt;summary&gt;
+    /// 当前最小帧数
+    /// &lt;/summary&gt;
+    private int m_CurMinFrmCount = 0;
+
+    private void Update()
+    &#123;
+        m_CurTime += Time.unscaledDeltaTime;
+        m_Frames++;
+        m_CurFPS = (int)(1.0f / Time.unscaledDeltaTime);
+        if (m_CurTime &gt;= m_ShowTime)
+        &#123;
+            m_CurShowFPS = (int)(m_Frames / m_CurTime);
+            if (Math.Abs(m_CurShowFPS - m_TempFPS) &gt; TOLERANCE)
             &#123;
-                //这个是判断程序退出到后台超出多久之后
-                //然后进行其他操作，播放广告，或是提醒什么的
+                m_TempFPS = m_CurShowFPS;
             &#125;
+            m_CurTime = 0;
+            m_Frames = 0;
+        &#125;
+    &#125;
+
+    private void FixedUpdate()
+    &#123;
+        m_QualityCurTime += Time.unscaledDeltaTime;
+        if (m_QualityCurTime &gt;= m_TotalTime)
+        &#123;
+            m_CurMinFrmCount = 0;
+            m_QualityCurTime = 0;
         &#125;
 
+        if (m_CurFPS &gt;= m_MinFPS) return;
+
+        m_CurMinFrmCount++;
+        if (m_CurMinFrmCount &gt; m_MaxFrameCount)
+        &#123;
+            //检测到帧率过低，可以做切换品质的功能
+        &#125;
     &#125;
 
-    //清空所有本地消息
-    void CleanNotification()
+    /// &lt;summary&gt;
+    /// 绘制FPS
+    /// &lt;/summary&gt;
+    private void OnGUI()
     &#123;
-        UnityEngine.iOS.LocalNotification l = new UnityEngine.iOS.LocalNotification();
-        l.applicationIconBadgeNumber = -1;
-        UnityEngine.iOS.NotificationServices.PresentLocalNotificationNow(l);
-        Invoke(&quot;WaitOneFrameClear&quot;,0);
-    &#125;
-    //延迟一帧执行，不然没法清理
-    void WaitOneFrameClear()
-    &#123;
-        UnityEngine.iOS.NotificationServices.CancelAllLocalNotifications();
-        UnityEngine.iOS.NotificationServices.ClearLocalNotifications();
+        if (m_IsShowFPS)
+        &#123;
+            var fpsStr = $&quot;FPS:&#123;m_CurShowFPS&#125;&quot;;
+            GUI.Label(new Rect(0, 0, 100, 20), fpsStr);
+        &#125;
     &#125;
 
+    #endregion
 &#125;
 </code></pre>
-<hr>
-<pre><code>参考文章：http://www.xuanyusong.com/archives/2632?replytocom=591072
-         https://blog.csdn.net/shuangkui5355/article/details/79064241
-</code></pre>
+<h1 id="代码解释"><a href="#代码解释" class="headerlink" title="代码解释"></a>代码解释</h1><p>以上代码中，FPSUtils类继承自MonoBehaviour，用于实现FPS统计和显示。  </p>
+<p>首先，定义了一个静态的CreateInstance方法，用于创建一个FPSUtils实例。在该方法中，首先判断是否已经存在一个FPSUtils实例，如果存在则直接返回。如果不存在，则创建一个新的GameObject对象，并将FPSUtils组件添加到该对象上。如果指定了parent参数，则将新创建的对象设置为该parent对象的第一个子对象，否则将其设置为不会被销毁的对象。  </p>
+<p>然后，定义了一个静态的DestroyInstance方法，用于销毁FPSUtils实例。在该方法中，首先判断是否存在FPSUtils实例，如果存在则销毁该实例，并将其设置为null。  </p>
+<p>接下来，定义了一些用于FPS统计的变量，包括是否显示FPS、帧数计算刷新时间、当前时间、当前帧数、临时FPS、帧数变化比较容忍度、当前FPS、当前显示的帧数、品质当前时间、品质的容忍度、帧数容忍度、最小FPS容忍度、当前最小帧数等。  </p>
+<p>然后，在Update方法中，每帧更新当前时间、帧数和当前FPS。如果当前时间超过了帧数计算刷新时间，则计算当前显示的帧数，并将临时FPS设置为当前显示的帧数。在计算当前显示的帧数时，如果当前显示的帧数与临时FPS的差值超过了帧数变化比较容忍度，则将临时FPS设置为当前显示的帧数，并将当前时间和帧数重置为0。  </p>
+<p>在FixedUpdate方法中，每帧更新品质当前时间和当前最小帧数。如果当前FPS大于等于最小FPS，则直接返回。如果当前FPS小于最小FPS，则将当前最小帧数加1。如果当前最小帧数超过了帧数容忍度，则可以做一些切换品质的功能。  </p>
+<p>最后，在OnGUI方法中，如果需要显示FPS，则绘制当前显示的帧数。  </p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
