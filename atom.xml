@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2023-09-02T07:53:12.196Z</updated>
+  <updated>2023-09-04T02:44:35.288Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>个人作品展示</title>
+    <link href="http://yoursite.com/2023/09/04/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81%E5%B1%95%E7%A4%BA/"/>
+    <id>http://yoursite.com/2023/09/04/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81%E5%B1%95%E7%A4%BA/</id>
+    <published>2023-09-04T02:35:34.000Z</published>
+    <updated>2023-09-04T02:44:35.288Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python工具"><a href="#Python工具" class="headerlink" title="Python工具"></a>Python工具</h1><h2 id="项目工具"><a href="#项目工具" class="headerlink" title="项目工具"></a>项目工具</h2><details>    <summary> 点击展开 </summary> <h3 id="演示视频"><a href="#演示视频" class="headerlink" title="演示视频"></a>演示视频</h3><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/20230904_100721-2023-9-410:36:14.gif" alt="20230904_100721-2023-9-410:36:14.gif"></p><h3 id="工具截图"><a href="#工具截图" class="headerlink" title="工具截图"></a>工具截图</h3><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795113797-2023-9-410:38:34.png" alt="1693795113797-2023-9-410:38:34.png"><br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795142194-2023-9-410:39:03.png" alt="1693795142194-2023-9-410:39:03.png"><br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795157340-2023-9-410:39:18.png" alt="1693795157340-2023-9-410:39:18.png"><br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795175142-2023-9-410:39:35.png" alt="1693795175142-2023-9-410:39:35.png"><br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795225733-2023-9-410:40:26.png" alt="1693795225733-2023-9-410:40:26.png">  </p></details>  <h2 id="博客工具"><a href="#博客工具" class="headerlink" title="博客工具"></a>博客工具</h2><details>    <summary> 点击展开 </summary> <p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795268866-2023-9-410:41:09.png" alt="1693795268866-2023-9-410:41:09.png">  </p><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795304153-2023-9-410:41:45.png" alt="1693795304153-2023-9-410:41:45.png">  </p></details> ]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Python工具&quot;&gt;&lt;a href=&quot;#Python工具&quot; class=&quot;headerlink&quot; title=&quot;Python工具&quot;&gt;&lt;/a&gt;Python工具&lt;/h1&gt;&lt;h2 id=&quot;项目工具&quot;&gt;&lt;a href=&quot;#项目工具&quot; class=&quot;headerlink&quot; </summary>
+      
+    
+    
+    
+    <category term="个人笔记" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="个人笔记" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity杂文——Editor的Tree</title>
@@ -471,28 +495,6 @@
     
     
     <category term="C#反射" scheme="http://yoursite.com/tags/C-%E5%8F%8D%E5%B0%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity杂文——按行删除字符串</title>
-    <link href="http://yoursite.com/2022/03/10/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%8C%89%E8%A1%8C%E5%88%A0%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    <id>http://yoursite.com/2022/03/10/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E6%8C%89%E8%A1%8C%E5%88%A0%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2/</id>
-    <published>2022-03-10T09:02:29.000Z</published>
-    <updated>2022-03-10T09:07:58.024Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>笔者在项目开发过程中需要做一个聊天的假数据显示，是用于demo的，于是笔者就直接用string字符串来模拟显示的数据，但是当聊天内容过多的时候就需要删除历史的聊天内容，于是笔者就想按照行数删除字符串，发现string并不包含这种接口，于是写下了下面的代码。  </p><h1 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h1><pre><code>private static string DeleteStrLine(string text, int startLine, int lineCount)&#123;    var curIndex = 0;    int? remStartIndex = null;    var sum = 1;    while (sum &lt; startLine + lineCount)     &#123;        if (sum == startLine) remStartIndex = curIndex;                curIndex = text.IndexOf(&quot;\n&quot;, curIndex, StringComparison.Ordinal);        if (curIndex &lt; 0)        &#123;            curIndex = text.Length;            break;        &#125;        curIndex++;        sum++;    &#125;    if (remStartIndex == null)    &#123;        return text;    &#125;    text = text.Remove(remStartIndex.Value, curIndex - remStartIndex.Value);    return text;&#125;</code></pre><p>上述代码是笔者的解决方案，原理很简单，遍历查找字符串的换行字符**”\n”**,然后记录下索引，根据传入的需要删除的行数找到对应的索引，最后使用Remove函数按照开始和结束的索引进行删除。  </p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;笔者在项目开发过程中需要做一个聊天的假数据显示，是用于demo的，于是笔者就直接用string字符串来模拟显示的数据，但是当聊天内容过多的时</summary>
-      
-    
-    
-    
-    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
-    
     
   </entry>
   

@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="referrer" content="no-referrer">
-  <title>Unity杂文——基于UGUI实现性能更好的圆形Image | LianBai</title>
-  <meta name="keywords" content=" UGUI ">
-  <meta name="description" content="Unity杂文——基于UGUI实现性能更好的圆形Image | LianBai">
+  <title>个人作品展示 | LianBai</title>
+  <meta name="keywords" content=" 个人笔记 ">
+  <meta name="description" content="个人作品展示 | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="github">
@@ -1059,9 +1059,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Unity杂文/Unity杂文——基于UGUI实现性能更好的圆形Image" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-个人笔记/个人作品展示" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Unity杂文——基于UGUI实现性能更好的圆形Image</h1>
+        <h1 class="article-title">个人作品展示</h1>
     
     <div class="article-meta">
         
@@ -1071,7 +1071,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Unity杂文">Unity杂文</a>
+            <a  data-rel="个人笔记">个人笔记</a>
             
         </span>
         
@@ -1079,19 +1079,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color5">UGUI</a>
+            <a class="color5">个人笔记</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-12-27 11:39:09'>2021-04-30 11:00</time>
+            发布时间 : <time class="date" title='最后更新: 2023-09-04 10:44:35'>2023-09-04 10:35</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:4.6k</span>
+        <span>字数:27</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1121,7 +1121,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">实现原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-text">代码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%86%E5%BD%A2"><span class="toc-text">圆形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%86%E7%8E%AF"><span class="toc-text">圆环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E5%88%A4%E6%96%AD"><span class="toc-text">点击判断</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="toc-text">完整代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BaseImage"><span class="toc-text">BaseImage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CircleImage"><span class="toc-text">CircleImage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CircleImageEditor"><span class="toc-text">CircleImageEditor</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python%E5%B7%A5%E5%85%B7"><span class="toc-text">Python工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%B7%A5%E5%85%B7"><span class="toc-text">项目工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91"><span class="toc-text">演示视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E6%88%AA%E5%9B%BE"><span class="toc-text">工具截图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E5%B7%A5%E5%85%B7"><span class="toc-text">博客工具</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1137,652 +1137,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>参考博客地址：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/leoin2012/p/6425089.html">https://www.cnblogs.com/leoin2012/p/6425089.html</a>  </p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在我们开发游戏过程中，会经常使用Mask来进行图片的裁剪，但是笔者在使用Mask进行裁剪的时候发现锯齿特别严重，因此笔者选择了利用shader进行图形遮罩，详情请看<a target="_blank" rel="noopener" href="https://lianbai.github.io/2021/04/20/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94UGUI%E5%9F%BA%E4%BA%8E%E5%9B%BE%E9%9B%86%E7%9A%84shader%E9%81%AE%E7%BD%A9/">Unity杂文——UGUI基于图集的shader遮罩</a>。<br>笔者虽然已经利用shader做好了遮罩并应用项目中的，但是在笔者在学习UGUI优化的时候发现Mask不仅有锯齿，也会增加两个DrawCall，因为Mask会把自己和子节点都和外面分开，不会进行合批，这样mask越多，DrawCall就会比较严重，笔者利用Shader进行遮罩虽然也会多一个DrawCall，但是相同的材质会进行合批，<br>裁剪随然已经改好了，但是笔者发现了不会增加DrawCall的方法。  </p>
-<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p>我们在屏幕上看到的图形是GPU渲染出来的，而GPU渲染的最小单位是三角面片，我们从Unity的Scence场景中，切换视图方式为WireFrame或者Shader Wireframe都可以明显看到图片是三角形组成的，而我们要制作出圆形的Image可以利用多个等腰三角形，这样就可以拼接成看似圆形的Image，三角形数量越多就越像圆形。如下图：  </p>
-<p><img src="https://file.liangxiegame.com/fc913a59-b938-4129-8c69-fc299a3ba79b.png" alt="image.png">   </p>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>首先我们需要自己重写Image，我们要自己实现画图，我们首先查看Image的原码：  </p>
-<pre><code>public class Image : MaskableGraphic, ISerializationCallbackReceiver, ILayoutElement, ICanvasRaycastFilter
-</code></pre>
-<p>我们可以看到Image继承了MaskableGraphic，并且实现了ISerializationCallbackReceiver、ILayoutElement、ICanvasRaycastFilter的接口。最关键的其实是MaskableGraphic类，因为这个类主要是负责画图的，我们可以很简单的看到MaskableGraphic类其实继承了Graphic类，在这个类里面有个OnPopulateMesh函数，这个函数就是我们需要重写的函数。<br>当UI元素生成顶点数据时就会调用OnPopulateMesh函数，我们只需要继承这个函数并且将原来的顶带你数据清除，改写成我们自己设置的圆形的顶带你数据，这样我们就可以画我们需要的圆形了。<br>由于在Unity中，继承UnityEngine基类的派生类并不能在Inspector面板里显示参数，笔者在制作圆形的Image的时候肯定要设置一些可调节的参数，这样可以应用到更多的场景中，因为笔者就像参考博客一样新建一个BaseImage类去继承Image类，然后自己再写一个CircleImage类去继承BaseImage类，这样我们把可调节的变量放在CircleImage类中，这样就可以通过面板调节参数了。<font color="red">(原Image源码有近千行代码，BaseImage对其进行了部分精简，只支持Simple Image Type，并去掉了eventAlphaThreshold的相关代码。经过删减，得到一个百行代码的BaseImage类，精简版Image就完成了。)</font>  </p>
-<h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><p>完整代码在最后面，因为内容过多，笔者就先写代码分析，您可以先复制最后的完整代码到工程里，然后自己对着代码一步一步进行。  </p>
-<h3 id="圆形"><a href="#圆形" class="headerlink" title="圆形"></a>圆形</h3><p>笔者首先介绍一下笔者设置的允许调节的参数，参数描述都在代码中，代码如下：  </p>
-<pre><code>[Tooltip(&quot;圆形的半径&quot;)]
-[Range(0, 1)]
-public float fillRadius = 1f;
-[Tooltip(&quot;UV缩放比例&quot;)]
-[Range(0, 1)]
-public float UVScale = 1f;
-[Tooltip(&quot;圆形的中心点&quot;)]
-public Vector2 fillCenter = new Vector2(0.5f, 0.5f);
-[Tooltip(&quot;圆形或扇形填充比例&quot;)]
-[Range(0, 1)]
-public float fillPercent = 1f;
-[Tooltip(&quot;是否填充圆形&quot;)]
-public bool fill = true;
-[Tooltip(&quot;圆环宽度&quot;)]
-public float thickness = 5;
-[Tooltip(&quot;圆形&quot;)]
-[Range(3, 100)]
-public int segements = 20;		//填充三角形数量
-</code></pre>
-<p>在OnPopulateMesh函数中，函数的参数VertexHelper就是原来图片的顶带你信息，因为我们要重写这些顶点信息，所以我们要清空vh。在我们设置自己的顶点的信息之前，我们需要获得UV信息，获取方法就是DataUtility.GetOuterUV(overrideSprite)。  </p>
-<pre><code>protected override void OnPopulateMesh(VertexHelper vh)
-&#123;
-    ...
-
-    Vector4 uv = overrideSprite != null ? DataUtility.GetOuterUV(overrideSprite) : Vector4.zero;
-    float uvCenterX = (uv.x + uv.z) * (0.5f + (fillCenter.x - 0.5f) * (uv.z - uv.x));
-    float uvCenterY = (uv.y + uv.w) * (0.5f + (fillCenter.y - 0.5f) * (uv.w - uv.y));
-    float uvScaleX = (uv.z - uv.x) / tw  * fillRadius * UVScale;
-    float uvScaleY = (uv.w - uv.y) / th  * fillRadius * UVScale;
-
-    ...
-&#125;
-</code></pre>
-<p>在设置的属性中我们有一个变量segements就是我们需要的三角形数量，正如原理将的，三角形数量越多，越像圆形，但是顶点数据就越多，影响性能，所以我们设置这个参数可以根据需求设置数量，然后我们知道数量后就可以算出顶点的夹角，然后面片数segements与填充比例fillPercent相乘，就知道要用多少个面片来显示圆形&#x2F;扇形  </p>
-<pre><code>protected override void OnPopulateMesh(VertexHelper vh)
-&#123;
-    ...
-
-    //算出每个面片的顶点夹角，面片数segements与填充比例fillPercent相乘，就知道要用多少个面片来显示圆形/扇形
-    float degreeDelta = (float)(2 * Mathf.PI / segements);
-    int curSegements = (int)(segements * fillPercent);
-
-    ...
-&#125;
-</code></pre>
-<p>我们可以通过RectTransform获取原图矩形的宽高，笔者这里也添加了一个可以调整的参数圆形半径个圆环宽度，圆环宽度是用来做圆环形状显示的，圆形半径其实就是原图的宽高乘以圆的半径就行了，这里圆的半径其实是一个比例，把原图的比作为1。  </p>
-<pre><code>protected override void OnPopulateMesh(VertexHelper vh)
-&#123;
-    ...
-
-    //通过RectTransform获取矩形宽高，计算出半径
-    float tw = rectTransform.rect.width * fillRadius;
-    float th = rectTransform.rect.height * fillRadius;
-    float outerRadius = rectTransform.pivot.x * tw;
-    float innerRadius = rectTransform.pivot.x * tw - thickness;
-
-    ...
-&#125;
-</code></pre>
-<p>已经有了半径，夹角信息，根据圆形点坐标公式(radius * cosA,radius * sinA)可以算出顶点坐标，每次迭代新建UIVertex，将求出的坐标，color，uv等参数传入，再将UIVertex传给VertexHelper。重复迭代n次，VertexHelper就获得了多边形顶点及圆心点信息了。  这里笔者也设置了参数，UV的缩放和圆的中心点，也是为了适应更多的场景</p>
-<pre><code>protected override void OnPopulateMesh(VertexHelper vh)
-&#123;
-    ...
-
-    float uvCenterX = (uv.x + uv.z) * (0.5f + (fillCenter.x - 0.5f) * (uv.z - uv.x));
-    float uvCenterY = (uv.y + uv.w) * (0.5f + (fillCenter.y - 0.5f) * (uv.w - uv.y));
-    float uvScaleX = (uv.z - uv.x) / tw  * fillRadius * UVScale;
-    float uvScaleY = (uv.w - uv.y) / th  * fillRadius * UVScale;
-
-    float curDegree = 0;
-    UIVertex uiVertex;
-    int verticeCount;
-    int triangleCount;
-    Vector2 curVertice;
-
-    curVertice = Vector2.zero;
-    verticeCount = curSegements + 1;
-    uiVertex = new UIVertex();
-    uiVertex.color = color;
-    uiVertex.position = curVertice;
-    uiVertex.uv0 = new Vector2(curVertice.x * uvScaleX + uvCenterX, curVertice.y * uvScaleY + uvCenterY);
-    vh.AddVert(uiVertex);
-
-    for (int i = 1; i &lt; verticeCount; i++)
-    &#123;
-        float cosA = Mathf.Cos(curDegree);
-        float sinA = Mathf.Sin(curDegree);
-        curVertice = new Vector2(cosA * outerRadius, sinA * outerRadius);
-        curDegree += degreeDelta;
-
-        uiVertex = new UIVertex();
-        uiVertex.color = color;
-        uiVertex.position = curVertice;
-        uiVertex.uv0 = new Vector2(curVertice.x * uvScaleX + uvCenterX, curVertice.y * uvScaleY + uvCenterY);
-        vh.AddVert(uiVertex);
-
-        outterVertices.Add(curVertice);
-    &#125;
-
-    ...
-&#125;
-</code></pre>
-<p>虽然已经传入了所有的顶带你信息，但是GPU还不知道顶点信息之间的关系，不知道顶带你分成了多少个三角形片面，所以还需要把三角形的信息告诉GPU,这里有一个VertexHelper的接口就是**AddTriangle(int idx0, int idx1, int idx2)**来接受三角形信息。<br>接口的传入参数并不是UIVertex类型，而是int类型的索引值。哪来的索引？还记得之前往VertexHelper传入了一堆顶点吗？按照传入顺序，第一个顶点，索引记为0，依次类推。每次传入三个顶点的索引，就记录下了一个三角形。  </p>
-<blockquote>
-<p>需要注意，GPU 默认是做backface culling(背面剔除)的，GPU只渲染正对屏幕的三角面片，当GPU认为某个三角面片是背对屏幕时，直接丢弃该三角面片，不做渲染。那么GPU怎么判断我们传入的某个三角形是正对屏幕，还是背对屏幕？答案是通过三个顶点的时针顺序，当三个顶点是呈顺时针时，判定为正对屏幕；呈逆时针时，判定为背对屏幕。</p>
-</blockquote>
-<p><img src="https://file.liangxiegame.com/f83adeb0-049d-413a-b538-e8a2cab10a6c.png" alt="image.png"></p>
-<p>VertexHelper收到的第一个顶点是圆心，且算法是按逆时针方向，迭代计算出的多边形顶点，并依次传给VertexHelper。因此按(i, 0, i+1)(i&gt;&#x3D;1)的规律取索引，就可以保证顶点顺序是顺时针的。  </p>
-<pre><code>protected override void OnPopulateMesh(VertexHelper vh)
-&#123;
-    ...
-
-    triangleCount = curSegements*3;
-    for (int i = 0, vIdx = 1; i &lt; triangleCount - 3; i += 3, vIdx++)
-    &#123;
-        vh.AddTriangle(vIdx, 0, vIdx+1);
-    &#125;
-    if (fillPercent == 1)
-    &#123;
-        //首尾顶点相连
-        vh.AddTriangle(verticeCount - 1, 0, 1);
-    &#125;
-
-    ...
-&#125;
-</code></pre>
-<p>到此我们的圆形算是绘制完成了，但是观测我们的变量可以看出，笔者还支持了圆环的绘制  </p>
-<h3 id="圆环"><a href="#圆环" class="headerlink" title="圆环"></a>圆环</h3><p>圆环的情况稍微复杂：顶点集没有圆心顶点了，只有内环、外环顶点；三角形集也不是简单的切饼式分割，采用一种比较直观的三角形划分，让内外环相邻的顶点类似一根鞋带那样互相连接，来划分三角形。  </p>
-<pre><code>protected override void OnPopulateMesh(VertexHelper vh)
-&#123;
-    ...
-
-    float uvCenterX = (uv.x + uv.z) * (0.5f + (fillCenter.x - 0.5f) * (uv.z - uv.x));
-    float uvCenterY = (uv.y + uv.w) * (0.5f + (fillCenter.y - 0.5f) * (uv.w - uv.y));
-    float uvScaleX = (uv.z - uv.x) / tw  * fillRadius * UVScale;
-    float uvScaleY = (uv.w - uv.y) / th  * fillRadius * UVScale;
-
-    float curDegree = 0;
-    UIVertex uiVertex;
-    int verticeCount;
-    int triangleCount;
-    Vector2 curVertice;
-
-    curVertice = Vector2.zero;
-    verticeCount = curSegements + 1;
-    uiVertex = new UIVertex();
-    uiVertex.color = color;
-    uiVertex.position = curVertice;
-    uiVertex.uv0 = new Vector2(curVertice.x * uvScaleX + uvCenterX, curVertice.y * uvScaleY + uvCenterY);
-    vh.AddVert(uiVertex);
-
-     verticeCount = curSegements*2;
-    for (int i = 0; i &lt; verticeCount; i += 2)
-    &#123;
-        float cosA = Mathf.Cos(curDegree);
-        float sinA = Mathf.Sin(curDegree);
-        curDegree += degreeDelta;
-
-        curVertice = new Vector3(cosA * innerRadius, sinA * innerRadius);
-        uiVertex = new UIVertex();
-        uiVertex.color = color;
-        uiVertex.position = curVertice;
-        uiVertex.uv0 = new Vector2(curVertice.x * uvScaleX + uvCenterX, curVertice.y * uvScaleY + uvCenterY);
-        vh.AddVert(uiVertex);
-        innerVertices.Add(curVertice);
-
-        curVertice = new Vector3(cosA * outerRadius, sinA * outerRadius);
-        uiVertex = new UIVertex();
-        uiVertex.color = color;
-        uiVertex.position = curVertice;
-        uiVertex.uv0 = new Vector2(curVertice.x * uvScaleX + uvCenterX, curVertice.y * uvScaleY + uvCenterY);
-        vh.AddVert(uiVertex);
-        outterVertices.Add(curVertice);
-    &#125;
-
-    ...
-&#125;
-</code></pre>
-<h3 id="点击判断"><a href="#点击判断" class="headerlink" title="点击判断"></a>点击判断</h3><p>传统的UGUI的Image的点击判断是只要在矩形内点击，不管是不是透明，都认定为点击到了，笔者从网上学习了一套更好的判断点击的方法，利用的是<strong>Ray-Crossing算法</strong>。Ray-Crossing算法大概思路是从指定点p发出一条射线，与多边形相交，假若交点个数是奇数，说明点p落在多边形内，交点个数为偶数说明点p在多边形外。<br>射线选取哪个方向并没有限制，但为了实现起来方便，考虑屏幕点击点为点p，向水平方向右侧发出射线的情况，那么顶点v1,v2组成的线段与射线若有交点q，则点q必定满足两个条件：</p>
-<blockquote>
-<p>v2.y &lt; q.y &#x3D; p.y &gt; v1.y<br>p.x &lt; q.x  </p>
-</blockquote>
-<p>我们根据这两个条件，逐一跟多边形线段求交点，并统计交点个数，最后判断奇偶即可得知点击点是否在圆形内。  </p>
-<pre><code>protected override void OnPopulateMesh(VertexHelper vh)
-&#123;
-    ...
-
-    public override bool IsRaycastLocationValid(Vector2 screenPoint, Camera eventCamera)
-    &#123;
-        Sprite sprite = overrideSprite;
-        if (sprite == null)
-            return true;
-
-        Vector2 local;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, screenPoint, eventCamera, out local);
-        return Contains(local, outterVertices, innerVertices);
-    &#125;
-    
-    private bool Contains(Vector2 p, List&lt;Vector3&gt; outterVertices, List&lt;Vector3&gt; innerVertices)
-    &#123;
-        var crossNumber = 0;
-        if(!fill)
-            RayCrossing(p, innerVertices, ref crossNumber);//检测内环
-        RayCrossing(p, outterVertices, ref crossNumber);//检测外环
-        return (crossNumber &amp; 1) == 1;
-    &#125;
-    
-    /// &lt;summary&gt;
-    /// 使用RayCrossing算法判断点击点是否在封闭多边形里
-    /// &lt;/summary&gt;
-    /// &lt;param name=&quot;p&quot;&gt;&lt;/param&gt;
-    /// &lt;param name=&quot;vertices&quot;&gt;&lt;/param&gt;
-    /// &lt;param name=&quot;crossNumber&quot;&gt;&lt;/param&gt;
-    private void RayCrossing(Vector2 p, List&lt;Vector3&gt; vertices, ref int crossNumber)
-    &#123;
-        for (int i = 0, count = vertices.Count; i &lt; count; i++)
-        &#123;
-            var v1 = vertices[i];
-            var v2 = vertices[(i + 1) % count];
-
-            //点击点水平线必须与两顶点线段相交
-            if (((v1.y &lt;= p.y) &amp;&amp; (v2.y &gt; p.y))
-                || ((v1.y &gt; p.y) &amp;&amp; (v2.y &lt;= p.y)))
-            &#123;
-                //只考虑点击点右侧方向，点击点水平线与线段相交，且交点x &gt; 点击点x，则crossNumber+1
-                if (p.x &lt; v1.x + (p.y - v1.y) / (v2.y - v1.y) * (v2.x - v1.x))
-                &#123;
-                    crossNumber += 1;
-                &#125;
-            &#125;
-        &#125;
-    &#125;
-
-    ...
-&#125;
-</code></pre>
-<p>###SetNativeSize<br>SetNativeSize的实现比较简单，只要把宽高设置图片的高度就行了。</p>
-<pre><code>protected override void OnPopulateMesh(VertexHelper vh)
-&#123;
-    ...
-
-    public override void SetNativeSize()
-    &#123;
-        if (activeSprite != null)
-        &#123;
-            float w = activeSprite.rect.width / pixelsPerUnit;
-            float h = activeSprite.rect.height / pixelsPerUnit;
-            rectTransform.anchorMax = rectTransform.anchorMin;
-            rectTransform.sizeDelta = new Vector2(w, h);
-            SetAllDirty();
-        &#125;
-    &#125;
-
-    ...
-&#125;
-</code></pre>
-<p>在这里笔者遇到了一个问题，就是我们怎么能像Image那样调用这个方法呢，笔者参考了Image的原码，Imnage是有一个专门的Editor脚本设置面板显示的，于是笔者就写了一个CircleImageEditor的脚本来控制。只需要脚本继承GraphicEditor，然后通过[CustomEditor(typeof(CircleImage))]标签就可以实现脚本的控制了。  </p>
-<pre><code>[CustomEditor(typeof(CircleImage))]
-public class CircleImageEditor : GraphicEditor
-&#123;
-    public override void OnInspectorGUI() &#123;
-        DrawDefaultInspector();
-
-        
-        CircleImage myScript = (CircleImage)target;
-        EditorGUILayout.BeginHorizontal();
-        &#123;
-            GUILayout.Space(EditorGUIUtility.labelWidth);
-            if (GUILayout.Button(&quot;Set Native Size&quot;, EditorStyles.miniButtonRight))
-            &#123;
-                myScript.SetNativeSize();
-            &#125;
-        &#125;
-        EditorGUILayout.EndHorizontal();
-    &#125;
-&#125;
-</code></pre>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><p>笔者在制作BaseImage的时候并没有继承MaskableGraphic而是自己复制了一份到BaseMaskableGraphic类中，这是因为笔者不喜欢脚本在Inspector面面板中显示m_OnCullStateChanged这个事件，因此笔者复制了一份，只是把这个变量变成了私有，就不在面板显示，如果不介意面板的了可以继续继承MaskableGraphic。</p>
-<h3 id="BaseImage"><a href="#BaseImage" class="headerlink" title="BaseImage"></a>BaseImage</h3><pre><code>public class BaseImage : BaseMaskableGraphic,ISerializationCallbackReceiver, ILayoutElement, ICanvasRaycastFilter
-&#123;
-    [FormerlySerializedAs(&quot;m_Frame&quot;)]
-    [SerializeField]
-    private Sprite m_Sprite;        //私有的sorite，内部调用，防止外部修改
-    //对外公开的sprite属性
-    public Sprite sprite
-    &#123;
-        get &#123; return m_Sprite; &#125;
-        set&#123;if (SetPropertyUtilityExt.SetClass(ref m_Sprite, value)) SetAllDirty();&#125;
-    &#125;
-
-    [NonSerialized]
-    private Sprite m_OverrideSprite;
-    
-    protected BaseImage()
-    &#123;
-        useLegacyMeshGeneration = false;
-    &#125;
-
-    public Sprite overrideSprite
-    &#123;
-        get &#123; return m_OverrideSprite == null ? sprite : m_OverrideSprite; &#125;
-        set
-        &#123;
-            if (SetPropertyUtilityExt.SetClass(ref m_OverrideSprite, value)) SetAllDirty();
-        &#125;
-    &#125;
-
-    /// &lt;summary&gt;
-    /// Image&#39;s texture comes from the UnityEngine.Image.
-    /// &lt;/summary&gt;
-    public override Texture mainTexture
-    &#123;
-        get
-        &#123;
-            return overrideSprite == null ? s_WhiteTexture : overrideSprite.texture;
-        &#125;
-    &#125;
-    public Sprite activeSprite &#123; get &#123; return overrideSprite != null ? overrideSprite : sprite; &#125; &#125;
-    
-    
-    public float pixelsPerUnit
-    &#123;
-        get
-        &#123;
-            float spritePixelsPerUnit = 100;
-            if (sprite)
-                spritePixelsPerUnit = sprite.pixelsPerUnit;
-
-            float referencePixelsPerUnit = 100;
-            if (canvas)
-                referencePixelsPerUnit = canvas.referencePixelsPerUnit;
-
-            return spritePixelsPerUnit / referencePixelsPerUnit;
-        &#125;
-    &#125;
-    
-    
-    /// &lt;summary&gt;
-    /// 子类需要重写该方法来自定义Image形状
-    /// &lt;/summary&gt;
-    /// &lt;param name=&quot;vh&quot;&gt;&lt;/param&gt;
-    protected override void OnPopulateMesh(VertexHelper vh)
-    &#123;
-        base.OnPopulateMesh(vh);
-    &#125;
-
-    #region ISerializationCallbackReceiver
-    
-    public void OnBeforeSerialize()
-    &#123;
-
-    &#125;
-
-    public void OnAfterDeserialize()
-    &#123;
-
-    &#125;
-    
-    #endregion
-
-    #region ILayoutElement
-    public virtual void CalculateLayoutInputHorizontal() &#123; &#125;
-    public virtual void CalculateLayoutInputVertical() &#123; &#125;
-
-    public virtual float minWidth &#123; get &#123; return 0; &#125; &#125;
-
-    public virtual float preferredWidth
-    &#123;
-        get
-        &#123;
-            if (overrideSprite == null)
-                return 0;
-            return overrideSprite.rect.size.x / pixelsPerUnit;
-        &#125;
-    &#125;
-
-    public virtual float flexibleWidth &#123; get &#123; return -1; &#125; &#125;
-
-    public virtual float minHeight &#123; get &#123; return 0; &#125; &#125;
-
-    public virtual float preferredHeight
-    &#123;
-        get
-        &#123;
-            if (overrideSprite == null)
-                return 0;
-            return overrideSprite.rect.size.y / pixelsPerUnit;
-        &#125;
-    &#125;
-
-    public virtual float flexibleHeight &#123; get &#123; return -1; &#125; &#125;
-
-    public virtual int layoutPriority &#123; get &#123; return 0; &#125; &#125;
-    #endregion
-    
-    #region ICanvasRaycastFilter
-    public virtual bool IsRaycastLocationValid(Vector2 screenPoint, Camera eventCamera)
-    &#123;
-        return true;
-    &#125;
-    #endregion
-
-&#125;
-</code></pre>
-<h3 id="CircleImage"><a href="#CircleImage" class="headerlink" title="CircleImage"></a>CircleImage</h3><pre><code>[AddComponentMenu(&quot;UI/Circle Image&quot;)]
-public class CircleImage : BaseImage
-&#123;
-    [Tooltip(&quot;圆形的半径&quot;)]
-    [Range(0, 1)]
-    public float fillRadius = 1f;
-    [Tooltip(&quot;UV缩放比例&quot;)]
-    [Range(0, 1)]
-    public float UVScale = 1f;
-    [Tooltip(&quot;圆形的中心点&quot;)]
-    public Vector2 fillCenter = new Vector2(0.5f, 0.5f);
-    [Tooltip(&quot;圆形或扇形填充比例&quot;)]
-    [Range(0, 1)]
-    public float fillPercent = 1f;
-    [Tooltip(&quot;是否填充圆形&quot;)]
-    public bool fill = true;
-    [Tooltip(&quot;圆环宽度&quot;)]
-    public float thickness = 5;
-    [Tooltip(&quot;圆形&quot;)]
-    [Range(3, 100)]
-    public int segements = 20;
-
-    private List&lt;Vector3&gt; innerVertices;
-    private List&lt;Vector3&gt; outterVertices;
-
-    void Awake()
-    &#123;
-        innerVertices = new List&lt;Vector3&gt;();
-        outterVertices = new List&lt;Vector3&gt;();
-    &#125;
-    
-    // Update is called once per frame
-    void Update () &#123;
-        if(!fill)
-            this.thickness = (float)Mathf.Clamp(this.thickness, 0, rectTransform.rect.width / 2);
-    &#125;
-
-    protected override void OnPopulateMesh(VertexHelper vh)
-    &#123;
-        vh.Clear();
-
-        innerVertices.Clear();
-        outterVertices.Clear();
-
-        //算出每个面片的顶点夹角，面片数segements与填充比例fillPercent相乘，就知道要用多少个面片来显示圆形/扇形
-        float degreeDelta = (float)(2 * Mathf.PI / segements);
-        int curSegements = (int)(segements * fillPercent);
-
-        //通过RectTransform获取矩形宽高，计算出半径
-        float tw = rectTransform.rect.width * fillRadius;
-        float th = rectTransform.rect.height * fillRadius;
-        float outerRadius = rectTransform.pivot.x * tw;
-        float innerRadius = rectTransform.pivot.x * tw - thickness;
-
-        Vector4 uv = overrideSprite != null ? DataUtility.GetOuterUV(overrideSprite) : Vector4.zero;
-
-        float uvCenterX = (uv.x + uv.z) * (0.5f + (fillCenter.x - 0.5f) * (uv.z - uv.x));
-        float uvCenterY = (uv.y + uv.w) * (0.5f + (fillCenter.y - 0.5f) * (uv.w - uv.y));
-        float uvScaleX = (uv.z - uv.x) / tw  * fillRadius * UVScale;
-        float uvScaleY = (uv.w - uv.y) / th  * fillRadius * UVScale;
-
-        float curDegree = 0;
-        UIVertex uiVertex;
-        int verticeCount;
-        int triangleCount;
-        Vector2 curVertice;
-
-        if (fill) //圆形
-        &#123;
-            curVertice = Vector2.zero;
-            verticeCount = curSegements + 1;
-            uiVertex = new UIVertex();
-            uiVertex.color = color;
-            uiVertex.position = curVertice;
-            uiVertex.uv0 = new Vector2(curVertice.x * uvScaleX + uvCenterX, curVertice.y * uvScaleY + uvCenterY);
-            vh.AddVert(uiVertex);
-
-            for (int i = 1; i &lt; verticeCount; i++)
-            &#123;
-                float cosA = Mathf.Cos(curDegree);
-                float sinA = Mathf.Sin(curDegree);
-                curVertice = new Vector2(cosA * outerRadius, sinA * outerRadius);
-                curDegree += degreeDelta;
-
-                uiVertex = new UIVertex();
-                uiVertex.color = color;
-                uiVertex.position = curVertice;
-                uiVertex.uv0 = new Vector2(curVertice.x * uvScaleX + uvCenterX, curVertice.y * uvScaleY + uvCenterY);
-                vh.AddVert(uiVertex);
-
-                outterVertices.Add(curVertice);
-            &#125;
-
-            triangleCount = curSegements*3;
-            for (int i = 0, vIdx = 1; i &lt; triangleCount - 3; i += 3, vIdx++)
-            &#123;
-                vh.AddTriangle(vIdx, 0, vIdx+1);
-            &#125;
-            if (fillPercent == 1)
-            &#123;
-                //首尾顶点相连
-                vh.AddTriangle(verticeCount - 1, 0, 1);
-            &#125;
-        &#125;
-        else//圆环
-        &#123;
-            verticeCount = curSegements*2;
-            for (int i = 0; i &lt; verticeCount; i += 2)
-            &#123;
-                float cosA = Mathf.Cos(curDegree);
-                float sinA = Mathf.Sin(curDegree);
-                curDegree += degreeDelta;
-
-                curVertice = new Vector3(cosA * innerRadius, sinA * innerRadius);
-                uiVertex = new UIVertex();
-                uiVertex.color = color;
-                uiVertex.position = curVertice;
-                uiVertex.uv0 = new Vector2(curVertice.x * uvScaleX + uvCenterX, curVertice.y * uvScaleY + uvCenterY);
-                vh.AddVert(uiVertex);
-                innerVertices.Add(curVertice);
-
-                curVertice = new Vector3(cosA * outerRadius, sinA * outerRadius);
-                uiVertex = new UIVertex();
-                uiVertex.color = color;
-                uiVertex.position = curVertice;
-                uiVertex.uv0 = new Vector2(curVertice.x * uvScaleX + uvCenterX, curVertice.y * uvScaleY + uvCenterY);
-                vh.AddVert(uiVertex);
-                outterVertices.Add(curVertice);
-            &#125;
-
-            triangleCount = curSegements*3*2;
-            for (int i = 0, vIdx = 0; i &lt; triangleCount - 6; i += 6, vIdx += 2)
-            &#123;
-                vh.AddTriangle(vIdx+1, vIdx, vIdx+3);
-                vh.AddTriangle(vIdx, vIdx + 2, vIdx + 3);
-            &#125;
-            if (fillPercent == 1)
-            &#123;
-                //首尾顶点相连
-                vh.AddTriangle(verticeCount - 1, verticeCount - 2, 1);
-                vh.AddTriangle(verticeCount - 2, 0, 1);
-            &#125;
-        &#125;
-
-    &#125;
-    
-    public override bool IsRaycastLocationValid(Vector2 screenPoint, Camera eventCamera)
-    &#123;
-        Sprite sprite = overrideSprite;
-        if (sprite == null)
-            return true;
-
-        Vector2 local;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, screenPoint, eventCamera, out local);
-        return Contains(local, outterVertices, innerVertices);
-    &#125;
-    
-    private bool Contains(Vector2 p, List&lt;Vector3&gt; outterVertices, List&lt;Vector3&gt; innerVertices)
-    &#123;
-        var crossNumber = 0;
-        if(!fill)
-            RayCrossing(p, innerVertices, ref crossNumber);//检测内环
-        RayCrossing(p, outterVertices, ref crossNumber);//检测外环
-        return (crossNumber &amp; 1) == 1;
-    &#125;
-    
-    /// &lt;summary&gt;
-    /// 使用RayCrossing算法判断点击点是否在封闭多边形里
-    /// &lt;/summary&gt;
-    /// &lt;param name=&quot;p&quot;&gt;&lt;/param&gt;
-    /// &lt;param name=&quot;vertices&quot;&gt;&lt;/param&gt;
-    /// &lt;param name=&quot;crossNumber&quot;&gt;&lt;/param&gt;
-    private void RayCrossing(Vector2 p, List&lt;Vector3&gt; vertices, ref int crossNumber)
-    &#123;
-        for (int i = 0, count = vertices.Count; i &lt; count; i++)
-        &#123;
-            var v1 = vertices[i];
-            var v2 = vertices[(i + 1) % count];
-
-            //点击点水平线必须与两顶点线段相交
-            if (((v1.y &lt;= p.y) &amp;&amp; (v2.y &gt; p.y))
-                || ((v1.y &gt; p.y) &amp;&amp; (v2.y &lt;= p.y)))
-            &#123;
-                //只考虑点击点右侧方向，点击点水平线与线段相交，且交点x &gt; 点击点x，则crossNumber+1
-                if (p.x &lt; v1.x + (p.y - v1.y) / (v2.y - v1.y) * (v2.x - v1.x))
-                &#123;
-                    crossNumber += 1;
-                &#125;
-            &#125;
-        &#125;
-    &#125;
-    
-    
-    /// &lt;summary&gt;
-    /// Adjusts the image size to make it pixel-perfect.
-    /// &lt;/summary&gt;
-    /// &lt;remarks&gt;
-    /// This means setting the Images RectTransform.sizeDelta to be equal to the Sprite dimensions.
-    /// &lt;/remarks&gt;
-    public override void SetNativeSize()
-    &#123;
-        if (activeSprite != null)
-        &#123;
-            float w = activeSprite.rect.width / pixelsPerUnit;
-            float h = activeSprite.rect.height / pixelsPerUnit;
-            rectTransform.anchorMax = rectTransform.anchorMin;
-            rectTransform.sizeDelta = new Vector2(w, h);
-            SetAllDirty();
-        &#125;
-    &#125;
-&#125;
-</code></pre>
-<h3 id="CircleImageEditor"><a href="#CircleImageEditor" class="headerlink" title="CircleImageEditor"></a>CircleImageEditor</h3><pre><code>[CustomEditor(typeof(CircleImage))]
-public class CircleImageEditor : GraphicEditor
-&#123;
-    public override void OnInspectorGUI() &#123;
-        DrawDefaultInspector();
-
-        
-        CircleImage myScript = (CircleImage)target;
-        EditorGUILayout.BeginHorizontal();
-        &#123;
-            GUILayout.Space(EditorGUIUtility.labelWidth);
-            if (GUILayout.Button(&quot;Set Native Size&quot;, EditorStyles.miniButtonRight))
-            &#123;
-                myScript.SetNativeSize();
-            &#125;
-        &#125;
-        EditorGUILayout.EndHorizontal();
-    &#125;
-&#125;
-</code></pre>
+        <h1 id="Python工具"><a href="#Python工具" class="headerlink" title="Python工具"></a>Python工具</h1><h2 id="项目工具"><a href="#项目工具" class="headerlink" title="项目工具"></a>项目工具</h2><details>  
+  <summary> 点击展开 </summary> 
+
+<h3 id="演示视频"><a href="#演示视频" class="headerlink" title="演示视频"></a>演示视频</h3><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/20230904_100721-2023-9-410:36:14.gif" alt="20230904_100721-2023-9-410:36:14.gif"></p>
+<h3 id="工具截图"><a href="#工具截图" class="headerlink" title="工具截图"></a>工具截图</h3><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795113797-2023-9-410:38:34.png" alt="1693795113797-2023-9-410:38:34.png"><br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795142194-2023-9-410:39:03.png" alt="1693795142194-2023-9-410:39:03.png"><br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795157340-2023-9-410:39:18.png" alt="1693795157340-2023-9-410:39:18.png"><br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795175142-2023-9-410:39:35.png" alt="1693795175142-2023-9-410:39:35.png"><br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795225733-2023-9-410:40:26.png" alt="1693795225733-2023-9-410:40:26.png">  </p>
+</details>  
+
+<h2 id="博客工具"><a href="#博客工具" class="headerlink" title="博客工具"></a>博客工具</h2><details>  
+  <summary> 点击展开 </summary> 
+
+<p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795268866-2023-9-410:41:09.png" alt="1693795268866-2023-9-410:41:09.png">  </p>
+<p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1693795304153-2023-9-410:41:45.png" alt="1693795304153-2023-9-410:41:45.png">  </p>
+</details> 
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
