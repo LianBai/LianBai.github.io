@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2023-09-16T03:39:49.510Z</updated>
+  <updated>2023-09-17T12:48:28.533Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python杂文——CShap脚本生成辅助工具</title>
+    <link href="http://yoursite.com/2023/09/17/Python%E6%9D%82%E6%96%87/Python%E6%9D%82%E6%96%87%E2%80%94%E2%80%94CShap%E8%84%9A%E6%9C%AC%E7%94%9F%E6%88%90%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7/"/>
+    <id>http://yoursite.com/2023/09/17/Python%E6%9D%82%E6%96%87/Python%E6%9D%82%E6%96%87%E2%80%94%E2%80%94CShap%E8%84%9A%E6%9C%AC%E7%94%9F%E6%88%90%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7/</id>
+    <published>2023-09-17T12:42:54.000Z</published>
+    <updated>2023-09-17T12:48:28.533Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本文介绍了一个用于辅助生成C#脚本的Python工具。该工具可以帮助用户快速生成C#脚本，并提供了一些常用的代码生成方法。  </p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code>import osclass CSScriptBuilder(list):    BlackNum = 0    def Append(self, message):        if self.BlackNum &gt; 0:            self.append(&#39;\t&#39; * self.BlackNum)        self.append(message)    def AppendEnter(self):        self.Append(&#39;\n&#39;)    def AppendLine(self, message):        if len(self) &gt; 0:            self.append(&#39;\n&#39;)        if self.BlackNum &gt; 0:            self.append(&#39;\t&#39; * self.BlackNum)        self.append(message)    def AppendEmptyLine(self):        self.AppendLine(&#39;&#39;)    def AppendUsing(self, namespace):        self.AppendLine(f&#39;using &#123;namespace&#125;;&#39;)    def BeginNamespace(self, namespace):        self.AppendLine(f&#39;namespace &#123;namespace&#125;&#39;)        self.BeginBrace()    def EndNamespace(self):        self.EndBrace()    def BeginClass(self, className, modifier=&quot;public&quot;, superclass=None):        if superclass is not None:            self.AppendLine(f&#39;&#123;modifier&#125; class &#123;className&#125; : &#123;superclass&#125;&#39;)        else:            self.AppendLine(f&#39;&#123;modifier&#125; class &#123;className&#125;&#39;)        self.BeginBrace()    def EndClass(self):        self.EndBrace()    def BeginStruct(self, structName, modifier=&quot;public&quot;):        self.AppendLine(f&#39;&#123;modifier&#125; struct &#123;structName&#125;&#39;)        self.BeginBrace()    def EndStruct(self):        self.EndBrace()    def BeginEnum(self, enumName, modifier=&quot;public&quot;):        self.AppendLine(f&#39;&#123;modifier&#125; enum &#123;enumName&#125;&#39;)        self.BeginBrace()    def EndEnum(self):        self.EndBrace()    def AppendEnumField(self, fieldName, fieldValue):        self.AppendLine(f&#39;&#123;fieldName&#125; = &#123;fieldValue&#125;,&#39;)    def BeginInterface(self, interfaceName, modifier=&quot;public&quot;):        self.AppendLine(f&#39;&#123;modifier&#125; interface &#123;interfaceName&#125;&#39;)        self.BeginBrace()    def EndInterface(self):        self.EndBrace()    def AppendInterfaceMethod(self, methodName, returnType=&#39;void&#39;, parameters=&#39;&#39;):        self.AppendLine(f&#39;&#123;returnType&#125; &#123;methodName&#125;(&#123;parameters&#125;);&#39;)    def AppendField(self, propertyName, propertyType, modifier=&quot;public&quot;, init=&#39;&#39;):        if len(init) &gt; 0:            self.AppendLine(f&#39;&#123;modifier&#125; &#123;propertyType&#125; &#123;propertyName&#125; = &#123;init&#125;;&#39;)        else:            self.AppendLine(f&#39;&#123;modifier&#125; &#123;propertyType&#125; &#123;propertyName&#125;;&#39;)    def AppendProperty(self, propertyName, propertyType, field=None, modifier=&quot;public&quot;):        if field is not None:            self.AppendLine(f&#39;&#123;modifier&#125; &#123;propertyType&#125; &#123;propertyName&#125; =&gt; &#123;field&#125;;&#39;)        else:            self.AppendLine(f&#39;&#123;modifier&#125; &#123;propertyType&#125; &#123;propertyName&#125; &#123;&#123; get; set; &#125;&#125;&#39;)    def BeginProperty(self, propertyName, propertyType, modifier=&quot;public&quot;):        self.AppendLine(f&#39;&#123;modifier&#125; &#123;propertyType&#125; &#123;propertyName&#125;&#39;)        self.BeginBrace()    def EndProperty(self):        self.EndBrace()    def BeginMethod(self, methodName, modifier=&quot;public&quot;, returnType=&#39;void&#39;, parameters=&#39;&#39;):        self.AppendLine(f&#39;&#123;modifier&#125; &#123;returnType&#125; &#123;methodName&#125;(&#123;parameters&#125;)&#39;)        self.BeginBrace()    def BeginConstructionMethod(self, methodName, modifier=&quot;public&quot;, parameters=&#39;&#39;):        self.AppendLine(f&#39;&#123;modifier&#125; &#123;methodName&#125;(&#123;parameters&#125;)&#39;)        self.BeginBrace()    def EndMethod(self):        self.EndBrace()    def BeginIf(self, condition):        self.AppendLine(f&#39;if (&#123;condition&#125;)&#39;)        self.BeginBrace()    def BeginElif(self, condition):        self.AppendLine(f&#39;else if (&#123;condition&#125;)&#39;)        self.BeginBrace()    def EndIf(self):        self.EndBrace()    def BeginWhile(self, condition):        self.AppendLine(f&#39;while (&#123;condition&#125;)&#39;)        self.BeginBrace()    def EndWhile(self):        self.EndBrace()    def BeginTry(self):        self.AppendLine(&#39;try&#39;)        self.BeginBrace()    def EndTry(self):        self.EndBrace()    def BeginCatch(self, exceptionType):        self.AppendLine(f&#39;catch (&#123;exceptionType&#125;)&#39;)        self.BeginBrace()    def EndCatch(self):        self.EndBrace()    def BeginBlank(self):        self.BlackNum += 1    def EndBlank(self):        self.BlackNum -= 1    def BeginBrace(self):        self.AppendLine(&#39;&#123;&#39;)        self.BeginBlank()    def EndBrace(self):        self.EndBlank()        self.AppendLine(&#39;&#125;&#39;)    def BeginRegion(self, regionName):        self.AppendLine(f&#39;#region &#123;regionName&#125;&#39;)        self.AppendEmptyLine()    def EndRegion(self):        self.AppendEmptyLine()        self.AppendLine(&#39;#endregion&#39;)        self.AppendEmptyLine()    def ToString(self):        return &#39;&#39;.join(self)    def GenerateScript(self, fileName, isDefPath=True):        fileName = fileName.replace(&#39;.cs&#39;, &#39;&#39;)        if isDefPath:            fileName = os.path.join(ScriptsPath, fileName)        with open(f&#39;&#123;fileName&#125;.cs&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:            f.write(self.ToString())</code></pre><h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><pre><code>def CreateTableManagerCs():    script = CSScriptBuilder()    script.AppendUsing(&#39;System.Collections.Generic&#39;)    script.AppendUsing(&#39;UnityEngine&#39;)    script.BeginNamespace(TableLoadAssembly)    script.BeginInterface(&#39;ITable&#39;, &#39;public&#39;)    script.AppendInterfaceMethod(&#39;Dispose&#39;)    script.EndInterface()    script.AppendEmptyLine()    script.BeginClass(&#39;TableManager&#39;, &#39;public static&#39;)    script.AppendField(&#39;s_Inited&#39;, &#39;bool&#39;, &#39;private static&#39;)    script.AppendField(&#39;s_Cached&#39;, &#39;List&lt;ITable&gt;&#39;, &#39;private static&#39;, &#39;new List&lt;ITable&gt;()&#39;)    # 添加方法    script.AppendEmptyLine()    script.BeginMethod(&quot;Add&quot;, parameters=&quot;ITable table&quot;)    script.AppendLine(&quot;Debug.Assert(s_Inited, \&quot;add but TableManager not init \&quot;);&quot;)    script.AppendLine(&quot;s_Cached.Add(table);&quot;)    script.EndMethod()    script.AppendEmptyLine()    script.BeginMethod(&quot;Remove&quot;, parameters=&quot;ITable table&quot;)    script.AppendLine(&quot;Debug.Assert(s_Inited, \&quot;remove but TableManager not init\&quot;);&quot;)    script.AppendLine(&quot;if (s_Cached.Remove(table))&quot;)    script.BeginBrace()    script.AppendLine(&quot;table.Dispose();&quot;)    script.EndBrace()    script.EndMethod()    script.AppendEmptyLine()    script.BeginMethod(&quot;Init&quot;)    script.AppendLine(&quot;Debug.Assert(!s_Inited, \&quot;TableManager already init\&quot;);&quot;)    script.AppendLine(&quot;s_Inited = true;&quot;)    script.EndMethod()    script.AppendEmptyLine()    script.BeginMethod(&quot;UnInit&quot;)    script.AppendLine(&quot;Debug.Assert(s_Inited, \&quot;TableManager not init\&quot;);&quot;)    script.AppendLine(&quot;s_Inited = false;&quot;)    script.AppendLine(&quot;foreach (var table in s_Cached)&quot;)    script.BeginBrace()    script.AppendLine(&quot;table.Dispose();&quot;)    script.EndBrace()    script.AppendLine(&quot;s_Cached.Clear();&quot;)    script.EndMethod()    script.EndClass()    script.EndNamespace()    script.GenerateScript(os.path.join(ScriptsPath, &#39;TableManager&#39;))</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上是本文介绍的C#脚本生成辅助工具的代码示例。工具的核心是一个名为CSScriptBuilder的类，它继承自list，并提供了一系列用于生成C#脚本的方法。</p><p>通过使用这个工具，用户可以更加方便地生成C#脚本，提高开发效率。</p><p>希望本文对您理解这个工具的用途和使用方法有所帮助。如果您有任何问题或建议，欢迎留言讨论。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;本文介绍了一个用于辅助生成C#脚本的Python工具。该工具可以帮助用户快速生成C#脚本，并提供了一些常用的代码生成方法。  &lt;/p&gt;
+&lt;h</summary>
+      
+    
+    
+    
+    <category term="Python杂文" scheme="http://yoursite.com/categories/Python%E6%9D%82%E6%96%87/"/>
+    
+    
+    <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>个人作品展示</title>
@@ -471,30 +496,6 @@
     
     
     <category term="asset" scheme="http://yoursite.com/tags/asset/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity杂文——通过类名获取对应的Type</title>
-    <link href="http://yoursite.com/2022/03/11/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E9%80%9A%E8%BF%87%E7%B1%BB%E5%90%8D%E8%8E%B7%E5%8F%96%E5%AF%B9%E5%BA%94%E7%9A%84Type/"/>
-    <id>http://yoursite.com/2022/03/11/Unity%E6%9D%82%E6%96%87/Unity%E6%9D%82%E6%96%87%E2%80%94%E2%80%94%E9%80%9A%E8%BF%87%E7%B1%BB%E5%90%8D%E8%8E%B7%E5%8F%96%E5%AF%B9%E5%BA%94%E7%9A%84Type/</id>
-    <published>2022-03-11T07:36:03.000Z</published>
-    <updated>2022-03-11T08:06:58.604Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>笔者在编辑器开发过程中遇到一个问题，笔者想通过一个类的名字获取对应的类的Type然后再做一系列的操作，但是笔者发现无法直接获取，于是笔者通过不断的尝试通过下面的方法获取到了，如果有更好的方法欢迎告诉笔者。  </p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>话不多说，先上代码：  </p><pre><code>[MenuItem(&quot;Assets/GetType&quot;,false,81)]public static void GetClassTypeByClassTypeName()&#123;    const string className = &quot;TestScripts&quot;;    //方法一（在同一程序集内并且非自身Class才能获取到）    var type = Type.GetType(className);    Debug.LogError(type);        var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();        //方法二（有特殊情况会获取不到，笔者没找到获取不到的原因）    type = allAssemblies.Select(assembly =&gt; assembly.GetType(className)).FirstOrDefault(assembly =&gt; assembly != null);    Debug.LogError(type);        //方法三（如果存在类重名的情况有概率获取错误，可以通过路径做限制）    type = allAssemblies.SelectMany(assembly =&gt; assembly.GetTypes()).FirstOrDefault(type1 =&gt; type1.Name == className);    Debug.LogError(type);&#125;</code></pre><p>运行结果如下  </p><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1646985481130-2022-3-1115:58:02.png">  </p><p>方法一和方法二的获取条件都有限制，因此笔者建议使用方法三进行获取。  </p><h1 id="获取方式讲解"><a href="#获取方式讲解" class="headerlink" title="获取方式讲解"></a>获取方式讲解</h1><p>方法一是直接在当前程序集进行获取的。<br>方法二是通过遍历当前程序的所有程序集，然后通过程序集直接GetType进行获取<br>方法三是类似于方法二，得到所有的程序集再遍历程序集中的Type，判断名字是否相同来得到对应的Type</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;笔者在编辑器开发过程中遇到一个问题，笔者想通过一个类的名字获取对应的类的Type然后再做一系列的操作，但是笔者发现无法直接获取，于是笔者通过</summary>
-      
-    
-    
-    
-    <category term="Unity杂文" scheme="http://yoursite.com/categories/Unity%E6%9D%82%E6%96%87/"/>
-    
-    
-    <category term="C#反射" scheme="http://yoursite.com/tags/C-%E5%8F%8D%E5%B0%84/"/>
     
   </entry>
   
