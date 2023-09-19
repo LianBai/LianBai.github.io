@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="referrer" content="no-referrer">
-  <title>StarUML使用笔记 | LianBai</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="StarUML使用笔记 | LianBai">
+  <title>Unity杂文——python开发的导表工具 | LianBai</title>
+  <meta name="keywords" content=" Unity ">
+  <meta name="description" content="Unity杂文——python开发的导表工具 | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -1077,9 +1077,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-个人笔记/StarUML使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Unity杂文/Unity杂文——python开发的导表工具" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">StarUML使用笔记</h1>
+        <h1 class="article-title">Unity杂文——python开发的导表工具</h1>
     
     <div class="article-meta">
         
@@ -1089,20 +1089,27 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="个人笔记">个人笔记</a>
+            <a  data-rel="Unity杂文">Unity杂文</a>
             
         </span>
         
         
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">Unity</a>
+            
+        </span>
+        
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-03-10 15:01:11'>2022-03-04 15:46</time>
+            发布时间 : <time class="date" title='最后更新: 2023-09-19 16:14:37'>2023-09-19 16:01</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:182</span>
+        <span>字数:774</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1132,7 +1139,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E6%93%8D%E4%BD%9C%E8%8F%9C%E5%8D%95"><span class="toc-text">图操作菜单</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Diagram"><span class="toc-text">Add Diagram</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9B%BE"><span class="toc-text">类图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Add"><span class="toc-text">Add</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Classes"><span class="toc-text">Classes</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Excel2Bytes-%E5%BC%80%E5%8F%91%E4%B8%AD"><span class="toc-text">Excel2Bytes(开发中)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC%E5%BC%8F"><span class="toc-text">表格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E8%A1%A8"><span class="toc-text">普通表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">支持的数据格式</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1148,54 +1155,166 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="图操作菜单"><a href="#图操作菜单" class="headerlink" title="图操作菜单"></a>图操作菜单</h1><h2 id="Add-Diagram"><a href="#Add-Diagram" class="headerlink" title="Add Diagram"></a>Add Diagram</h2><pre><code>Class Diagram                   类图
-Package Diagram                 包图
-Object Diagram                  对象图
-Composite Structure Diagram     复合结构图
-Component Diagram               组件图
-Deployment Diagram              展开图
-Use Case Diagram                用例图
-Sequence Diagram                时序图
-Communication Diagram           交流图
-Statechart Diagram              状态图
-Activity Diagram                活动图
-Profile Diagram					
-ER Diagram                      E-R图
-Flowchart Diagram               流程图
-Data Flow Diagram               数据流程图
-</code></pre>
-<h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><h3 id="Add"><a href="#Add" class="headerlink" title="Add"></a>Add</h3><pre><code>Tempalate Parameter     模板参数
-Attribute               属性
-Port                    端口
-Operation               操作
-Reception               接待
-Class                   类
-Interface               接口
-Signal                  信号
-DataType                数据类型
-PrimitiveType           原始类型
-Enumeration             枚举
-Artifact                工件
-Component               组件
-Node                    节点
-UseCase					
-Actor
-InformationItem
-Collaboration
-Interaction             交互
-State Machine           状态机	
-Activity                活动
-Opaque Behavior         不透明树	
-Constraint              约束
-Requirement             要求
-Block                   块
-Value Type              数值类型
-Interface Block         接口块
-Constraint Block        约束快
-Tag                     标签
-</code></pre>
-<h3 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h3><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1646381948452-2022-3-416:19:09.png">  
- </p>
+        <h1 id="Excel2Bytes-开发中"><a href="#Excel2Bytes-开发中" class="headerlink" title="Excel2Bytes(开发中)"></a>Excel2Bytes(开发中)</h1><p><a target="_blank" rel="noopener" href="https://github.com/LBGTeam/Excel2Bytes"><strong>Excel2Bytes仓库</strong></a>  </p>
+<p>py写的游戏开发用的导表工具。目前支持C#脚本。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>该工具的原理是将表格数据转换为二进制数据，并生成对应的bytes文件。同时，它还会生成可供访问的C#脚本，使得在游戏中可以通过C#按照二进制字节的方式读取所需的数据。</p>
+<p>这个工具的优势在于它可以提高游戏的加载速度和性能。通过将表格数据转换为二进制格式，可以减少文件大小和加载时间。同时，使用C#脚本读取二进制数据可以更高效地访问和处理数据。</p>
+<p>该工具目前正在开发中，预计会提供更多功能和优化。敬请期待！</p>
+<h2 id="表格式"><a href="#表格式" class="headerlink" title="表格式"></a>表格式</h2><h3 id="普通表"><a href="#普通表" class="headerlink" title="普通表"></a>普通表</h3><p>示例  </p>
+<table>
+<thead>
+<tr>
+<th align="left">c</th>
+<th align="left">c</th>
+<th align="left"></th>
+<th align="left">c</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ID</td>
+<td align="left">Level</td>
+<td align="left">des</td>
+<td align="left">Exp</td>
+</tr>
+<tr>
+<td align="left">int</td>
+<td align="left">int</td>
+<td align="left">string</td>
+<td align="left">long</td>
+</tr>
+<tr>
+<td align="left">关键key</td>
+<td align="left">等级</td>
+<td align="left">描述</td>
+<td align="left">经验</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">练气</td>
+<td align="left">100</td>
+</tr>
+</tbody></table>
+<p>在这个示例中，我们展示了一个普通表格的结构。每一列都有一个对应的数据类型和字段描述。<br>在第一行中，我们使用了字符c来表示是否要导入该列的数据。只有含有c的列才会被导入到数据文件中。<br>在第二行中，我们列出了每一列的字段名字。这些字段名字用于标识每一列所代表的数据。<br>在第三行中，我们指定了每一列数据的类型。这些类型可以是整数(int)、字符串(string)、长整型(long)等。<br>在第四行中，我们提供了对每一列所代表的字段的描述。这些描述可以帮助读者更好地理解每一列数据的含义。<br>接下来的行中，我们可以输入对应的数据。在这个示例中，我们输入了一条数据，其中ID为1，等级为1，描述为”练气”，经验为100。<br>以上是对普通表格的描述和示例。你可以根据需要调整表格的结构和内容。  </p>
+<h2 id="支持的数据格式"><a href="#支持的数据格式" class="headerlink" title="支持的数据格式"></a>支持的数据格式</h2><table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">写法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">uint8</td>
+<td align="left">1</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">byte</td>
+<td align="left">1</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">int</td>
+<td align="left">1</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">uint</td>
+<td align="left">1</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">float</td>
+<td align="left">1</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">double</td>
+<td align="left">1</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">bool</td>
+<td align="left">false、true或者空</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">long</td>
+<td align="left">1</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">ulong</td>
+<td align="left">1</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">int64</td>
+<td align="left">1</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">uint</td>
+<td align="left">64</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">short</td>
+<td align="left">1</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">ushort</td>
+<td align="left">1</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">string</td>
+<td align="left">文本描述</td>
+<td>基础类型</td>
+</tr>
+<tr>
+<td align="left">基础类型[]</td>
+<td align="left">1|1</td>
+<td>3</td>
+</tr>
+<tr>
+<td align="left">slc|基础类型</td>
+<td align="left">1|1</td>
+<td>3</td>
+</tr>
+<tr>
+<td align="left">基础类型[][]</td>
+<td align="left">1:2:3|1:2</td>
+<td>1:2:3:4</td>
+</tr>
+<tr>
+<td align="left">double_slc|基础类型</td>
+<td align="left">1:2:3|1:2</td>
+<td>1:2:3:4</td>
+</tr>
+<tr>
+<td align="left">map|基础类型</td>
+<td align="left">基础类型</td>
+<td>1:2|3:4</td>
+</tr>
+<tr>
+<td align="left">Dictionary&lt;基础类型，基础类型&gt;</td>
+<td align="left">1:2|3:4</td>
+<td>5:6</td>
+</tr>
+<tr>
+<td align="left">LNGRef</td>
+<td align="left">这段话多语言</td>
+<td>字符串类型，会在多语言表生成，用于游戏语言切换功能</td>
+</tr>
+<tr>
+<td align="left">ResName</td>
+<td align="left">Icon.png</td>
+<td>资源类型，这里会收集表里配置的所有资源，可根据自身需求来获取，Save目录会生成reslist.json，记录了所有的资源</td>
+</tr>
+</tbody></table>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
