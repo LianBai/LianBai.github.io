@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="referrer" content="no-referrer">
-  <title>Python杂文——PyCharm配置QT环境 | LianBai</title>
-  <meta name="keywords" content=" Python ">
-  <meta name="description" content="Python杂文——PyCharm配置QT环境 | LianBai">
+  <title>Unity杂文——循环的字节序列Stream | LianBai</title>
+  <meta name="keywords" content=" Unity ">
+  <meta name="description" content="Unity杂文——循环的字节序列Stream | LianBai">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
@@ -1086,9 +1086,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Python杂文/Python杂文——PyCharm配置QT环境" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Unity杂文/Unity杂文——循环的字节序列Stream" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Python杂文——PyCharm配置QT环境</h1>
+        <h1 class="article-title">Unity杂文——循环的字节序列Stream</h1>
     
     <div class="article-meta">
         
@@ -1098,7 +1098,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Python杂文">Python杂文</a>
+            <a  data-rel="Unity杂文">Unity杂文</a>
             
         </span>
         
@@ -1106,19 +1106,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color2">Python</a>
+            <a class="color1">Unity</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2023-08-07 10:38:43'>2023-08-06 15:07</time>
+            发布时间 : <time class="date" title='最后更新: 2023-09-27 20:53:53'>2023-09-27 20:41</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:391</span>
+        <span>字数:3.1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1148,7 +1148,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85pyqt5%E5%AF%B9%E5%BA%94%E7%9A%84%E5%BA%93"><span class="toc-text">安装pyqt5对应的库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8PyCharm%E5%AE%89%E8%A3%85%EF%BC%88%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%89"><span class="toc-text">使用PyCharm安装（方法一）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85pyqt5%E5%BA%93"><span class="toc-text">安装pyqt5库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85PyQt5-tool%E5%BA%93"><span class="toc-text">安装PyQt5-tool库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E5%AE%89%E8%A3%85%EF%BC%88%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%89"><span class="toc-text">使用终端命令安装（方法二）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEQT-Designer-%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1-%E5%92%8CPyUIC-%E7%95%8C%E9%9D%A2%E8%BD%AC%E4%BB%A3%E7%A0%81"><span class="toc-text">配置QT Designer(界面设计)和PyUIC(界面转代码)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEQT-Designer"><span class="toc-text">配置QT Designer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEPyUIC"><span class="toc-text">配置PyUIC</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE"><span class="toc-text">使用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B6%E4%BD%9C%E7%95%8C%E9%9D%A2"><span class="toc-text">制作界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81"><span class="toc-text">生成代码</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%A6%82%E4%B8%8B"><span class="toc-text">代码如下</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1164,37 +1164,826 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="安装pyqt5对应的库"><a href="#安装pyqt5对应的库" class="headerlink" title="安装pyqt5对应的库"></a>安装pyqt5对应的库</h1><h2 id="使用PyCharm安装（方法一）"><a href="#使用PyCharm安装（方法一）" class="headerlink" title="使用PyCharm安装（方法一）"></a>使用PyCharm安装（方法一）</h2><h3 id="安装pyqt5库"><a href="#安装pyqt5库" class="headerlink" title="安装pyqt5库"></a>安装pyqt5库</h3><ol>
-<li>打开 PyCharm，进入安装源位置：File -&gt; Settings -&gt; Project -&gt; Python Interpreter  </li>
-<li>在搜索框中输入 pyqt5，点击安装  </li>
-<li>在搜索框中输入 pyqt5-tools，点击安装<br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1691306206191-2023-8-615:16:46.png" alt="这是一张图片"></li>
-</ol>
-<h3 id="安装PyQt5-tool库"><a href="#安装PyQt5-tool库" class="headerlink" title="安装PyQt5-tool库"></a>安装PyQt5-tool库</h3><p>同样的方法搜索PyQt5-tool这个库进行安装即可  </p>
-<h2 id="使用终端命令安装（方法二）"><a href="#使用终端命令安装（方法二）" class="headerlink" title="使用终端命令安装（方法二）"></a>使用终端命令安装（方法二）</h2><p>在终端中输入以下两个命令即可安装对应的库：</p>
-<pre><code>pip install pyqt5  
-pip install pyqt5-tool  
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这篇博客主要介绍了一个字节序列类CircularBuffer，它是用于频繁创建Stream数据的循环利用。CircularBuffer类继承自Stream类，并实现了其各种方法，包括读写、查找、设置长度等。</p>
+<p>在CircularBuffer类中，主要定义了一些关键的属性，如字节数组、偏移值、开始坐标、结束坐标、长度、当前位置、容量、限制读取长度和标记等。其中，字节数组用于存储数据，偏移值用于定位数据，开始坐标和结束坐标用于定义数据的起始和结束位置，长度表示数据的长度，当前位置表示当前读写的位置，容量表示最大可以存储的数据量，限制读取长度用于限制读取的数据长度，标记用于标记当前对象。</p>
+<p>在CircularBuffer类中，还定义了一些方法，如初始化、设置限制读取长度、读取字节、查找字节、设置长度、写入字节、收缩、扩展、开始接收、结束接收、开始发送、结束发送、重置等。这些方法主要用于操作和管理数据。</p>
+<p>CircularBuffer类的主要优点是可以有效地管理和操作数据，特别是在需要频繁创建Stream数据的情况下，可以有效地提高性能和效率。同时，CircularBuffer类的设计也非常灵活和通用，可以适应各种不同的应用场景。</p>
+<p>总的来说，CircularBuffer类是一个非常实用和高效的字节序列类，值得大家在实际的开发中使用和学习。</p>
+<h1 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h1><pre><code>public class CircularBuffer : Stream
+&#123;
+    /// &lt;summary&gt;
+    /// 字节数组
+    /// &lt;/summary&gt;
+    private byte[] m_Buffer;
+    /// &lt;summary&gt;
+    /// 偏移值
+    /// &lt;/summary&gt;
+    private int m_Offset; // []
+
+    /// &lt;summary&gt;
+    /// 开始坐标
+    /// &lt;/summary&gt;
+    private int m_Begin;  // [0, m_Capacity)
+    /// &lt;summary&gt;
+    /// 结束坐标
+    /// &lt;/summary&gt;
+    private int m_End;    // [0, m_Capacity)
+    /// &lt;summary&gt;
+    /// 长度
+    /// &lt;/summary&gt;
+    private int m_Length;
+    /// &lt;summary&gt;
+    /// 当前位置
+    /// &lt;/summary&gt;
+    private int m_Position;
+
+    /// &lt;summary&gt;
+    /// 容量
+    /// &lt;/summary&gt;
+    private int m_Capacity;
+    /// &lt;summary&gt;
+    /// 限制读取长度
+    /// &lt;/summary&gt;
+    private int m_LimitReadLength;
+    /// &lt;summary&gt;
+    /// 标记
+    /// &lt;/summary&gt;
+    private string m_Tag;
+
+    /// &lt;summary&gt;
+    /// 缓存
+    /// &lt;/summary&gt;
+    private byte[] m_Cached = new byte[4];
+
+    /// &lt;summary&gt;
+    /// 是否刻度
+    /// &lt;/summary&gt;
+    public override bool CanRead =&gt; true;
+
+    /// &lt;summary&gt;
+    /// 是否可定位
+    /// &lt;/summary&gt;
+    public override bool CanSeek =&gt; true;
+
+    /// &lt;summary&gt;
+    /// 是否可写入
+    /// &lt;/summary&gt;
+    public override bool CanWrite =&gt; true;
+
+    /// &lt;summary&gt;
+    /// 长度
+    /// &lt;/summary&gt;
+    public override long Length =&gt; m_Length;
+
+    /// &lt;summary&gt;
+    /// 当前位置坐标
+    /// &lt;/summary&gt;
+    public override long Position
+    &#123;
+        get =&gt; m_Position;
+
+        set
+        &#123;
+            if (m_Position == value) return;
+            Seek(value, SeekOrigin.Begin);
+        &#125;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 容器长度
+    /// &lt;/summary&gt;
+    public int Capacity =&gt; m_Capacity;
+
+    /// &lt;summary&gt;
+    /// 标记
+    /// &lt;/summary&gt;
+    public string Tag =&gt; m_Tag;
+    
+    /// &lt;summary&gt;
+    /// 索引读取
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;index&quot;&gt;&lt;/param&gt;
+    /// &lt;exception cref=&quot;ArgumentOutOfRangeException&quot;&gt;&lt;/exception&gt;
+    public byte this[int index]
+    &#123;
+        get
+        &#123;
+            if (index &lt; 0 || index &gt;= m_Length)
+            &#123;
+                throw new ArgumentOutOfRangeException($&quot;index &#123;index&#125; length &#123;m_Length&#125;&quot;);
+            &#125;
+            var begin = m_Begin;
+            var end = m_End;
+
+            if (end &gt; begin)
+            &#123;
+                //    0    m_Begin  m_End   m_Capacity
+                //    |_______|_______|_______|
+                //                |
+                //            m_Position
+                return m_Buffer[m_Offset + begin + index];
+            &#125;
+            else
+            &#123;
+                //    0     m_End  m_Begin   m_Capacity
+                //    |_______|_______|_______|
+                //        |               |
+                //       (1)  m_Position (2)
+                var blockLen = m_Capacity - begin;
+                return blockLen &gt; index ?
+                    //(2)
+                    m_Buffer[m_Offset + begin + index] :
+                    //(1)
+                    m_Buffer[m_Offset + index - blockLen];
+            &#125;
+        &#125;
+        set
+        &#123;
+            if (index &lt; 0 || index &gt;= m_Length)
+            &#123;
+                throw new ArgumentOutOfRangeException($&quot;index &#123;index&#125; length &#123;m_Length&#125;&quot;);
+            &#125;
+            var begin = m_Begin;
+            var end = m_End;
+
+            if (end &gt; begin)
+            &#123;
+                //    0    m_Begin  m_End   m_Capacity
+                //    |_______|_______|_______|
+                //                |
+                //            m_Position
+                m_Buffer[m_Offset + begin + index] = value;
+            &#125;
+            else
+            &#123;
+                //    0     m_End  m_Begin   m_Capacity
+                //    |_______|_______|_______|
+                //        |               |
+                //       (1)  m_Position (2)
+                var blockLen = m_Capacity - begin;
+
+                if (blockLen &gt; index)
+                &#123;
+                    //(2)
+                    m_Buffer[m_Offset + begin + index] = value;
+                &#125;
+                else
+                &#123;
+                    //(1)
+                    m_Buffer[m_Offset + index - blockLen] = value;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 初始化
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;tag&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;capcity&quot;&gt;&lt;/param&gt;
+    public CircularBuffer(string tag, int capcity)
+    &#123;
+        m_Capacity = capcity;
+        m_Buffer = new byte[m_Capacity];
+        m_Offset = 0;
+        m_Begin = 0;
+        m_End = 0;
+        m_Length = 0;
+        m_Position = 0;
+        m_Tag = tag;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 设置限制读取长度
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;length&quot;&gt;&lt;/param&gt;
+    public void SetLimitReadLength(int length)
+    &#123;
+        Trace($&quot;&#123;length&#125;&quot;);
+
+        m_LimitReadLength = length;
+    &#125;
+
+    #region Override
+
+    /// &lt;summary&gt;
+    /// 继承的类必须实现此方法，以便在流中写入字节。
+    /// &lt;/summary&gt;
+    /// &lt;exception cref=&quot;NotImplementedException&quot;&gt;&lt;/exception&gt;
+    public override void Flush()
+    &#123;
+        throw new NotImplementedException();
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 打印日志
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;msg&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;memberName&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;lineNum&quot;&gt;&lt;/param&gt;
+    [Conditional(&quot;DEBUG_STREAM_TRACE&quot;)]
+    private static void Trace(string msg, [CallerMemberName] string memberName = &quot;&quot;, [CallerLineNumber] int lineNum = 0)
+    &#123;
+        //Logging.Log($&quot;&#123;m_Tag&#125; &#123;memberName&#125;:&#123;lineNum&#125;:&#123;Thread.CurrentThread.ManagedThreadId&#125; &#123;m_Begin&#125; &#123;m_End&#125; &#123;m_Position&#125; &#123;m_LimitReadLength&#125; &#123;m_Length&#125;/&#123;m_Capacity&#125; &#123;msg&#125;&quot;);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 读取字节未见
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;buffer&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;offset&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;count&quot;&gt;&lt;/param&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    /// &lt;exception cref=&quot;Exception&quot;&gt;&lt;/exception&gt;
+    public override int Read(byte[] buffer, int offset, int count)
+    &#123;
+        Trace($&quot;&#123;offset&#125; &#123;count&#125;&quot;);
+
+        var position = m_Position;
+        var dataLen = (int)Math.Min(count, (0 == m_LimitReadLength ? m_Length : m_LimitReadLength) - position);
+
+        if (0 == dataLen) return 0;
+
+        try
+        &#123;
+
+            var begin = m_Begin;
+            var end = m_End;
+
+            if (end &gt; begin)
+            &#123;
+                //    0    m_Begin  m_End   m_Capacity
+                //    |_______|_______|_______|
+                //                |
+                //            m_Position
+                Buffer.BlockCopy(m_Buffer, m_Offset + begin + position, buffer, offset, dataLen);
+            &#125;
+            else
+            &#123;
+                //    0     m_End  m_Begin   m_Capacity
+                //    |_______|_______|_______|
+                //        |               |
+                //       (1)  m_Position (2)
+                var blockLen = m_Capacity - begin;
+
+                if (blockLen &gt; position)
+                &#123;
+                    //(2)
+                    var copyLen = blockLen - position;
+                    var remain = dataLen - copyLen;
+                    if (remain &gt; 0)
+                    &#123;
+                        Buffer.BlockCopy(m_Buffer, m_Offset + begin + position, buffer, offset, copyLen);
+                        Buffer.BlockCopy(m_Buffer, m_Offset, buffer, offset + copyLen, remain);
+                    &#125;
+                    else
+                    &#123;
+                        Buffer.BlockCopy(m_Buffer, m_Offset + begin + position, buffer, offset, dataLen);
+                    &#125;
+                &#125;
+                else
+                &#123;
+                    //(1)
+                    Buffer.BlockCopy(m_Buffer, m_Offset + position - blockLen, buffer, offset, dataLen);
+                &#125;
+            &#125;
+        &#125;
+        catch (Exception e)
+        &#123;
+            UnityEngine.Debug.LogError($&quot;read &#123;m_Position&#125; &#123;m_LimitReadLength&#125; &#123;m_Length&#125; &#123;m_Begin&#125; &#123;m_End&#125; &#123;m_Offset&#125; &#123;m_Capacity&#125;&quot;);
+            throw e;
+        &#125;
+
+        m_Position += dataLen;
+        return dataLen;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 查找字节
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;offset&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;origin&quot;&gt;&lt;/param&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    /// &lt;exception cref=&quot;ArgumentOutOfRangeException&quot;&gt;&lt;/exception&gt;
+    public override long Seek(long offset, SeekOrigin origin)
+    &#123;
+        Trace($&quot;&#123;offset&#125; &#123;origin&#125;&quot;);
+
+        var length = m_Length;
+        long position = m_Position;
+        switch (origin)
+        &#123;
+            case SeekOrigin.Begin:
+                position = offset;
+                break;
+            case SeekOrigin.End:
+                position = offset + length;
+                break;
+            case SeekOrigin.Current:
+                position += offset;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(origin), origin, null);
+        &#125;
+        m_Position = (int)Math.Max(0, Math.Min(position, length));
+        return m_Position;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 设置长度
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;value&quot;&gt;&lt;/param&gt;
+    /// &lt;exception cref=&quot;NotImplementedException&quot;&gt;&lt;/exception&gt;
+    public override void SetLength(long value)
+    &#123;
+        throw new NotImplementedException();
+    &#125;
+    
+    /// &lt;summary&gt;
+    /// 写入字节
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;length&quot;&gt;&lt;/param&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public StringBuilder GetHexData(int length = -1)
+    &#123;
+        var sb = new StringBuilder();
+        var begin = m_Begin;
+        var end = m_End;
+        var count = 0;
+        var maxCount = -1 == length ? m_Length : length;
+        if (end &gt; begin || 0 == m_Length)
+        &#123;
+            for (var i = begin; i &lt; end &amp;&amp; count &lt; maxCount; i++, count++)
+            &#123;
+                sb.Append($&quot;&#123;m_Buffer[m_Offset + i]:x2&#125; &quot;);
+            &#125;
+        &#125;
+        else
+        &#123;
+            for (var i = begin; i &lt; m_Capacity &amp;&amp; count &lt; maxCount; i++, count++)
+            &#123;
+                sb.Append($&quot;&#123;m_Buffer[m_Offset + i]:x2&#125; &quot;);
+            &#125;
+
+            for (var i = 0; i &lt; m_End &amp;&amp; count &lt; maxCount; i++, count++)
+            &#123;
+                sb.Append($&quot;&#123;m_Buffer[m_Offset + i]:x2&#125; &quot;);
+            &#125;
+        &#125;
+
+        return sb;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 获取字节
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;buffer&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;offset&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;count&quot;&gt;&lt;/param&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    private StringBuilder GetHexData(byte[] buffer, int offset, int count)
+    &#123;
+        var sb = new StringBuilder();
+        for (var i = 0; i &lt; count; i++)
+        &#123;
+            sb.Append($&quot;&#123;buffer[offset + i]:x2&#125; &quot;);
+        &#125;
+        return sb;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 写入字节
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;buffer&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;offset&quot;&gt;&lt;/param&gt;
+    /// &lt;param name=&quot;count&quot;&gt;&lt;/param&gt;
+    /// &lt;exception cref=&quot;OutOfMemoryException&quot;&gt;&lt;/exception&gt;
+    /// &lt;exception cref=&quot;Exception&quot;&gt;&lt;/exception&gt;
+    public override void Write(byte[] buffer, int offset, int count)
+    &#123;
+        if (0 == count) return;
+
+        Trace($&quot;&#123;GetHexData(buffer, offset, count)&#125;&quot;);
+
+        var position = m_Position;
+        var length = m_Length;
+        if (m_Capacity - position &lt; count)
+        &#123;
+            throw new OutOfMemoryException();
+        &#125;
+
+        try
+        &#123;
+            var begin = m_Begin;
+            var end = m_End;
+            var replaceLen = length - position;
+            if (end &gt; begin || 0 == m_Length)
+            &#123;
+                //    0    m_Begin  m_End   m_Capacity
+                //    |_______|_______|_______|
+                //                |
+                //            m_Position
+                var copyLen = m_Capacity - (begin + position);
+                var remain = count - copyLen;
+                if (remain &gt; 0)
+                &#123;
+                    Buffer.BlockCopy(buffer, offset, m_Buffer, m_Offset + begin + position, copyLen);
+                    Buffer.BlockCopy(buffer, offset + copyLen, m_Buffer, m_Offset, remain);
+                &#125;
+                else
+                &#123;
+                    Buffer.BlockCopy(buffer, offset, m_Buffer, m_Offset + begin + position, count);
+                &#125;
+            &#125;
+            else
+            &#123;
+                //    0     m_End  m_Begin   m_Capacity
+                //    |_______|_______|_______|
+                //        |               |
+                //       (1)  m_Position (2)
+
+                var blockLen = m_Capacity - begin;
+                if (blockLen &gt; position)
+                &#123;
+                    //(2)
+                    var copyLen = blockLen - position;
+                    var remain = count - copyLen;
+                    if (remain &gt; 0)
+                    &#123;
+                        Buffer.BlockCopy(buffer, offset, m_Buffer, m_Offset + begin + position, copyLen);
+                        Buffer.BlockCopy(buffer, offset + copyLen, m_Buffer, m_Offset, remain);
+                    &#125;
+                    else
+                    &#123;
+                        Buffer.BlockCopy(buffer, offset, m_Buffer, m_Offset + begin + position, count);
+                    &#125;
+                &#125;
+                else
+                &#123;
+                    //(1)
+                    Buffer.BlockCopy(buffer, offset, m_Buffer, m_Offset + position - blockLen, count);
+                &#125;
+            &#125;
+            if (count &gt; replaceLen)
+            &#123;
+                Expand(count - replaceLen);
+            &#125;
+            else
+            &#123;
+                m_Position += count;
+            &#125;
+        &#125;
+        catch (Exception e)
+        &#123;
+            UnityEngine.Debug.LogError($&quot;write &#123;m_Position&#125; &#123;m_LimitReadLength&#125; &#123;m_Length&#125; &#123;m_Begin&#125; &#123;m_End&#125; &#123;m_Offset&#125; &#123;m_Capacity&#125; &#123;count&#125;&quot;);
+            throw e;
+        &#125;
+
+
+        Trace($&quot;&#123;GetHexData()&#125;&quot;);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 释放
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;disposing&quot;&gt;&lt;/param&gt;
+    protected override void Dispose(bool disposing)
+    &#123;
+        base.Dispose(disposing);
+        if (m_Capacity &gt; 0)
+        &#123;
+            m_Buffer = null;
+            m_Capacity = 0;
+        &#125;
+    &#125;
+    #endregion
+
+    /// &lt;summary&gt;
+    /// 收缩
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;length&quot;&gt;&lt;/param&gt;
+    public void Shrink(int length)
+    &#123;
+        Trace($&quot;start &#123;length&#125;&quot;);
+
+        m_Begin += length;
+        if (m_Begin &gt;= m_Capacity)
+        &#123;
+            m_Begin -= m_Capacity;
+        &#125;
+        if (m_Position &lt;= length)
+        &#123;
+            m_Position = 0;
+        &#125;
+        else
+        &#123;
+            m_Position -= length;
+        &#125;
+        m_Length -= length;
+
+        Trace($&quot;end &#123;length&#125;&quot;);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 扩展
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;length&quot;&gt;&lt;/param&gt;
+    public void Expand(int length)
+    &#123;
+        Trace($&quot;start &#123;length&#125;&quot;);
+
+        m_End += length;
+        if (m_End &gt;= m_Capacity)
+        &#123;
+            m_End -= m_Capacity;
+        &#125;
+        m_Length += length;
+        m_Position = m_Length;
+
+        Trace($&quot;end &#123;length&#125;&quot;);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 开始接收
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    /// &lt;exception cref=&quot;Exception&quot;&gt;&lt;/exception&gt;
+    public ArraySegment&lt;byte&gt;[] BeginRcv()
+    &#123;
+        Trace(&quot;&quot;);
+
+        try
+        &#123;
+            var length = m_Length;
+            if (m_Capacity == length)
+            &#123;
+                return Array.Empty&lt;ArraySegment&lt;byte&gt;&gt;();
+            &#125;
+
+            var begin = m_Begin;
+            var end = m_End;
+            if (end &gt; begin || 0 == m_Length)
+            &#123;
+
+                //    0    m_Begin  m_End   m_Capacity
+                //    |_______|_______|_______|
+                if (0 == begin)
+                &#123;
+                    return new ArraySegment&lt;byte&gt;[]
+                    &#123;
+                        new ArraySegment&lt;byte&gt;(m_Buffer, m_Offset + end, m_Capacity - end)
+                    &#125;;
+                &#125;
+
+                return new ArraySegment&lt;byte&gt;[]
+                &#123;
+                    new ArraySegment&lt;byte&gt;(m_Buffer, m_Offset + end, m_Capacity - end),
+                    new ArraySegment&lt;byte&gt;(m_Buffer, m_Offset, begin)
+                &#125;;
+            &#125;
+            else
+            &#123;
+                //    0     m_End  m_Begin   m_Capacity
+                //    |_______|_______|_______|
+                return new ArraySegment&lt;byte&gt;[]
+                &#123;
+                    new ArraySegment&lt;byte&gt;(m_Buffer, m_Offset + end, begin - end)
+                &#125;;
+            &#125;
+        &#125;
+        catch (Exception ex)
+        &#123;
+            UnityEngine.Debug.LogError($&quot;&#123;m_Length&#125; &#123;m_Capacity&#125; &#123;m_Begin&#125; &#123;m_End&#125; &#123;m_Offset&#125;&quot;);
+            throw ex;
+        &#125;
+
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 结束接收
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;length&quot;&gt;&lt;/param&gt;
+    /// &lt;exception cref=&quot;OutOfMemoryException&quot;&gt;&lt;/exception&gt;
+    public void EndRcv(int length)
+    &#123;
+        Trace($&quot;&#123;length&#125;&quot;);
+
+        if (m_Capacity &gt;= m_Length + length)
+        &#123;
+            Expand(length);
+        &#125;
+        else
+        &#123;
+            throw new OutOfMemoryException();
+        &#125;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 开始发送
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public ArraySegment&lt;byte&gt;[] BeginSend()
+    &#123;
+        if (0 == m_Length) return Array.Empty&lt;ArraySegment&lt;byte&gt;&gt;();
+
+        var begin = m_Begin;
+        var end = m_End;
+        if (end &gt; begin)
+        &#123;
+            Trace($&quot;offset &#123;m_Offset + begin&#125; len &#123;end - begin&#125;&quot;);
+
+            //    0    m_Begin  m_End   m_Capacity
+            //    |_______|_______|_______|
+            return new ArraySegment&lt;byte&gt;[]
+            &#123;
+                new ArraySegment&lt;byte&gt;(m_Buffer, m_Offset + begin, end - begin)
+            &#125;;
+        &#125;
+        else
+        &#123;
+            Trace($&quot;offset &#123;m_Offset + begin&#125; len &#123;m_Capacity - begin&#125; offset &#123;m_Offset&#125; len &#123;end&#125;&quot;);
+
+            //    0     m_End  m_Begin   m_Capacity
+            //    |_______|_______|_______|
+            return new ArraySegment&lt;byte&gt;[]
+            &#123;
+                new ArraySegment&lt;byte&gt;(m_Buffer, m_Offset + begin, m_Capacity - begin),
+                new ArraySegment&lt;byte&gt;(m_Buffer, m_Offset, end)
+            &#125;;
+        &#125;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 结束发送
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;length&quot;&gt;&lt;/param&gt;
+    /// &lt;exception cref=&quot;IndexOutOfRangeException&quot;&gt;&lt;/exception&gt;
+    public void EndSend(int length)
+    &#123;
+        Trace($&quot;&#123;GetHexData(length)&#125;&quot;);
+
+        if (m_Length &gt;= length)
+        &#123;
+            Shrink(length);
+        &#125;
+        else
+        &#123;
+            throw new IndexOutOfRangeException();
+        &#125;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 重置
+    /// &lt;/summary&gt;
+    public void Reset()
+    &#123;
+        Trace(&quot;&quot;);
+
+        m_Length = 0;
+        m_Begin = 0;
+        m_End = 0;
+        m_Position = 0;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 写入
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;v&quot;&gt;&lt;/param&gt;
+    public void Write(int v)
+    &#123;
+
+        m_Cached[0] = (byte)(v &gt;&gt; 0);
+        m_Cached[1] = (byte)(v &gt;&gt; 8);
+        m_Cached[2] = (byte)(v &gt;&gt; 16);
+        m_Cached[3] = (byte)(v &gt;&gt; 24);
+
+        Write(m_Cached, 0, 4);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 读取
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public int ReadInt32()
+    &#123;
+        Read(m_Cached, 0, 4);
+
+        var result = 0;
+        result |= (int)m_Cached[0];
+        result |= (int)(m_Cached[1] &lt;&lt; 8);
+        result |= (int)(m_Cached[2] &lt;&lt; 16);
+        result |= (int)(m_Cached[3] &lt;&lt; 24);
+
+        return result;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 写入
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;v&quot;&gt;&lt;/param&gt;
+    public void Write(uint v)
+    &#123;
+        m_Cached[0] = (byte)(v &gt;&gt; 0);
+        m_Cached[1] = (byte)(v &gt;&gt; 8);
+        m_Cached[2] = (byte)(v &gt;&gt; 16);
+        m_Cached[3] = (byte)(v &gt;&gt; 24);
+
+        Write(m_Cached, 0, 4);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 读取
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public uint ReadUInt32()
+    &#123;
+        Read(m_Cached, 0, 4);
+
+        uint result = 0;
+        result |= (uint)m_Cached[0];
+        result |= (uint)(m_Cached[1] &lt;&lt; 8);
+        result |= (uint)(m_Cached[2] &lt;&lt; 16);
+        result |= (uint)(m_Cached[3] &lt;&lt; 24);
+
+        return result;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 写入
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;v&quot;&gt;&lt;/param&gt;
+    public void Write(ushort v)
+    &#123;
+        m_Cached[0] = (byte)(v &gt;&gt; 0);
+        m_Cached[1] = (byte)(v &gt;&gt; 8);
+
+        Write(m_Cached, 0, 2);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 读取
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public uint ReadUInt16()
+    &#123;
+        Read(m_Cached, 0, 2);
+
+        ushort result = 0;
+        result |= (ushort)m_Cached[0];
+        result |= (ushort)(m_Cached[1] &lt;&lt; 8);
+
+        return result;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 写入
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;v&quot;&gt;&lt;/param&gt;
+    public void Write(short v)
+    &#123;
+        m_Cached[0] = (byte)(v &gt;&gt; 0);
+        m_Cached[1] = (byte)(v &gt;&gt; 8);
+
+        Write(m_Cached, 0, 2);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 读取
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public int ReadInt16()
+    &#123;
+        Read(m_Cached, 0, 2);
+
+        short result = 0;
+        result |= (short)m_Cached[0];
+        result |= (short)(m_Cached[1] &lt;&lt; 8);
+
+        return result;
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 写入
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;v&quot;&gt;&lt;/param&gt;
+    public void Write(byte v)
+    &#123;
+        m_Cached[0] = v;
+
+        Write(m_Cached, 0, 1);
+    &#125;
+
+    /// &lt;summary&gt;
+    /// 读取
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;&lt;/returns&gt;
+    public byte ReadUInt8()
+    &#123;
+        Read(m_Cached, 0, 1);
+        return m_Cached[0];
+    &#125;
+&#125;
 </code></pre>
-<h1 id="配置QT-Designer-界面设计-和PyUIC-界面转代码"><a href="#配置QT-Designer-界面设计-和PyUIC-界面转代码" class="headerlink" title="配置QT Designer(界面设计)和PyUIC(界面转代码)"></a>配置QT Designer(界面设计)和PyUIC(界面转代码)</h1><h2 id="配置QT-Designer"><a href="#配置QT-Designer" class="headerlink" title="配置QT Designer"></a>配置QT Designer</h2><ol>
-<li>打开 PyCharm，进入配置位置：File -&gt; Settings -&gt; Tools -&gt; External Tools</li>
-<li>点击“+”号，弹出一个编辑配置的框</li>
-<li>配置扩展工具的参数：  <blockquote>
-<p><strong>Name</strong>: 自己随便起个名字，一般都是<strong>QT Designer</strong><br><strong>Program</strong>: designer.exe软件所在的路径，路径位置一般为：{python路径}\Lib\site-packages\qt5_applications\Qt\bin\designer.exe<br><strong>Working directory</strong>: <strong>$FileDir$</strong></p>
-</blockquote>
-</li>
-</ol>
-<p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1691307145291-2023-8-615:32:26.png" alt="这是一张图片"></p>
-<h2 id="配置PyUIC"><a href="#配置PyUIC" class="headerlink" title="配置PyUIC"></a>配置PyUIC</h2><ol>
-<li>打开 PyCharm，进入配置位置：File -&gt; Settings -&gt; Tools -&gt; External Tools</li>
-<li>点击“+”号，弹出一个编辑配置的框</li>
-<li>配置扩展工具的参数： <blockquote>
-<p>Name: 自己随便起个名字，一般都是<strong>配置PyUIC</strong><br> Program: python.exe软件所在的路径，路径位置一般为：{python路径}\python.exe<br> Arguments: $FileName$ -o $FileNameWithoutExtension$.py<br> Working directory: <strong>$FileDir$</strong></p>
-</blockquote>
-</li>
-</ol>
-<p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1691375885378-2023-8-710:38:06.png" alt="1691375885378-2023-8-710:38:06.png"></p>
-<h1 id="使用配置"><a href="#使用配置" class="headerlink" title="使用配置"></a>使用配置</h1><p><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1691307415934-2023-8-615:36:56.png" alt="这是一张图片">  </p>
-<h2 id="制作界面"><a href="#制作界面" class="headerlink" title="制作界面"></a>制作界面</h2><p>点击上图编号①就可以打开编辑界面 UI 的编辑器了，也可以使用快捷键 Ctrl + Alt + Shift + D<br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1691307518635-2023-8-615:38:39.png" alt="这是一张图片">  </p>
-<h2 id="生成代码"><a href="#生成代码" class="headerlink" title="生成代码"></a>生成代码</h2><p>制作好界面后，在 PyCharm 中选中刚才制作的 UI 文件，右键 -&gt; External Tools -&gt; PyUIC 即可生成对应的代码。<br><img src="https://gitee.com/lian_bai/img-warehouse/raw/master/BlogImg/1691307659438-2023-8-615:41:00.png" alt="这是一张图片">  </p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 841774407@qq.com </span>
